@@ -131,6 +131,115 @@ feeds_init() {
   ./scripts/feeds install -a
 }
 
+patch_python3_feed() {
+  local makefile="feeds/packages/lang/python/python3/Makefile"
+
+  [[ -f "$makefile" ]] || return 0
+
+  python3 - "$makefile" <<'PY'
+from pathlib import Path
+import sys
+
+path = Path(sys.argv[1])
+source = path.read_text()
+replacements = [
+    (
+        "--enable-optimizations \\",
+        "$(if $(findstring arm,$(CONFIG_ARCH)),,--enable-optimizations) \\",
+    ),
+    (
+        "MAKE_VARS += \\\n\tPYTHONSTRICTEXTENSIONBUILD=1",
+        "MAKE_VARS += \\\n\t$(if $(findstring arm,$(CONFIG_ARCH)),,PYTHONSTRICTEXTENSIONBUILD=1)",
+    ),
+    (
+        "$(if $(findstring mips,$(CONFIG_ARCH)),,--with-lto)",
+        "$(if $(or $(findstring mips,$(CONFIG_ARCH)),$(findstring arm,$(CONFIG_ARCH))),,--with-lto)",
+    ),
+    (
+        "$(if $(filter mips arm,$(CONFIG_ARCH)),,--with-lto)",
+        "$(if $(or $(findstring mips,$(CONFIG_ARCH)),$(findstring arm,$(CONFIG_ARCH))),,--with-lto)",
+    ),
+]
+
+updated = source
+for old, new in replacements:
+    if old in updated and new not in updated:
+        updated = updated.replace(old, new, 1)
+
+if updated != source:
+    path.write_text(updated)
+PY
+}
+
+apply_local_feed_fixes() {
+  patch_python3_feed
+}
+
+target_requests_python3() {
+  grep -q '^CONFIG_PACKAGE_python3=y$' "${TARGET_CONFIG}"
+}
+
+have_python3_artifacts() {
+  compgen -G "${TARGET_PACKAGES_DIR}/python3*.ipk" >/dev/null || \
+    compgen -G "${TARGET_PACKAGES_DIR}/libpython3*.ipk" >/dev/null
+}
+
+build_explicit_feed_package() {
+  local nproc="$1"
+  local pkg="$2"
+  local srcdir="$3"
+  shift 3
+  local -a make_args=("$@")
+  local linkroot="package/feeds/packages"
+  local linkpath="${linkroot}/${pkg}"
+
+  mkdir -p "${linkroot}"
+  ln -sfn "../../../${srcdir}" "${linkpath}"
+  trap 'rm -f "${linkpath}"; rmdir --ignore-fail-on-non-empty "${linkroot}" package/feeds 2>/dev/null || true' RETURN
+
+  m "${linkpath}/clean" V=s "${make_args[@]}"
+  m "${linkpath}/compile" -j"${nproc}" V=s "${make_args[@]}"
+}
+
+stage_python3_dependencies() {
+  local nproc="$1"
+
+  build_explicit_feed_package "${nproc}" libffi "feeds/packages/libs/libffi"
+  build_explicit_feed_package "${nproc}" gdbm "feeds/packages/libs/gdbm"
+  build_explicit_feed_package "${nproc}" xz "feeds/packages/utils/xz"
+  build_explicit_feed_package "${nproc}" sqlite3 "feeds/packages/libs/sqlite3"
+}
+
+build_explicit_python3() {
+  local nproc="$1"
+  local -a make_args=(
+    CONFIG_PACKAGE_python3=y
+    CONFIG_PACKAGE_python3-base=y
+    CONFIG_PACKAGE_python3-light=y
+    CONFIG_PACKAGE_libpython3=y
+    CONFIG_PACKAGE_python3-ctypes=y
+    CONFIG_PACKAGE_python3-dbm=y
+    CONFIG_PACKAGE_python3-lzma=y
+    CONFIG_PACKAGE_python3-sqlite3=y
+    CONFIG_PACKAGE_libffi=y
+    CONFIG_PACKAGE_libgdbm=y
+    CONFIG_PACKAGE_liblzma=y
+    CONFIG_PACKAGE_libsqlite3=y
+  )
+
+  stage_python3_dependencies "${nproc}"
+  build_explicit_feed_package "${nproc}" python3 "feeds/packages/lang/python/python3" "${make_args[@]}"
+}
+
+ensure_requested_extras() {
+  local nproc="$1"
+
+  if target_requests_python3 && ! have_python3_artifacts; then
+    log_step "explicit python3 build"
+    build_explicit_python3 "${nproc}"
+  fi
+}
+
 resolve_pkg_dir() {
   local pkg="$1"
 
@@ -189,6 +298,7 @@ build_world() {
   local nproc="$1"
   build_core "$nproc"
   run_make_step "full world build" -j"$nproc" V=s
+  ensure_requested_extras "$nproc"
 }
 
 build_package() {
@@ -224,6 +334,7 @@ main() {
   fi
 
   feeds_init
+  apply_local_feed_fixes
   ensure_config
 
   case "$cmd" in

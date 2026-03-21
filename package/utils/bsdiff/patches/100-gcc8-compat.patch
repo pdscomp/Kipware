@@ -1,0 +1,18 @@
+--- a/bspatch.c
++++ b/bspatch.c
+@@ -83,8 +83,13 @@
+ {
+ 	off_t result;
+ 
+-#if __GNUC__ >= 5 || \
+-    (defined(__has_builtin) && __has_builtin(__builtin_add_overflow))
++#ifdef __has_builtin
++#define BSDIFF_HAS_BUILTIN_ADD_OVERFLOW __has_builtin(__builtin_add_overflow)
++#else
++#define BSDIFF_HAS_BUILTIN_ADD_OVERFLOW 0
++#endif
++
++#if __GNUC__ >= 5 || BSDIFF_HAS_BUILTIN_ADD_OVERFLOW
+ 	if (__builtin_add_overflow(a, b, &result))
+ 		errx(1, "Corrupt patch");
+ #else

@@ -168,8 +168,10 @@ endef
 
 define Host/Install
 	$(call Host/Install/Default)
-	mv $(1)/bin/xml2-config $(1)/bin/$(GNU_HOST_NAME)-xml2-config
-	$(LN) $(GNU_HOST_NAME)-xml2-config $(1)/bin/xml2-config
+	if [ -e $(1)/bin/xml2-config ] && [ ! -e $(1)/bin/$(GNU_HOST_NAME)-xml2-config ]; then \
+		mv $(1)/bin/xml2-config $(1)/bin/$(GNU_HOST_NAME)-xml2-config; \
+	fi
+	ln -sf $(GNU_HOST_NAME)-xml2-config $(1)/bin/xml2-config
 endef
 
 define Package/libxml2/install

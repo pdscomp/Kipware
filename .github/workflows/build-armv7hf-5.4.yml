@@ -1,0 +1,53 @@
+name: Build armv7hf-5.4
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential git wget rsync file \
+            gawk flex bison gettext libssl-dev swig libelf-dev quilt \
+            libncurses5-dev zlib1g-dev python3 python3-distutils unzip
+
+      - name: Configure armv7hf-5.4
+        run: |
+          cp configs/armv7hf-5.4.config .config
+          make defconfig
+
+      - name: Build toolchain
+        run: make toolchain/install -j"$(nproc)" V=s
+
+      - name: Verify hard-float toolchain
+        run: |
+          TOOLCHAIN_BIN="$(find staging_dir -path '*/bin/arm-openwrt-linux-gnueabihf-gcc' | head -n 1)"
+          test -n "${TOOLCHAIN_BIN}"
+          printf 'int main(void) { return 0; }\n' > /tmp/abi.c
+          "${TOOLCHAIN_BIN}" -o /tmp/abi /tmp/abi.c
+          file /tmp/abi
+          readelf -A /tmp/abi | grep 'Tag_ABI_VFP_args: VFP registers'
+
+      - name: Build zlib package
+        run: make package/zlib/compile -j"$(nproc)" V=s
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: armv7hf-5.4-artifacts
+          path: |
+            bin/**/*.ipk
+            logs/**/*

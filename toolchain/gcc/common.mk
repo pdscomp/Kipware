@@ -160,7 +160,9 @@ ifdef CONFIG_sparc
 endif
 
 ifneq ($(GCC_ARCH),)
+ifneq ($(CONFIG_arm),y)
   GCC_CONFIGURE+= --with-arch=$(GCC_ARCH)
+endif
 endif
 
 ifeq ($(CONFIG_arm),y)

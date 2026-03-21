@@ -22,7 +22,7 @@ PKG_CPE_ID:=cpe:/a:valgrind:valgrind
 PKG_FIXUP = autoreconf
 PKG_INSTALL := 1
 PKG_BUILD_PARALLEL := 1
-PKG_BUILD_FLAGS:=no-mips16
+PKG_BUILD_FLAGS:=no-mips16 no-lto
 PKG_SSP:=0
 
 STRIP:=:
@@ -104,7 +104,6 @@ ifeq ($(or $(CONFIG_arm_v7),$(CONFIG_TARGET_armv7_3_2)),y)
 endif
 
 CONFIGURE_ARGS += \
-	--enable-lto \
 	--enable-tls \
 	--without-mpicc \
 	--with-tmpdir=/opt/tmp

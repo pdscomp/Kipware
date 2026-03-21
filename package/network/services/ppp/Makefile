@@ -27,7 +27,7 @@ PKG_VERSION:=$(PKG_RELEASE_VERSION)_git$(subst -,,$(PKG_SOURCE_DATE))
 PKG_BUILD_DEPENDS:=libpcap
 
 PKG_ASLR_PIE_REGULAR:=1
-PKG_BUILD_FLAGS:=gc-sections lto
+PKG_BUILD_FLAGS:=gc-sections no-lto
 PKG_BUILD_PARALLEL:=1
 PKG_INSTALL:=1
 
@@ -174,11 +174,6 @@ not initiate a session. Can be useful to debug pppoe.
 endef
 
 
-# XXX Entware specific
-ifneq ($(CONFIG_TARGET_aarch64_3_10),y)
-LINUX_UAPI_DIR=""
-endif
-
 define Build/Configure
 $(call Build/Configure/Default,, \
 	UNAME_S="Linux" \
@@ -188,7 +183,9 @@ $(call Build/Configure/Default,, \
 	mkdir -p $(PKG_BUILD_DIR)/pppd/plugins/pppoatm/linux
 	$(CP) \
 		$(LINUX_DIR)/include/linux/compiler.h \
-		$(LINUX_DIR)/include/$(LINUX_UAPI_DIR)linux/atm*.h \
+		$(PKG_BUILD_DIR)/pppd/plugins/pppoatm/linux/
+	$(CP) \
+		$(LINUX_DIR)/include/uapi/linux/atm*.h \
 		$(PKG_BUILD_DIR)/pppd/plugins/pppoatm/linux/
 
 	# Kernel 4.14.9+ only, ignore the exit status of cp in case the file

@@ -226,6 +226,10 @@ ifeq ($(DUMP),1)
   endif
   ifneq ($(findstring arm,$(ARCH)),)
     CPU_TYPE ?= xscale
+    CPU_CFLAGS_xscale = -mcpu=xscale
+    CPU_CFLAGS_cortex-a7 = -march=armv7-a -mtune=cortex-a7
+    CPU_CFLAGS_cortex-a9 = -march=armv7-a -mtune=cortex-a9
+    CPU_CFLAGS_neon-vfpv4 = -mfpu=neon-vfpv4
   endif
   ifeq ($(ARCH),powerpc)
     CPU_CFLAGS_603e:=-mcpu=603e

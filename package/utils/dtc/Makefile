@@ -47,8 +47,8 @@ define Package/dtc/config
 endef
 
 define Package/dtc/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(CP) $(PKG_INSTALL_DIR)/usr/bin/dtc $(1)/usr/bin
+	$(INSTALL_DIR) $(1)/opt/bin
+	$(CP) $(PKG_INSTALL_DIR)/opt/bin/dtc $(1)/opt/bin
 endef
 
 
@@ -62,12 +62,12 @@ define Package/fdt-utils
 endef
 
 define Package/fdt-utils/install
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/convert-dtsv0 $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/fdtdump $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/fdtget $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/fdtput $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/fdtoverlay $(1)/usr/bin
+	$(INSTALL_DIR) $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/convert-dtsv0 $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/fdtdump $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/fdtget $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/fdtput $(1)/opt/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/fdtoverlay $(1)/opt/bin
 endef
 
 
@@ -83,8 +83,8 @@ define Package/libfdt/description
 endef
 
 define Package/libfdt/install
-	$(INSTALL_DIR) $(1)/usr/lib
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libfdt*.so* $(1)/usr/lib
+	$(INSTALL_DIR) $(1)/opt/lib
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libfdt*.so* $(1)/opt/lib
 endef
 
 MESON_ARGS += \
@@ -96,10 +96,10 @@ MESON_ARGS += \
 	-Dstatic-build=$(if $(CONFIG_DTC_STATIC_BUILD),true,false)
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DIR) $(1)/usr/include
-	$(CP) $(PKG_INSTALL_DIR)/usr/include/* $(1)/usr/include
-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/* $(1)/usr/lib
+	$(INSTALL_DIR) $(1)/opt/lib
+	$(INSTALL_DIR) $(1)/opt/include
+	$(CP) $(PKG_INSTALL_DIR)/opt/include/* $(1)/opt/include
+	$(CP) $(PKG_INSTALL_DIR)/opt/lib/* $(1)/opt/lib
 endef
 
 $(eval $(call BuildPackage,dtc))

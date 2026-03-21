@@ -353,6 +353,7 @@ config LIBC_VERSION
 
 config TARGET_SUFFIX
 	string
+	default "gnueabihf"       if USE_GLIBC && (arm || armeb) && !SOFT_FLOAT
 	default "gnueabi"         if USE_GLIBC && (arm || armeb)
 	default "gnu"             if USE_GLIBC && !(arm || armeb)
 

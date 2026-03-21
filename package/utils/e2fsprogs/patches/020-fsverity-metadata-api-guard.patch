@@ -1,0 +1,39 @@
+From 1e3a1db64955f8d170cbbfbba93cf9c9853f3a25 Mon Sep 17 00:00:00 2001
+From: Copilot <223556219+Copilot@users.noreply.github.com>
+Date: Sat, 22 Mar 2026 00:00:00 +0000
+Subject: [PATCH] misc: guard fsverity metadata copy on newer API
+
+Some older kernel header sets provide <linux/fsverity.h> but do not yet
+define the FS_IOC_READ_VERITY_METADATA ioctl and related metadata types
+used by create_inode.c. Detecting the header alone is therefore not
+sufficient and breaks the build on such targets.
+
+Guard the fs-verity metadata copy helpers and call site on the newer API
+macros so e2fsprogs still builds, while keeping the feature available
+when the full interface exists.
+
+Signed-off-by: Copilot <223556219+Copilot@users.noreply.github.com>
+---
+ misc/create_inode.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+--- a/misc/create_inode.c
++++ b/misc/create_inode.c
+@@ -569,7 +569,7 @@ out:
+ }
+ #endif /* FS_IOC_FIEMAP */
+ 
+-#ifdef HAVE_LINUX_FSVERITY_H
++#if defined(HAVE_LINUX_FSVERITY_H) && defined(FS_IOC_READ_VERITY_METADATA)
+ static inline off_t round_up(off_t n, off_t blksz, off_t bias)
+ {
+   return ((n - bias + (blksz - 1)) & ~(blksz - 1)) + bias;
+@@ -738,7 +738,7 @@ static errcode_t copy_file(ext2_filsys f
+ 		err = copy_file_chunk(fs, fd, e2_file, 0, statbuf->st_size, buf,
+ 				      zerobuf);
+ 
+-#ifdef HAVE_LINUX_FSVERITY_H
++#if defined(HAVE_LINUX_FSVERITY_H) && defined(FS_IOC_READ_VERITY_METADATA)
+ 	if (!err && (flags & EXT4_VERITY_FL))
+ 		err = copy_fs_verity(fs, fd, e2_file, statbuf->st_size);
+ #endif

@@ -25,6 +25,7 @@ jobs:
     runs-on: ubuntu-22.04
     container:
       image: ghcr.io/pdscomp/kipware-runner:latest
+      options: --user 0
 
     defaults:
       run:
@@ -91,6 +92,10 @@ jobs:
             pages/**/*
             logs/**/*
             .config
+
+      - name: Configure GitHub Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'

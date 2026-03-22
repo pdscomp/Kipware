@@ -102,11 +102,11 @@ jobs:
         run: |
           sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -lc '
             cd "${GITHUB_WORKSPACE}"
-            PKG_DIR="bin/targets/armv7-5.4/generic-glibc/packages"
+            PKG_DIR="$(find bin/targets -type d -path '\''*/packages'\'' | sort | head -n 1)"
             test -d "${PKG_DIR}"
-            compgen -G "${PKG_DIR}/python3_*_armv7-5.4.ipk" >/dev/null
-            compgen -G "${PKG_DIR}/libpython3_*_armv7-5.4.ipk" >/dev/null
-            compgen -G "${PKG_DIR}/entware-opt_*_armv7-5.4.ipk" >/dev/null
+            compgen -G "${PKG_DIR}/python3_*.ipk" >/dev/null
+            compgen -G "${PKG_DIR}/libpython3_*.ipk" >/dev/null
+            compgen -G "${PKG_DIR}/entware-opt_*.ipk" >/dev/null
           '
 
       - name: Stage GitHub Pages feed

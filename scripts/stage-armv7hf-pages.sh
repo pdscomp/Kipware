@@ -2,9 +2,6 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-TARGET_BOARD="armv7-5.4"
-TARGET_SUBTARGET="generic-glibc"
-TARGET_PACKAGES_DIR="${REPO_ROOT}/bin/targets/${TARGET_BOARD}/${TARGET_SUBTARGET}/packages"
 SETUP_INSTALLER="${REPO_ROOT}/installers/setup_armv7hf-5.4.sh"
 GLIBC_VERSION="2.27"
 LOADER_NAME="ld-linux-armhf.so.3"
@@ -26,23 +23,41 @@ FEED_NAME="armv7hf-k5.4"
 FEED_DIR="${PAGES_DIR}/${FEED_NAME}"
 INSTALLER_DIR="${FEED_DIR}/installer"
 
-find_opkg() {
-  local candidates=(
-    "${REPO_ROOT}/staging_dir/target-arm_cortex-a7+neon-vfpv4_glibc-2.27_eabi/root-armv7-5.4/opt/bin/opkg"
-    "${REPO_ROOT}/build_dir/target-arm_cortex-a7+neon-vfpv4_glibc-2.27_eabi/linux-armv7-5.4/opkg-"*/.pkgdir/opkg/opt/bin/opkg
-    "${REPO_ROOT}/build_dir/target-arm_cortex-a7+neon-vfpv4_glibc-2.27_eabi/linux-armv7-5.4/opkg-"*/ipkg-armv7-5.4/opkg/opt/bin/opkg
-  )
+find_packages_dir() {
   local candidate
 
-  for candidate in "${candidates[@]}"; do
+  while IFS= read -r candidate; do
+    [[ -n "${candidate}" ]] || continue
+    if find "${candidate}" -maxdepth 1 -type f -name '*.ipk' -print -quit | grep -q .; then
+      printf '%s\n' "${candidate}"
+      return 0
+    fi
+  done < <(find "${REPO_ROOT}/bin/targets" -type d -path '*/packages' | sort)
+
+  return 1
+}
+
+find_opkg() {
+  local candidate
+
+  while IFS= read -r candidate; do
     if [[ -f "${candidate}" ]]; then
       printf '%s\n' "${candidate}"
       return 0
     fi
-  done
+  done < <(find "${REPO_ROOT}" \
+    \( -path '*/opt/bin/opkg' -o -path '*/ipkg-*/opkg/opt/bin/opkg' \) \
+    -type f | sort)
 
   return 1
 }
+
+TARGET_PACKAGES_DIR="$(find_packages_dir)" || {
+  echo "ERROR: built package directory not found under ${REPO_ROOT}/bin/targets" >&2
+  exit 1
+}
+
+TARGET_BOARD="$(basename "$(dirname "$(dirname "${TARGET_PACKAGES_DIR}")")")"
 
 [[ -d "${TARGET_PACKAGES_DIR}" ]] || {
   echo "ERROR: package directory not found: ${TARGET_PACKAGES_DIR}" >&2

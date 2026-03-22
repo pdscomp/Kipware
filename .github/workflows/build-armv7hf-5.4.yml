@@ -67,37 +67,59 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-armv7hf-5.4-ccache-
 
-      - name: Bake full armv7hf-5.4 build
-        env:
-          CCACHE_DIR: ${{ github.workspace }}/.ccache
+      - name: Prepare appuser workspace
         run: |
-          mkdir -p dl .ccache
-          ccache --zero-stats || true
-          ./bake_armv7hf.sh world
-          ccache --show-stats || true
+          id appuser
+          chown -R appuser:appuser "${GITHUB_WORKSPACE}"
+          install -d -o appuser -g appuser /home/appuser/.cache
+
+      - name: Bake full armv7hf-5.4 build
+        run: |
+          sudo -H -u appuser env \
+            GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" \
+            CCACHE_DIR="${GITHUB_WORKSPACE}/.ccache" \
+            bash -lc '
+              cd "${GITHUB_WORKSPACE}"
+              mkdir -p dl .ccache
+              ccache --zero-stats || true
+              ./bake_armv7hf.sh world
+              ccache --show-stats || true
+            '
 
       - name: Verify hard-float toolchain
         run: |
-          TOOLCHAIN_BIN="$(find staging_dir -path '*/bin/arm-openwrt-linux-gnueabihf-gcc' | head -n 1)"
-          test -n "${TOOLCHAIN_BIN}"
-          printf 'int main(void) { return 0; }\n' > /tmp/abi.c
-          "${TOOLCHAIN_BIN}" -o /tmp/abi /tmp/abi.c
-          file /tmp/abi
-          readelf -A /tmp/abi | grep 'Tag_ABI_VFP_args: VFP registers'
+          sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -lc '
+            cd "${GITHUB_WORKSPACE}"
+            TOOLCHAIN_BIN="$(find staging_dir -path '\''*/bin/arm-openwrt-linux-gnueabihf-gcc'\'' | head -n 1)"
+            test -n "${TOOLCHAIN_BIN}"
+            printf '\''int main(void) { return 0; }\n'\'' > /tmp/abi.c
+            "${TOOLCHAIN_BIN}" -o /tmp/abi /tmp/abi.c
+            file /tmp/abi
+            readelf -A /tmp/abi | grep '\''Tag_ABI_VFP_args: VFP registers'\''
+          '
 
       - name: Verify published package set
         run: |
-          PKG_DIR="bin/targets/armv7-5.4/generic-glibc/packages"
-          test -d "${PKG_DIR}"
-          compgen -G "${PKG_DIR}/python3_*_armv7-5.4.ipk" >/dev/null
-          compgen -G "${PKG_DIR}/libpython3_*_armv7-5.4.ipk" >/dev/null
-          compgen -G "${PKG_DIR}/entware-opt_*_armv7-5.4.ipk" >/dev/null
+          sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -lc '
+            cd "${GITHUB_WORKSPACE}"
+            PKG_DIR="bin/targets/armv7-5.4/generic-glibc/packages"
+            test -d "${PKG_DIR}"
+            compgen -G "${PKG_DIR}/python3_*_armv7-5.4.ipk" >/dev/null
+            compgen -G "${PKG_DIR}/libpython3_*_armv7-5.4.ipk" >/dev/null
+            compgen -G "${PKG_DIR}/entware-opt_*_armv7-5.4.ipk" >/dev/null
+          '
 
       - name: Stage GitHub Pages feed
         env:
           PUBLISH_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/armv7hf-k5.4
         run: |
-          ./scripts/stage-armv7hf-pages.sh pages "${PUBLISH_BASE_URL}"
+          sudo -H -u appuser env \
+            GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" \
+            PUBLISH_BASE_URL="${PUBLISH_BASE_URL}" \
+            bash -lc '
+              cd "${GITHUB_WORKSPACE}"
+              ./scripts/stage-armv7hf-pages.sh pages "${PUBLISH_BASE_URL}"
+            '
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4

@@ -35,6 +35,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Ensure host build headers
+        run: |
+          missing_tools=0
+          for tool in gcc g++ make; do
+            if ! command -v "${tool}" >/dev/null 2>&1; then
+              missing_tools=1
+            fi
+          done
+
+          if [[ ! -f /usr/include/stdc-predef.h || "${missing_tools}" -eq 1 ]]; then
+            apt-get update
+            apt-get install -y --no-install-recommends build-essential libc6-dev linux-libc-dev
+          fi
+
+          test -f /usr/include/stdc-predef.h
+
       - name: Restore download cache
         uses: actions/cache@v4
         with:

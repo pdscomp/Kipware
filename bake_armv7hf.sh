@@ -132,42 +132,62 @@ feeds_init() {
 }
 
 patch_python3_feed() {
-  local makefile="feeds/packages/lang/python/python3/Makefile"
-
-  [[ -f "$makefile" ]] || return 0
-
-  python3 - "$makefile" <<'PY'
+  python3 <<'PY'
 from pathlib import Path
-import sys
 
-path = Path(sys.argv[1])
-source = path.read_text()
-replacements = [
-    (
-        "--enable-optimizations \\",
-        "$(if $(findstring arm,$(CONFIG_ARCH)),,--enable-optimizations) \\",
-    ),
-    (
-        "MAKE_VARS += \\\n\tPYTHONSTRICTEXTENSIONBUILD=1",
-        "MAKE_VARS += \\\n\t$(if $(findstring arm,$(CONFIG_ARCH)),,PYTHONSTRICTEXTENSIONBUILD=1)",
-    ),
-    (
-        "$(if $(findstring mips,$(CONFIG_ARCH)),,--with-lto)",
-        "$(if $(or $(findstring mips,$(CONFIG_ARCH)),$(findstring arm,$(CONFIG_ARCH))),,--with-lto)",
-    ),
-    (
-        "$(if $(filter mips arm,$(CONFIG_ARCH)),,--with-lto)",
-        "$(if $(or $(findstring mips,$(CONFIG_ARCH)),$(findstring arm,$(CONFIG_ARCH))),,--with-lto)",
-    ),
-]
+targets = {
+    Path("feeds/packages/lang/python/python3/Makefile"): [
+        (
+            "--enable-optimizations \\",
+            "$(if $(findstring arm,$(CONFIG_ARCH)),,--enable-optimizations) \\",
+        ),
+        (
+            "MAKE_VARS += \\\n\tPYTHONSTRICTEXTENSIONBUILD=1",
+            "MAKE_VARS += \\\n\t$(if $(findstring arm,$(CONFIG_ARCH)),,PYTHONSTRICTEXTENSIONBUILD=1)",
+        ),
+        (
+            "$(if $(findstring mips,$(CONFIG_ARCH)),,--with-lto)",
+            "$(if $(or $(findstring mips,$(CONFIG_ARCH)),$(findstring arm,$(CONFIG_ARCH))),,--with-lto)",
+        ),
+        (
+            "$(if $(filter mips arm,$(CONFIG_ARCH)),,--with-lto)",
+            "$(if $(or $(findstring mips,$(CONFIG_ARCH)),$(findstring arm,$(CONFIG_ARCH))),,--with-lto)",
+        ),
+        (
+            "include ./files/python3-package-*.mk",
+            "include $(filter-out ./files/python3-package-readline.mk ./files/python3-package-ncurses.mk,$(wildcard ./files/python3-package-*.mk))",
+        ),
+        (
+            "  DEPENDS:=+python3-light $(foreach package,$(PYTHON3_PACKAGES_DEPENDS),+$(package))",
+            "  DEPENDS:=+python3-light $(foreach package,$(filter-out $(if $(findstring arm,$(CONFIG_ARCH)),python3-readline python3-ncurses,),$(PYTHON3_PACKAGES_DEPENDS)),+$(package))",
+        ),
+    ],
+    Path("feeds/packages/lang/python/python3/files/python3-package-readline.mk"): [
+        (
+            "  DEPENDS:=+python3-light +libreadline",
+            "  DEPENDS:=+python3-light $(if $(filter y m,$(CONFIG_PACKAGE_python3-readline)),+libreadline)",
+        ),
+    ],
+    Path("feeds/packages/lang/python/python3/files/python3-package-ncurses.mk"): [
+        (
+            "  DEPENDS:=+python3-light +libncursesw",
+            "  DEPENDS:=+python3-light $(if $(filter y m,$(CONFIG_PACKAGE_python3-ncurses)),+libncursesw)",
+        ),
+    ],
+}
 
-updated = source
-for old, new in replacements:
-    if old in updated and new not in updated:
-        updated = updated.replace(old, new, 1)
+for path, replacements in targets.items():
+    if not path.exists():
+        continue
 
-if updated != source:
-    path.write_text(updated)
+    source = path.read_text()
+    updated = source
+    for old, new in replacements:
+        if old in updated and new not in updated:
+            updated = updated.replace(old, new, 1)
+
+    if updated != source:
+        path.write_text(updated)
 PY
 }
 
@@ -219,30 +239,86 @@ stage_python3_dependencies() {
 
 build_explicit_python3() {
   local nproc="$1"
-  local -a make_args=(
-    CONFIG_PACKAGE_python3=y
-    CONFIG_PACKAGE_python3-base=y
-    CONFIG_PACKAGE_python3-light=y
-    CONFIG_PACKAGE_libpython3=y
-    CONFIG_PACKAGE_python3-ctypes=y
-    CONFIG_PACKAGE_python3-dbm=y
-    CONFIG_PACKAGE_python3-lzma=y
-    CONFIG_PACKAGE_python3-sqlite3=y
-    CONFIG_PACKAGE_python3-readline=n
-    CONFIG_PACKAGE_python3-ncurses=n
-    CONFIG_PACKAGE_libffi=y
-    CONFIG_PACKAGE_libgdbm=y
-    CONFIG_PACKAGE_liblzma=y
-    CONFIG_PACKAGE_libsqlite3=y
-    CONFIG_PACKAGE_libreadline=n
-    CONFIG_PACKAGE_libncurses=n
-    CONFIG_PACKAGE_libncursesw=n
-    CONFIG_PACKAGE_terminfo=n
-    CONFIG_PACKAGE_ncurses-bin=n
-  )
+  (
+    local config_backup
+    config_backup="$(mktemp)"
+    cp .config "${config_backup}"
+    cp "${TARGET_CONFIG}" .config
+    trap 'cp "${config_backup}" .config; rm -f "${config_backup}"; m defconfig >/dev/null' EXIT
 
-  stage_python3_dependencies "${nproc}" "${make_args[@]}"
-  build_explicit_feed_package "${nproc}" python3 "feeds/packages/lang/python/python3" "${make_args[@]}"
+    python3 <<'PY'
+from pathlib import Path
+
+path = Path(".config")
+source = []
+for line in path.read_text().splitlines():
+    if line.startswith("CONFIG_PACKAGE_") or line.startswith("# CONFIG_PACKAGE_"):
+        continue
+    if line.startswith("CONFIG_DEFAULT_") or line.startswith("# CONFIG_DEFAULT_"):
+        continue
+    source.append(line)
+
+enabled = {
+    "CONFIG_PACKAGE_python3": "y",
+    "CONFIG_PACKAGE_python3-base": "y",
+    "CONFIG_PACKAGE_python3-light": "y",
+    "CONFIG_PACKAGE_libpython3": "y",
+    "CONFIG_PACKAGE_python3-ctypes": "y",
+    "CONFIG_PACKAGE_python3-dbm": "y",
+    "CONFIG_PACKAGE_python3-lzma": "y",
+    "CONFIG_PACKAGE_python3-sqlite3": "y",
+    "CONFIG_PACKAGE_libffi": "y",
+    "CONFIG_PACKAGE_libgdbm": "y",
+    "CONFIG_PACKAGE_liblzma": "y",
+    "CONFIG_PACKAGE_libsqlite3": "y",
+}
+disabled = {
+    "CONFIG_PACKAGE_entware-opt",
+    "CONFIG_PACKAGE_python3-readline",
+    "CONFIG_PACKAGE_python3-ncurses",
+    "CONFIG_PACKAGE_libreadline",
+    "CONFIG_PACKAGE_libncurses",
+    "CONFIG_PACKAGE_libncursesw",
+    "CONFIG_PACKAGE_terminfo",
+    "CONFIG_PACKAGE_ncurses-bin",
+}
+
+seen = set()
+updated = []
+for line in source:
+    replaced = False
+    for symbol, value in enabled.items():
+        if line.startswith(f"{symbol}=") or line == f"# {symbol} is not set":
+            updated.append(f"{symbol}={value}")
+            seen.add(symbol)
+            replaced = True
+            break
+    if replaced:
+        continue
+
+    for symbol in disabled:
+        if line.startswith(f"{symbol}=") or line == f"# {symbol} is not set":
+            updated.append(f"# {symbol} is not set")
+            seen.add(symbol)
+            replaced = True
+            break
+    if not replaced:
+        updated.append(line)
+
+for symbol, value in enabled.items():
+    if symbol not in seen:
+        updated.append(f"{symbol}={value}")
+for symbol in sorted(disabled):
+    if symbol not in seen:
+        updated.append(f"# {symbol} is not set")
+
+path.write_text("\n".join(updated) + "\n")
+PY
+
+    m defconfig >/dev/null
+    stage_python3_dependencies "${nproc}"
+    build_explicit_feed_package "${nproc}" python3 "feeds/packages/lang/python/python3"
+  )
 }
 
 build_explicit_entware_bootstrap() {

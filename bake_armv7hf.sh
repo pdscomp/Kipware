@@ -228,10 +228,17 @@ build_explicit_python3() {
     CONFIG_PACKAGE_python3-dbm=y
     CONFIG_PACKAGE_python3-lzma=y
     CONFIG_PACKAGE_python3-sqlite3=y
+    CONFIG_PACKAGE_python3-readline=n
+    CONFIG_PACKAGE_python3-ncurses=n
     CONFIG_PACKAGE_libffi=y
     CONFIG_PACKAGE_libgdbm=y
     CONFIG_PACKAGE_liblzma=y
     CONFIG_PACKAGE_libsqlite3=y
+    CONFIG_PACKAGE_libreadline=n
+    CONFIG_PACKAGE_libncurses=n
+    CONFIG_PACKAGE_libncursesw=n
+    CONFIG_PACKAGE_terminfo=n
+    CONFIG_PACKAGE_ncurses-bin=n
   )
 
   stage_python3_dependencies "${nproc}" "${make_args[@]}"

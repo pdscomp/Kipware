@@ -78,6 +78,10 @@ ensure_config() {
   fi
   log_step "make defconfig"
   m defconfig
+  refresh_feed_indexes
+  reinstall_feed_packages
+  log_step "make defconfig (post-feeds)"
+  m defconfig
 }
 
 feeds_prune_disabled() {
@@ -100,7 +104,15 @@ feeds_prune_disabled() {
 
 refresh_feed_indexes() {
   log_step "feeds refresh indexes"
+  find feeds -maxdepth 1 -xtype l \( -name '*.index' -o -name '*.targetindex' \) -delete 2>/dev/null || true
+  find feeds -maxdepth 1 -type d -name '*.tmp' -prune -exec rm -rf {} + 2>/dev/null || true
   ./scripts/feeds update -i -a
+}
+
+reinstall_feed_packages() {
+  log_step "feeds reinstall"
+  rm -rf package/feeds
+  ./scripts/feeds install -a -f
 }
 
 feeds_init() {
@@ -121,7 +133,7 @@ feeds_init() {
     log_step "feeds install from cache"
     feeds_prune_disabled
     refresh_feed_indexes
-    ./scripts/feeds install -a
+    reinstall_feed_packages
     return 0
   fi
 
@@ -134,8 +146,7 @@ feeds_init() {
   fi
 
   feeds_prune_disabled
-  log_step "feeds install"
-  ./scripts/feeds install -a
+  reinstall_feed_packages
 }
 
 patch_python3_feed() {
@@ -371,6 +382,8 @@ main() {
 
   feeds_init
   apply_local_feed_fixes
+  refresh_feed_indexes
+  reinstall_feed_packages
   ensure_config
 
   case "$cmd" in

@@ -102,9 +102,15 @@ CONFIGURE_ARGS += \
 	--disable-stripping
 
 CONFIGURE_VARS += \
+	CC="$(TARGET_CC_NOCACHE)" \
+	CXX="$(TARGET_CXX_NOCACHE)" \
 	cf_try_fPIC=no
 
 HOST_CFLAGS += $(HOST_FPIC)
+
+HOST_CONFIGURE_VARS += \
+	CC="$(HOSTCC_NOCACHE)" \
+	CXX="$(HOSTCXX_NOCACHE)"
 
 HOST_CONFIGURE_ARGS += \
 	--enable-pc-files \

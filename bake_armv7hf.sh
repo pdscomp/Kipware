@@ -98,6 +98,11 @@ feeds_prune_disabled() {
   done
 }
 
+refresh_feed_indexes() {
+  log_step "feeds refresh indexes"
+  ./scripts/feeds update -i -a
+}
+
 feeds_init() {
   if [[ "${BAKE_CLEAN_FEEDS:-}" == "1" ]]; then
     clean_feed_cache
@@ -115,6 +120,7 @@ feeds_init() {
     fi
     log_step "feeds install from cache"
     feeds_prune_disabled
+    refresh_feed_indexes
     ./scripts/feeds install -a
     return 0
   fi
@@ -124,6 +130,7 @@ feeds_init() {
     ./scripts/feeds update -a
   else
     log_step "feeds reuse cached checkout"
+    refresh_feed_indexes
   fi
 
   feeds_prune_disabled
@@ -153,26 +160,6 @@ targets = {
             "$(if $(filter mips arm,$(CONFIG_ARCH)),,--with-lto)",
             "$(if $(or $(findstring mips,$(CONFIG_ARCH)),$(findstring arm,$(CONFIG_ARCH))),,--with-lto)",
         ),
-        (
-            "include ./files/python3-package-*.mk",
-            "include $(filter-out ./files/python3-package-readline.mk ./files/python3-package-ncurses.mk,$(wildcard ./files/python3-package-*.mk))",
-        ),
-        (
-            "  DEPENDS:=+python3-light $(foreach package,$(PYTHON3_PACKAGES_DEPENDS),+$(package))",
-            "  DEPENDS:=+python3-light $(foreach package,$(filter-out $(if $(findstring arm,$(CONFIG_ARCH)),python3-readline python3-ncurses,),$(PYTHON3_PACKAGES_DEPENDS)),+$(package))",
-        ),
-    ],
-    Path("feeds/packages/lang/python/python3/files/python3-package-readline.mk"): [
-        (
-            "  DEPENDS:=+python3-light +libreadline",
-            "  DEPENDS:=+python3-light $(if $(filter y m,$(CONFIG_PACKAGE_python3-readline)),+libreadline)",
-        ),
-    ],
-    Path("feeds/packages/lang/python/python3/files/python3-package-ncurses.mk"): [
-        (
-            "  DEPENDS:=+python3-light +libncursesw",
-            "  DEPENDS:=+python3-light $(if $(filter y m,$(CONFIG_PACKAGE_python3-ncurses)),+libncursesw)",
-        ),
     ],
 }
 
@@ -191,8 +178,28 @@ for path, replacements in targets.items():
 PY
 }
 
+patch_glib2_feed() {
+  python3 <<'PY'
+from pathlib import Path
+
+path = Path("feeds/packages/libs/glib2/Makefile")
+if not path.exists():
+    raise SystemExit(0)
+
+source = path.read_text()
+updated = source.replace(
+    "MESON_ARGS += $(COMP_ARGS) -Dxattr=true -Db_lto=true -Dnls=$(if $(CONFIG_BUILD_NLS),en,dis)abled",
+    "MESON_ARGS += $(COMP_ARGS) -Dxattr=true -Db_lto=$(if $(findstring arm,$(CONFIG_ARCH)),false,true) -Dnls=$(if $(CONFIG_BUILD_NLS),en,dis)abled",
+    1,
+)
+if updated != source:
+    path.write_text(updated)
+PY
+}
+
 apply_local_feed_fixes() {
   patch_python3_feed
+  patch_glib2_feed
 }
 
 target_requests_python3() {
@@ -212,29 +219,19 @@ have_entware_bootstrap_artifacts() {
 build_explicit_feed_package() {
   local nproc="$1"
   local pkg="$2"
-  local srcdir="$3"
-  shift 3
+  shift 2
   local -a make_args=("$@")
-  local linkroot="package/feeds/packages"
-  local linkpath="${linkroot}/${pkg}"
+  local pkgdir="package/feeds/packages/${pkg}"
 
-  mkdir -p "${linkroot}"
-  ln -sfn "../../../${srcdir}" "${linkpath}"
-  trap 'rm -f "${linkpath}"; rmdir --ignore-fail-on-non-empty "${linkroot}" package/feeds 2>/dev/null || true' RETURN
+  log_step "feeds install ${pkg}"
+  ./scripts/feeds install -f "${pkg}"
+  if [[ ! -f "${pkgdir}/Makefile" ]]; then
+    echo "ERROR: feed package '${pkg}' was not installed to ${pkgdir}" >&2
+    return 1
+  fi
 
-  m "${linkpath}/clean" V=s "${make_args[@]}"
-  m "${linkpath}/compile" -j"${nproc}" V=s "${make_args[@]}"
-}
-
-stage_python3_dependencies() {
-  local nproc="$1"
-  shift
-  local -a make_args=("$@")
-
-  build_explicit_feed_package "${nproc}" libffi "feeds/packages/libs/libffi" "${make_args[@]}"
-  build_explicit_feed_package "${nproc}" gdbm "feeds/packages/libs/gdbm" "${make_args[@]}"
-  build_explicit_feed_package "${nproc}" xz "feeds/packages/utils/xz" "${make_args[@]}"
-  build_explicit_feed_package "${nproc}" sqlite3 "feeds/packages/libs/sqlite3" "${make_args[@]}"
+  m "${pkgdir}/clean" V=s "${make_args[@]}"
+  m "${pkgdir}/compile" -j"${nproc}" V=s "${make_args[@]}"
 }
 
 build_explicit_python3() {
@@ -245,79 +242,8 @@ build_explicit_python3() {
     cp .config "${config_backup}"
     cp "${TARGET_CONFIG}" .config
     trap 'cp "${config_backup}" .config; rm -f "${config_backup}"; m defconfig >/dev/null' EXIT
-
-    python3 <<'PY'
-from pathlib import Path
-
-path = Path(".config")
-source = []
-for line in path.read_text().splitlines():
-    if line.startswith("CONFIG_PACKAGE_") or line.startswith("# CONFIG_PACKAGE_"):
-        continue
-    if line.startswith("CONFIG_DEFAULT_") or line.startswith("# CONFIG_DEFAULT_"):
-        continue
-    source.append(line)
-
-enabled = {
-    "CONFIG_PACKAGE_python3": "y",
-    "CONFIG_PACKAGE_python3-base": "y",
-    "CONFIG_PACKAGE_python3-light": "y",
-    "CONFIG_PACKAGE_libpython3": "y",
-    "CONFIG_PACKAGE_python3-ctypes": "y",
-    "CONFIG_PACKAGE_python3-dbm": "y",
-    "CONFIG_PACKAGE_python3-lzma": "y",
-    "CONFIG_PACKAGE_python3-sqlite3": "y",
-    "CONFIG_PACKAGE_libffi": "y",
-    "CONFIG_PACKAGE_libgdbm": "y",
-    "CONFIG_PACKAGE_liblzma": "y",
-    "CONFIG_PACKAGE_libsqlite3": "y",
-}
-disabled = {
-    "CONFIG_PACKAGE_entware-opt",
-    "CONFIG_PACKAGE_python3-readline",
-    "CONFIG_PACKAGE_python3-ncurses",
-    "CONFIG_PACKAGE_libreadline",
-    "CONFIG_PACKAGE_libncurses",
-    "CONFIG_PACKAGE_libncursesw",
-    "CONFIG_PACKAGE_terminfo",
-    "CONFIG_PACKAGE_ncurses-bin",
-}
-
-seen = set()
-updated = []
-for line in source:
-    replaced = False
-    for symbol, value in enabled.items():
-        if line.startswith(f"{symbol}=") or line == f"# {symbol} is not set":
-            updated.append(f"{symbol}={value}")
-            seen.add(symbol)
-            replaced = True
-            break
-    if replaced:
-        continue
-
-    for symbol in disabled:
-        if line.startswith(f"{symbol}=") or line == f"# {symbol} is not set":
-            updated.append(f"# {symbol} is not set")
-            seen.add(symbol)
-            replaced = True
-            break
-    if not replaced:
-        updated.append(line)
-
-for symbol, value in enabled.items():
-    if symbol not in seen:
-        updated.append(f"{symbol}={value}")
-for symbol in sorted(disabled):
-    if symbol not in seen:
-        updated.append(f"# {symbol} is not set")
-
-path.write_text("\n".join(updated) + "\n")
-PY
-
     m defconfig >/dev/null
-    stage_python3_dependencies "${nproc}"
-    build_explicit_feed_package "${nproc}" python3 "feeds/packages/lang/python/python3"
+    build_explicit_feed_package "${nproc}" python3
   )
 }
 
@@ -328,8 +254,8 @@ build_explicit_entware_bootstrap() {
     CONFIG_PACKAGE_entware-upgrade=y
   )
 
-  build_explicit_feed_package "${nproc}" entware-release "feeds/rtndev/entware-release" "${make_args[@]}"
-  build_explicit_feed_package "${nproc}" entware-upgrade "feeds/rtndev/entware-upgrade" "${make_args[@]}"
+  build_explicit_feed_package "${nproc}" entware-release "${make_args[@]}"
+  build_explicit_feed_package "${nproc}" entware-upgrade "${make_args[@]}"
 }
 
 ensure_requested_extras() {

@@ -52,7 +52,8 @@ jobs:
           test -f /usr/include/stdc-predef.h
 
       - name: Restore download cache
-        uses: actions/cache@v4
+        id: restore-download-cache
+        uses: actions/cache/restore@v4
         with:
           path: dl
           key: ${{ runner.os }}-armv7hf-5.4-dl-${{ hashFiles('feeds.conf', 'feeds.conf.default') }}
@@ -60,12 +61,37 @@ jobs:
             ${{ runner.os }}-armv7hf-5.4-dl-
 
       - name: Restore ccache
-        uses: actions/cache@v4
+        id: restore-ccache
+        uses: actions/cache/restore@v4
         with:
           path: .ccache
           key: ${{ runner.os }}-armv7hf-5.4-ccache-${{ hashFiles('configs/armv7hf-5.4.config', 'bake_armv7hf.sh', 'feeds.conf', 'feeds.conf.default') }}
           restore-keys: |
             ${{ runner.os }}-armv7hf-5.4-ccache-
+
+      - name: Restore feed checkout cache
+        id: restore-feeds-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            feeds
+            package/feeds
+          key: ${{ runner.os }}-armv7hf-5.4-feeds-${{ hashFiles('feeds.conf', 'feeds.conf.default') }}
+          restore-keys: |
+            ${{ runner.os }}-armv7hf-5.4-feeds-
+
+      - name: Restore host and toolchain cache
+        id: restore-host-toolchain-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            build_dir/host
+            build_dir/toolchain-arm_cortex-a7+neon-vfpv4_gcc-8.4.0_glibc-2.27_eabi
+            staging_dir/host
+            staging_dir/toolchain-arm_cortex-a7+neon-vfpv4_gcc-8.4.0_glibc-2.27_eabi
+          key: ${{ runner.os }}-armv7hf-5.4-host-toolchain-v1-${{ hashFiles('configs/armv7hf-5.4.config', 'bake_armv7hf.sh', 'feeds.conf', 'feeds.conf.default') }}
+          restore-keys: |
+            ${{ runner.os }}-armv7hf-5.4-host-toolchain-v1-
 
       - name: Prepare appuser workspace
         run: |
@@ -85,6 +111,40 @@ jobs:
               ./bake_armv7hf.sh world
               ccache --show-stats || true
             '
+
+      - name: Save download cache
+        if: always() && steps.restore-download-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: dl
+          key: ${{ steps.restore-download-cache.outputs.cache-primary-key }}
+
+      - name: Save ccache
+        if: always() && steps.restore-ccache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .ccache
+          key: ${{ steps.restore-ccache.outputs.cache-primary-key }}
+
+      - name: Save feed checkout cache
+        if: always() && steps.restore-feeds-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            feeds
+            package/feeds
+          key: ${{ steps.restore-feeds-cache.outputs.cache-primary-key }}
+
+      - name: Save host and toolchain cache
+        if: always() && steps.restore-host-toolchain-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            build_dir/host
+            build_dir/toolchain-arm_cortex-a7+neon-vfpv4_gcc-8.4.0_glibc-2.27_eabi
+            staging_dir/host
+            staging_dir/toolchain-arm_cortex-a7+neon-vfpv4_gcc-8.4.0_glibc-2.27_eabi
+          key: ${{ steps.restore-host-toolchain-cache.outputs.cache-primary-key }}
 
       - name: Verify hard-float toolchain
         run: |

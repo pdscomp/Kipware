@@ -180,8 +180,8 @@ target_requests_python3() {
 }
 
 have_python3_artifacts() {
-  compgen -G "${TARGET_PACKAGES_DIR}/python3*.ipk" >/dev/null || \
-    compgen -G "${TARGET_PACKAGES_DIR}/libpython3*.ipk" >/dev/null
+  compgen -G "${TARGET_PACKAGES_DIR}/python3_*.ipk" >/dev/null && \
+    compgen -G "${TARGET_PACKAGES_DIR}/libpython3_*.ipk" >/dev/null
 }
 
 have_entware_bootstrap_artifacts() {
@@ -208,11 +208,13 @@ build_explicit_feed_package() {
 
 stage_python3_dependencies() {
   local nproc="$1"
+  shift
+  local -a make_args=("$@")
 
-  build_explicit_feed_package "${nproc}" libffi "feeds/packages/libs/libffi"
-  build_explicit_feed_package "${nproc}" gdbm "feeds/packages/libs/gdbm"
-  build_explicit_feed_package "${nproc}" xz "feeds/packages/utils/xz"
-  build_explicit_feed_package "${nproc}" sqlite3 "feeds/packages/libs/sqlite3"
+  build_explicit_feed_package "${nproc}" libffi "feeds/packages/libs/libffi" "${make_args[@]}"
+  build_explicit_feed_package "${nproc}" gdbm "feeds/packages/libs/gdbm" "${make_args[@]}"
+  build_explicit_feed_package "${nproc}" xz "feeds/packages/utils/xz" "${make_args[@]}"
+  build_explicit_feed_package "${nproc}" sqlite3 "feeds/packages/libs/sqlite3" "${make_args[@]}"
 }
 
 build_explicit_python3() {
@@ -232,7 +234,7 @@ build_explicit_python3() {
     CONFIG_PACKAGE_libsqlite3=y
   )
 
-  stage_python3_dependencies "${nproc}"
+  stage_python3_dependencies "${nproc}" "${make_args[@]}"
   build_explicit_feed_package "${nproc}" python3 "feeds/packages/lang/python/python3" "${make_args[@]}"
 }
 

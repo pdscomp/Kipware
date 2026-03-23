@@ -102,11 +102,9 @@ jobs:
         run: |
           sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -lc '
             cd "${GITHUB_WORKSPACE}"
-            PKG_DIR="$(find bin/targets -type d -path '\''*/packages'\'' | sort | head -n 1)"
-            test -d "${PKG_DIR}"
-            compgen -G "${PKG_DIR}/python3_*.ipk" >/dev/null
-            compgen -G "${PKG_DIR}/libpython3_*.ipk" >/dev/null
-            compgen -G "${PKG_DIR}/entware-opt_*.ipk" >/dev/null
+            find bin -type f -name '\''python3_*.ipk'\'' -print -quit | grep -q .
+            find bin -type f -name '\''libpython3_*.ipk'\'' -print -quit | grep -q .
+            find bin -type f -name '\''entware-opt_*.ipk'\'' -print -quit | grep -q .
           '
 
       - name: Stage GitHub Pages feed

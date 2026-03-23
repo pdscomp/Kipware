@@ -69,6 +69,12 @@ OPKG_BIN="$(find_opkg)" || {
   exit 1
 }
 
+ENTWARE_OPT_FILES_DIR="${REPO_ROOT}/feeds/rtndev/entware-opt/files"
+[[ -d "${ENTWARE_OPT_FILES_DIR}" ]] || {
+  echo "ERROR: entware-opt files directory not found: ${ENTWARE_OPT_FILES_DIR}" >&2
+  exit 1
+}
+
 MKHASH_BIN="${REPO_ROOT}/staging_dir/host/bin/mkhash"
 [[ -x "${MKHASH_BIN}" ]] || {
   echo "ERROR: mkhash tool not found: ${MKHASH_BIN}" >&2
@@ -98,6 +104,16 @@ option tmp_dir /opt/tmp
 arch all 100
 arch ${TARGET_BOARD} 160
 EOF
+
+sed 's|/opt/bin/find|find|' "${ENTWARE_OPT_FILES_DIR}/rc.unslung" > "${INSTALLER_DIR}/rc.unslung"
+chmod 0755 "${INSTALLER_DIR}/rc.unslung"
+install -m 0644 "${ENTWARE_OPT_FILES_DIR}/rc.func" "${INSTALLER_DIR}/rc.func"
+install -m 0755 "${ENTWARE_OPT_FILES_DIR}/profile" "${INSTALLER_DIR}/profile"
+install -m 0644 "${ENTWARE_OPT_FILES_DIR}/passwd.1" "${INSTALLER_DIR}/passwd.1"
+install -m 0644 "${ENTWARE_OPT_FILES_DIR}/group.1" "${INSTALLER_DIR}/group.1"
+install -m 0644 "${ENTWARE_OPT_FILES_DIR}/shells.1" "${INSTALLER_DIR}/shells.1"
+install -m 0644 "${ENTWARE_OPT_FILES_DIR}/.profile" "${INSTALLER_DIR}/dot-profile"
+install -m 0644 "${ENTWARE_OPT_FILES_DIR}/.inputrc" "${INSTALLER_DIR}/dot-inputrc"
 
 cat > "${INSTALLER_DIR}/generic.sh" <<EOF
 #!/bin/sh
@@ -141,9 +157,32 @@ echo 'Info: Basic packages installation...'
 if [ \$TYPE = 'alternative' ]; then
   /opt/bin/opkg install busybox
 fi
-/opt/bin/opkg install entware-opt
+/opt/bin/opkg install entware-release entware-upgrade
 
 chmod 777 /opt/tmp
+
+echo 'Info: Installing bootstrap files...'
+mkdir -p /opt/etc/init.d /opt/etc/skel /opt/home /opt/root /opt/sbin /opt/share /opt/usr /opt/var/log /opt/var/run
+wget "\${REPO}/installer/rc.unslung" -O /opt/etc/init.d/rc.unslung
+chmod 755 /opt/etc/init.d/rc.unslung
+wget "\${REPO}/installer/rc.func" -O /opt/etc/init.d/rc.func
+chmod 644 /opt/etc/init.d/rc.func
+wget "\${REPO}/installer/profile" -O /opt/etc/profile
+chmod 755 /opt/etc/profile
+wget "\${REPO}/installer/passwd.1" -O /opt/etc/passwd.1
+wget "\${REPO}/installer/group.1" -O /opt/etc/group.1
+wget "\${REPO}/installer/shells.1" -O /opt/etc/shells.1
+wget "\${REPO}/installer/dot-profile" -O /opt/etc/skel/.profile
+cp /opt/etc/skel/.profile /opt/root/.profile
+wget "\${REPO}/installer/dot-inputrc" -O /opt/etc/skel/.inputrc
+cp /opt/etc/skel/.inputrc /opt/root/.inputrc
+: > /opt/etc/ld.so.conf
+
+for fw_cmd in sbin/ifconfig sbin/route sbin/ip bin/netstat bin/sh bin/ash; do
+  if [ -f "/\${fw_cmd}" ] && [ ! -f "/opt/\${fw_cmd}" ]; then
+    ln -s "/\${fw_cmd}" "/opt/\${fw_cmd}"
+  fi
+done
 
 for file in passwd group shells shadow gshadow; do
   if [ \$TYPE = 'generic' ]; then

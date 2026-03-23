@@ -185,8 +185,7 @@ have_python3_artifacts() {
 }
 
 have_entware_bootstrap_artifacts() {
-  compgen -G "${TARGET_PACKAGES_DIR}/entware-opt*.ipk" >/dev/null && \
-    compgen -G "${TARGET_PACKAGES_DIR}/entware-release*.ipk" >/dev/null && \
+  compgen -G "${TARGET_PACKAGES_DIR}/entware-release*.ipk" >/dev/null && \
     compgen -G "${TARGET_PACKAGES_DIR}/entware-upgrade*.ipk" >/dev/null
 }
 
@@ -242,12 +241,10 @@ build_explicit_entware_bootstrap() {
   local -a make_args=(
     CONFIG_PACKAGE_entware-release=y
     CONFIG_PACKAGE_entware-upgrade=y
-    CONFIG_PACKAGE_entware-opt=y
   )
 
   build_explicit_feed_package "${nproc}" entware-release "feeds/rtndev/entware-release" "${make_args[@]}"
   build_explicit_feed_package "${nproc}" entware-upgrade "feeds/rtndev/entware-upgrade" "${make_args[@]}"
-  build_explicit_feed_package "${nproc}" entware-opt "feeds/rtndev/entware-opt" "${make_args[@]}"
 }
 
 ensure_requested_extras() {

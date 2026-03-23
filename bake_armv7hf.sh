@@ -203,7 +203,7 @@ apply_local_feed_fixes() {
 }
 
 target_requests_python3() {
-  grep -q '^CONFIG_PACKAGE_python3=y$' "${TARGET_CONFIG}"
+  grep -Eq '^CONFIG_PACKAGE_python3=(y|m)$' "${TARGET_CONFIG}"
 }
 
 have_python3_artifacts() {

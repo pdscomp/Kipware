@@ -162,6 +162,21 @@ jobs:
         run: |
           sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -lc '
             cd "${GITHUB_WORKSPACE}"
+            echo "Resolved Python selections:"
+            grep -E "^CONFIG_PACKAGE_(python3|libpython3|python3-base|python3-light|python3-readline|python3-ncurses)=" .config || true
+
+            echo
+            echo "Target package directories:"
+            find bin/targets -type d -path "*/packages" | sort || true
+
+            echo
+            echo "Python-related IPKs under bin/:"
+            find bin -type f \( -name '\''python3_*.ipk'\'' -o -name '\''libpython3_*.ipk'\'' \) | sort || true
+
+            echo
+            echo "Entware bootstrap IPKs under bin/:"
+            find bin -type f \( -name '\''entware-release_*.ipk'\'' -o -name '\''entware-upgrade_*.ipk'\'' \) | sort || true
+
             python3_pkg="$(find bin -type f -name '\''python3_*.ipk'\'' -print -quit)"
             libpython3_pkg="$(find bin -type f -name '\''libpython3_*.ipk'\'' -print -quit)"
             entware_release_pkg="$(find bin -type f -name '\''entware-release_*.ipk'\'' -print -quit)"

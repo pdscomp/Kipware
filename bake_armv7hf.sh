@@ -223,6 +223,10 @@ build_explicit_feed_package() {
   local -a make_args=("$@")
   local pkgdir="package/feeds/packages/${pkg}"
 
+  # make defconfig (and the world build) regenerate tmp/ structures, clearing the
+  # feed index databases.  Rebuild them here so ./scripts/feeds install -f can
+  # locate packages regardless of what ran before this call.
+  refresh_feed_indexes
   log_step "feeds install ${pkg}"
   ./scripts/feeds install -f "${pkg}"
   if [[ ! -f "${pkgdir}/Makefile" ]]; then

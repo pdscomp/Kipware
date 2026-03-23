@@ -102,9 +102,23 @@ jobs:
         run: |
           sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -lc '
             cd "${GITHUB_WORKSPACE}"
-            find bin -type f -name '\''python3_*.ipk'\'' -print -quit | grep -q .
-            find bin -type f -name '\''libpython3_*.ipk'\'' -print -quit | grep -q .
-            find bin -type f -name '\''entware-opt_*.ipk'\'' -print -quit | grep -q .
+            python3_pkg="$(find bin -type f -name '\''python3_*.ipk'\'' -print -quit)"
+            libpython3_pkg="$(find bin -type f -name '\''libpython3_*.ipk'\'' -print -quit)"
+            entware_opt_pkg="$(find bin -type f -name '\''entware-opt_*.ipk'\'' -print -quit)"
+            entware_release_pkg="$(find bin -type f -name '\''entware-release_*.ipk'\'' -print -quit)"
+            entware_upgrade_pkg="$(find bin -type f -name '\''entware-upgrade_*.ipk'\'' -print -quit)"
+
+            printf "python3: %s\n" "${python3_pkg:-missing}"
+            printf "libpython3: %s\n" "${libpython3_pkg:-missing}"
+            printf "entware-opt: %s\n" "${entware_opt_pkg:-missing}"
+            printf "entware-release: %s\n" "${entware_release_pkg:-missing}"
+            printf "entware-upgrade: %s\n" "${entware_upgrade_pkg:-missing}"
+
+            test -n "${python3_pkg}"
+            test -n "${libpython3_pkg}"
+            test -n "${entware_opt_pkg}"
+            test -n "${entware_release_pkg}"
+            test -n "${entware_upgrade_pkg}"
           '
 
       - name: Stage GitHub Pages feed

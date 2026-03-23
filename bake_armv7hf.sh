@@ -184,6 +184,12 @@ have_python3_artifacts() {
     compgen -G "${TARGET_PACKAGES_DIR}/libpython3*.ipk" >/dev/null
 }
 
+have_entware_bootstrap_artifacts() {
+  compgen -G "${TARGET_PACKAGES_DIR}/entware-opt*.ipk" >/dev/null && \
+    compgen -G "${TARGET_PACKAGES_DIR}/entware-release*.ipk" >/dev/null && \
+    compgen -G "${TARGET_PACKAGES_DIR}/entware-upgrade*.ipk" >/dev/null
+}
+
 build_explicit_feed_package() {
   local nproc="$1"
   local pkg="$2"
@@ -231,12 +237,30 @@ build_explicit_python3() {
   build_explicit_feed_package "${nproc}" python3 "feeds/packages/lang/python/python3" "${make_args[@]}"
 }
 
+build_explicit_entware_bootstrap() {
+  local nproc="$1"
+  local -a make_args=(
+    CONFIG_PACKAGE_entware-release=y
+    CONFIG_PACKAGE_entware-upgrade=y
+    CONFIG_PACKAGE_entware-opt=y
+  )
+
+  build_explicit_feed_package "${nproc}" entware-release "feeds/rtndev/entware-release" "${make_args[@]}"
+  build_explicit_feed_package "${nproc}" entware-upgrade "feeds/rtndev/entware-upgrade" "${make_args[@]}"
+  build_explicit_feed_package "${nproc}" entware-opt "feeds/rtndev/entware-opt" "${make_args[@]}"
+}
+
 ensure_requested_extras() {
   local nproc="$1"
 
   if target_requests_python3 && ! have_python3_artifacts; then
     log_step "explicit python3 build"
     build_explicit_python3 "${nproc}"
+  fi
+
+  if ! have_entware_bootstrap_artifacts; then
+    log_step "explicit entware bootstrap build"
+    build_explicit_entware_bootstrap "${nproc}"
   fi
 }
 

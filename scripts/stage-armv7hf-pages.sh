@@ -214,3 +214,40 @@ chmod 0755 "${INSTALLER_DIR}/generic.sh"
 sed "s|^REPO=.*$|REPO=\"${PUBLISH_BASE_URL}\"|" "${SETUP_INSTALLER}" > "${FEED_DIR}/setup_armv7hf-5.4.sh"
 chmod 0755 "${FEED_DIR}/setup_armv7hf-5.4.sh"
 cp "${FEED_DIR}/setup_armv7hf-5.4.sh" "${INSTALLER_DIR}/setup_armv7hf-5.4.sh"
+
+cat > "${PAGES_DIR}/index.html" <<EOF
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entware armv7hf-k5.4 feed</title>
+  <meta http-equiv="refresh" content="0; url=./${FEED_NAME}/">
+</head>
+<body>
+  <p>Redirecting to <a href="./${FEED_NAME}/">./${FEED_NAME}/</a>...</p>
+</body>
+</html>
+EOF
+
+cat > "${FEED_DIR}/index.html" <<EOF
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entware ${FEED_NAME}</title>
+</head>
+<body>
+  <h1>Entware ${FEED_NAME}</h1>
+  <ul>
+    <li><a href="./Packages">Packages</a></li>
+    <li><a href="./Packages.gz">Packages.gz</a></li>
+    <li><a href="./Packages.manifest">Packages.manifest</a></li>
+    <li><a href="./index.json">index.json</a></li>
+    <li><a href="./installer/">installer/</a></li>
+    <li><a href="./setup_armv7hf-5.4.sh">setup_armv7hf-5.4.sh</a></li>
+  </ul>
+</body>
+</html>
+EOF

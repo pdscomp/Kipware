@@ -86,6 +86,10 @@ jobs:
         with:
           path: |
             build_dir/host
+            # Toolchain path encodes CPU, gcc, and glibc versions from configs/armv7hf-5.4.config:
+            #   CONFIG_CPU_TYPE="cortex-a7+neon-vfpv4"  (→ arm_cortex-a7+neon-vfpv4)
+            #   Entware toolchain pins gcc-8.4.0 and glibc-2.27 for armv7-5.4
+            # Update these two lines if the toolchain is ever bumped.
             build_dir/toolchain-arm_cortex-a7+neon-vfpv4_gcc-8.4.0_glibc-2.27_eabi
             staging_dir/host
             staging_dir/toolchain-arm_cortex-a7+neon-vfpv4_gcc-8.4.0_glibc-2.27_eabi
@@ -148,7 +152,7 @@ jobs:
 
       - name: Verify hard-float toolchain
         run: |
-          sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -lc '
+          sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -euo pipefail -lc '
             cd "${GITHUB_WORKSPACE}"
             TOOLCHAIN_BIN="$(find staging_dir -path '\''*/bin/arm-openwrt-linux-gnueabihf-gcc'\'' | head -n 1)"
             test -n "${TOOLCHAIN_BIN}"
@@ -162,27 +166,16 @@ jobs:
         run: |
           sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -euo pipefail -lc '
             cd "${GITHUB_WORKSPACE}"
-            search_roots=(bin/targets/armv7-5.4)
-            if [ -d bin/packages/armv7-5.4 ]; then
-              search_roots+=(bin/packages/armv7-5.4)
-            fi
+            PACKAGES_DIR="bin/targets/armv7-5.4/generic-glibc/packages"
 
-            echo "Resolved Python selections:"
-            grep -E "^CONFIG_PACKAGE_(libpython3|python3|python3-(async-timeout|cffi|dbus-fast|distro|greenlet|ifaddr|jinja2|markupsafe|numpy|paho-mqtt|pillow|pip|ply|pycparser|pyserial|tornado|zeroconf))=" .config || true
+            echo "Python-related IPKs:"
+            find "${PACKAGES_DIR}" -maxdepth 1 -type f \( -name '\''python3_*.ipk'\'' -o -name '\''libpython3_*.ipk'\'' -o -name '\''python3-*.ipk'\'' \) | sort || true
 
             echo
-            echo "Target package directories:"
-            find bin/targets -type d -path "*/packages" | sort || true
+            echo "Entware bootstrap IPKs:"
+            find "${PACKAGES_DIR}" -maxdepth 1 -type f \( -name '\''entware-release_*.ipk'\'' -o -name '\''entware-upgrade_*.ipk'\'' \) | sort || true
 
-            echo
-            echo "Python-related IPKs under bin/:"
-            find "${search_roots[@]}" -type f \( -name '\''python3_*.ipk'\'' -o -name '\''libpython3_*.ipk'\'' -o -name '\''python3-*.ipk'\'' \) | sort || true
-
-            echo
-            echo "Entware bootstrap IPKs under bin/:"
-            find "${search_roots[@]}" -type f \( -name '\''entware-release_*.ipk'\'' -o -name '\''entware-upgrade_*.ipk'\'' \) | sort || true
-
-            required_python_pkgs=(
+            required_pkgs=(
               python3
               libpython3
               python3-cffi
@@ -198,28 +191,15 @@ jobs:
               python3-pyserial
               python3-tornado
               python3-zeroconf
+              entware-release
+              entware-upgrade
             )
 
-            python3_pkg="$(find "${search_roots[@]}" -type f -name '\''python3_*.ipk'\'' -print -quit)"
-            libpython3_pkg="$(find "${search_roots[@]}" -type f -name '\''libpython3_*.ipk'\'' -print -quit)"
-            entware_release_pkg="$(find "${search_roots[@]}" -type f -name '\''entware-release_*.ipk'\'' -print -quit)"
-            entware_upgrade_pkg="$(find "${search_roots[@]}" -type f -name '\''entware-upgrade_*.ipk'\'' -print -quit)"
-
-            printf "python3: %s\n" "${python3_pkg:-missing}"
-            printf "libpython3: %s\n" "${libpython3_pkg:-missing}"
-            printf "entware-release: %s\n" "${entware_release_pkg:-missing}"
-            printf "entware-upgrade: %s\n" "${entware_upgrade_pkg:-missing}"
-
-            for pkg in "${required_python_pkgs[@]}"; do
-              pkg_ipk="$(find "${search_roots[@]}" -type f -name "${pkg}_*.ipk" -print -quit)"
-              printf "%s: %s\n" "${pkg}" "${pkg_ipk:-missing}"
+            for pkg in "${required_pkgs[@]}"; do
+              pkg_ipk="$(find "${PACKAGES_DIR}" -maxdepth 1 -type f -name "${pkg}_*.ipk" -print -quit)"
+              printf "%s: %s\n" "${pkg}" "${pkg_ipk:-MISSING}"
               test -n "${pkg_ipk}"
             done
-
-            test -n "${python3_pkg}"
-            test -n "${libpython3_pkg}"
-            test -n "${entware_release_pkg}"
-            test -n "${entware_upgrade_pkg}"
           '
 
       - name: Stage GitHub Pages feed

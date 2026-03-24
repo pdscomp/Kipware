@@ -1,0 +1,14 @@
+Disable LTO on ARM for glib2.  The b_lto=true meson flag causes link
+failures on armv7 cortex-a7 targets; other arches are unaffected.
+
+--- a/libs/glib2/Makefile
++++ b/libs/glib2/Makefile
+@@ -73,7 +73,7 @@ COMP_ARGS+=-Druntime_dir=/opt/var/run
+ COMP_ARGS+=-Dsysprof=disabled
+ 
+ MESON_HOST_ARGS += $(COMP_ARGS) -Dxattr=false -Dnls=disabled
+-MESON_ARGS += $(COMP_ARGS) -Dxattr=true -Db_lto=true -Dnls=$(if $(CONFIG_BUILD_NLS),en,dis)abled
++MESON_ARGS += $(COMP_ARGS) -Dxattr=true -Db_lto=$(if $(findstring arm,$(CONFIG_ARCH)),false,true) -Dnls=$(if $(CONFIG_BUILD_NLS),en,dis)abled
+ 
+ define Build/InstallDev
+ 	$(INSTALL_DIR) $(1)/opt/bin

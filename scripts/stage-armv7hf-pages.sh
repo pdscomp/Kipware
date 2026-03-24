@@ -251,3 +251,49 @@ cat > "${FEED_DIR}/index.html" <<EOF
 </body>
 </html>
 EOF
+
+PAGES_ROOT="${PAGES_DIR}" python3 <<'PY'
+from html import escape
+from pathlib import Path
+import os
+
+root = Path(os.environ["PAGES_ROOT"]).resolve()
+
+for directory in sorted(path for path in root.rglob("*") if path.is_dir()):
+    index_path = directory / "index.html"
+    if index_path.exists():
+        continue
+
+    rel_dir = directory.relative_to(root)
+    title = "/" + rel_dir.as_posix() + "/"
+    entries = []
+    if directory != root:
+        entries.append(("../", "../"))
+
+    for child in sorted(directory.iterdir(), key=lambda path: (not path.is_dir(), path.name.lower())):
+        href = child.name + ("/" if child.is_dir() else "")
+        label = child.name + ("/" if child.is_dir() else "")
+        entries.append((href, label))
+
+    lines = [
+        "<!doctype html>",
+        '<html lang="en">',
+        "<head>",
+        '  <meta charset="utf-8">',
+        '  <meta name="viewport" content="width=device-width, initial-scale=1">',
+        f"  <title>Index of {escape(title)}</title>",
+        "</head>",
+        "<body>",
+        f"  <h1>Index of {escape(title)}</h1>",
+        "  <ul>",
+    ]
+    for href, label in entries:
+        lines.append(f'    <li><a href="{escape(href, quote=True)}">{escape(label)}</a></li>')
+    lines.extend([
+        "  </ul>",
+        "</body>",
+        "</html>",
+        "",
+    ])
+    index_path.write_text("\n".join(lines))
+PY

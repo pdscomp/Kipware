@@ -230,28 +230,6 @@ cat > "${PAGES_DIR}/index.html" <<EOF
 </html>
 EOF
 
-cat > "${FEED_DIR}/index.html" <<EOF
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Entware ${FEED_NAME}</title>
-</head>
-<body>
-  <h1>Entware ${FEED_NAME}</h1>
-  <ul>
-    <li><a href="./Packages">Packages</a></li>
-    <li><a href="./Packages.gz">Packages.gz</a></li>
-    <li><a href="./Packages.manifest">Packages.manifest</a></li>
-    <li><a href="./index.json">index.json</a></li>
-    <li><a href="./installer/">installer/</a></li>
-    <li><a href="./setup_armv7hf-5.4.sh">setup_armv7hf-5.4.sh</a></li>
-  </ul>
-</body>
-</html>
-EOF
-
 PAGES_ROOT="${PAGES_DIR}" python3 <<'PY'
 from html import escape
 from pathlib import Path

@@ -217,14 +217,60 @@ target_requests_python3() {
   grep -Eq '^CONFIG_PACKAGE_python3=(y|m)$' "${TARGET_CONFIG}"
 }
 
+have_package_artifact() {
+  local symbol="$1"
+  local root
+
+  while IFS= read -r root; do
+    [[ -d "${root}" ]] || continue
+    if find "${root}" -type f -name "${symbol}_*.ipk" -print -quit | grep -q .; then
+      return 0
+    fi
+  done <<EOF
+${TARGET_PACKAGES_DIR}
+bin/packages/${TARGET_BOARD}
+EOF
+
+  return 1
+}
+
 have_python3_artifacts() {
-  compgen -G "${TARGET_PACKAGES_DIR}/python3_*.ipk" >/dev/null && \
-    compgen -G "${TARGET_PACKAGES_DIR}/libpython3_*.ipk" >/dev/null
+  have_package_artifact "python3" && have_package_artifact "libpython3"
 }
 
 have_entware_bootstrap_artifacts() {
-  compgen -G "${TARGET_PACKAGES_DIR}/entware-release*.ipk" >/dev/null && \
-    compgen -G "${TARGET_PACKAGES_DIR}/entware-upgrade*.ipk" >/dev/null
+  have_package_artifact "entware-release" && have_package_artifact "entware-upgrade"
+}
+
+selected_python_package_symbols() {
+  grep -E '^CONFIG_PACKAGE_(libpython3|python3([-A-Za-z0-9._+]+)?)=(y|m)$' .config \
+    | sed -E 's/^CONFIG_PACKAGE_([^=]+)=.*/\1/' \
+    | grep -v -- '-src$' \
+    | sort -u
+}
+
+resolve_package_dir_for_symbol() {
+  local symbol="$1"
+  local makefile
+
+  while IFS= read -r makefile; do
+    if grep -Eq "^define Package/${symbol}([[:space:]]|\$)" "${makefile}"; then
+      dirname "${makefile}"
+      return 0
+    fi
+  done < <(find -L package -maxdepth 5 -name Makefile | sort)
+
+  echo "ERROR: Could not resolve selected package symbol '${symbol}' to a package directory" >&2
+  return 1
+}
+
+build_explicit_package_symbol() {
+  local nproc="$1"
+  local symbol="$2"
+  local pkgdir
+
+  pkgdir="$(resolve_package_dir_for_symbol "${symbol}")"
+  build_explicit_feed_package "${nproc}" "${pkgdir##*/}"
 }
 
 build_explicit_feed_package() {
@@ -275,11 +321,34 @@ build_explicit_entware_bootstrap() {
 
 ensure_requested_extras() {
   local nproc="$1"
+  local symbol
+  local pkgdir
+  declare -A built_dirs=()
 
   if target_requests_python3 && ! have_python3_artifacts; then
     log_step "explicit python3 build"
     build_explicit_python3 "${nproc}"
   fi
+
+  while IFS= read -r symbol; do
+    [[ -n "${symbol}" ]] || continue
+
+    if have_package_artifact "${symbol}"; then
+      continue
+    fi
+
+    pkgdir="$(resolve_package_dir_for_symbol "${symbol}")"
+    if [[ -z "${built_dirs[${pkgdir}]:-}" ]]; then
+      log_step "explicit ${symbol} build"
+      build_explicit_package_symbol "${nproc}" "${symbol}"
+      built_dirs["${pkgdir}"]=1
+    fi
+
+    if ! have_package_artifact "${symbol}"; then
+      echo "ERROR: requested package artifact '${symbol}' is still missing after explicit build" >&2
+      return 1
+    fi
+  done < <(selected_python_package_symbols)
 
   if ! have_entware_bootstrap_artifacts; then
     log_step "explicit entware bootstrap build"
@@ -343,8 +412,13 @@ build_core() {
 
 build_world() {
   local nproc="$1"
+  local world_rc=0
   build_core "$nproc"
-  run_make_step "full world build" -j"$nproc" V=s
+  log_step "full world build"
+  m -j"$nproc" V=s || world_rc=$?
+  if (( world_rc != 0 )); then
+    echo "WARNING: full world build exited with ${world_rc}; continuing with explicit required feed package builds" >&2
+  fi
   ensure_requested_extras "$nproc"
 }
 

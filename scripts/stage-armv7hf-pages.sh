@@ -23,7 +23,7 @@ FEED_NAME="armv7hf-k5.4"
 FEED_DIR="${PAGES_DIR}/${FEED_NAME}"
 INSTALLER_DIR="${FEED_DIR}/installer"
 
-find_packages_dir() {
+find_target_packages_dir() {
   local candidate
 
   while IFS= read -r candidate; do
@@ -35,6 +35,13 @@ find_packages_dir() {
   done < <(find "${REPO_ROOT}/bin/targets" -type d -path '*/packages' | sort)
 
   return 1
+}
+
+list_packages_dirs() {
+  printf '%s\n' "${TARGET_PACKAGES_DIR}"
+  if [[ -d "${REPO_ROOT}/bin/packages/${TARGET_BOARD}" ]]; then
+    find "${REPO_ROOT}/bin/packages/${TARGET_BOARD}" -type d -path '*/packages' | sort
+  fi
 }
 
 find_opkg() {
@@ -52,7 +59,7 @@ find_opkg() {
   return 1
 }
 
-TARGET_PACKAGES_DIR="$(find_packages_dir)" || {
+TARGET_PACKAGES_DIR="$(find_target_packages_dir)" || {
   echo "ERROR: built package directory not found under ${REPO_ROOT}/bin/targets" >&2
   exit 1
 }
@@ -85,7 +92,10 @@ rm -rf "${FEED_DIR}"
 mkdir -p "${INSTALLER_DIR}"
 : > "${PAGES_DIR}/.nojekyll"
 
-cp -a "${TARGET_PACKAGES_DIR}/." "${FEED_DIR}/"
+while IFS= read -r packages_dir; do
+  [[ -n "${packages_dir}" ]] || continue
+  find "${packages_dir}" -maxdepth 1 -type f -name '*.ipk' -exec cp -a {} "${FEED_DIR}/" \;
+done < <(list_packages_dirs)
 
 (
   cd "${FEED_DIR}"

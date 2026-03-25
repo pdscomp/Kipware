@@ -75,8 +75,7 @@ jobs:
         with:
           path: |
             feeds
-            package/feeds
-          key: ${{ runner.os }}-armv7hf-5.4-feeds-${{ hashFiles('feeds.conf', 'feeds.conf.default') }}
+          key: ${{ runner.os }}-armv7hf-5.4-feeds-${{ hashFiles('feeds.conf') }}
           restore-keys: |
             ${{ runner.os }}-armv7hf-5.4-feeds-
 
@@ -136,7 +135,6 @@ jobs:
         with:
           path: |
             feeds
-            package/feeds
           key: ${{ steps.restore-feeds-cache.outputs.cache-primary-key }}
 
       - name: Save host and toolchain cache
@@ -166,7 +164,7 @@ jobs:
         run: |
           sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -euo pipefail -lc '
             cd "${GITHUB_WORKSPACE}"
-            PACKAGES_DIR="bin/targets/armv7-5.4/generic/packages"
+            PACKAGES_DIR="bin/targets/armv7-5.4/generic-glibc/packages"
 
             echo "Python-related IPKs:"
             find "${PACKAGES_DIR}" -maxdepth 1 -type f \( -name '\''python3_*.ipk'\'' -o -name '\''libpython3_*.ipk'\'' -o -name '\''python3-*.ipk'\'' \) | sort || true

@@ -166,7 +166,7 @@ jobs:
         run: |
           sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -euo pipefail -lc '
             cd "${GITHUB_WORKSPACE}"
-            PACKAGES_DIR="bin/targets/armv7-5.4/generic-glibc/packages"
+            PACKAGES_DIR="bin/targets/armv7-5.4/generic/packages"
 
             echo "Python-related IPKs:"
             find "${PACKAGES_DIR}" -maxdepth 1 -type f \( -name '\''python3_*.ipk'\'' -o -name '\''libpython3_*.ipk'\'' -o -name '\''python3-*.ipk'\'' \) | sort || true

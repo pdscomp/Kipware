@@ -218,7 +218,9 @@ jobs:
               python3-paho-mqtt
               python3-pillow
               python3-pip
+              python3-pkg-resources
               python3-pyserial
+              python3-setuptools
               python3-tornado
               python3-zeroconf
               entware-release

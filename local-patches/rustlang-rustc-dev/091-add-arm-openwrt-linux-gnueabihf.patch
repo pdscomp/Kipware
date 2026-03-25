@@ -138,12 +138,13 @@
                      "i586-openwrt-linux-gnu" => Some("i586-linux-gnu"),
 --- a/vendor/cc-1.2.0/src/target/generated.rs
 +++ b/vendor/cc-1.2.0/src/target/generated.rs
-@@ -38,6 +38,17 @@
+@@ -38,8 +38,20 @@
              env: "gnu",
              abi: "eabi",
              unversioned_llvm_target: "arm-openwrt-linux-gnueabi",
-+        },
-+    ),
+         },
+     ),
++    (
 +        "arm-openwrt-linux-gnueabihf",
 +        TargetInfo {
 +            full_arch: "arm",
@@ -153,17 +154,20 @@
 +            env: "gnu",
 +            abi: "eabihf",
 +            unversioned_llvm_target: "arm-openwrt-linux-gnueabihf",
-         },
-     ),
++        },
++    ),
      (
+         "armv7-openwrt-linux-gnueabi",
+         TargetInfo {
 --- a/vendor/cc-1.2.13/src/target/generated.rs
 +++ b/vendor/cc-1.2.13/src/target/generated.rs
-@@ -38,6 +38,17 @@
+@@ -38,8 +38,20 @@
              env: "gnu",
              abi: "eabi",
              llvm_target: "arm-openwrt-linux-gnueabi",
-+        },
-+    ),
+         },
+     ),
++    (
 +        "arm-openwrt-linux-gnueabihf",
 +        TargetInfo {
 +            full_arch: "arm",
@@ -173,17 +177,20 @@
 +            env: "gnu",
 +            abi: "eabihf",
 +            llvm_target: "arm-openwrt-linux-gnueabihf",
-         },
-     ),
++        },
++    ),
      (
+         "armv7-openwrt-linux-gnueabi",
+         TargetInfo {
 --- a/vendor/cc-1.2.16/src/target/generated.rs
 +++ b/vendor/cc-1.2.16/src/target/generated.rs
-@@ -38,6 +38,17 @@
+@@ -38,8 +38,20 @@
              env: "gnu",
              abi: "eabi",
              llvm_target: "arm-openwrt-linux-gnueabi",
-+        },
-+    ),
+         },
+     ),
++    (
 +        "arm-openwrt-linux-gnueabihf",
 +        TargetInfo {
 +            full_arch: "arm",
@@ -193,9 +200,11 @@
 +            env: "gnu",
 +            abi: "eabihf",
 +            llvm_target: "arm-openwrt-linux-gnueabihf",
-         },
-     ),
++        },
++    ),
      (
+         "armv7-openwrt-linux-gnueabi",
+         TargetInfo {
 --- a/vendor/cc-1.2.19/src/target/generated.rs
 +++ b/vendor/cc-1.2.19/src/target/generated.rs
 @@ -8,6 +8,7 @@

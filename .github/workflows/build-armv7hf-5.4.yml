@@ -96,6 +96,23 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-armv7hf-5.4-host-toolchain-v1-
 
+      - name: Restore rustc-dev host cache
+        id: restore-rustc-dev-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            # rustc-dev uses a non-standard install prefix: $(STAGING_DIR)/host rather than
+            # $(STAGING_DIR_HOST).  This encodes CPU type and glibc version; update if bumped.
+            staging_dir/target-arm_cortex-a7+neon-vfpv4_glibc-2.27_eabi/host
+          # Key is based on the rustc-dev Makefile (contains PKG_VERSION and PKG_HASH).
+          # hashFiles returns '' when feeds haven't been cloned yet (feeds cache miss on this
+          # run); the restore-keys prefix still finds any existing cache in that case, and the
+          # save step always runs after bake (which clones feeds), so the key is always full
+          # when saving.
+          key: ${{ runner.os }}-armv7hf-5.4-rustc-dev-host-v1-${{ hashFiles('feeds/rustlang/rustc-dev/Makefile') }}
+          restore-keys: |
+            ${{ runner.os }}-armv7hf-5.4-rustc-dev-host-v1-
+
       - name: Prepare appuser workspace
         run: |
           id appuser
@@ -147,6 +164,21 @@ jobs:
             staging_dir/host
             staging_dir/toolchain-arm_cortex-a7+neon-vfpv4_gcc-8.4.0_glibc-2.27_eabi
           key: ${{ steps.restore-host-toolchain-cache.outputs.cache-primary-key }}
+
+      - name: Save rustc-dev host cache
+        # Save even on build failure: rustc-dev/host-compile may have completed successfully
+        # before another package failed (it runs in parallel).  The stamp file in
+        # staging_dir/target-.../host/stamp/ is what make checks; if it's present the 2h
+        # rustc-dev rebuild is skipped on the next run.
+        # Key is re-evaluated here (not from restore outputs) so it always contains the full
+        # Makefile hash — bake has run feeds update by this point so the file is guaranteed
+        # to exist.
+        if: always() && steps.restore-rustc-dev-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            staging_dir/target-arm_cortex-a7+neon-vfpv4_glibc-2.27_eabi/host
+          key: ${{ runner.os }}-armv7hf-5.4-rustc-dev-host-v1-${{ hashFiles('feeds/rustlang/rustc-dev/Makefile') }}
 
       - name: Verify hard-float toolchain
         run: |

@@ -1,0 +1,15 @@
+Disable LTO on ARM for zstd.  The -Db_lto=true meson flag causes
+lto1: internal compiler error: Segmentation fault on armv7 cortex-a7
+targets with GCC 8.4.0; other arches are unaffected.
+
+--- a/utils/zstd/Makefile
++++ b/utils/zstd/Makefile
+@@ -68,7 +68,7 @@
+ 	-Dzlib=disabled \
+ 	-Dlzma=disabled \
+ 	-Dlz4=disabled \
+-	-Db_lto=true
++	-Db_lto=$(if $(findstring arm,$(CONFIG_ARCH)),false,true)
+ 
+ define Build/InstallDev
+ 	$(INSTALL_DIR) $(1)/opt/include

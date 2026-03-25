@@ -69,31 +69,55 @@ feeds_init() {
 
   # Use index-only refresh when all enabled feeds are already checked out;
   # fall back to a full network update if any feed directory is missing.
-  local update_args="-a"
+  local -a update_args=("-a")
   if [[ "${BAKE_FORCE_FEEDS_UPDATE:-}" != "1" ]]; then
     local all_present=1
     while IFS= read -r name; do
       [[ -n "$name" && ! -d "feeds/$name" ]] && { all_present=0; break; }
     done < <(./scripts/feeds list -n 2>/dev/null || true)
-    [[ "$all_present" == "1" ]] && update_args="-i -a"
+    [[ "$all_present" == "1" ]] && update_args=("-i" "-a")
   fi
 
-  log_step "feeds update ${update_args}"
-  ./scripts/feeds update ${update_args}
+  log_step "feeds update ${update_args[*]}"
+  ./scripts/feeds update "${update_args[@]}"
 
   log_step "feeds install"
   ./scripts/feeds install -a -f
 }
 
 apply_local_feed_fixes() {
-  local patches_dir="${REPO_ROOT}/local-patches/packages"
-  [[ -d "${patches_dir}" ]] || return 0
+  # Apply direct feed-level patches (local-patches/packages/*.patch → patch feeds/packages/)
+  local feed_patches_dir="${REPO_ROOT}/local-patches/packages"
+  if [[ -d "${feed_patches_dir}" ]]; then
+    local patch_file
+    while IFS= read -r patch_file; do
+      log_step "apply patch $(basename "${patch_file}")"
+      patch -N -p1 -d "${REPO_ROOT}/feeds/packages" < "${patch_file}" || true
+    done < <(find "${feed_patches_dir}" -maxdepth 1 -type f -name '*.patch' | sort)
+  fi
 
-  local patch_file
-  while IFS= read -r patch_file; do
-    log_step "apply patch $(basename "${patch_file}")"
-    patch -N -p1 -d "${REPO_ROOT}/feeds/packages" < "${patch_file}" || true
-  done < <(find "${patches_dir}" -maxdepth 1 -type f -name '*.patch' | sort)
+  # Inject extra patches into pkg patch directories (local-patches/<feed>-<pkg>/*.patch → feeds/<feed>/<pkg>/patches/)
+  local extra_dir
+  for extra_dir in "${REPO_ROOT}/local-patches"/*/; do
+    local dir_name
+    dir_name="${extra_dir%/}"
+    dir_name="${dir_name##*/}"
+    [[ "$dir_name" == "packages" ]] && continue
+    [[ "$dir_name" == *-* ]] || continue
+
+    local feed="${dir_name%%-*}"
+    local pkg="${dir_name#*-}"
+    local dest="${REPO_ROOT}/feeds/${feed}/${pkg}/patches"
+    [[ -d "$dest" ]] || { echo "WARNING: ${dest} not found, skipping ${dir_name}"; continue; }
+
+    local patch_file
+    while IFS= read -r patch_file; do
+      local bname
+      bname="$(basename "${patch_file}")"
+      log_step "inject patch ${dir_name}/${bname} → ${feed}/${pkg}/patches/"
+      cp "${patch_file}" "${dest}/${bname}"
+    done < <(find "${extra_dir}" -maxdepth 1 -type f -name '*.patch' | sort)
+  done
 }
 
 ensure_config() {

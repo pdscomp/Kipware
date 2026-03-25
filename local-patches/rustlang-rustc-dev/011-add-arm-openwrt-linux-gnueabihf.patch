@@ -1,0 +1,408 @@
+--- /dev/null
++++ b/compiler/rustc_target/src/spec/targets/arm_openwrt_linux_gnueabihf.rs
+@@ -0,0 +1,25 @@
++use crate::spec::{Abi, Arch, FloatAbi, Target, TargetMetadata, TargetOptions, base};
++
++pub(crate) fn target() -> Target {
++    Target {
++        llvm_target: "arm-openwrt-linux-gnueabihf".into(),
++        metadata: TargetMetadata {
++            description: Some("ARMv6+ Linux, hardfloat (OpenWrt/Entware, glibc)".into()),
++            tier: Some(3),
++            host_tools: Some(false),
++            std: Some(true),
++        },
++        pointer_width: 32,
++        data_layout: "e-m:e-p:32:32-Fi8-i64:64-v128:64:128-a:0:32-n32-S64".into(),
++        arch: Arch::Arm,
++        options: TargetOptions {
++            abi: Abi::EabiHf,
++            llvm_floatabi: Some(FloatAbi::Hard),
++            features: "+strict-align,+v6,+vfp2".into(),
++            max_atomic_width: Some(64),
++            mcount: "\u{1}__gnu_mcount_nc".into(),
++            llvm_mcount_intrinsic: Some("llvm.arm.gnu.eabi.mcount".into()),
++            ..base::openwrt_linux_gnu::opts()
++        },
++    }
++}
+--- a/compiler/rustc_target/src/spec/mod.rs
++++ b/compiler/rustc_target/src/spec/mod.rs
+@@ -1435,6 +1435,7 @@
+     // Entware/OpenWrt
+     ("aarch64-openwrt-linux-gnu", aarch64_openwrt_linux_gnu),
+     ("arm-openwrt-linux-gnueabi", arm_openwrt_linux_gnueabi),
++    ("arm-openwrt-linux-gnueabihf", arm_openwrt_linux_gnueabihf),
+     ("armv5te-openwrt-linux-gnueabi", armv5te_openwrt_linux_gnueabi),
+     ("armv7-openwrt-linux-gnueabi", armv7_openwrt_linux_gnueabi),
+     ("i586-openwrt-linux-gnu", i586_openwrt_linux_gnu),
+--- a/vendor/cc-1.1.18/src/lib.rs
++++ b/vendor/cc-1.1.18/src/lib.rs
+@@ -3468,6 +3468,7 @@
+                     "aarch64-openwrt-linux-gnu" => Some("aarch64-linux-gnu"),
+                     "aarch64-openwrt-linux-musl" => Some("aarch64-linux-musl"),
+                     "arm-openwrt-linux-gnueabi" => Some("arm-linux-gnueabi"),
++                    "arm-openwrt-linux-gnueabihf" => Some("arm-linux-gnueabihf"),
+                     "armv5te-openwrt-linux-gnueabi" => Some("armv5te-linux-gnueabi"),
+                     "armv7-openwrt-linux-gnueabi" => Some("armv7-linux-gnueabi"),
+                     "i586-openwrt-linux-gnu" => Some("i586-linux-gnu"),
+--- a/vendor/cc-1.2.0/src/lib.rs
++++ b/vendor/cc-1.2.0/src/lib.rs
+@@ -3243,6 +3243,7 @@
+                     "aarch64-openwrt-linux-gnu" => Some("aarch64-linux-gnu"),
+                     "aarch64-openwrt-linux-musl" => Some("aarch64-linux-musl"),
+                     "arm-openwrt-linux-gnueabi" => Some("arm-linux-gnueabi"),
++                    "arm-openwrt-linux-gnueabihf" => Some("arm-linux-gnueabihf"),
+                     "armv5te-openwrt-linux-gnueabi" => Some("armv5te-linux-gnueabi"),
+                     "armv7-openwrt-linux-gnueabi" => Some("armv7-linux-gnueabi"),
+                     "i586-openwrt-linux-gnu" => Some("i586-linux-gnu"),
+--- a/vendor/cc-1.2.13/src/lib.rs
++++ b/vendor/cc-1.2.13/src/lib.rs
+@@ -3378,6 +3378,7 @@
+                     "aarch64-openwrt-linux-gnu" => Some("aarch64-linux-gnu"),
+                     "aarch64-openwrt-linux-musl" => Some("aarch64-linux-musl"),
+                     "arm-openwrt-linux-gnueabi" => Some("arm-linux-gnueabi"),
++                    "arm-openwrt-linux-gnueabihf" => Some("arm-linux-gnueabihf"),
+                     "armv5te-openwrt-linux-gnueabi" => Some("armv5te-linux-gnueabi"),
+                     "armv7-openwrt-linux-gnueabi" => Some("armv7-linux-gnueabi"),
+                     "i586-openwrt-linux-gnu" => Some("i586-linux-gnu"),
+--- a/vendor/cc-1.2.16/src/lib.rs
++++ b/vendor/cc-1.2.16/src/lib.rs
+@@ -3368,6 +3368,7 @@
+                     "aarch64-openwrt-linux-gnu" => Some("aarch64-linux-gnu"),
+                     "aarch64-openwrt-linux-musl" => Some("aarch64-linux-musl"),
+                     "arm-openwrt-linux-gnueabi" => Some("arm-linux-gnueabi"),
++                    "arm-openwrt-linux-gnueabihf" => Some("arm-linux-gnueabihf"),
+                     "armv5te-openwrt-linux-gnueabi" => Some("armv5te-linux-gnueabi"),
+                     "armv7-openwrt-linux-gnueabi" => Some("armv7-linux-gnueabi"),
+                     "i586-openwrt-linux-gnu" => Some("i586-linux-gnu"),
+--- a/vendor/cc-1.2.19/src/lib.rs
++++ b/vendor/cc-1.2.19/src/lib.rs
+@@ -3399,6 +3399,7 @@
+                     "aarch64-openwrt-linux-gnu" => Some("aarch64-linux-gnu"),
+                     "aarch64-openwrt-linux-musl" => Some("aarch64-linux-musl"),
+                     "arm-openwrt-linux-gnueabi" => Some("arm-linux-gnueabi"),
++                    "arm-openwrt-linux-gnueabihf" => Some("arm-linux-gnueabihf"),
+                     "armv5te-openwrt-linux-gnueabi" => Some("armv5te-linux-gnueabi"),
+                     "armv7-openwrt-linux-gnueabi" => Some("armv7-linux-gnueabi"),
+                     "i586-openwrt-linux-gnu" => Some("i586-linux-gnu"),
+--- a/vendor/cc-1.2.20/src/lib.rs
++++ b/vendor/cc-1.2.20/src/lib.rs
+@@ -3399,6 +3399,7 @@
+                     "aarch64-openwrt-linux-gnu" => Some("aarch64-linux-gnu"),
+                     "aarch64-openwrt-linux-musl" => Some("aarch64-linux-musl"),
+                     "arm-openwrt-linux-gnueabi" => Some("arm-linux-gnueabi"),
++                    "arm-openwrt-linux-gnueabihf" => Some("arm-linux-gnueabihf"),
+                     "armv5te-openwrt-linux-gnueabi" => Some("armv5te-linux-gnueabi"),
+                     "armv7-openwrt-linux-gnueabi" => Some("armv7-linux-gnueabi"),
+                     "i586-openwrt-linux-gnu" => Some("i586-linux-gnu"),
+--- a/vendor/cc-1.2.28/src/lib.rs
++++ b/vendor/cc-1.2.28/src/lib.rs
+@@ -3446,6 +3446,7 @@
+                     "aarch64-openwrt-linux-gnu" => Some("aarch64-linux-gnu"),
+                     "aarch64-openwrt-linux-musl" => Some("aarch64-linux-musl"),
+                     "arm-openwrt-linux-gnueabi" => Some("arm-linux-gnueabi"),
++                    "arm-openwrt-linux-gnueabihf" => Some("arm-linux-gnueabihf"),
+                     "armv5te-openwrt-linux-gnueabi" => Some("armv5te-linux-gnueabi"),
+                     "armv7-openwrt-linux-gnueabi" => Some("armv7-linux-gnueabi"),
+                     "i586-openwrt-linux-gnu" => Some("i586-linux-gnu"),
+--- a/vendor/cc-1.2.38/src/lib.rs
++++ b/vendor/cc-1.2.38/src/lib.rs
+@@ -3476,6 +3476,7 @@
+                     "aarch64-openwrt-linux-gnu" => Some("aarch64-linux-gnu"),
+                     "aarch64-openwrt-linux-musl" => Some("aarch64-linux-musl"),
+                     "arm-openwrt-linux-gnueabi" => Some("arm-linux-gnueabi"),
++                    "arm-openwrt-linux-gnueabihf" => Some("arm-linux-gnueabihf"),
+                     "armv5te-openwrt-linux-gnueabi" => Some("armv5te-linux-gnueabi"),
+                     "armv7-openwrt-linux-gnueabi" => Some("armv7-linux-gnueabi"),
+                     "i586-openwrt-linux-gnu" => Some("i586-linux-gnu"),
+--- a/vendor/cc-1.2.45/src/lib.rs
++++ b/vendor/cc-1.2.45/src/lib.rs
+@@ -3501,6 +3501,7 @@
+                     "aarch64-openwrt-linux-gnu" => Some("aarch64-linux-gnu"),
+                     "aarch64-openwrt-linux-musl" => Some("aarch64-linux-musl"),
+                     "arm-openwrt-linux-gnueabi" => Some("arm-linux-gnueabi"),
++                    "arm-openwrt-linux-gnueabihf" => Some("arm-linux-gnueabihf"),
+                     "armv5te-openwrt-linux-gnueabi" => Some("armv5te-linux-gnueabi"),
+                     "armv7-openwrt-linux-gnueabi" => Some("armv7-linux-gnueabi"),
+                     "i586-openwrt-linux-gnu" => Some("i586-linux-gnu"),
+--- a/vendor/cc-1.2.50/src/lib.rs
++++ b/vendor/cc-1.2.50/src/lib.rs
+@@ -3536,6 +3536,7 @@
+                     "aarch64-openwrt-linux-gnu" => Some("aarch64-linux-gnu"),
+                     "aarch64-openwrt-linux-musl" => Some("aarch64-linux-musl"),
+                     "arm-openwrt-linux-gnueabi" => Some("arm-linux-gnueabi"),
++                    "arm-openwrt-linux-gnueabihf" => Some("arm-linux-gnueabihf"),
+                     "armv5te-openwrt-linux-gnueabi" => Some("armv5te-linux-gnueabi"),
+                     "armv7-openwrt-linux-gnueabi" => Some("armv7-linux-gnueabi"),
+                     "i586-openwrt-linux-gnu" => Some("i586-linux-gnu"),
+--- a/vendor/cc-1.2.0/src/target/generated.rs
++++ b/vendor/cc-1.2.0/src/target/generated.rs
+@@ -38,6 +38,17 @@
+             env: "gnu",
+             abi: "eabi",
+             unversioned_llvm_target: "arm-openwrt-linux-gnueabi",
++        },
++    ),
++        "arm-openwrt-linux-gnueabihf",
++        TargetInfo {
++            full_arch: "arm",
++            arch: "arm",
++            vendor: "openwrt",
++            os: "linux",
++            env: "gnu",
++            abi: "eabihf",
++            unversioned_llvm_target: "arm-openwrt-linux-gnueabihf",
+         },
+     ),
+     (
+--- a/vendor/cc-1.2.13/src/target/generated.rs
++++ b/vendor/cc-1.2.13/src/target/generated.rs
+@@ -38,6 +38,17 @@
+             env: "gnu",
+             abi: "eabi",
+             llvm_target: "arm-openwrt-linux-gnueabi",
++        },
++    ),
++        "arm-openwrt-linux-gnueabihf",
++        TargetInfo {
++            full_arch: "arm",
++            arch: "arm",
++            vendor: "openwrt",
++            os: "linux",
++            env: "gnu",
++            abi: "eabihf",
++            llvm_target: "arm-openwrt-linux-gnueabihf",
+         },
+     ),
+     (
+--- a/vendor/cc-1.2.16/src/target/generated.rs
++++ b/vendor/cc-1.2.16/src/target/generated.rs
+@@ -38,6 +38,17 @@
+             env: "gnu",
+             abi: "eabi",
+             llvm_target: "arm-openwrt-linux-gnueabi",
++        },
++    ),
++        "arm-openwrt-linux-gnueabihf",
++        TargetInfo {
++            full_arch: "arm",
++            arch: "arm",
++            vendor: "openwrt",
++            os: "linux",
++            env: "gnu",
++            abi: "eabihf",
++            llvm_target: "arm-openwrt-linux-gnueabihf",
+         },
+     ),
+     (
+--- a/vendor/cc-1.2.19/src/target/generated.rs
++++ b/vendor/cc-1.2.19/src/target/generated.rs
+@@ -8,6 +8,7 @@
+     ("aarch64-openwrt-linux-gnu", "aarch64-openwrt-linux-gnu"),
+     ("aarch64-openwrt-linux-musl", "aarch64-openwrt-linux-musl"),
+     ("arm-openwrt-linux-gnueabi", "arm-openwrt-linux-gnueabi"),
++    ("arm-openwrt-linux-gnueabihf", "arm-openwrt-linux-gnueabihf"),
+     ("arm-openwrt-linux-musleabi", "arm-openwrt-linux-musleabi"),
+     ("armv5te-openwrt-linux-gnueabi", "armv5te-openwrt-linux-gnueabi"),
+     ("armv7-openwrt-linux-gnueabi", "armv7-openwrt-linux-gnueabi"),
+--- a/vendor/cc-1.2.20/src/target/generated.rs
++++ b/vendor/cc-1.2.20/src/target/generated.rs
+@@ -8,6 +8,7 @@
+     ("aarch64-openwrt-linux-gnu", "aarch64-openwrt-linux-gnu"),
+     ("aarch64-openwrt-linux-musl", "aarch64-openwrt-linux-musl"),
+     ("arm-openwrt-linux-gnueabi", "arm-openwrt-linux-gnueabi"),
++    ("arm-openwrt-linux-gnueabihf", "arm-openwrt-linux-gnueabihf"),
+     ("arm-openwrt-linux-musleabi", "arm-openwrt-linux-musleabi"),
+     ("armv5te-openwrt-linux-gnueabi", "armv5te-openwrt-linux-gnueabi"),
+     ("armv7-openwrt-linux-gnueabi", "armv7-openwrt-linux-gnueabi"),
+--- a/vendor/cc-1.2.28/src/target/generated.rs
++++ b/vendor/cc-1.2.28/src/target/generated.rs
+@@ -8,6 +8,7 @@
+     ("aarch64-openwrt-linux-gnu", "aarch64-openwrt-linux-gnu"),
+     ("aarch64-openwrt-linux-musl", "aarch64-openwrt-linux-musl"),
+     ("arm-openwrt-linux-gnueabi", "arm-openwrt-linux-gnueabi"),
++    ("arm-openwrt-linux-gnueabihf", "arm-openwrt-linux-gnueabihf"),
+     ("arm-openwrt-linux-musleabi", "arm-openwrt-linux-musleabi"),
+     ("armv5te-openwrt-linux-gnueabi", "armv5te-openwrt-linux-gnueabi"),
+     ("armv7-openwrt-linux-gnueabi", "armv7-openwrt-linux-gnueabi"),
+--- a/vendor/cc-1.2.38/src/target/generated.rs
++++ b/vendor/cc-1.2.38/src/target/generated.rs
+@@ -8,6 +8,7 @@
+     ("aarch64-openwrt-linux-gnu", "aarch64-openwrt-linux-gnu"),
+     ("aarch64-openwrt-linux-musl", "aarch64-openwrt-linux-musl"),
+     ("arm-openwrt-linux-gnueabi", "arm-openwrt-linux-gnueabi"),
++    ("arm-openwrt-linux-gnueabihf", "arm-openwrt-linux-gnueabihf"),
+     ("arm-openwrt-linux-musleabi", "arm-openwrt-linux-musleabi"),
+     ("armv5te-openwrt-linux-gnueabi", "armv5te-openwrt-linux-gnueabi"),
+     ("armv7-openwrt-linux-gnueabi", "armv7-openwrt-linux-gnueabi"),
+--- a/vendor/cc-1.2.45/src/target/generated.rs
++++ b/vendor/cc-1.2.45/src/target/generated.rs
+@@ -8,6 +8,7 @@
+     ("aarch64-openwrt-linux-gnu", "aarch64-openwrt-linux-gnu"),
+     ("aarch64-openwrt-linux-musl", "aarch64-openwrt-linux-musl"),
+     ("arm-openwrt-linux-gnueabi", "arm-openwrt-linux-gnueabi"),
++    ("arm-openwrt-linux-gnueabihf", "arm-openwrt-linux-gnueabihf"),
+     ("arm-openwrt-linux-musleabi", "arm-openwrt-linux-musleabi"),
+     ("armv5te-openwrt-linux-gnueabi", "armv5te-openwrt-linux-gnueabi"),
+     ("armv7-openwrt-linux-gnueabi", "armv7-openwrt-linux-gnueabi"),
+--- a/vendor/cc-1.2.50/src/target/generated.rs
++++ b/vendor/cc-1.2.50/src/target/generated.rs
+@@ -8,6 +8,7 @@
+     ("aarch64-openwrt-linux-gnu", "aarch64-openwrt-linux-gnu"),
+     ("aarch64-openwrt-linux-musl", "aarch64-openwrt-linux-musl"),
+     ("arm-openwrt-linux-gnueabi", "arm-openwrt-linux-gnueabi"),
++    ("arm-openwrt-linux-gnueabihf", "arm-openwrt-linux-gnueabihf"),
+     ("arm-openwrt-linux-musleabi", "arm-openwrt-linux-musleabi"),
+     ("armv5te-openwrt-linux-gnueabi", "armv5te-openwrt-linux-gnueabi"),
+     ("armv7-openwrt-linux-gnueabi", "armv7-openwrt-linux-gnueabi"),
+--- a/vendor/libc-0.2.155/Cargo.toml
++++ b/vendor/libc-0.2.155/Cargo.toml
+@@ -57,6 +57,7 @@
+     "aarch64-openwrt-linux-gnu",
+     "aarch64-openwrt-linux-musl",
+     "arm-openwrt-linux-gnueabi",
++    "arm-openwrt-linux-gnueabihf",
+     "armv5te-openwrt-linux-gnueabi",
+     "armv7-openwrt-linux-gnueabi",
+     "i586-openwrt-linux-gnu",
+--- a/vendor/libc-0.2.158/Cargo.toml
++++ b/vendor/libc-0.2.158/Cargo.toml
+@@ -57,6 +57,7 @@
+     "aarch64-openwrt-linux-gnu",
+     "aarch64-openwrt-linux-musl",
+     "arm-openwrt-linux-gnueabi",
++    "arm-openwrt-linux-gnueabihf",
+     "armv5te-openwrt-linux-gnueabi",
+     "armv7-openwrt-linux-gnueabi",
+     "i586-openwrt-linux-gnu",
+--- a/vendor/libc-0.2.164/Cargo.toml
++++ b/vendor/libc-0.2.164/Cargo.toml
+@@ -58,6 +58,7 @@
+     "aarch64-openwrt-linux-gnu",
+     "aarch64-openwrt-linux-musl",
+     "arm-openwrt-linux-gnueabi",
++    "arm-openwrt-linux-gnueabihf",
+     "armv5te-openwrt-linux-gnueabi",
+     "armv7-openwrt-linux-gnueabi",
+     "i586-openwrt-linux-gnu",
+--- a/vendor/libc-0.2.168/Cargo.toml
++++ b/vendor/libc-0.2.168/Cargo.toml
+@@ -57,6 +57,7 @@
+     "aarch64-openwrt-linux-gnu",
+     "aarch64-openwrt-linux-musl",
+     "arm-openwrt-linux-gnueabi",
++    "arm-openwrt-linux-gnueabihf",
+     "armv5te-openwrt-linux-gnueabi",
+     "armv7-openwrt-linux-gnueabi",
+     "i586-openwrt-linux-gnu",
+--- a/vendor/libc-0.2.169/Cargo.toml
++++ b/vendor/libc-0.2.169/Cargo.toml
+@@ -57,6 +57,7 @@
+     "aarch64-openwrt-linux-gnu",
+     "aarch64-openwrt-linux-musl",
+     "arm-openwrt-linux-gnueabi",
++    "arm-openwrt-linux-gnueabihf",
+     "armv5te-openwrt-linux-gnueabi",
+     "armv7-openwrt-linux-gnueabi",
+     "i586-openwrt-linux-gnu",
+--- a/vendor/libc-0.2.171/Cargo.toml
++++ b/vendor/libc-0.2.171/Cargo.toml
+@@ -57,6 +57,7 @@
+     "aarch64-openwrt-linux-gnu",
+     "aarch64-openwrt-linux-musl",
+     "arm-openwrt-linux-gnueabi",
++    "arm-openwrt-linux-gnueabihf",
+     "armv5te-openwrt-linux-gnueabi",
+     "armv7-openwrt-linux-gnueabi",
+     "i586-openwrt-linux-gnu",
+--- a/vendor/libc-0.2.172/Cargo.toml
++++ b/vendor/libc-0.2.172/Cargo.toml
+@@ -57,6 +57,7 @@
+     "aarch64-openwrt-linux-gnu",
+     "aarch64-openwrt-linux-musl",
+     "arm-openwrt-linux-gnueabi",
++    "arm-openwrt-linux-gnueabihf",
+     "armv5te-openwrt-linux-gnueabi",
+     "armv7-openwrt-linux-gnueabi",
+     "i586-openwrt-linux-gnu",
+--- a/vendor/libc-0.2.174/Cargo.toml
++++ b/vendor/libc-0.2.174/Cargo.toml
+@@ -53,6 +53,7 @@
+     "aarch64-openwrt-linux-gnu",
+     "aarch64-openwrt-linux-musl",
+     "arm-openwrt-linux-gnueabi",
++    "arm-openwrt-linux-gnueabihf",
+     "armv5te-openwrt-linux-gnueabi",
+     "armv7-openwrt-linux-gnueabi",
+     "i586-openwrt-linux-gnu",
+--- a/vendor/libc-0.2.175/Cargo.toml
++++ b/vendor/libc-0.2.175/Cargo.toml
+@@ -53,6 +53,7 @@
+     "aarch64-openwrt-linux-gnu",
+     "aarch64-openwrt-linux-musl",
+     "arm-openwrt-linux-gnueabi",
++    "arm-openwrt-linux-gnueabihf",
+     "armv5te-openwrt-linux-gnueabi",
+     "armv7-openwrt-linux-gnueabi",
+     "i586-openwrt-linux-gnu",
+--- a/vendor/libc-0.2.177/Cargo.toml
++++ b/vendor/libc-0.2.177/Cargo.toml
+@@ -52,6 +52,7 @@
+     "aarch64-openwrt-linux-gnu",
+     "aarch64-openwrt-linux-musl",
+     "arm-openwrt-linux-gnueabi",
++    "arm-openwrt-linux-gnueabihf",
+     "armv5te-openwrt-linux-gnueabi",
+     "armv7-openwrt-linux-gnueabi",
+     "i586-openwrt-linux-gnu",
+--- a/vendor/libc-0.2.178/Cargo.toml
++++ b/vendor/libc-0.2.178/Cargo.toml
+@@ -53,6 +53,7 @@
+     "aarch64-openwrt-linux-gnu",
+     "aarch64-openwrt-linux-musl",
+     "arm-openwrt-linux-gnueabi",
++    "arm-openwrt-linux-gnueabihf",
+     "armv5te-openwrt-linux-gnueabi",
+     "armv7-openwrt-linux-gnueabi",
+     "i586-openwrt-linux-gnu",
+--- a/vendor/openssl-src-111.28.2+1.1.1w/src/lib.rs
++++ b/vendor/openssl-src-111.28.2+1.1.1w/src/lib.rs
+@@ -233,6 +233,7 @@
+             "aarch64-openwrt-linux-gnu" => "linux-aarch64",
+             "aarch64-openwrt-linux-musl" => "linux-aarch64",
+             "arm-openwrt-linux-gnueabi" => "linux-armv4",
++            "arm-openwrt-linux-gnueabihf" => "linux-armv4",
+             "armv5te-openwrt-linux-gnueabi" => "linux-armv4",
+             "armv7-openwrt-linux-gnueabi" => "linux-armv4",
+             "i586-openwrt-linux-gnu" => "linux-elf",
+--- a/vendor/openssl-src-300.5.0+3.5.0/src/lib.rs
++++ b/vendor/openssl-src-300.5.0+3.5.0/src/lib.rs
+@@ -298,6 +298,7 @@
+             "aarch64-openwrt-linux-gnu" => "linux-aarch64",
+             "aarch64-openwrt-linux-musl" => "linux-aarch64",
+             "arm-openwrt-linux-gnueabi" => "linux-armv4",
++            "arm-openwrt-linux-gnueabihf" => "linux-armv4",
+             "armv5te-openwrt-linux-gnueabi" => "linux-armv4",
+             "armv7-openwrt-linux-gnueabi" => "linux-armv4",
+             "i586-openwrt-linux-gnu" => "linux-elf",
+--- a/vendor/openssl-src-300.5.4+3.5.4/src/lib.rs
++++ b/vendor/openssl-src-300.5.4+3.5.4/src/lib.rs
+@@ -303,6 +303,7 @@
+             "aarch64-openwrt-linux-gnu" => "linux-aarch64",
+             "aarch64-openwrt-linux-musl" => "linux-aarch64",
+             "arm-openwrt-linux-gnueabi" => "linux-armv4",
++            "arm-openwrt-linux-gnueabihf" => "linux-armv4",
+             "armv5te-openwrt-linux-gnueabi" => "linux-armv4",
+             "armv7-openwrt-linux-gnueabi" => "linux-armv4",
+             "i586-openwrt-linux-gnu" => "linux-elf",
+--- a/vendor/target-lexicon-0.13.3/src/targets.rs
++++ b/vendor/target-lexicon-0.13.3/src/targets.rs
+@@ -1756,6 +1756,7 @@
+             "aarch64-openwrt-linux-gnu",
+             "aarch64-openwrt-linux-musl",
+             "arm-openwrt-linux-gnueabi",
++            "arm-openwrt-linux-gnueabihf",
+             "armv5te-openwrt-linux-gnueabi",
+             "armv7-openwrt-linux-gnueabi",
+             "i586-openwrt-linux-gnu",

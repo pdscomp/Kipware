@@ -37,13 +37,6 @@ find_target_packages_dir() {
   return 1
 }
 
-list_packages_dirs() {
-  printf '%s\n' "${TARGET_PACKAGES_DIR}"
-  if [[ -d "${REPO_ROOT}/bin/packages/${TARGET_BOARD}" ]]; then
-    find "${REPO_ROOT}/bin/packages/${TARGET_BOARD}" -type d -path '*/packages' | sort
-  fi
-}
-
 find_opkg() {
   local candidate
 
@@ -92,10 +85,7 @@ rm -rf "${FEED_DIR}"
 mkdir -p "${INSTALLER_DIR}"
 : > "${PAGES_DIR}/.nojekyll"
 
-while IFS= read -r packages_dir; do
-  [[ -n "${packages_dir}" ]] || continue
-  find "${packages_dir}" -maxdepth 1 -type f -name '*.ipk' -exec cp -a {} "${FEED_DIR}/" \;
-done < <(list_packages_dirs)
+find "${TARGET_PACKAGES_DIR}" -maxdepth 1 -type f -name '*.ipk' -exec cp -a {} "${FEED_DIR}/" \;
 
 (
   cd "${FEED_DIR}"

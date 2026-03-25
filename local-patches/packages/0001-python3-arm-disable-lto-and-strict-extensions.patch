@@ -1,0 +1,28 @@
+Disable LTO, --enable-optimizations, and PYTHONSTRICTEXTENSIONBUILD on ARM.
+These flags cause build failures on armv7 cortex-a7 targets.  Other arches
+(x86_64, mips) continue to use them unchanged.
+
+--- a/lang/python/python3/Makefile
++++ b/lang/python/python3/Makefile
+@@ -181,10 +181,10 @@ endif
+ endif
+ 
+ MAKE_VARS += \
+-	PYTHONSTRICTEXTENSIONBUILD=1
++	$(if $(findstring arm,$(CONFIG_ARCH)),,PYTHONSTRICTEXTENSIONBUILD=1)
+ 
+ CONFIGURE_ARGS += \
+-	--enable-optimizations \
++	$(if $(findstring arm,$(CONFIG_ARCH)),,--enable-optimizations) \
+ 	--enable-shared \
+ 	--disable-test-modules \
+ 	--sysconfdir=/opt/etc \
+@@ -195,7 +195,7 @@ CONFIGURE_ARGS += \
+ 	--without-cxx-main \
+ 	--without-ensurepip \
+ 	$(if $(CONFIG_IPV6),--enable-ipv6) \
+-	$(if $(findstring mips,$(CONFIG_ARCH)),,--with-lto)
++	$(if $(or $(findstring mips,$(CONFIG_ARCH)),$(findstring arm,$(CONFIG_ARCH))),,--with-lto)
+ 
+ define Build/Install
+ 	$(call Build/Install/Default,)

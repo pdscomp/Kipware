@@ -40,6 +40,7 @@ m() {
     HOME="${HOME:-$REPO_ROOT}" \
     SHELL=/bin/bash \
     LANG=C \
+    ${CCACHE_DIR:+CCACHE_DIR="${CCACHE_DIR}"} \
     make "$@"
 }
 
@@ -77,10 +78,6 @@ ensure_config() {
     cp "${TARGET_CONFIG}" .config
   fi
   log_step "make defconfig"
-  m defconfig
-  refresh_feed_indexes
-  reinstall_feed_packages
-  log_step "make defconfig (post-feeds)"
   m defconfig
 }
 
@@ -149,211 +146,24 @@ feeds_init() {
   reinstall_feed_packages
 }
 
-patch_python3_feed() {
-  python3 <<'PY'
-from pathlib import Path
-
-targets = {
-    Path("feeds/packages/lang/python/python3/Makefile"): [
-        (
-            "--enable-optimizations \\",
-            "$(if $(findstring arm,$(CONFIG_ARCH)),,--enable-optimizations) \\",
-        ),
-        (
-            "MAKE_VARS += \\\n\tPYTHONSTRICTEXTENSIONBUILD=1",
-            "MAKE_VARS += \\\n\t$(if $(findstring arm,$(CONFIG_ARCH)),,PYTHONSTRICTEXTENSIONBUILD=1)",
-        ),
-        (
-            "$(if $(findstring mips,$(CONFIG_ARCH)),,--with-lto)",
-            "$(if $(or $(findstring mips,$(CONFIG_ARCH)),$(findstring arm,$(CONFIG_ARCH))),,--with-lto)",
-        ),
-        (
-            "$(if $(filter mips arm,$(CONFIG_ARCH)),,--with-lto)",
-            "$(if $(or $(findstring mips,$(CONFIG_ARCH)),$(findstring arm,$(CONFIG_ARCH))),,--with-lto)",
-        ),
-    ],
-}
-
-for path, replacements in targets.items():
-    if not path.exists():
-        continue
-
-    source = path.read_text()
-    updated = source
-    for old, new in replacements:
-        if old in updated and new not in updated:
-            updated = updated.replace(old, new, 1)
-
-    if updated != source:
-        path.write_text(updated)
-PY
-}
-
-patch_glib2_feed() {
-  python3 <<'PY'
-from pathlib import Path
-
-path = Path("feeds/packages/libs/glib2/Makefile")
-if not path.exists():
-    raise SystemExit(0)
-
-source = path.read_text()
-updated = source.replace(
-    "MESON_ARGS += $(COMP_ARGS) -Dxattr=true -Db_lto=true -Dnls=$(if $(CONFIG_BUILD_NLS),en,dis)abled",
-    "MESON_ARGS += $(COMP_ARGS) -Dxattr=true -Db_lto=$(if $(findstring arm,$(CONFIG_ARCH)),false,true) -Dnls=$(if $(CONFIG_BUILD_NLS),en,dis)abled",
-    1,
-)
-if updated != source:
-    path.write_text(updated)
-PY
-}
-
 apply_local_feed_fixes() {
-  patch_python3_feed
-  patch_glib2_feed
+  local patches_dir="${REPO_ROOT}/local-patches/packages"
+  [[ -d "${patches_dir}" ]] || return 0
+
+  local patch_file
+  while IFS= read -r patch_file; do
+    log_step "apply patch $(basename "${patch_file}")"
+    # -N: skip already-applied patches (idempotent across cached feed reuse)
+    # -p1: strip the a/ / b/ prefix produced by git diff
+    patch -N -p1 -d "${REPO_ROOT}/feeds/packages" < "${patch_file}" || true
+  done < <(find "${patches_dir}" -maxdepth 1 -type f -name '*.patch' | sort)
 }
 
-target_requests_python3() {
-  grep -Eq '^CONFIG_PACKAGE_python3=(y|m)$' "${TARGET_CONFIG}"
-}
-
-have_package_artifact() {
-  local symbol="$1"
-  local root
-
-  while IFS= read -r root; do
-    [[ -d "${root}" ]] || continue
-    if find "${root}" -type f -name "${symbol}_*.ipk" -print -quit | grep -q .; then
-      return 0
-    fi
-  done <<EOF
-${TARGET_PACKAGES_DIR}
-bin/packages/${TARGET_BOARD}
-EOF
-
-  return 1
-}
-
-have_python3_artifacts() {
-  have_package_artifact "python3" && have_package_artifact "libpython3"
-}
-
-have_entware_bootstrap_artifacts() {
-  have_package_artifact "entware-release" && have_package_artifact "entware-upgrade"
-}
-
-selected_python_package_symbols() {
-  grep -E '^CONFIG_PACKAGE_(libpython3|python3([-A-Za-z0-9._+]+)?)=(y|m)$' .config \
-    | sed -E 's/^CONFIG_PACKAGE_([^=]+)=.*/\1/' \
-    | grep -v -- '-src$' \
-    | sort -u
-}
-
-resolve_package_dir_for_symbol() {
-  local symbol="$1"
-  local makefile
-
-  while IFS= read -r makefile; do
-    if grep -Eq "^define Package/${symbol}([[:space:]]|\$)" "${makefile}"; then
-      dirname "${makefile}"
-      return 0
-    fi
-  done < <(find -L package -maxdepth 5 -name Makefile | sort)
-
-  echo "ERROR: Could not resolve selected package symbol '${symbol}' to a package directory" >&2
-  return 1
-}
-
-build_explicit_package_symbol() {
+build_world() {
   local nproc="$1"
-  local symbol="$2"
-  local pkgdir
-
-  pkgdir="$(resolve_package_dir_for_symbol "${symbol}")"
-  build_explicit_feed_package "${nproc}" "${pkgdir##*/}"
-}
-
-build_explicit_feed_package() {
-  local nproc="$1"
-  local pkg="$2"
-  shift 2
-  local -a make_args=("$@")
-  local pkgdir="package/feeds/packages/${pkg}"
-
-  # make defconfig (and the world build) regenerate tmp/ structures, clearing the
-  # feed index databases.  Rebuild them here so ./scripts/feeds install -f can
-  # locate packages regardless of what ran before this call.
-  refresh_feed_indexes
-  log_step "feeds install ${pkg}"
-  ./scripts/feeds install -f "${pkg}"
-  if [[ ! -f "${pkgdir}/Makefile" ]]; then
-    echo "ERROR: feed package '${pkg}' was not installed to ${pkgdir}" >&2
-    return 1
-  fi
-
-  m "${pkgdir}/clean" V=s "${make_args[@]}"
-  m "${pkgdir}/compile" -j"${nproc}" V=s "${make_args[@]}"
-}
-
-build_explicit_python3() {
-  local nproc="$1"
-  (
-    local config_backup
-    config_backup="$(mktemp)"
-    cp .config "${config_backup}"
-    cp "${TARGET_CONFIG}" .config
-    trap 'cp "${config_backup}" .config; rm -f "${config_backup}"; m defconfig >/dev/null' EXIT
-    m defconfig >/dev/null
-    build_explicit_feed_package "${nproc}" python3
-  )
-}
-
-build_explicit_entware_bootstrap() {
-  local nproc="$1"
-  local -a make_args=(
-    CONFIG_PACKAGE_entware-release=y
-    CONFIG_PACKAGE_entware-upgrade=y
-  )
-
-  build_explicit_feed_package "${nproc}" entware-release "${make_args[@]}"
-  build_explicit_feed_package "${nproc}" entware-upgrade "${make_args[@]}"
-}
-
-ensure_requested_extras() {
-  local nproc="$1"
-  local symbol
-  local pkgdir
-  declare -A built_dirs=()
-
-  if target_requests_python3 && ! have_python3_artifacts; then
-    log_step "explicit python3 build"
-    build_explicit_python3 "${nproc}"
-  fi
-
-  while IFS= read -r symbol; do
-    [[ -n "${symbol}" ]] || continue
-
-    if have_package_artifact "${symbol}"; then
-      continue
-    fi
-
-    pkgdir="$(resolve_package_dir_for_symbol "${symbol}")"
-    if [[ -z "${built_dirs[${pkgdir}]:-}" ]]; then
-      log_step "explicit ${symbol} build"
-      build_explicit_package_symbol "${nproc}" "${symbol}"
-      built_dirs["${pkgdir}"]=1
-    fi
-
-    if ! have_package_artifact "${symbol}"; then
-      echo "ERROR: requested package artifact '${symbol}' is still missing after explicit build" >&2
-      return 1
-    fi
-  done < <(selected_python_package_symbols)
-
-  if ! have_entware_bootstrap_artifacts; then
-    log_step "explicit entware bootstrap build"
-    build_explicit_entware_bootstrap "${nproc}"
-  fi
+  build_core "$nproc"
+  log_step "full world build"
+  m -j"$nproc" V=s
 }
 
 resolve_pkg_dir() {
@@ -410,18 +220,6 @@ build_core() {
   run_make_step "package/libs/zlib/compile" package/libs/zlib/compile -j"$nproc" V=s
 }
 
-build_world() {
-  local nproc="$1"
-  local world_rc=0
-  build_core "$nproc"
-  log_step "full world build"
-  m -j"$nproc" V=s || world_rc=$?
-  if (( world_rc != 0 )); then
-    echo "WARNING: full world build exited with ${world_rc}; continuing with explicit required feed package builds" >&2
-  fi
-  ensure_requested_extras "$nproc"
-}
-
 build_package() {
   local nproc="$1"
   local pkg="$2"
@@ -456,8 +254,6 @@ main() {
 
   feeds_init
   apply_local_feed_fixes
-  refresh_feed_indexes
-  reinstall_feed_packages
   ensure_config
 
   case "$cmd" in

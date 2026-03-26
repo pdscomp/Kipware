@@ -5,7 +5,7 @@
  #
  
 -CERTSDIR = /usr/share/ca-certificates
-+CERTSDIR = /opt/share/ca-certificates
++CERTSDIR = /kip/share/ca-certificates
  SUBDIRS = mozilla
  
  all:
@@ -16,7 +16,7 @@
  #
  
 -SBINDIR = /usr/sbin
-+SBINDIR = /opt/sbin
++SBINDIR = /kip/sbin
  
  all:
  
@@ -29,14 +29,14 @@
 -CERTSCONF=/etc/ca-certificates.conf
 -CERTSDIR=/usr/share/ca-certificates
 -LOCALCERTSDIR=/usr/local/share/ca-certificates
-+CERTSCONF=/opt/etc/ca-certificates.conf
-+CERTSDIR=/opt/share/ca-certificates
-+LOCALCERTSDIR=/opt/share/ca-certificates
++CERTSCONF=/kip/etc/ca-certificates.conf
++CERTSDIR=/kip/share/ca-certificates
++LOCALCERTSDIR=/kip/share/ca-certificates
  CERTBUNDLE=ca-certificates.crt
 -ETCCERTSDIR=/etc/ssl/certs
 -HOOKSDIR=/etc/ca-certificates/update.d
-+ETCCERTSDIR=/opt/etc/ssl/certs
-+HOOKSDIR=/opt/etc/ca-certificates/update.d
++ETCCERTSDIR=/kip/etc/ssl/certs
++HOOKSDIR=/kip/etc/ca-certificates/update.d
  
  while [ $# -gt 0 ];
  do

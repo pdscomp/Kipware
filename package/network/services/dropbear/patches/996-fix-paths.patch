@@ -5,10 +5,10 @@
  static int checkfileperm(char * filename);
  
 -static const char * const global_authkeys_dir = "/etc/dropbear";
-+static const char * const global_authkeys_dir = "/opt/etc/dropbear";
++static const char * const global_authkeys_dir = "/kip/etc/dropbear";
  /* strlen(global_authkeys_dir) */
 -#define  n_global_authkeys_dir  13
-+/* Entware specifics: prefix=/opt (+ 4 bytes) */
++/* Entware specifics: prefix=/kip (+ 4 bytes) */
 +#define  n_global_authkeys_dir  17
  static const char * const authkeys_file = "authorized_keys";
  /* strlen(authkeys_file) */

@@ -8,10 +8,10 @@
 -#define RSA_PRIV_FILENAME "/etc/dropbear/dropbear_rsa_host_key"
 -#define ECDSA_PRIV_FILENAME "/etc/dropbear/dropbear_ecdsa_host_key"
 -#define ED25519_PRIV_FILENAME "/etc/dropbear/dropbear_ed25519_host_key"
-+#define DSS_PRIV_FILENAME "/opt/etc/dropbear/dropbear_dss_host_key"
-+#define RSA_PRIV_FILENAME "/opt/etc/dropbear/dropbear_rsa_host_key"
-+#define ECDSA_PRIV_FILENAME "/opt/etc/dropbear/dropbear_ecdsa_host_key"
-+#define ED25519_PRIV_FILENAME "/opt/etc/dropbear/dropbear_ed25519_host_key"
++#define DSS_PRIV_FILENAME "/kip/etc/dropbear/dropbear_dss_host_key"
++#define RSA_PRIV_FILENAME "/kip/etc/dropbear/dropbear_rsa_host_key"
++#define ECDSA_PRIV_FILENAME "/kip/etc/dropbear/dropbear_ecdsa_host_key"
++#define ED25519_PRIV_FILENAME "/kip/etc/dropbear/dropbear_ed25519_host_key"
  
  /* Set NON_INETD_MODE if you require daemon functionality (ie Dropbear listens
   * on chosen ports and keeps accepting connections. This is the default.
@@ -20,7 +20,7 @@
  /* Whether to print the message of the day (MOTD). */
  #define DO_MOTD 1
 -#define MOTD_FILENAME "/etc/motd"
-+#define MOTD_FILENAME "/opt/etc/motd"
++#define MOTD_FILENAME "/kip/etc/motd"
  #define MOTD_MAXSIZE 2000
  
  /* Authentication Types - at least one required.
@@ -29,7 +29,7 @@
  /* Set this to use PRNGD or EGD instead of /dev/urandom */
  #define DROPBEAR_USE_PRNGD 0
 -#define DROPBEAR_PRNGD_SOCKET "/var/run/dropbear-rng"
-+#define DROPBEAR_PRNGD_SOCKET "/opt/var/run/dropbear-rng"
++#define DROPBEAR_PRNGD_SOCKET "/kip/var/run/dropbear-rng"
  
  /* Specify the number of clients we will allow to be connected but
   * not yet authenticated. After this limit, connections are rejected */
@@ -38,7 +38,7 @@
   * Homedir is prepended if path begins with ~/
   */
 -#define DROPBEAR_PIDFILE "/var/run/dropbear.pid"
-+#define DROPBEAR_PIDFILE "/opt/var/run/dropbear.pid"
++#define DROPBEAR_PIDFILE "/kip/var/run/dropbear.pid"
  
  /* The command to invoke for xauth when using X11 forwarding.
   * "-q" for quiet */
@@ -47,12 +47,12 @@
   */
  #define DROPBEAR_SFTPSERVER 1
 -#define SFTPSERVER_PATH "/usr/libexec/sftp-server"
-+#define SFTPSERVER_PATH "/opt/libexec/sftp-server"
++#define SFTPSERVER_PATH "/kip/libexec/sftp-server"
  
  /* This is used by the scp binary when used as a client binary. If you're
   * not using the Dropbear client, you'll need to change it */
 -#define DROPBEAR_PATH_SSH_PROGRAM "/usr/bin/dbclient"
-+#define DROPBEAR_PATH_SSH_PROGRAM "/opt/bin/dbclient"
++#define DROPBEAR_PATH_SSH_PROGRAM "/kip/bin/dbclient"
  
  /* Whether to log commands executed by a client. This only logs the
   * (single) command sent to the server, not what a user did in a
@@ -62,8 +62,8 @@
  /* The default path. This will often get replaced by the shell */
 -#define DEFAULT_PATH "/usr/bin:/bin"
 -#define DEFAULT_ROOT_PATH "/usr/sbin:/usr/bin:/sbin:/bin"
-+#define DEFAULT_PATH "/opt/usr/bin:/opt/bin:/usr/bin:/bin"
-+#define DEFAULT_ROOT_PATH "/opt/usr/sbin:/opt/usr/bin:/opt/sbin:/opt/bin:/usr/sbin:/usr/bin:/sbin:/bin"
++#define DEFAULT_PATH "/kip/usr/bin:/kip/bin:/usr/bin:/bin"
++#define DEFAULT_ROOT_PATH "/kip/usr/sbin:/kip/usr/bin:/kip/sbin:/kip/bin:/usr/sbin:/usr/bin:/sbin:/bin"
  
  #endif /* DROPBEAR_DEFAULT_OPTIONS_H_ */
 --- a/src/sysoptions.h
@@ -73,7 +73,7 @@
   */
  #ifndef COMPAT_USER_SHELLS
 -#define COMPAT_USER_SHELLS "/bin/sh","/bin/csh"
-+#define COMPAT_USER_SHELLS "/opt/bin/sh","/bin/sh","/bin/csh"
++#define COMPAT_USER_SHELLS "/kip/bin/sh","/bin/sh","/bin/csh"
  #endif
  
  #define DROPBEAR_ESCAPE_CHAR '~'

@@ -5,7 +5,7 @@
  
  	if (path == NULL) {
 -		len = asprintf(&pfh->pf_path, "/var/run/%s.pid", getprogname());
-+		len = asprintf(&pfh->pf_path, "/opt/var/run/%s.pid", getprogname());
++		len = asprintf(&pfh->pf_path, "/kip/var/run/%s.pid", getprogname());
  		if (len < 0) {
  			free(pfh);
  			return (NULL);

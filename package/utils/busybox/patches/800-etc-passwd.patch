@@ -5,19 +5,19 @@
  /* Just in case libc doesn't define some of these... */
  #ifndef _PATH_PASSWD
 -#define _PATH_PASSWD  "/etc/passwd"
-+#define _PATH_PASSWD  "/opt/etc/passwd"
++#define _PATH_PASSWD  "/kip/etc/passwd"
  #endif
  #ifndef _PATH_GROUP
 -#define _PATH_GROUP   "/etc/group"
-+#define _PATH_GROUP   "/opt/etc/group"
++#define _PATH_GROUP   "/kip/etc/group"
  #endif
  #ifndef _PATH_SHADOW
 -#define _PATH_SHADOW  "/etc/shadow"
-+#define _PATH_SHADOW  "/opt/etc/shadow"
++#define _PATH_SHADOW  "/kip/etc/shadow"
  #endif
  #ifndef _PATH_GSHADOW
 -#define _PATH_GSHADOW "/etc/gshadow"
-+#define _PATH_GSHADOW "/opt/etc/gshadow"
++#define _PATH_GSHADOW "/kip/etc/gshadow"
  #endif
  #if defined __FreeBSD__ || defined __OpenBSD__
  # include <netinet/in.h>
@@ -28,7 +28,7 @@
  	unsigned opts;
  	char *uid;
 -	const char *skel = "/etc/skel";
-+	const char *skel = "/opt/etc/skel";
++	const char *skel = "/kip/etc/skel";
  
  	/* got root? */
  	if (geteuid()) {

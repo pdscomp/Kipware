@@ -6,7 +6,7 @@
  	char *test_path[] = {
  		"",
  		"./",
-+		"/opt/lib/tc/",
++		"/kip/lib/tc/",
  		"/usr/lib/tc/",
  		"/usr/lib64/tc/",
  		"/usr/local/lib/tc/",

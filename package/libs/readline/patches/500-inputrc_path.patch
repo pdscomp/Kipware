@@ -5,7 +5,7 @@
  
  /* The ultimate last-ditch filename for an init file -- system-wide. */
 -#define SYS_INPUTRC "/etc/inputrc"
-+#define SYS_INPUTRC "/opt/etc/inputrc"
++#define SYS_INPUTRC "/kip/etc/inputrc"
  
  /* If defined, expand tabs to spaces. */
  #define DISPLAY_TABS

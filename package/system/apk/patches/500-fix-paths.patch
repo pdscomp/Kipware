@@ -6,8 +6,8 @@
  
 -	is = apk_istream_from_file(AT_FDCWD, getenv("APK_CONFIG") ?: "/etc/apk/config");
 -	if (is == ERR_PTR(-ENOENT)) is = apk_istream_from_file(AT_FDCWD, "/lib/apk/config");
-+	is = apk_istream_from_file(AT_FDCWD, getenv("APK_CONFIG") ?: "/opt/etc/apk/config");
-+	if (is == ERR_PTR(-ENOENT)) is = apk_istream_from_file(AT_FDCWD, "/opt/lib/apk/config");
++	is = apk_istream_from_file(AT_FDCWD, getenv("APK_CONFIG") ?: "/kip/etc/apk/config");
++	if (is == ERR_PTR(-ENOENT)) is = apk_istream_from_file(AT_FDCWD, "/kip/lib/apk/config");
  	if (IS_ERR(is)) return PTR_ERR(is);
  
  	while (apk_istream_get_delim(is, newline, &line) == 0) {
@@ -16,7 +16,7 @@
  	apk_ctx_init(&ctx);
  	ctx.on_tty = isatty(STDOUT_FILENO);
 -	ctx.interactive = (access("/etc/apk/interactive", F_OK) == 0) ? APK_AUTO : APK_NO;
-+	ctx.interactive = (access("/opt/etc/apk/interactive", F_OK) == 0) ? APK_AUTO : APK_NO;
++	ctx.interactive = (access("/kip/etc/apk/interactive", F_OK) == 0) ? APK_AUTO : APK_NO;
  	ctx.pretty_print = APK_AUTO;
  	ctx.out.progress = APK_AUTO;
  
@@ -40,7 +40,7 @@
  			char target[20];
  			ssize_t n;
  			n = readlinkat(dirfd, name, target, sizeof target);
-+			if (n == 16 && memcmp(target, "/opt/bin/busybox", 16) == 0)
++			if (n == 16 && memcmp(target, "/kip/bin/busybox", 16) == 0)
 +				goto done;
  			if (n == 12 && memcmp(target, "/bin/busybox", 12) == 0)
  				goto done;
@@ -92,7 +92,7 @@
  
  		// Check uvol availability
 -		if (!ac->uvol) ac->uvol = "/usr/sbin/uvol";
-+		if (!ac->uvol) ac->uvol = "/opt/sbin/uvol";
++		if (!ac->uvol) ac->uvol = "/kip/sbin/uvol";
  	} else {
  		ac->root_set = 1;
  		if (!ac->uvol) ac->uvol = ERR_PTR(-APKE_UVOL_ROOT);
@@ -115,7 +115,7 @@
  				apk_string_array_add(&ac->script_environment, environ[i]);
  	} else {
 -		apk_string_array_add(&ac->script_environment, "PATH=/usr/sbin:/usr/bin:/sbin:/bin");
-+		apk_string_array_add(&ac->script_environment, "PATH=/opt/usr/sbin:/opt/usr/bin:/opt/sbin:/opt/bin:/usr/sbin:/usr/bin:/sbin:/bin");
++		apk_string_array_add(&ac->script_environment, "PATH=/kip/usr/sbin:/kip/usr/bin:/kip/sbin:/kip/bin:/usr/sbin:/usr/bin:/sbin:/bin");
  	}
  
  	return 0;

@@ -5,7 +5,7 @@
  
  #ifndef TERMINFO
 -#define TERMINFO "/usr/share/terminfo"
-+#define TERMINFO "/opt/share/terminfo"
++#define TERMINFO "/kip/share/terminfo"
  #endif
  
  #ifdef NCURSES_TERM_ENTRY_H_incl
@@ -16,7 +16,7 @@
      FILE *result = 0;
  
 -    _nc_STRCPY(filename, "/tmp/XXXXXX", PATH_MAX);
-+    _nc_STRCPY(filename, "/opt/tmp/XXXXXX", PATH_MAX);
++    _nc_STRCPY(filename, "/kip/tmp/XXXXXX", PATH_MAX);
  #if HAVE_MKSTEMP
      {
  	int oldmask = (int) umask(077);
@@ -25,7 +25,7 @@
  	if (infodump == TRUE) {
  	    /* captoinfo's no-argument case */
 -	    source_file = "/etc/termcap";
-+	    source_file = "/opt/etc/termcap";
++	    source_file = "/kip/etc/termcap";
  	    if ((termcap = getenv("TERMCAP")) != 0
  		&& (namelst = make_namelist(getenv("TERM"))) != 0) {
  		if (access(termcap, F_OK) == 0) {
@@ -37,8 +37,8 @@
  #else
 -	if ((fp = fopen("/etc/ttytype", "r")) != 0
 -	    || (fp = fopen("/etc/ttys", "r")) != 0) {
-+	if ((fp = fopen("/opt/etc/ttytype", "r")) != 0
-+	    || (fp = fopen("/opt/etc/ttys", "r")) != 0) {
++	if ((fp = fopen("/kip/etc/ttytype", "r")) != 0
++	    || (fp = fopen("/kip/etc/ttys", "r")) != 0) {
  	    char buffer[BUFSIZ];
  	    char *s, *t, *d;
  

@@ -276,9 +276,17 @@ define Build/CoreTargets
 	$(foreach hook,$(Hooks/Compile/Post),$(call $(hook))$(sep))
 	$(Build/Install)
 	$(if $(filter-out /opt,$(ENTWARE_PREFIX)),\
-	  { [ -d "$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)" ] && \
-	    [ -e "$(PKG_INSTALL_DIR)/opt" ] || \
-	    ln -sfn "$(patsubst /%,%,$(ENTWARE_PREFIX))" "$(PKG_INSTALL_DIR)/opt"; } || true)
+	  if [ -d "$(PKG_INSTALL_DIR)/opt" ] && [ ! -L "$(PKG_INSTALL_DIR)/opt" ]; then \
+	    if [ -d "$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)" ]; then \
+	      cp -a "$(PKG_INSTALL_DIR)/opt/." "$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/" 2>/dev/null || true; \
+	      rm -rf "$(PKG_INSTALL_DIR)/opt"; \
+	    else \
+	      mv "$(PKG_INSTALL_DIR)/opt" "$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)"; \
+	    fi; \
+	    ln -sfn "$(patsubst /%,%,$(ENTWARE_PREFIX))" "$(PKG_INSTALL_DIR)/opt"; \
+	  elif [ ! -e "$(PKG_INSTALL_DIR)/opt" ] && [ -d "$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)" ]; then \
+	    ln -sfn "$(patsubst /%,%,$(ENTWARE_PREFIX))" "$(PKG_INSTALL_DIR)/opt"; \
+	  fi; true)
 	$(foreach hook,$(Hooks/Install/Post),$(call $(hook))$(sep))
 	touch $$@
 

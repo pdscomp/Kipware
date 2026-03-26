@@ -36,15 +36,15 @@ find $TARGETS -not -path \*/lib/firmware/\* -a -type f -a -exec file {} \; | \
 			new_rpath=""
 			for path in $old_rpath; do
 				case "$path" in
-					/lib/[^/]*|/usr/lib/[^/]*|/opt/lib/[^/]*|/opt/usr/lib/[^/]*|\$ORIGIN/*|\$ORIGIN) new_rpath="${new_rpath:+$new_rpath:}$path" ;;
+					/lib/[^/]*|/usr/lib/[^/]*|/kip/lib/[^/]*|/kip/usr/lib/[^/]*|\$ORIGIN/*|\$ORIGIN) new_rpath="${new_rpath:+$new_rpath:}$path" ;;
 					*) echo "$SELF: $F: removing rpath $path" ;;
 				esac
 			done
 			[ "$new_rpath" = "$old_rpath" ] || {
 				if [ -z "$new_rpath" ]; then
-					$PATCHELF --set-rpath "/opt/lib" $F
+					$PATCHELF --set-rpath "/kip/lib" $F
 				else
-					$PATCHELF --set-rpath "/opt/lib:$new_rpath" $F
+					$PATCHELF --set-rpath "/kip/lib:$new_rpath" $F
 				fi
 				}
 		}

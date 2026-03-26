@@ -130,10 +130,10 @@ buildinfo: FORCE
 headers: FORCE
 	set --; \
 	for dir in \
-		"$(STAGING_DIR)/opt/include" \
-		"$(STAGING_DIR)/opt/lib/libiconv-full/include" \
-		"$(STAGING_DIR)/opt/lib/libintl-full/include" \
-		"$(STAGING_DIR)/opt/lib/glib-2.0/include"; do \
+		"$(STAGING_ENTWARE)/include" \
+		"$(STAGING_ENTWARE)/lib/libiconv-full/include" \
+		"$(STAGING_ENTWARE)/lib/libintl-full/include" \
+		"$(STAGING_ENTWARE)/lib/glib-2.0/include"; do \
 		[ -d "$$dir" ] || continue; \
 		set -- "$$@" -C "$$dir" .; \
 	done; \

@@ -6,6 +6,11 @@
 ifneq ($(__rules_inc),1)
 __rules_inc=1
 
+# Install prefix used on the target device and in staging sysroot.
+# All packages install to $(ENTWARE_PREFIX)/... at runtime.
+ENTWARE_PREFIX := /kip
+STAGING_ENTWARE := $(STAGING_DIR)$(ENTWARE_PREFIX)
+
 ifeq ($(DUMP),)
   -include $(TOPDIR)/.config
 endif
@@ -236,7 +241,7 @@ ifeq ($(LIBC),glibc)
   endif
 endif
 
-TARGET_LDFLAGS:= -Wl,--dynamic-linker=/opt/lib/$(DYNLINKER) -Wl,-rpath=/opt/lib
+TARGET_LDFLAGS:= -Wl,--dynamic-linker=$(ENTWARE_PREFIX)/lib/$(DYNLINKER) -Wl,-rpath=$(ENTWARE_PREFIX)/lib
 
 ifeq ($(CONFIG_ARCH_64BIT),y)
   LIB_SUFFIX:=64

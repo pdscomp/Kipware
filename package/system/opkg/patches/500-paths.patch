@@ -6,11 +6,11 @@
  ADD_DEFINITIONS(-Os -Wall --std=gnu99 -g3 -Wmissing-declarations
 -	-DDATADIR="/usr/share"
 -	-DOPKGETCDIR="/etc"
-+	-DDATADIR="/opt/share"
-+	-DOPKGETCDIR="/opt/etc"
++	-DDATADIR="/kip/share"
++	-DOPKGETCDIR="/kip/etc"
  	-DOPKGLOCKFILE="${LOCK_FILE}"
 -	-DOPKGLIBDIR="/usr/lib"
-+	-DOPKGLIBDIR="/opt/lib"
++	-DOPKGLIBDIR="/kip/lib"
  	-DHOST_CPU_STR="${HOST_CPU}"
  	-DBUILD_CPU=${BUILD_CPU}
  	-DPATH_SPEC="${PATH_SPEC}"

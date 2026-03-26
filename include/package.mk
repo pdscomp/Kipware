@@ -307,6 +307,15 @@ define Build/CoreTargets
 			"$(STAGING_DIR)"; \
 	fi
 	if [ -d $(TMP_DIR)/stage-$(PKG_DIR_NAME) ]; then \
+		$(if $(filter-out /opt,$(ENTWARE_PREFIX)),\
+		  if [ -d "$(TMP_DIR)/stage-$(PKG_DIR_NAME)/opt" ] && [ ! -L "$(TMP_DIR)/stage-$(PKG_DIR_NAME)/opt" ]; then \
+		    if [ -d "$(TMP_DIR)/stage-$(PKG_DIR_NAME)$(ENTWARE_PREFIX)" ]; then \
+		      cp -a "$(TMP_DIR)/stage-$(PKG_DIR_NAME)/opt/." "$(TMP_DIR)/stage-$(PKG_DIR_NAME)$(ENTWARE_PREFIX)/"; \
+		    else \
+		      mv "$(TMP_DIR)/stage-$(PKG_DIR_NAME)/opt" "$(TMP_DIR)/stage-$(PKG_DIR_NAME)$(ENTWARE_PREFIX)"; \
+		    fi; \
+		    rm -rf "$(TMP_DIR)/stage-$(PKG_DIR_NAME)/opt"; \
+		  fi;) \
 		(cd $(TMP_DIR)/stage-$(PKG_DIR_NAME); find ./ > $(TMP_DIR)/stage-$(PKG_DIR_NAME).files); \
 		$(call locked, \
 			mv $(TMP_DIR)/stage-$(PKG_DIR_NAME).files $(STAGING_DIR)/packages/$(STAGING_FILES_LIST) && \

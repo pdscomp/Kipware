@@ -1,0 +1,171 @@
+--- a/lang/python/python3/Makefile
++++ b/lang/python/python3/Makefile
+@@ -157,7 +157,7 @@
+ 
+ EXTRA_LDFLAGS+= \
+ 	-L$(PKG_BUILD_DIR) \
+-	-L$(STAGING_DIR)/opt/lib
++	-L$(STAGING_DIR)/kip/lib
+ 
+ # Bypass configure tests for cross compilation
+ CONFIGURE_VARS += \
+@@ -187,11 +187,11 @@
+ 	$(if $(findstring arm,$(CONFIG_ARCH)),,--enable-optimizations) \
+ 	--enable-shared \
+ 	--disable-test-modules \
+-	--sysconfdir=/opt/etc \
++	--sysconfdir=/kip/etc \
+ 	--with-build-python \
+ 	--with-system-expat="$(STAGING_DIR)/opt" \
+ 	--with-system-ffi \
+-	--with-tzpath="/opt/share/zoneinfo:/usr/share/zoneinfo" \
++	--with-tzpath="/kip/share/zoneinfo:/usr/share/zoneinfo" \
+ 	--without-cxx-main \
+ 	--without-ensurepip \
+ 	$(if $(CONFIG_IPV6),--enable-ipv6) \
+@@ -201,46 +201,46 @@
+ 	$(call Build/Install/Default,)
+ 
+ 	$(SED) 's|$(TARGET_AR)|ar|g;s|$(TARGET_CROSS)readelf|readelf|g;s|$(TARGET_CC)|gcc|g;s|$(TARGET_CXX)|g++|g' \
+-		$(PKG_INSTALL_DIR)/opt/lib/python$(PYTHON3_VERSION)/_sysconfigdata_*.py \
+-		$(PKG_INSTALL_DIR)/opt/lib/python$(PYTHON3_VERSION)/config-$(PYTHON3_VERSION)-*/Makefile
++		$(PKG_INSTALL_DIR)/kip/lib/python$(PYTHON3_VERSION)/_sysconfigdata_*.py \
++		$(PKG_INSTALL_DIR)/kip/lib/python$(PYTHON3_VERSION)/config-$(PYTHON3_VERSION)-*/Makefile
+ 
+ # XXX
+ 	$(SED) 's,-f\(file\|macro\)-prefix-map=$(PKG_BUILD_DIR)=Python-$(PKG_VERSION),,g' \
+-		$(PKG_INSTALL_DIR)/opt/bin/python$(PYTHON3_VERSION)-config 
++		$(PKG_INSTALL_DIR)/kip/bin/python$(PYTHON3_VERSION)-config 
+ 	$(SED) 's,$(STAGING_DIR),,g;s,$(TOOLCHAIN_DIR),/opt,g;s,$(STAGING_DIR_HOST),/opt,g; \
+ 		s,-f\(file\|macro\)-prefix-map=$(PKG_BUILD_DIR)=Python-$(PKG_VERSION),,g; \
+ 		s,-L$(PKG_BUILD_DIR),,g;s,$(PKG_BUILD_DIR),,g' \
+-			$(PKG_INSTALL_DIR)/opt/lib/python$(PYTHON3_VERSION)/_sysconfigdata_*.py
++			$(PKG_INSTALL_DIR)/kip/lib/python$(PYTHON3_VERSION)/_sysconfigdata_*.py
+ 	$(SED) 's,/bin/mkdir,mkdir,;s,/bin/sh -e,/bin/sh,' \
+-			$(PKG_INSTALL_DIR)/opt/lib/python$(PYTHON3_VERSION)/_sysconfigdata_*.py
++			$(PKG_INSTALL_DIR)/kip/lib/python$(PYTHON3_VERSION)/_sysconfigdata_*.py
+ endef
+ 
+ define Build/InstallDev
+-	$(INSTALL_DIR) $(1)/opt/include
++	$(INSTALL_DIR) $(1)/kip/include
+ 	$(CP) \
+-		$(PKG_INSTALL_DIR)/opt/include/python$(PYTHON3_VERSION) \
+-		$(1)/opt/include/
++		$(PKG_INSTALL_DIR)/kip/include/python$(PYTHON3_VERSION) \
++		$(1)/kip/include/
+ 
+-	$(INSTALL_DIR) $(1)/opt/lib
++	$(INSTALL_DIR) $(1)/kip/lib
+ 	$(CP) \
+-		$(PKG_INSTALL_DIR)/opt/lib/python$(PYTHON3_VERSION) \
+-		$(PKG_INSTALL_DIR)/opt/lib/libpython$(PYTHON3_VERSION).so* \
+-		$(1)/opt/lib/
++		$(PKG_INSTALL_DIR)/kip/lib/python$(PYTHON3_VERSION) \
++		$(PKG_INSTALL_DIR)/kip/lib/libpython$(PYTHON3_VERSION).so* \
++		$(1)/kip/lib/
+ 
+-	$(INSTALL_DIR) $(1)/opt/lib/python$(PYTHON3_VERSION)/openwrt
++	$(INSTALL_DIR) $(1)/kip/lib/python$(PYTHON3_VERSION)/openwrt
+ 	grep -E \
+ 		'^(_PYTHON_HOST_PLATFORM|ABIFLAGS|MACHDEP|MULTIARCH)=' \
+-		$(PKG_INSTALL_DIR)/opt/lib/python$(PYTHON3_VERSION)/config-$(PYTHON3_VERSION)-*/Makefile > \
+-		$(1)/opt/lib/python$(PYTHON3_VERSION)/openwrt/Makefile-vars
++		$(PKG_INSTALL_DIR)/kip/lib/python$(PYTHON3_VERSION)/config-$(PYTHON3_VERSION)-*/Makefile > \
++		$(1)/kip/lib/python$(PYTHON3_VERSION)/openwrt/Makefile-vars
+ 
+-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
++	$(INSTALL_DIR) $(1)/kip/lib/pkgconfig
+ 	$(CP) \
+-		$(PKG_INSTALL_DIR)/opt/lib/pkgconfig/python*.pc \
+-		$(1)/opt/lib/pkgconfig
++		$(PKG_INSTALL_DIR)/kip/lib/pkgconfig/python*.pc \
++		$(1)/kip/lib/pkgconfig
+ 
+ 	$(INSTALL_DIR) $(2)/bin
+ 	$(INSTALL_BIN) \
+-		$(PKG_INSTALL_DIR)/opt/bin/python$(PYTHON3_VERSION)-config \
++		$(PKG_INSTALL_DIR)/kip/bin/python$(PYTHON3_VERSION)-config \
+ 		$(2)/bin/
+ 	$(SED) \
+ 		's|^prefix_real=.*$$$$|prefix_real="$(PYTHON3_DIR)"|' \
+@@ -248,52 +248,52 @@
+ endef
+ 
+ PYTHON3_BASE_LIB_FILES:= \
+-	/opt/lib/python$(PYTHON3_VERSION)/encodings \
+-	/opt/lib/python$(PYTHON3_VERSION)/_collections_abc.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/_sitebuiltins.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/_sysconfigdata_*.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/_weakrefset.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/abc.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/codecs.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/genericpath.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/io.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/os.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/posixpath.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/site.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/sysconfig/__init__.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/sysconfig/__main__.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/stat.py
++	/kip/lib/python$(PYTHON3_VERSION)/encodings \
++	/kip/lib/python$(PYTHON3_VERSION)/_collections_abc.py \
++	/kip/lib/python$(PYTHON3_VERSION)/_sitebuiltins.py \
++	/kip/lib/python$(PYTHON3_VERSION)/_sysconfigdata_*.py \
++	/kip/lib/python$(PYTHON3_VERSION)/_weakrefset.py \
++	/kip/lib/python$(PYTHON3_VERSION)/abc.py \
++	/kip/lib/python$(PYTHON3_VERSION)/codecs.py \
++	/kip/lib/python$(PYTHON3_VERSION)/genericpath.py \
++	/kip/lib/python$(PYTHON3_VERSION)/io.py \
++	/kip/lib/python$(PYTHON3_VERSION)/os.py \
++	/kip/lib/python$(PYTHON3_VERSION)/posixpath.py \
++	/kip/lib/python$(PYTHON3_VERSION)/site.py \
++	/kip/lib/python$(PYTHON3_VERSION)/sysconfig/__init__.py \
++	/kip/lib/python$(PYTHON3_VERSION)/sysconfig/__main__.py \
++	/kip/lib/python$(PYTHON3_VERSION)/stat.py
+ 
+ PYTHON3_LIB_FILES_DEL+=$(PYTHON3_BASE_LIB_FILES)
+ 
+ define Py3Package/python3-base/filespec
+-+|/opt/bin/python$(PYTHON3_VERSION)
+++|/kip/bin/python$(PYTHON3_VERSION)
+ $(foreach lib_file,$(PYTHON3_BASE_LIB_FILES),
+   +|$(lib_file)
+ )
+ endef
+ 
+ define Py3Package/python3-light/filespec
+-+|/opt/lib/python$(PYTHON3_VERSION)
+--|/opt/lib/python$(PYTHON3_VERSION)/idlelib
+--|/opt/lib/python$(PYTHON3_VERSION)/tkinter
+--|/opt/lib/python$(PYTHON3_VERSION)/turtledemo
+--|/opt/lib/python$(PYTHON3_VERSION)/_osx_support.py
+-$(foreach lib_file,$(filter /opt/lib/python$(PYTHON3_VERSION)/%,$(PYTHON3_LIB_FILES_DEL)),
+++|/kip/lib/python$(PYTHON3_VERSION)
++-|/kip/lib/python$(PYTHON3_VERSION)/idlelib
++-|/kip/lib/python$(PYTHON3_VERSION)/tkinter
++-|/kip/lib/python$(PYTHON3_VERSION)/turtledemo
++-|/kip/lib/python$(PYTHON3_VERSION)/_osx_support.py
++$(foreach lib_file,$(filter /kip/lib/python$(PYTHON3_VERSION)/%,$(PYTHON3_LIB_FILES_DEL)),
+   -|$(lib_file)
+ )
+ endef
+ 
+ define Package/libpython3/install
+ 	# Adding the lib-dynload folder (even just empty) suppresses 2 warnings when starting Python
+-	$(INSTALL_DIR) $(1)/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/
+-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libpython$(PYTHON3_VERSION).so* $(1)/opt/lib/
++	$(INSTALL_DIR) $(1)/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/
++	$(CP) $(PKG_INSTALL_DIR)/kip/lib/libpython$(PYTHON3_VERSION).so* $(1)/kip/lib/
+ endef
+ 
+ define Py3Package/python3-base/install
+-	$(INSTALL_DIR) $(1)/opt/bin
+-	$(LN) python$(PYTHON3_VERSION) $(1)/opt/bin/python3
+-	$(LN) python$(PYTHON3_VERSION) $(1)/opt/bin/python
++	$(INSTALL_DIR) $(1)/kip/bin
++	$(LN) python$(PYTHON3_VERSION) $(1)/kip/bin/python3
++	$(LN) python$(PYTHON3_VERSION) $(1)/kip/bin/python
+ endef
+ 
+ Py3Package/python3-light/install:=:

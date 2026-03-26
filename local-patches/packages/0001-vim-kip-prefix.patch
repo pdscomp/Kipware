@@ -1,0 +1,22 @@
+--- a/utils/vim/Makefile
++++ b/utils/vim/Makefile
+@@ -194,9 +194,9 @@ endef
+ 
+ define Build/Compile/vim-runtime
+ 	$(MAKE) -C $(PKG_BUILD_DIR)/src DESTDIR="$(PKG_INSTALL_DIR)/vim_runtime" installrtbase
+-	(cd $(PKG_INSTALL_DIR)/vim_runtime && tar -cf $(PKG_BUILD_DIR)/docs.tar ./opt/share/vim/vim$(VIMVER)/doc)
+-	$(RM) -r $(PKG_INSTALL_DIR)/vim_runtime/opt/share/vim/vim$(VIMVER)/doc
+-	$(RM) -r $(PKG_INSTALL_DIR)/vim_runtime/opt/man
++	(cd $(PKG_INSTALL_DIR)/vim_runtime && tar -cf $(PKG_BUILD_DIR)/docs.tar ./kip/share/vim/vim$(VIMVER)/doc)
++	$(RM) -r $(PKG_INSTALL_DIR)/vim_runtime/kip/share/vim/vim$(VIMVER)/doc
++	$(RM) -r $(PKG_INSTALL_DIR)/vim_runtime/kip/man
+ endef
+ 
+ define Build/Compile
+@@ -236,6 +236,6 @@ endef
+ define Package/vim-help/install
+ 	$(TAR) -C $(1) -xf $(PKG_BUILD_DIR)/docs.tar
+ 	# Entware specific: fix exec path in scripts
+-	$(SED) 's,^#!.*perl,#!/opt/bin/perl,' $(1)/opt/share/vim/vim$(VIMVER)/doc/vim2html.pl
++	$(SED) 's,^#!.*perl,#!/kip/bin/perl,' $(1)/kip/share/vim/vim$(VIMVER)/doc/vim2html.pl
+ endef

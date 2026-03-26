@@ -205,27 +205,27 @@ CONFIGURE_ARGS += \
 endif
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include $(1)/opt/lib/pkgconfig
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/* $(1)/opt/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/* $(1)$(ENTWARE_PREFIX)/include/
 
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libwolfssl.{so*,la} $(1)/opt/lib/
-	ln -s libwolfssl.so $(1)/opt/lib/libcyassl.so
-	ln -s libwolfssl.la $(1)/opt/lib/libcyassl.la
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libwolfssl.{so*,la} $(1)$(ENTWARE_PREFIX)/lib/
+	ln -s libwolfssl.so $(1)$(ENTWARE_PREFIX)/lib/libcyassl.so
+	ln -s libwolfssl.la $(1)$(ENTWARE_PREFIX)/lib/libcyassl.la
 
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/*.pc $(1)/opt/lib/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/*.pc $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
 endef
 
 define Package/libwolfssl/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libwolfssl.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libwolfssl.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 Package/libwolfsslcpu-crypto/install=$(Package/libwolfssl/install)
 
 define Package/libwolfssl-benchmark/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(CP) $(PKG_BUILD_DIR)/wolfcrypt/benchmark/.libs/benchmark $(1)/opt/bin/wolfssl-benchmark
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(CP) $(PKG_BUILD_DIR)/wolfcrypt/benchmark/.libs/benchmark $(1)$(ENTWARE_PREFIX)/bin/wolfssl-benchmark
 endef
 
 $(eval $(call BuildPackage,libwolfssl))

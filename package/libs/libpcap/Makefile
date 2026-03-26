@@ -91,20 +91,20 @@ CMAKE_OPTIONS += \
 define Build/InstallDev
 	$(call Build/InstallDev/cmake,$(1))
 	$(SED) \
-		's,^\(prefix\|exec_prefix\)=.*,\1=$(STAGING_DIR)/opt,g' \
-		$(1)/opt/bin/pcap-config
+		's,^\(prefix\|exec_prefix\)=.*,\1=$(STAGING_ENTWARE),g' \
+		$(1)$(ENTWARE_PREFIX)/bin/pcap-config
 	$(INSTALL_DIR) $(2)/bin
-	$(LN) ../../opt/bin/pcap-config $(2)/bin/pcap-config
+	$(LN) ../..$(ENTWARE_PREFIX)/bin/pcap-config $(2)/bin/pcap-config
 endef
 
 define Package/libpcap/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libpcap.so* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libpcap.so* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/rpcapd/install
-	$(INSTALL_DIR) $(1)/opt/sbin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/rpcapd $(1)/opt/sbin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/sbin/rpcapd $(1)$(ENTWARE_PREFIX)/sbin/
 endef
 
 $(eval $(call BuildPackage,libpcap))

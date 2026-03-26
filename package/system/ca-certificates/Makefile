@@ -44,29 +44,29 @@ endef
 
 define Build/Install
 	mkdir -p \
-		$(PKG_INSTALL_DIR)/opt/sbin \
-		$(PKG_INSTALL_DIR)/opt/share/ca-certificates
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/sbin \
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/share/ca-certificates
 	$(call Build/Install/Default,)
 endef
 
 define Package/ca-certificates/install
-	$(INSTALL_DIR) $(1)/opt/etc/ssl/certs
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/ca-certificates/*/*.crt $(1)/opt/etc/ssl/certs/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/etc/ssl/certs
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/share/ca-certificates/*/*.crt $(1)$(ENTWARE_PREFIX)/etc/ssl/certs/
 
-	for CERTFILE in `ls -1 $(1)/opt/etc/ssl/certs`; do \
-		HASH=`openssl x509 -hash -noout -in $(1)/opt/etc/ssl/certs/$$$$CERTFILE` ; \
+	for CERTFILE in `ls -1 $(1)$(ENTWARE_PREFIX)/etc/ssl/certs`; do \
+		HASH=`openssl x509 -hash -noout -in $(1)$(ENTWARE_PREFIX)/etc/ssl/certs/$$$$CERTFILE` ; \
 		SUFFIX=0 ; \
-		while [ -h "$(1)/opt/etc/ssl/certs/$$$$HASH.$$$$SUFFIX" ]; do \
+		while [ -h "$(1)$(ENTWARE_PREFIX)/etc/ssl/certs/$$$$HASH.$$$$SUFFIX" ]; do \
 			let "SUFFIX += 1" ; \
 		done ; \
-		$(LN) "$$$$CERTFILE" "$(1)/opt/etc/ssl/certs/$$$$HASH.$$$$SUFFIX" ; \
+		$(LN) "$$$$CERTFILE" "$(1)$(ENTWARE_PREFIX)/etc/ssl/certs/$$$$HASH.$$$$SUFFIX" ; \
 	done
 endef
 
 define Package/ca-bundle/install
-	$(INSTALL_DIR) $(1)/opt/etc/ssl/certs
-	cat $(PKG_INSTALL_DIR)/opt/share/ca-certificates/*/*.crt >$(1)/opt/etc/ssl/certs/ca-certificates.crt
-	$(LN) /opt/etc/ssl/certs/ca-certificates.crt $(1)/opt/etc/ssl/cert.pem
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/etc/ssl/certs
+	cat $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/share/ca-certificates/*/*.crt >$(1)$(ENTWARE_PREFIX)/etc/ssl/certs/ca-certificates.crt
+	$(LN) $(ENTWARE_PREFIX)/etc/ssl/certs/ca-certificates.crt $(1)$(ENTWARE_PREFIX)/etc/ssl/cert.pem
 endef
 $(eval $(call BuildPackage,ca-bundle))
 $(eval $(call BuildPackage,ca-certificates))

@@ -24,18 +24,18 @@ CONFIGURE_ARGS += \
 	--enable-hashes=glibc
 
 define Package/libcrypt-compat/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libcrypt.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libcrypt.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/*.h $(1)/opt/include/
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libcrypt.{a,la,so*} $(1)/opt/lib/
-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/*.h $(1)$(ENTWARE_PREFIX)/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libcrypt.{a,la,so*} $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
 	# libcrypt.pc is symlink to libxcrypt.pc
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/libxcrypt.pc $(1)/opt/lib/pkgconfig/libcrypt.pc
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/libxcrypt.pc $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/libcrypt.pc
 endef
 
 $(eval $(call BuildPackage,libcrypt-compat))

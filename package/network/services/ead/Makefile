@@ -41,16 +41,16 @@ TARGET_CFLAGS += \
 	-Wno-error=implicit-function-declaration
 
 MAKE_FLAGS += \
-	prefix=/opt \
+	prefix=$(ENTWARE_PREFIX) \
 	CONFIGURE_ARGS="$(CONFIGURE_ARGS)" \
 	LIBS_EADCLIENT="$(PKG_BUILD_DIR)/tinysrp/libtinysrp.a" \
-	LIBS_EAD="$(PKG_BUILD_DIR)/tinysrp/libtinysrp.a $(STAGING_DIR)/opt/lib/libpcap.a" \
+	LIBS_EAD="$(PKG_BUILD_DIR)/tinysrp/libtinysrp.a $(STAGING_ENTWARE)/lib/libpcap.a" \
 	CFLAGS="$(TARGET_CFLAGS)" \
 	LDFLAGS="$(TARGET_LDFLAGS)"
 
 define Package/ead/install
-	$(INSTALL_DIR) $(1)/opt/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ead $(1)/opt/sbin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/sbin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/ead $(1)$(ENTWARE_PREFIX)/sbin/
 endef
 
 $(eval $(call BuildPackage,ead))

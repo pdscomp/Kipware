@@ -51,20 +51,20 @@ define Package/lldpd/description
 endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/liblldpctl.so* $(1)/opt/lib/
-	$(INSTALL_DIR) $(1)/opt/include
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/lldpctl.h $(1)/opt/include/lldpctl.h
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/lldp-const.h $(1)/opt/include/lldp-const.h
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/liblldpctl.so* $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/lldpctl.h $(1)$(ENTWARE_PREFIX)/include/lldpctl.h
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/lldp-const.h $(1)$(ENTWARE_PREFIX)/include/lldp-const.h
 endef
 
 define Package/lldpd/install
 #	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_DIR) $(1)/opt/etc/lldpd.d
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/etc/lldpd.d
 #	$(INSTALL_DIR) $(1)/etc/config
-	$(INSTALL_DIR) $(1)/opt/lib $(1)/opt/sbin
-	$(CP) $(PKG_INSTALL_DIR)/opt/sbin/lldp{cli,ctl,d} $(1)/opt/sbin/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/liblldpctl.so* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib $(1)$(ENTWARE_PREFIX)/sbin
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/sbin/lldp{cli,ctl,d} $(1)$(ENTWARE_PREFIX)/sbin/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/liblldpctl.so* $(1)$(ENTWARE_PREFIX)/lib/
 #	$(INSTALL_BIN) ./files/lldpd.init $(1)/etc/init.d/lldpd
 #	$(INSTALL_CONF) ./files/lldpd.config $(1)/etc/config/lldpd
 #ifneq ($(CONFIG_LLDPD_WITH_CDP),y)
@@ -103,14 +103,14 @@ CONFIGURE_ARGS += \
 	$(if $(CONFIG_LLDPD_WITH_PRIVSEP), \
 	--with-privsep-user=lldp \
 	--with-privsep-group=lldp \
-	--with-privsep-chroot=/opt/var/run/lldp \
+	--with-privsep-chroot=$(ENTWARE_PREFIX)/var/run/lldp \
 	,--disable-privsep) \
 	--with-readline=no \
 	--with-embedded-libevent=no \
 	--disable-hardening \
 	--without-xml \
 	--disable-doxygen-doc \
-	--sysconfdir=/opt/etc \
+	--sysconfdir=$(ENTWARE_PREFIX)/etc \
 	--enable-oldies \
 	$(if $(CONFIG_LLDPD_WITH_CDP),,--disable-cdp) \
 	$(if $(CONFIG_LLDPD_WITH_FDP),,--disable-fdp) \

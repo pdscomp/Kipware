@@ -55,21 +55,21 @@ MAKE_FLAGS += \
 	SHELL="$(BASH)"
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include $(1)/opt/lib $(1)/opt/lib/pkgconfig
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/libipset $(1)/opt/include/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libipset.so* $(1)/opt/lib/
-	$(CP) $(PKG_BUILD_DIR)/lib/libipset.pc $(1)/opt/lib/pkgconfig/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include $(1)$(ENTWARE_PREFIX)/lib $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/libipset $(1)$(ENTWARE_PREFIX)/include/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libipset.so* $(1)$(ENTWARE_PREFIX)/lib/
+	$(CP) $(PKG_BUILD_DIR)/lib/libipset.pc $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
 endef
 
 define Package/ipset/install
-	$(INSTALL_DIR) $(1)/opt/sbin
-	$(CP) $(PKG_INSTALL_DIR)/opt/sbin/ipset $(1)/opt/sbin/
-	$(CP) $(PKG_INSTALL_DIR)/opt/sbin/ipset-translate $(1)/opt/sbin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/sbin
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/sbin/ipset $(1)$(ENTWARE_PREFIX)/sbin/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/sbin/ipset-translate $(1)$(ENTWARE_PREFIX)/sbin/
 endef
 
 define Package/libipset/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libipset*.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libipset*.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 $(eval $(call BuildPackage,libipset))

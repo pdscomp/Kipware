@@ -72,8 +72,8 @@ define Package/ncurses-bin
   URL:=https://www.gnu.org/software/ncurses/
   DEPENDS:=+libncursesw
   ALTERNATIVES:= \
-		300:/opt/bin/clear:/opt/bin/clear-ncurses \
-		300:/opt/bin/reset:/opt/bin/reset-ncurses
+		300:$(ENTWARE_PREFIX)/bin/clear:$(ENTWARE_PREFIX)/bin/clear-ncurses \
+		300:$(ENTWARE_PREFIX)/bin/reset:$(ENTWARE_PREFIX)/bin/reset-ncurses
 endef
 
 TARGET_CFLAGS += $(FPIC) -std=gnu17
@@ -94,9 +94,9 @@ CONFIGURE_ARGS += \
 	--disable-home-terminfo \
 	--with-normal \
 	--with-shared \
-	--with-terminfo-dirs=/opt/share/terminfo \
-	--with-default-terminfo-dir=/opt/share/terminfo \
-	--with-pkg-config-libdir=/opt/lib/pkgconfig \
+	--with-terminfo-dirs=$(ENTWARE_PREFIX)/share/terminfo \
+	--with-default-terminfo-dir=$(ENTWARE_PREFIX)/share/terminfo \
+	--with-pkg-config-libdir=$(ENTWARE_PREFIX)/lib/pkgconfig \
 	--enable-widec \
 	--with-build-cppflags=-D_GNU_SOURCE \
 	--disable-stripping
@@ -126,14 +126,14 @@ HOST_CONFIGURE_ARGS += \
 
 ifeq ($(HOST_OS),FreeBSD)
 	CONFIGURE_ARGS +=
-		--with-terminfo=/opt/share/terminfo.db 
+		--with-terminfo=$(ENTWARE_PREFIX)/share/terminfo.db 
 endif
 
 MAKE_FLAGS += \
 	BUILD_CC="$(HOSTCC)" \
 	HOSTCC="$(HOSTCC)" \
 	HOSTCCFLAGS="" \
-	PKG_CONFIG_LIBDIR=/opt/lib/pkgconfig \
+	PKG_CONFIG_LIBDIR=$(ENTWARE_PREFIX)/lib/pkgconfig \
 	libs progs
 
 define Build/Install/Default
@@ -144,18 +144,18 @@ define Build/Install/Default
 endef
 
 define Package/ncurses-bin/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/* $(1)/opt/bin/
-	rm -f $(1)/opt/bin/{clear,ncursesw6-config,reset}
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/clear $(1)/opt/bin/clear-ncurses
-	$(LN) tset $(1)/opt/bin/reset-ncurses
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/* $(1)$(ENTWARE_PREFIX)/bin/
+	rm -f $(1)$(ENTWARE_PREFIX)/bin/{clear,ncursesw6-config,reset}
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/clear $(1)$(ENTWARE_PREFIX)/bin/clear-ncurses
+	$(LN) tset $(1)$(ENTWARE_PREFIX)/bin/reset-ncurses
 endef
 
 define Package/terminfo/install
 	echo ""
 ifneq ($(HOST_OS),FreeBSD)
-	$(INSTALL_DIR) $(1)/opt/share/terminfo
-	(cd $(PKG_INSTALL_DIR)/opt/share/terminfo; \
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/share/terminfo
+	(cd $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/share/terminfo; \
 		for dir in ??; do \
 			[ -d "$$$$dir" ] || continue; \
 			mv $$$$dir $$$$(echo -ne "\x$$$$dir"); \
@@ -179,9 +179,9 @@ ifneq ($(HOST_OS),FreeBSD)
 		x/xterm-color \
 		x/xterm-256color \
 		x/xterm-utf8; do \
-		$(INSTALL_DIR) $(1)/opt/share/terminfo/`dirname $$$$file`; \
-		$(CP) $(PKG_INSTALL_DIR)/opt/share/terminfo/$$$$file \
-			$(1)/opt/share/terminfo/$$$$file; \
+		$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/share/terminfo/`dirname $$$$file`; \
+		$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/share/terminfo/$$$$file \
+			$(1)$(ENTWARE_PREFIX)/share/terminfo/$$$$file; \
 	done
 endif
 endef
@@ -189,55 +189,55 @@ endef
 define Package/terminfo/postinst
 #!/bin/sh
 
-grep -q "^export TERMINFO" /opt/etc/profile || echo "export TERMINFO=/opt/share/terminfo" >> /opt/etc/profile
+grep -q "^export TERMINFO" $(ENTWARE_PREFIX)/etc/profile || echo "export TERMINFO=/opt/share/terminfo" >> $(ENTWARE_PREFIX)/etc/profile
 endef
 
 define Package/libncursesw/install
-	$(INSTALL_DIR) $(1)/opt/lib
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
 	for lib in ncurses panel menu form; do \
-		$(CP) $(PKG_INSTALL_DIR)/opt/lib/lib$$$${lib}w.so* $(1)/opt/lib/; \
+		$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/lib$$$${lib}w.so* $(1)$(ENTWARE_PREFIX)/lib/; \
 	done
 endef
 
 define Package/libncurses-dev/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/ncursesw6-config $(1)/opt/bin/
-	$(INSTALL_DIR) $(1)/opt/include
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/*.h $(1)/opt/include/
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/*.a $(1)/opt/lib/
-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/*.pc $(1)/opt/lib/pkgconfig/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/ncursesw6-config $(1)$(ENTWARE_PREFIX)/bin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/*.h $(1)$(ENTWARE_PREFIX)/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/*.a $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/*.pc $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
 	# XXX
-	$(SED) 's,$(TOOLCHAIN_DIR),/opt,g' $(1)/opt/bin/ncursesw6-config
+	$(SED) 's,$(TOOLCHAIN_DIR),/opt,g' $(1)$(ENTWARE_PREFIX)/bin/ncursesw6-config
 endef
 
 define Package/libncurses/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	ln -s libncurses.so.$(PKG_VERSION) $(1)/opt/lib/libcurses.so
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	ln -s libncurses.so.$(PKG_VERSION) $(1)$(ENTWARE_PREFIX)/lib/libcurses.so
 	for lib in ncurses panel menu form; do \
-		ln -s lib$$$${lib}w.so $(1)/opt/lib/lib$$$${lib}.so; \
-		ln -s lib$$$${lib}w.so.6 $(1)/opt/lib/lib$$$${lib}.so.6; \
-		ln -s lib$$$${lib}w.so.$(PKG_VERSION) $(1)/opt/lib/lib$$$${lib}.so.$(PKG_VERSION); \
+		ln -s lib$$$${lib}w.so $(1)$(ENTWARE_PREFIX)/lib/lib$$$${lib}.so; \
+		ln -s lib$$$${lib}w.so.6 $(1)$(ENTWARE_PREFIX)/lib/lib$$$${lib}.so.6; \
+		ln -s lib$$$${lib}w.so.$(PKG_VERSION) $(1)$(ENTWARE_PREFIX)/lib/lib$$$${lib}.so.$(PKG_VERSION); \
 	done
 endef
 
 define Build/InstallDev
 	$(CP) $(PKG_INSTALL_DIR)/* $(1)
 	for lib in ncurses panel menu form; do \
-		for so in $(1)/opt/lib/lib$$$${lib}w.so*; do \
+		for so in $(1)$(ENTWARE_PREFIX)/lib/lib$$$${lib}w.so*; do \
 			ln -s $$$${so##*/} $$$${so%w.so*}.so$$$${so##*w.so}; \
 		done; \
 	done
-	ln -s . $(1)/opt/include/ncursesw
-	$(TARGET_CROSS)ar rc $(1)/opt/lib/libtinfo.a
+	ln -s . $(1)$(ENTWARE_PREFIX)/include/ncursesw
+	$(TARGET_CROSS)ar rc $(1)$(ENTWARE_PREFIX)/lib/libtinfo.a
 	$(INSTALL_DIR) $(2)/bin
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/ncursesw6-config $(2)/bin/
-	$(SED) 's,^\(prefix\|exec_prefix\)=.*,\1=$(STAGING_DIR)/opt,g' -e 's/$$$$INCS //g' \
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/ncursesw6-config $(2)/bin/
+	$(SED) 's,^\(prefix\|exec_prefix\)=.*,\1=$(STAGING_ENTWARE),g' -e 's/$$$$INCS //g' \
 		$(2)/bin/ncursesw6-config
-	ln -sf $(STAGING_DIR)/host/bin/ncursesw6-config $(1)/opt/bin/ncursesw6-config
+	ln -sf $(STAGING_DIR)/host/bin/ncursesw6-config $(1)$(ENTWARE_PREFIX)/bin/ncursesw6-config
 	$(SED) 's,$(TOOLCHAIN_DIR),$(STAGING_DIR),g' \
-		$(1)/opt/lib/pkgconfig/ncursesw.pc
+		$(1)$(ENTWARE_PREFIX)/lib/pkgconfig/ncursesw.pc
 endef
 
 define Host/Compile

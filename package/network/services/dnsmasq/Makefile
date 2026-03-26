@@ -89,8 +89,8 @@ and nftset, Conntrack support & NO_ID enabled by default.
 endef
 
 define Package/dnsmasq/conffiles
-/opt/etc/dnsmasq.conf
-/opt/etc/dnsmasq.d/
+$(ENTWARE_PREFIX)/etc/dnsmasq.conf
+$(ENTWARE_PREFIX)/etc/dnsmasq.d/
 endef
 
 define Package/dnsmasq-full/config
@@ -160,15 +160,15 @@ MAKE_FLAGS := \
 	CFLAGS="$(TARGET_CFLAGS) $(TARGET_CPPFLAGS)" \
 	LDFLAGS="$(TARGET_LDFLAGS)" \
 	COPTS="$(COPTS)" \
-	PREFIX="/opt"
+	PREFIX="$(ENTWARE_PREFIX)"
 
 define Package/dnsmasq/install
-	$(INSTALL_DIR) $(1)/opt/sbin
-	$(CP) $(PKG_INSTALL_DIR)/opt/sbin/dnsmasq $(1)/opt/sbin/
-	$(INSTALL_DIR) $(1)/opt/etc
-	$(INSTALL_CONF) $(PKG_BUILD_DIR)/dnsmasq.conf.example $(1)/opt/etc/dnsmasq.conf
-	$(INSTALL_DIR) $(1)/opt/etc/init.d
-	$(INSTALL_BIN) ./files/S56dnsmasq $(1)/opt/etc/init.d/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/sbin
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/sbin/dnsmasq $(1)$(ENTWARE_PREFIX)/sbin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/etc
+	$(INSTALL_CONF) $(PKG_BUILD_DIR)/dnsmasq.conf.example $(1)$(ENTWARE_PREFIX)/etc/dnsmasq.conf
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/etc/init.d
+	$(INSTALL_BIN) ./files/S56dnsmasq $(1)$(ENTWARE_PREFIX)/etc/init.d/
 endef
 
 Package/dnsmasq-dhcpv6/install = $(Package/dnsmasq/install)
@@ -176,8 +176,8 @@ Package/dnsmasq-dhcpv6/install = $(Package/dnsmasq/install)
 define Package/dnsmasq-full/install
 $(call Package/dnsmasq/install,$(1))
 ifneq ($(CONFIG_PACKAGE_dnsmasq_full_dnssec),)
-	$(INSTALL_DIR) $(1)/opt/share/dnsmasq
-	$(INSTALL_CONF) $(PKG_BUILD_DIR)/trust-anchors.conf $(1)/opt/share/dnsmasq
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/share/dnsmasq
+	$(INSTALL_CONF) $(PKG_BUILD_DIR)/trust-anchors.conf $(1)$(ENTWARE_PREFIX)/share/dnsmasq
 endif
 endef
 

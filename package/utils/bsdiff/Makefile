@@ -50,13 +50,13 @@ define Build/Compile
 endef
 
 define Package/bsdiff/install
-	$(INSTALL_DIR) $(1)/opt/bin/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bsdiff $(1)/opt/bin/bsdiff
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bsdiff $(1)$(ENTWARE_PREFIX)/bin/bsdiff
 endef
 
 define Package/bspatch/install
-	$(INSTALL_DIR) $(1)/opt/bin/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bspatch $(1)/opt/bin/bspatch
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bspatch $(1)$(ENTWARE_PREFIX)/bin/bspatch
 endef
 
 define Host/Install

@@ -275,6 +275,10 @@ define Build/CoreTargets
 	$(Build/Compile)
 	$(foreach hook,$(Hooks/Compile/Post),$(call $(hook))$(sep))
 	$(Build/Install)
+	$(if $(filter-out /opt,$(ENTWARE_PREFIX)),\
+	  { [ -d "$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)" ] && \
+	    [ -e "$(PKG_INSTALL_DIR)/opt" ] || \
+	    ln -sfn "$(patsubst /%,%,$(ENTWARE_PREFIX))" "$(PKG_INSTALL_DIR)/opt"; } || true)
 	$(foreach hook,$(Hooks/Install/Post),$(call $(hook))$(sep))
 	touch $$@
 
@@ -299,6 +303,14 @@ define Build/CoreTargets
 		$(call locked, \
 			mv $(TMP_DIR)/stage-$(PKG_DIR_NAME).files $(STAGING_DIR)/packages/$(STAGING_FILES_LIST) && \
 			$(CP) $(TMP_DIR)/stage-$(PKG_DIR_NAME)/* $(STAGING_DIR)/; \
+			$(if $(filter-out /opt,$(ENTWARE_PREFIX)), \
+			  if [ -d "$(STAGING_DIR)/opt" ] && [ ! -L "$(STAGING_DIR)/opt" ]; then \
+			    cp -a "$(STAGING_DIR)/opt/." "$(STAGING_ENTWARE)/" 2>/dev/null || true; \
+			    rm -rf "$(STAGING_DIR)/opt"; \
+			    ln -sfn "$(patsubst /%,%,$(ENTWARE_PREFIX))" "$(STAGING_DIR)/opt"; \
+			  elif [ ! -e "$(STAGING_DIR)/opt" ] && [ -d "$(STAGING_ENTWARE)" ]; then \
+			    ln -sfn "$(patsubst /%,%,$(ENTWARE_PREFIX))" "$(STAGING_DIR)/opt"; \
+			  fi) \
 		,staging-dir); \
 	fi
 	rm -rf $(TMP_DIR)/stage-$(PKG_DIR_NAME)

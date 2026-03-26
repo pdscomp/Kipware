@@ -63,16 +63,16 @@ HOST_CFLAGS += $(HOST_FPIC)
 HOST_LDFLAGS += $(HOST_FPIC)
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/readline $(1)/opt/include/
-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/lib{history,readline}.{a,so*} $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/readline.pc $(1)/opt/lib/pkgconfig/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/readline $(1)$(ENTWARE_PREFIX)/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/lib{history,readline}.{a,so*} $(1)$(ENTWARE_PREFIX)/lib/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/readline.pc $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
 endef
 
 define Package/libreadline/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/lib{history,readline}.so* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/lib{history,readline}.so* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 $(eval $(call HostBuild))

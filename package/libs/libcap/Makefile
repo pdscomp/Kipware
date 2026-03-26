@@ -58,12 +58,12 @@ define Package/libcap-bin/config
     string "capsh shell"
     help
       Set the capsh shell.
-    default "/opt/bin/sh"
+    default "$(ENTWARE_PREFIX)/bin/sh"
   endif
 endef
 
 MAKE_FLAGS += \
-    prefix=/opt \
+    prefix=$(ENTWARE_PREFIX) \
     BUILD_CC="$(CC)" \
     BUILD_CFLAGS="$(FPIC) -I$(PKG_BUILD_DIR)/libcap/include" \
     CFLAGS="$(TARGET_CFLAGS)" \
@@ -85,33 +85,33 @@ endif
 TARGET_CFLAGS += $(if $(CONFIG_USE_MUSL),-Dpthread_yield=sched_yield)
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include/sys
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/sys/*.h $(1)/opt/include/sys/
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libcap.{so*,a} $(1)/opt/lib/
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/lib/libpsx.a $(1)/opt/lib/
-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/libcap.pc $(1)/opt/lib/pkgconfig/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include/sys
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/sys/*.h $(1)$(ENTWARE_PREFIX)/include/sys/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libcap.{so*,a} $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libpsx.a $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/libcap.pc $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
 #	$(SED) 's,exec_prefix=,exec_prefix=/usr,g' $(1)/usr/lib/pkgconfig/libcap.pc
-	$(SED) 's,/opt/lib,$$$${exec_prefix}/lib,g' $(1)/opt/lib/pkgconfig/libcap.pc
-	$(SED) 's,/opt/include,$$$${prefix}/include,g' $(1)/opt/lib/pkgconfig/libcap.pc
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/libpsx.pc $(1)/opt/lib/pkgconfig/
+	$(SED) 's,$(ENTWARE_PREFIX)/lib,$$$${exec_prefix}/lib,g' $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/libcap.pc
+	$(SED) 's,$(ENTWARE_PREFIX)/include,$$$${prefix}/include,g' $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/libcap.pc
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/libpsx.pc $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
 #	$(SED) 's,exec_prefix=,exec_prefix=/usr,g' $(1)/usr/lib/pkgconfig/libpsx.pc
-	$(SED) 's,/opt/lib,$$$${exec_prefix}/lib,g' $(1)/opt/lib/pkgconfig/libpsx.pc
-	$(SED) 's,/opt/include,$$$${prefix}/include,g' $(1)/opt/lib/pkgconfig/libpsx.pc
+	$(SED) 's,$(ENTWARE_PREFIX)/lib,$$$${exec_prefix}/lib,g' $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/libpsx.pc
+	$(SED) 's,$(ENTWARE_PREFIX)/include,$$$${prefix}/include,g' $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/libpsx.pc
 endef
 
 define Package/libcap/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libcap.so* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libcap.so* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libcap-bin/install
-	$(INSTALL_DIR) $(1)/opt/sbin
-	$(CP) $(PKG_INSTALL_DIR)/opt/sbin/capsh     $(1)/opt/sbin/
-	$(CP) $(PKG_INSTALL_DIR)/opt/sbin/getcap    $(1)/opt/sbin/
-	$(CP) $(PKG_INSTALL_DIR)/opt/sbin/getpcaps  $(1)/opt/sbin/
-	$(CP) $(PKG_INSTALL_DIR)/opt/sbin/setcap    $(1)/opt/sbin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/sbin
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/sbin/capsh     $(1)$(ENTWARE_PREFIX)/sbin/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/sbin/getcap    $(1)$(ENTWARE_PREFIX)/sbin/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/sbin/getpcaps  $(1)$(ENTWARE_PREFIX)/sbin/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/sbin/setcap    $(1)$(ENTWARE_PREFIX)/sbin/
 endef
 
 $(eval $(call BuildPackage,libcap))

@@ -46,19 +46,19 @@ CONFIGURE_ARGS += \
 	--enable-thread-safe
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/mpf* $(1)/opt/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/mpf* $(1)$(ENTWARE_PREFIX)/include/
 
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libmpfr.{a,so*} $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libmpfr.{a,so*} $(1)$(ENTWARE_PREFIX)/lib/
 
-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/mpfr.pc $(1)/opt/lib/pkgconfig/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/mpfr.pc $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
 endef
 
 define Package/libmpfr/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libmpfr.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libmpfr.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 $(eval $(call BuildPackage,libmpfr))

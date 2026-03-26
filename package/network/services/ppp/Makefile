@@ -56,13 +56,13 @@ This package contains the PPP (Point-to-Point Protocol) daemon.
 endef
 
 define Package/ppp/conffiles
-/opt/etc/ppp/chap-secrets
-/opt/etc/ppp/filter
-/opt/etc/ppp/ip-down
-/opt/etc/ppp/ip-up
-/opt/etc/ppp/ipv6-down
-/opt/etc/ppp/ipv6-up
-/opt/etc/ppp/options
+$(ENTWARE_PREFIX)/etc/ppp/chap-secrets
+$(ENTWARE_PREFIX)/etc/ppp/filter
+$(ENTWARE_PREFIX)/etc/ppp/ip-down
+$(ENTWARE_PREFIX)/etc/ppp/ip-up
+$(ENTWARE_PREFIX)/etc/ppp/ipv6-down
+$(ENTWARE_PREFIX)/etc/ppp/ipv6-up
+$(ENTWARE_PREFIX)/etc/ppp/options
 endef
 
 define Package/ppp-mod-pppoa
@@ -97,8 +97,8 @@ plugin for ppp.
 endef
 
 define Package/ppp-mod-radius/conffiles
-/opt/etc/ppp/radius.conf
-/opt/etc/ppp/radius/
+$(ENTWARE_PREFIX)/etc/ppp/radius.conf
+$(ENTWARE_PREFIX)/etc/ppp/radius/
 endef
 
 define Package/ppp-mod-pppol2tp
@@ -209,83 +209,83 @@ ifdef CONFIG_USE_MUSL
 endif
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include
-	$(CP) $(PKG_INSTALL_DIR)/include/pppd $(1)/opt/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
+	$(CP) $(PKG_INSTALL_DIR)/include/pppd $(1)$(ENTWARE_PREFIX)/include/
 endef
 
 define Package/ppp/script_install
 endef
 
 define Package/ppp/install
-	$(INSTALL_DIR) $(1)/opt/lib/pppd/$(PKG_RELEASE_VERSION)
-	$(INSTALL_DIR) $(1)/opt/sbin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/sbin/pppd $(1)/opt/sbin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pppd/$(PKG_RELEASE_VERSION)
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/sbin/pppd $(1)$(ENTWARE_PREFIX)/sbin/
 endef
 Package/ppp-multilink/install=$(Package/ppp/install)
 
 define Package/ppp-mod-pppoa/install
-	$(INSTALL_DIR) $(1)/opt/lib/pppd/$(PKG_RELEASE_VERSION)
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pppd/$(PKG_RELEASE_VERSION)
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/lib/pppd/$(PKG_RELEASE_VERSION)/pppoatm.so \
-		$(1)/opt/lib/pppd/$(PKG_RELEASE_VERSION)/
+		$(1)$(ENTWARE_PREFIX)/lib/pppd/$(PKG_RELEASE_VERSION)/
 endef
 
 define Package/ppp-mod-pppoe/install
-	$(INSTALL_DIR) $(1)/opt/lib/pppd/$(PKG_RELEASE_VERSION)
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pppd/$(PKG_RELEASE_VERSION)
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/lib/pppd/$(PKG_RELEASE_VERSION)/rp-pppoe.so \
-		$(1)/opt/lib/pppd/$(PKG_RELEASE_VERSION)/
+		$(1)$(ENTWARE_PREFIX)/lib/pppd/$(PKG_RELEASE_VERSION)/
 endef
 
 define Package/ppp-mod-radius/install
-	$(INSTALL_DIR) $(1)/opt/lib/pppd/$(PKG_RELEASE_VERSION)
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pppd/$(PKG_RELEASE_VERSION)
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/lib/pppd/$(PKG_RELEASE_VERSION)/radius.so \
-		$(1)/opt/lib/pppd/$(PKG_RELEASE_VERSION)/
-	$(INSTALL_DIR) $(1)/opt/etc/ppp
-	$(INSTALL_DATA) ./files/etc/ppp/radius.conf $(1)/opt/etc/ppp/
-	$(INSTALL_DIR) $(1)/opt/etc/ppp/radius
+		$(1)$(ENTWARE_PREFIX)/lib/pppd/$(PKG_RELEASE_VERSION)/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/etc/ppp
+	$(INSTALL_DATA) ./files/etc/ppp/radius.conf $(1)$(ENTWARE_PREFIX)/etc/ppp/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/etc/ppp/radius
 	$(INSTALL_DATA) ./files/etc/ppp/radius/dictionary* \
-		$(1)/opt/etc/ppp/radius/
+		$(1)$(ENTWARE_PREFIX)/etc/ppp/radius/
 	$(INSTALL_CONF) ./files/etc/ppp/radius/servers \
-		$(1)/opt/etc/ppp/radius/
+		$(1)$(ENTWARE_PREFIX)/etc/ppp/radius/
 endef
 
 define Package/ppp-mod-pppol2tp/install
-	$(INSTALL_DIR) $(1)/opt/lib/pppd/$(PKG_RELEASE_VERSION)
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pppd/$(PKG_RELEASE_VERSION)
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/lib/pppd/$(PKG_RELEASE_VERSION)/pppol2tp.so \
-		$(1)/opt/lib/pppd/$(PKG_RELEASE_VERSION)/
+		$(1)$(ENTWARE_PREFIX)/lib/pppd/$(PKG_RELEASE_VERSION)/
 endef
 
 define Package/ppp-mod-pptp/install
-	$(INSTALL_DIR) $(1)/opt/lib/pppd/$(PKG_RELEASE_VERSION)
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pppd/$(PKG_RELEASE_VERSION)
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/lib/pppd/$(PKG_RELEASE_VERSION)/pptp.so \
-		$(1)/opt/lib/pppd/$(PKG_RELEASE_VERSION)/
-	$(INSTALL_DIR) $(1)/opt/etc/ppp
-	$(INSTALL_DATA) ./files/etc/ppp/options.pptp $(1)/opt/etc/ppp/
+		$(1)$(ENTWARE_PREFIX)/lib/pppd/$(PKG_RELEASE_VERSION)/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/etc/ppp
+	$(INSTALL_DATA) ./files/etc/ppp/options.pptp $(1)$(ENTWARE_PREFIX)/etc/ppp/
 endef
 
 define Package/ppp-mod-passwordfd/install
-	$(INSTALL_DIR) $(1)/opt/lib/pppd/$(PKG_RELEASE_VERSION)
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pppd/$(PKG_RELEASE_VERSION)
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/lib/pppd/$(PKG_RELEASE_VERSION)/passwordfd.so \
-		$(1)/opt/lib/pppd/$(PKG_RELEASE_VERSION)/
+		$(1)$(ENTWARE_PREFIX)/lib/pppd/$(PKG_RELEASE_VERSION)/
 endef
 
 define Package/chat/install
-	$(INSTALL_DIR) $(1)/opt/sbin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/sbin/chat $(1)/opt/sbin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/sbin/chat $(1)$(ENTWARE_PREFIX)/sbin/
 endef
 
 define Package/pppdump/install
-	$(INSTALL_DIR) $(1)/opt/sbin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/sbin/pppdump $(1)/opt/sbin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/sbin/pppdump $(1)$(ENTWARE_PREFIX)/sbin/
 endef
 
 define Package/pppstats/install
-	$(INSTALL_DIR) $(1)/opt/sbin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/sbin/pppstats $(1)/opt/sbin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/sbin/pppstats $(1)$(ENTWARE_PREFIX)/sbin/
 endef
 
 define Package/pppoe-discovery/install
-	$(INSTALL_DIR) $(1)/opt/sbin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/sbin/pppoe-discovery $(1)/opt/sbin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/sbin/pppoe-discovery $(1)$(ENTWARE_PREFIX)/sbin/
 endef
 
 $(eval $(call BuildPackage,ppp))

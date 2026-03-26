@@ -101,42 +101,42 @@ CONFIGURE_ARGS += \
 	--disable-debug
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include/libnl3 $(1)/opt/lib/pkgconfig
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/libnl3/* $(1)/opt/include/libnl3/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/* $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/*.pc $(1)/opt/lib/pkgconfig
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include/libnl3 $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/libnl3/* $(1)$(ENTWARE_PREFIX)/include/libnl3/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/* $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/*.pc $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
 
 	# Copy symlinks
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libnl-3.so $(1)/opt/lib/libnl.so
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libnl-genl-3.so $(1)/opt/lib/libnl-genl.so
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libnl-nf-3.so $(1)/opt/lib/libnl-nf.so
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libnl-route-3.so $(1)/opt/lib/libnl-route.so
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libnl-cli-3.so $(1)/opt/lib/libnl-cli.so
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnl-3.so $(1)$(ENTWARE_PREFIX)/lib/libnl.so
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnl-genl-3.so $(1)$(ENTWARE_PREFIX)/lib/libnl-genl.so
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnl-nf-3.so $(1)$(ENTWARE_PREFIX)/lib/libnl-nf.so
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnl-route-3.so $(1)$(ENTWARE_PREFIX)/lib/libnl-route.so
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnl-cli-3.so $(1)$(ENTWARE_PREFIX)/lib/libnl-cli.so
 endef
 
 define Package/libnl-core/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libnl-3.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnl-3.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libnl-genl/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libnl-genl-3.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnl-genl-3.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libnl-route/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libnl-route-3.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnl-route-3.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libnl-nf/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libnl-nf-3.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnl-nf-3.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libnl-cli/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libnl-cli-3.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnl-cli-3.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libnl/install

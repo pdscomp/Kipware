@@ -83,24 +83,24 @@ CMAKE_OPTIONS += \
 
 define Build/InstallDev
 	$(call Build/InstallDev/cmake,$(1))
-	$(SED) 	's,^\(prefix\|exec_prefix\)=.*,\1=$(STAGING_DIR)/opt,g' $(1)/opt/bin/pcre2-config
+	$(SED) 	's,^\(prefix\|exec_prefix\)=.*,\1=$(STAGING_ENTWARE),g' $(1)$(ENTWARE_PREFIX)/bin/pcre2-config
 	$(INSTALL_DIR) $(2)/bin
-	$(LN) ../../opt/bin/pcre2-config $(2)/bin/pcre2-config
+	$(LN) ../..$(ENTWARE_PREFIX)/bin/pcre2-config $(2)/bin/pcre2-config
 endef
 
 define Package/libpcre2/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libpcre2-{8,posix}.so* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libpcre2-{8,posix}.so* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libpcre2-16/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libpcre2-16.so* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libpcre2-16.so* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libpcre2-32/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libpcre2-32.so* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libpcre2-32.so* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 $(eval $(call BuildPackage,libpcre2))

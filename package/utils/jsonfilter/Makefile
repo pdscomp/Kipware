@@ -25,8 +25,8 @@ define Package/jsonfilter
 endef
 
 define Package/jsonfilter/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/jsonpath $(1)/opt/bin/jsonfilter
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/jsonpath $(1)$(ENTWARE_PREFIX)/bin/jsonfilter
 endef
 
 $(eval $(call BuildPackage,jsonfilter))

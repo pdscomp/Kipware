@@ -49,25 +49,25 @@ CONFIGURE_VARS += \
 	lt_prog_compiler_pic="$(FPIC)"
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include/libnfnetlink
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include/libnfnetlink
 	$(CP) \
-		$(PKG_INSTALL_DIR)/opt/include/libnfnetlink/{libnfnetlink,linux_nfnetlink,linux_nfnetlink_compat}.h \
-		$(1)/opt/include/libnfnetlink/
-	$(INSTALL_DIR) $(1)/opt/lib
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/libnfnetlink/{libnfnetlink,linux_nfnetlink,linux_nfnetlink_compat}.h \
+		$(1)$(ENTWARE_PREFIX)/include/libnfnetlink/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
 	$(CP) \
-		$(PKG_INSTALL_DIR)/opt/lib/libnfnetlink.{a,so*} \
-		$(1)/opt/lib/
-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnfnetlink.{a,so*} \
+		$(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
 	$(CP) \
-		$(PKG_INSTALL_DIR)/opt/lib/pkgconfig/libnfnetlink.pc \
-		$(1)/opt/lib/pkgconfig/
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/libnfnetlink.pc \
+		$(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
 endef
 
 define Package/libnfnetlink/install
-	$(INSTALL_DIR) $(1)/opt/lib
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
 	$(CP) \
-		$(PKG_INSTALL_DIR)/opt/lib/libnfnetlink.so.* \
-		$(1)/opt/lib/
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnfnetlink.so.* \
+		$(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 $(eval $(call BuildPackage,libnfnetlink))

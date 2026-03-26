@@ -119,19 +119,19 @@ endef
 define Package/libopenssl-conf
   $(call Package/openssl/Default)
   SUBMENU:=SSL
-  TITLE:=/opt/etc/ssl/openssl.cnf config file
+  TITLE:=$(ENTWARE_PREFIX)/etc/ssl/openssl.cnf config file
   DEPENDS:=libopenssl
 endef
 
 define Package/libopenssl-conf/conffiles
-/opt/etc/ssl/openssl.cnf
+$(ENTWARE_PREFIX)/etc/ssl/openssl.cnf
 $(if $(CONFIG_OPENSSL_ENGINE_BUILTIN_DEVCRYPTO),/etc/ssl/modules.cnf.d/devcrypto.cnf)
 $(if $(CONFIG_OPENSSL_ENGINE_BUILTIN_PADLOCK),/etc/ssl/modules.cnf.d/padlock.cnf)
 endef
 
 define Package/libopenssl-conf/description
 $(call Package/openssl/Default/description)
-This package installs the OpenSSL configuration file /opt/etc/ssl/openssl.cnf.
+This package installs the OpenSSL configuration file $(ENTWARE_PREFIX)/etc/ssl/openssl.cnf.
 endef
 
 ifneq ($(CONFIG_OPENSSL_ENGINE_BUILTIN_PADLOCK)$(CONFIG_OPENSSL_ENGINE_BUILTIN_DEVCRYPTO),)
@@ -369,9 +369,9 @@ define Build/Configure
 		CPPFLAGS="$(TARGET_CPPFLAGS)" \
 		LDFLAGS="$(TARGET_LDFLAGS)" \
 		./Configure $(OPENSSL_TARGET) \
-			--prefix=/opt \
+			--prefix=$(ENTWARE_PREFIX) \
 			--libdir=lib \
-			--openssldir=/opt/etc/ssl \
+			--openssldir=$(ENTWARE_PREFIX)/etc/ssl \
 			--cross-compile-prefix="$(TARGET_CROSS)" \
 			$(OPENSSL_OPTIONS) && \
 		{ [ -f $(STAMP_CONFIGURED) ] || make clean; } \
@@ -390,36 +390,36 @@ define Build/Compile
 endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/openssl $(1)/opt/include/
-	$(INSTALL_DIR) $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/lib{crypto,ssl}.{a,so*} $(1)/opt/lib/
-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/{openssl,libcrypto,libssl}.pc $(1)/opt/lib/pkgconfig/
-	[ -n "$(TARGET_LDFLAGS)" ] && $(SED) 's#$(TARGET_LDFLAGS)##g' $(1)/opt/lib/pkgconfig/{openssl,libcrypto,libssl}.pc || true
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/openssl $(1)$(ENTWARE_PREFIX)/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/lib{crypto,ssl}.{a,so*} $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/{openssl,libcrypto,libssl}.pc $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
+	[ -n "$(TARGET_LDFLAGS)" ] && $(SED) 's#$(TARGET_LDFLAGS)##g' $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/{openssl,libcrypto,libssl}.pc || true
 	# for cmake build system
-	$(INSTALL_DIR) $(1)/opt/lib/cmake
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/cmake/OpenSSL $(1)/opt/lib/cmake/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/cmake
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/cmake/OpenSSL $(1)$(ENTWARE_PREFIX)/lib/cmake/
 endef
 
 define Package/libopenssl/install
-	$(INSTALL_DIR) $(1)/opt/etc/ssl/certs
-	$(INSTALL_DIR) $(1)/opt/etc/ssl/private
-	chmod 0700 $(1)/opt/etc/ssl/private
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/lib/libcrypto.so.* $(1)/opt/lib/
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/lib/libssl.so.* $(1)/opt/lib/
-	$(if $(CONFIG_OPENSSL_ENGINE),$(INSTALL_DIR) $(1)/opt/lib/$(ENGINES_DIR))
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/etc/ssl/certs
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/etc/ssl/private
+	chmod 0700 $(1)$(ENTWARE_PREFIX)/etc/ssl/private
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libcrypto.so.* $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libssl.so.* $(1)$(ENTWARE_PREFIX)/lib/
+	$(if $(CONFIG_OPENSSL_ENGINE),$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/$(ENGINES_DIR))
 endef
 
 define Package/libopenssl-conf/install
-	$(INSTALL_DIR) $(1)/opt/etc/ssl/modules.cnf.d
-	$(CP) $(PKG_INSTALL_DIR)/opt/etc/ssl/openssl.cnf $(1)/opt/etc/ssl/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/etc/ssl/modules.cnf.d
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/etc/ssl/openssl.cnf $(1)$(ENTWARE_PREFIX)/etc/ssl/
 #	$(INSTALL_BIN) ./files/openssl.init $(1)/etc/init.d/openssl
 #	$(SED) 's!%ENGINES_DIR%!/usr/lib/$(ENGINES_DIR)!' $(1)/etc/init.d/openssl
 #	touch $(1)/etc/config/openssl
 	$(if $(CONFIG_OPENSSL_ENGINE),,
-		$(SED) 's!engines = engines_sect!#&!' $(1)/opt/etc/ssl/openssl.cnf)
+		$(SED) 's!engines = engines_sect!#&!' $(1)$(ENTWARE_PREFIX)/etc/ssl/openssl.cnf)
 	$(if $(CONFIG_OPENSSL_ENGINE_BUILTIN_DEVCRYPTO),
 		$(CP) ./files/devcrypto.cnf $(1)/etc/ssl/modules.cnf.d/
 		echo -e "config engine 'devcrypto'\n\toption enabled '1'\n\toption builtin '1'" >> $(1)/etc/config/openssl)
@@ -429,8 +429,8 @@ define Package/libopenssl-conf/install
 endef
 
 define Package/openssl-util/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/openssl $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/openssl $(1)$(ENTWARE_PREFIX)/bin/
 endef
 
 $(eval $(call BuildPackage,libopenssl))

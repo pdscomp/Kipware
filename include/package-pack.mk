@@ -453,6 +453,10 @@ endif
 	$(if $(Package/$(1)/install-overlay),mkdir -p $(PACKAGE_DIR) $$(IDIR_$(1))/rootfs-overlay)
 	$(call Package/$(1)/install-overlay,$$(IDIR_$(1))/rootfs-overlay)
 	-find $$(IDIR_$(1)) -name '.svn' -o -name '.#*' -o -name '*~'| $(XARGS) rm -rf
+	$(if $(filter-out /opt,$(ENTWARE_PREFIX)),\
+	  if [ -d "$$(IDIR_$(1))/opt" ] && [ ! -e "$$(IDIR_$(1))$(ENTWARE_PREFIX)" ]; then \
+	    mv "$$(IDIR_$(1))/opt" "$$(IDIR_$(1))$(ENTWARE_PREFIX)"; \
+	  fi)
 	@( \
 		find $$(IDIR_$(1)) -name lib\*.so\* -or -name \*.ko | awk -F/ '{ print $$$$NF }'; \
 		for file in $$(patsubst %,$(PKG_INFO_DIR)/%.provides,$$(IDEPEND_$(1))); do \

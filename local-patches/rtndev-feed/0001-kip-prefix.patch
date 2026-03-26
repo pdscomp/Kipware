@@ -1,0 +1,235 @@
+--- a/entware-opt/Makefile
++++ b/entware-opt/Makefile
+@@ -44,37 +44,37 @@
+ endef
+ 
+ define Package/entware-opt/install
+-	$(INSTALL_DIR) $(1)/opt/etc/init.d
+-	$(INSTALL_BIN) ./files/rc.unslung $(1)/opt/etc/init.d
+-	$(INSTALL_BIN) ./files/profile $(1)/opt/etc
+-	$(INSTALL_DATA) ./files/rc.func $(1)/opt/etc/init.d
+-	touch $(1)/opt/etc/ld.so.conf
+-	$(INSTALL_DATA) ./files/{shells.1,passwd.1,group.1} $(1)/opt/etc
+-	$(INSTALL_DIR) $(1)/opt/home $(1)/opt/root $(1)/opt/etc/skel
+-	$(INSTALL_DATA) ./files/.profile $(1)/opt/etc/skel
+-	$(INSTALL_DATA) ./files/.profile $(1)/opt/root
+-	$(INSTALL_DATA) ./files/.inputrc $(1)/opt/etc/skel
+-	$(INSTALL_DATA) ./files/.inputrc $(1)/opt/root
+-	$(INSTALL_DIR) $(1)/opt/{bin,sbin,lib/opkg,share,tmp,usr} \
+-	    $(1)/opt/var/{log,lock,run}
++	$(INSTALL_DIR) $(1)/kip/etc/init.d
++	$(INSTALL_BIN) ./files/rc.unslung $(1)/kip/etc/init.d
++	$(INSTALL_BIN) ./files/profile $(1)/kip/etc
++	$(INSTALL_DATA) ./files/rc.func $(1)/kip/etc/init.d
++	touch $(1)/kip/etc/ld.so.conf
++	$(INSTALL_DATA) ./files/{shells.1,passwd.1,group.1} $(1)/kip/etc
++	$(INSTALL_DIR) $(1)/kip/home $(1)/kip/root $(1)/kip/etc/skel
++	$(INSTALL_DATA) ./files/.profile $(1)/kip/etc/skel
++	$(INSTALL_DATA) ./files/.profile $(1)/kip/root
++	$(INSTALL_DATA) ./files/.inputrc $(1)/kip/etc/skel
++	$(INSTALL_DATA) ./files/.inputrc $(1)/kip/root
++	$(INSTALL_DIR) $(1)/kip/{bin,sbin,lib/opkg,share,tmp,usr} \
++	    $(1)/kip/var/{log,lock,run}
+ endef
+ 
+ define Package/entware-opt/conffiles
+-/opt/etc/profile
+-/opt/etc/passwd.1
+-/opt/etc/group.1
+-/opt/etc/shells.1
++/kip/etc/profile
++/kip/etc/passwd.1
++/kip/etc/group.1
++/kip/etc/shells.1
+ endef
+ 
+ # make symbolic links if busybox is not installed (standard=generic install)
+ define Package/entware-opt/postinst
+ #!/bin/sh
+ 
+-[ -e /opt/bin/busybox ] && exit 0
++[ -e /kip/bin/busybox ] && exit 0
+ 
+ for fw_cmd in sbin/ifconfig sbin/route sbin/ip bin/netstat bin/sh bin/ash; do
+-    if [ -f /$$fw_cmd ] && [ ! -f /opt/$$fw_cmd ]; then
+-	ln -s /$$fw_cmd /opt/$$fw_cmd
++    if [ -f /$$fw_cmd ] && [ ! -f /kip/$$fw_cmd ]; then
++	ln -s /$$fw_cmd /kip/$$fw_cmd
+     fi
+ done
+ endef
+--- a/entware-opt/files/profile
++++ b/entware-opt/files/profile
+@@ -1,7 +1,7 @@
+ #!/bin/sh
+ 
+ # Please note it's not a system-wide settings, it's only for a current
+-# terminal session. Point your f\w (if necessery) to execute /opt/etc/profile
++# terminal session. Point your f\w (if necessery) to execute /kip/etc/profile
+ # at console logon.
+ 
+ is_substring(){
+@@ -11,20 +11,20 @@
+     esac
+ }
+ 
+-# Set CHECK_OPT_PATH to 1 to check /opt/bin and /opt/sbin in PATH
++# Set CHECK_OPT_PATH to 1 to check /kip/bin and /kip/sbin in PATH
+ CHECK_OPT_PATH=0
+ if [ $CHECK_OPT_PATH = 1 ]; then
+-    is_substring "/opt/bin" $PATH
+-    [ $? == 1 ] && export PATH=/opt/bin:$PATH
+-    is_substring "/opt/sbin" $PATH
+-    [ $? == 1 ] && export PATH=/opt/sbin:$PATH
++    is_substring "/kip/bin" $PATH
++    [ $? == 1 ] && export PATH=/kip/bin:$PATH
++    is_substring "/kip/sbin" $PATH
++    [ $? == 1 ] && export PATH=/kip/sbin:$PATH
+ else
+-    export PATH=/opt/bin:/opt/sbin:$PATH
++    export PATH=/kip/bin:/kip/sbin:$PATH
+ fi
+-export TERMINFO=/opt/share/terminfo
++export TERMINFO=/kip/share/terminfo
+ export TERM=xterm
+-export TMP=/opt/tmp
+-export TEMP=/opt/tmp
++export TMP=/kip/tmp
++export TEMP=/kip/tmp
+ unset LD_PRELOAD
+ unset LD_LIBRARY_PATH
+ alias mc="mc -c"
+--- a/entware-opt/files/rc.unslung
++++ b/entware-opt/files/rc.unslung
+@@ -1,8 +1,8 @@
+ #!/bin/sh
+ 
+-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++PATH=/kip/sbin:/kip/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ 
+-# Start/stop all init scripts in /opt/etc/init.d including symlinks
++# Start/stop all init scripts in /kip/etc/init.d including symlinks
+ # starting them in numerical order and
+ # stopping them in reverse numerical order
+ 
+@@ -20,7 +20,7 @@
+ 
+ [ $ACTION = stop -o $ACTION = restart -o $ACTION = kill ] && ORDER="-r"
+ 
+-for i in $(/opt/bin/find /opt/etc/init.d/ -perm '-u+x' -name 'S*' | sort $ORDER ) ;
++for i in $(/kip/bin/find /kip/etc/init.d/ -perm '-u+x' -name 'S*' | sort $ORDER ) ;
+ do
+     case "$i" in
+         S* | *.sh )
+--- a/entware-opt/files/passwd.1
++++ b/entware-opt/files/passwd.1
+@@ -1,2 +1,2 @@
+-root:$1$chUKvN9o$BmKP1BtdSaTDSxNByBJo8.:0:0:Root:/opt/root:/opt/bin/sh
+-nobody:x:99:99::/opt/home:/opt/bin/false
++root:$1$chUKvN9o$BmKP1BtdSaTDSxNByBJo8.:0:0:Root:/kip/root:/kip/bin/sh
++nobody:x:99:99::/kip/home:/kip/bin/false
+--- a/entware-opt/files/shells.1
++++ b/entware-opt/files/shells.1
+@@ -1,4 +1,4 @@
+ /bin/sh
+ /bin/ash
+-/opt/bin/sh
+-/opt/bin/ash
++/kip/bin/sh
++/kip/bin/ash
+--- a/entware-opt/files/.profile
++++ b/entware-opt/files/.profile
+@@ -1,3 +1,3 @@
+ #!/bin/sh
+ 
+-. /opt/etc/profile
++. /kip/etc/profile
+--- a/entware-release/Makefile
++++ b/entware-release/Makefile
+@@ -20,7 +20,7 @@
+ endef
+ 
+ define Package/entware-release/description
+- entware_release is a file in /opt/etc with entware info.
++ entware_release is a file in /kip/etc with entware info.
+ endef
+ 
+ ifneq ($(firstword "x$(CONFIG_CPU_TYPE)"), "x")
+@@ -46,27 +46,27 @@
+ Build/Compile:=:
+ 
+ define Package/entware-release/install
+-	$(INSTALL_DIR) $(1)/opt/etc
+-	echo "PRETTY_NAME=\"Entware $(PKG_VERSION)\"" > $(1)/opt/etc/entware_release
+-	echo "NAME=\"Entware\"" >> $(1)/opt/etc/entware_release
+-	echo "VERSION_ID=\"$(PKG_VERSION)\"" >> $(1)/opt/etc/entware_release
+-	echo "VERSION=\"$(PKG_VERSION) (sync with OpenWrt)\"" >> $(1)/opt/etc/entware_release
+-	echo "ID=entware" >> $(1)/opt/etc/entware_release
+-	echo "HOME_URL=\"https://entware.net/\"" >> $(1)/opt/etc/entware_release
+-	echo "SUPPORT_URL=\"https://github.com/Entware/Entware/discussions/\"" >> $(1)/opt/etc/entware_release
+-	echo "BUG_REPORT_URL=\"https://github.com/Entware/Entware/issues/\"" >> $(1)/opt/etc/entware_release
+-	echo "" >> $(1)/opt/etc/entware_release
+-	echo "Build summary:" >> $(1)/opt/etc/entware_release
+-	echo "Linux Kernel $(LINUX_VERSION)" >> $(1)/opt/etc/entware_release
+-	echo "arch=$(ARCH)" >> $(1)/opt/etc/entware_release
+-	echo "cpu_type=$(CPUTYPE)" >> $(1)/opt/etc/entware_release
+-	echo "cpu_subtype=$(CPUSUBTYPE)" >> $(1)/opt/etc/entware_release
+-	echo "float=$(FLOAT)" >> $(1)/opt/etc/entware_release
+-	echo "binutils_version=\"$(call qstrip,$(CONFIG_BINUTILS_VERSION))\"" >> $(1)/opt/etc/entware_release
+-	echo "gcc_version=\"$(call qstrip,$(CONFIG_GCC_VERSION))\"" >> $(1)/opt/etc/entware_release
+-	echo "gcc_flags=\"$(ENVCFLAGS)\"" >> $(1)/opt/etc/entware_release
+-	echo "libc_type=glibc" >> $(1)/opt/etc/entware_release
+-	echo "libc_version=\"$(call qstrip,$(CONFIG_GLIBC_VERSION))\"" >> $(1)/opt/etc/entware_release
++	$(INSTALL_DIR) $(1)/kip/etc
++	echo "PRETTY_NAME=\"Entware $(PKG_VERSION)\"" > $(1)/kip/etc/entware_release
++	echo "NAME=\"Entware\"" >> $(1)/kip/etc/entware_release
++	echo "VERSION_ID=\"$(PKG_VERSION)\"" >> $(1)/kip/etc/entware_release
++	echo "VERSION=\"$(PKG_VERSION) (sync with OpenWrt)\"" >> $(1)/kip/etc/entware_release
++	echo "ID=entware" >> $(1)/kip/etc/entware_release
++	echo "HOME_URL=\"https://entware.net/\"" >> $(1)/kip/etc/entware_release
++	echo "SUPPORT_URL=\"https://github.com/Entware/Entware/discussions/\"" >> $(1)/kip/etc/entware_release
++	echo "BUG_REPORT_URL=\"https://github.com/Entware/Entware/issues/\"" >> $(1)/kip/etc/entware_release
++	echo "" >> $(1)/kip/etc/entware_release
++	echo "Build summary:" >> $(1)/kip/etc/entware_release
++	echo "Linux Kernel $(LINUX_VERSION)" >> $(1)/kip/etc/entware_release
++	echo "arch=$(ARCH)" >> $(1)/kip/etc/entware_release
++	echo "cpu_type=$(CPUTYPE)" >> $(1)/kip/etc/entware_release
++	echo "cpu_subtype=$(CPUSUBTYPE)" >> $(1)/kip/etc/entware_release
++	echo "float=$(FLOAT)" >> $(1)/kip/etc/entware_release
++	echo "binutils_version=\"$(call qstrip,$(CONFIG_BINUTILS_VERSION))\"" >> $(1)/kip/etc/entware_release
++	echo "gcc_version=\"$(call qstrip,$(CONFIG_GCC_VERSION))\"" >> $(1)/kip/etc/entware_release
++	echo "gcc_flags=\"$(ENVCFLAGS)\"" >> $(1)/kip/etc/entware_release
++	echo "libc_type=glibc" >> $(1)/kip/etc/entware_release
++	echo "libc_version=\"$(call qstrip,$(CONFIG_GLIBC_VERSION))\"" >> $(1)/kip/etc/entware_release
+ endef
+ 
+ $(eval $(call BuildPackage,entware-release))
+--- a/entware-upgrade/Makefile
++++ b/entware-upgrade/Makefile
+@@ -5,7 +5,7 @@
+ # See /LICENSE for more information.
+ #
+ # This is the same package as entware-opt, it does not install busybox. It makes several symlinks instead of it!
+-# /opt/... folder order in /opt/etc/profile is different, /opt folders are the last in PATH
++# /kip/... folder order in /kip/etc/profile is different, /kip folders are the last in PATH
+ # This package is a replacement of entware-opt for asuswrt firmware
+ 
+ 
+@@ -47,14 +47,14 @@
+ define Package/entware-upgrade/postinst
+ #!/bin/sh
+ for fw_cmd in sbin/ifconfig sbin/route sbin/ip bin/netstat bin/sh bin/ash; do
+-    if [ -f /$$fw_cmd ] && [ ! -f /opt/$$fw_cmd ]; then
+-        ln -s /$$fw_cmd /opt/$$fw_cmd
++    if [ -f /$$fw_cmd ] && [ ! -f /kip/$$fw_cmd ]; then
++        ln -s /$$fw_cmd /kip/$$fw_cmd
+     fi
+ done
+ 
+ # now try to create symlinks - it is a std installation
+ for fw_file in passwd group shells shadow gshadow localtime; do
+-    [ -f /etc/$$fw_file ] && ln -sf /etc/$$fw_file /opt/etc/$$fw_file
++    [ -f /etc/$$fw_file ] && ln -sf /etc/$$fw_file /kip/etc/$$fw_file
+ done
+ endef
+ else

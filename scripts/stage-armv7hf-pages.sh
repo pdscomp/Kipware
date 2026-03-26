@@ -46,7 +46,7 @@ find_opkg() {
       return 0
     fi
   done < <(find "${REPO_ROOT}" \
-    \( -path '*/opt/bin/opkg' -o -path '*/ipkg-*/opkg/opt/bin/opkg' \) \
+    \( -path '*/kip/bin/opkg' -o -path '*/ipkg-*/opkg/kip/bin/opkg' \) \
     -type f | sort)
 
   return 1
@@ -98,14 +98,14 @@ install -m 0755 "${OPKG_BIN}" "${INSTALLER_DIR}/opkg"
 cat > "${INSTALLER_DIR}/opkg.conf" <<EOF
 src/gz entware ${PUBLISH_BASE_URL}
 dest root /
-dest ram /opt/tmp
-lists_dir ext /opt/var/opkg-lists
-option tmp_dir /opt/tmp
+dest ram /kip/tmp
+lists_dir ext /kip/var/opkg-lists
+option tmp_dir /kip/tmp
 arch all 100
 arch ${TARGET_BOARD} 160
 EOF
 
-sed 's|/opt/bin/find|find|' "${ENTWARE_OPT_FILES_DIR}/rc.unslung" > "${INSTALLER_DIR}/rc.unslung"
+sed 's|/kip/bin/find|find|' "${ENTWARE_OPT_FILES_DIR}/rc.unslung" > "${INSTALLER_DIR}/rc.unslung"
 chmod 0755 "${INSTALLER_DIR}/rc.unslung"
 install -m 0644 "${ENTWARE_OPT_FILES_DIR}/rc.func" "${INSTALLER_DIR}/rc.func"
 install -m 0755 "${ENTWARE_OPT_FILES_DIR}/profile" "${INSTALLER_DIR}/profile"
@@ -132,78 +132,78 @@ GLIBC=${GLIBC_VERSION}
 REPO="${PUBLISH_BASE_URL}"
 
 echo 'Info: Checking for prerequisites and creating folders...'
-if [ -d /opt ]; then
-    echo 'Warning: Folder /opt exists!'
+if [ -d /kip ]; then
+    echo 'Warning: Folder /kip exists!'
 else
-    mkdir /opt
+    mkdir /kip
 fi
 for folder in bin etc lib/opkg tmp var/lock
 do
-  if [ -d "/opt/\$folder" ]; then
-    echo "Warning: Folder /opt/\$folder exists!"
-    echo 'Warning: If something goes wrong please clean /opt folder and try again.'
+  if [ -d "/kip/\$folder" ]; then
+    echo "Warning: Folder /kip/\$folder exists!"
+    echo 'Warning: If something goes wrong please clean /kip folder and try again.'
   else
-    mkdir -p /opt/\$folder
+    mkdir -p /kip/\$folder
   fi
 done
 
 echo 'Info: Opkg package manager deployment...'
-wget "\${REPO}/installer/opkg" -O /opt/bin/opkg
-chmod 755 /opt/bin/opkg
-wget "\${REPO}/installer/opkg.conf" -O /opt/etc/opkg.conf
+wget "\${REPO}/installer/opkg" -O /kip/bin/opkg
+chmod 755 /kip/bin/opkg
+wget "\${REPO}/installer/opkg.conf" -O /kip/etc/opkg.conf
 
 echo 'Info: Basic packages installation...'
-/opt/bin/opkg update
+/kip/bin/opkg update
 if [ \$TYPE = 'alternative' ]; then
-  /opt/bin/opkg install busybox
+  /kip/bin/opkg install busybox
 fi
-/opt/bin/opkg install entware-release entware-upgrade
+/kip/bin/opkg install entware-release entware-upgrade
 
-chmod 777 /opt/tmp
+chmod 777 /kip/tmp
 
 echo 'Info: Installing bootstrap files...'
-mkdir -p /opt/etc/init.d /opt/etc/skel /opt/home /opt/root /opt/sbin /opt/share /opt/usr /opt/var/log /opt/var/run
-wget "\${REPO}/installer/rc.unslung" -O /opt/etc/init.d/rc.unslung
-chmod 755 /opt/etc/init.d/rc.unslung
-wget "\${REPO}/installer/rc.func" -O /opt/etc/init.d/rc.func
-chmod 644 /opt/etc/init.d/rc.func
-wget "\${REPO}/installer/profile" -O /opt/etc/profile
-chmod 755 /opt/etc/profile
-wget "\${REPO}/installer/passwd.1" -O /opt/etc/passwd.1
-wget "\${REPO}/installer/group.1" -O /opt/etc/group.1
-wget "\${REPO}/installer/shells.1" -O /opt/etc/shells.1
-wget "\${REPO}/installer/dot-profile" -O /opt/etc/skel/.profile
-cp /opt/etc/skel/.profile /opt/root/.profile
-wget "\${REPO}/installer/dot-inputrc" -O /opt/etc/skel/.inputrc
-cp /opt/etc/skel/.inputrc /opt/root/.inputrc
-: > /opt/etc/ld.so.conf
+mkdir -p /kip/etc/init.d /kip/etc/skel /kip/home /kip/root /kip/sbin /kip/share /kip/usr /kip/var/log /kip/var/run
+wget "\${REPO}/installer/rc.unslung" -O /kip/etc/init.d/rc.unslung
+chmod 755 /kip/etc/init.d/rc.unslung
+wget "\${REPO}/installer/rc.func" -O /kip/etc/init.d/rc.func
+chmod 644 /kip/etc/init.d/rc.func
+wget "\${REPO}/installer/profile" -O /kip/etc/profile
+chmod 755 /kip/etc/profile
+wget "\${REPO}/installer/passwd.1" -O /kip/etc/passwd.1
+wget "\${REPO}/installer/group.1" -O /kip/etc/group.1
+wget "\${REPO}/installer/shells.1" -O /kip/etc/shells.1
+wget "\${REPO}/installer/dot-profile" -O /kip/etc/skel/.profile
+cp /kip/etc/skel/.profile /kip/root/.profile
+wget "\${REPO}/installer/dot-inputrc" -O /kip/etc/skel/.inputrc
+cp /kip/etc/skel/.inputrc /kip/root/.inputrc
+: > /kip/etc/ld.so.conf
 
 for fw_cmd in sbin/ifconfig sbin/route sbin/ip bin/netstat bin/sh bin/ash; do
-  if [ -f "/\${fw_cmd}" ] && [ ! -f "/opt/\${fw_cmd}" ]; then
-    ln -s "/\${fw_cmd}" "/opt/\${fw_cmd}"
+  if [ -f "/\${fw_cmd}" ] && [ ! -f "/kip/\${fw_cmd}" ]; then
+    ln -s "/\${fw_cmd}" "/kip/\${fw_cmd}"
   fi
 done
 
 for file in passwd group shells shadow gshadow; do
   if [ \$TYPE = 'generic' ]; then
     if [ -f /etc/\$file ]; then
-      ln -sf /etc/\$file /opt/etc/\$file
+      ln -sf /etc/\$file /kip/etc/\$file
     else
-      [ -f /opt/etc/\$file.1 ] && cp /opt/etc/\$file.1 /opt/etc/\$file
+      [ -f /kip/etc/\$file.1 ] && cp /kip/etc/\$file.1 /kip/etc/\$file
     fi
   else
-    if [ -f /opt/etc/\$file.1 ]; then
-      cp /opt/etc/\$file.1 /opt/etc/\$file
+    if [ -f /kip/etc/\$file.1 ]; then
+      cp /kip/etc/\$file.1 /kip/etc/\$file
     fi
   fi
 done
 
-[ -f /etc/localtime ] && ln -sf /etc/localtime /opt/etc/localtime
+[ -f /etc/localtime ] && ln -sf /etc/localtime /kip/etc/localtime
 
 echo 'Info: Congratulations!'
 echo 'Info: If there are no errors above then Entware was successfully initialized.'
-echo 'Info: Add /opt/bin & /opt/sbin to \$PATH variable'
-echo 'Info: Add "/opt/etc/init.d/rc.unslung start" to startup script for Entware services to start'
+echo 'Info: Add /kip/bin & /kip/sbin to \$PATH variable'
+echo 'Info: Add "/kip/etc/init.d/rc.unslung start" to startup script for Entware services to start'
 if [ \$TYPE = 'alternative' ]; then
   echo 'Info: Use ssh server from Entware for better compatibility.'
 fi

@@ -256,6 +256,32 @@ jobs:
             logs/**/*
             .config
 
+      - name: Create root index page
+        if: github.event_name != 'pull_request'
+        run: |
+          mkdir -p pages-root
+          cat > pages-root/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <title>Kipware Entware Feeds</title>
+            <style>
+              body { font-family: sans-serif; max-width: 640px; margin: 2rem auto; }
+              code { background: #f4f4f4; padding: 0.1em 0.3em; border-radius: 3px; }
+            </style>
+          </head>
+          <body>
+            <h1>Kipware Entware Feeds</h1>
+            <p>Available feeds for armv7hf (cortex-a7 + VFPv4/NEON, kernel 5.4):</p>
+            <ul>
+              <li><a href="main/armv7hf-k5.4/"><strong>main</strong></a> &mdash; <code>/opt</code> install prefix</li>
+              <li><a href="kip/armv7hf-k5.4/"><strong>kip</strong></a> &mdash; <code>/kip</code> install prefix</li>
+            </ul>
+          </body>
+          </html>
+          EOF
+
       - name: Deploy to GitHub Pages
         if: github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
@@ -263,4 +289,12 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./pages
           destination_dir: ${{ github.ref_name }}
+          keep_files: true
+
+      - name: Update root index page
+        if: github.event_name != 'pull_request'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./pages-root
           keep_files: true

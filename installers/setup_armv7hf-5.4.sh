@@ -2,7 +2,7 @@
 
 set -eu
 
-REPO="https://pdscomp.github.io/Kipware/armv7hf-k5.4"
+REPO="https://pdscomp.github.io/Kipware/main/armv7hf-k5.4"
 
 echo "Checking CPU ABI compatibility..."
 if grep -Eiq 'neon|vfpv4' /proc/cpuinfo 2>/dev/null; then

@@ -90,7 +90,7 @@ CONFIGURE_ARGS += \
 	--with-included-gettext \
 	--without-libintl-prefix \
 	--without-libexpat-prefix \
-	--with-libunistring-prefix=$(STAGING_DIR)/opt \
+	--with-libunistring-prefix=$(STAGING_ENTWARE) \
 	--with-libxml2-prefix=$(STAGING_DIR) \
 	--without-emacs
 
@@ -158,14 +158,14 @@ define Build/Compile
 endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/lib/libintl-full/include
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/libintl.h $(1)/opt/lib/libintl-full/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/libintl-full/include
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/libintl.h $(1)$(ENTWARE_PREFIX)/lib/libintl-full/include/
 
-	$(INSTALL_DIR) $(1)/opt/lib/libintl-full/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libintl.{a,so*} $(1)/opt/lib/libintl-full/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/libintl-full/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libintl.{a,so*} $(1)$(ENTWARE_PREFIX)/lib/libintl-full/lib/
 
-	$(INSTALL_DIR) $(1)/opt/share/gettext/m4
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/gettext/m4/* $(1)/opt/share/gettext/m4/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/share/gettext/m4
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/share/gettext/m4/* $(1)$(ENTWARE_PREFIX)/share/gettext/m4/
 
 	$(SED) '/read dummy/d' $(STAGING_DIR_HOSTPKG)/bin/gettextize
 endef
@@ -180,8 +180,8 @@ define Build/Install
 endef
 
 define Package/libintl-full/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libintl.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libintl.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 $(eval $(call HostBuild))

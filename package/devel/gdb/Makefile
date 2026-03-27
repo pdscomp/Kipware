@@ -67,7 +67,7 @@ CONFIGURE_ARGS+= \
 	--disable-source-highlight \
 	--without-isl \
 	--without-xxhash \
-	--with-libgmp-prefix=$(STAGING_DIR)/opt
+	--with-libgmp-prefix=$(STAGING_ENTWARE)
 
 CONFIGURE_VARS+= \
 	ac_cv_search_tgetent="$(TARGET_LDFLAGS) -lncurses -lreadline"
@@ -92,13 +92,13 @@ define Build/Install
 endef
 
 define Package/gdb/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/gdb $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/gdb $(1)$(ENTWARE_PREFIX)/bin/
 endef
 
 define Package/gdbserver/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/gdbserver $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/gdbserver $(1)$(ENTWARE_PREFIX)/bin/
 endef
 
 $(eval $(call BuildPackage,gdb))

@@ -47,13 +47,13 @@ define Package/iptables
   SUBMENU:=Firewall
   URL:=https://netfilter.org/
   ALTERNATIVES:=\
-    200:/opt/bin/iptables-xml:/opt/sbin/xtables-multi \
-    200:/opt/sbin/iptables:/opt/sbin/xtables-multi \
-    200:/opt/sbin/iptables-restore:/opt/sbin/xtables-multi \
-    200:/opt/sbin/iptables-save:/opt/sbin/xtables-multi \
-    200:/opt/sbin/ip6tables:/opt/sbin/xtables-multi \
-    200:/opt/sbin/ip6tables-restore:/opt/sbin/xtables-multi \
-    200:/opt/sbin/ip6tables-save:/opt/sbin/xtables-multi
+    200:$(ENTWARE_PREFIX)/bin/iptables-xml:$(ENTWARE_PREFIX)/sbin/xtables-multi \
+    200:$(ENTWARE_PREFIX)/sbin/iptables:$(ENTWARE_PREFIX)/sbin/xtables-multi \
+    200:$(ENTWARE_PREFIX)/sbin/iptables-restore:$(ENTWARE_PREFIX)/sbin/xtables-multi \
+    200:$(ENTWARE_PREFIX)/sbin/iptables-save:$(ENTWARE_PREFIX)/sbin/xtables-multi \
+    200:$(ENTWARE_PREFIX)/sbin/ip6tables:$(ENTWARE_PREFIX)/sbin/xtables-multi \
+    200:$(ENTWARE_PREFIX)/sbin/ip6tables-restore:$(ENTWARE_PREFIX)/sbin/xtables-multi \
+    200:$(ENTWARE_PREFIX)/sbin/ip6tables-save:$(ENTWARE_PREFIX)/sbin/xtables-multi
 ifdef CONFIG_PACKAGE_opt-ndmsv2
   PKGARCH:=$(BOARD)_kn
 endif
@@ -115,50 +115,50 @@ CONFIGURE_ARGS += \
 	--enable-static \
 	--enable-devel \
 	--with-kernel="$(LINUX_DIR)/user_headers" \
-	--with-xtlibdir=/opt/lib/iptables \
+	--with-xtlibdir=$(ENTWARE_PREFIX)/lib/iptables \
 	$(if $(CONFIG_IPV6),,--disable-ipv6)
 
 MAKE_FLAGS := \
 	$(TARGET_CONFIGURE_OPTS) \
 	COPT_FLAGS="$(TARGET_CFLAGS)" \
-	KERNEL_DIR="$(LINUX_DIR)/user_headers/" PREFIX=/opt \
+	KERNEL_DIR="$(LINUX_DIR)/user_headers/" PREFIX=$(ENTWARE_PREFIX) \
 	KBUILD_OUTPUT="$(LINUX_DIR)"
 
 ifndef CONFIG_PACKAGE_opt-ndmsv2
   define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include
-	$(INSTALL_DIR) $(1)/opt/include/iptables
-	$(INSTALL_DIR) $(1)/opt/include/net/netfilter
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include/iptables
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include/net/netfilter
 
 	# XXX: iptables header fixup, some headers are not installed by iptables anymore
-	$(CP) $(PKG_BUILD_DIR)/include/iptables/*.h $(1)/opt/include/iptables/
-	$(CP) $(PKG_BUILD_DIR)/include/iptables.h $(1)/opt/include/
-	$(CP) $(PKG_BUILD_DIR)/include/ip6tables.h $(1)/opt/include/
-	$(CP) $(PKG_BUILD_DIR)/include/libipulog $(1)/opt/include/
-	$(CP) $(PKG_BUILD_DIR)/include/libiptc $(1)/opt/include/
+	$(CP) $(PKG_BUILD_DIR)/include/iptables/*.h $(1)$(ENTWARE_PREFIX)/include/iptables/
+	$(CP) $(PKG_BUILD_DIR)/include/iptables.h $(1)$(ENTWARE_PREFIX)/include/
+	$(CP) $(PKG_BUILD_DIR)/include/ip6tables.h $(1)$(ENTWARE_PREFIX)/include/
+	$(CP) $(PKG_BUILD_DIR)/include/libipulog $(1)$(ENTWARE_PREFIX)/include/
+	$(CP) $(PKG_BUILD_DIR)/include/libiptc $(1)$(ENTWARE_PREFIX)/include/
 
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/* $(1)/opt/include/
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libxtables.so* $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libip*tc.so* $(1)/opt/lib/
-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/xtables.pc $(1)/opt/lib/pkgconfig/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/libip*tc.pc $(1)/opt/lib/pkgconfig/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/* $(1)$(ENTWARE_PREFIX)/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libxtables.so* $(1)$(ENTWARE_PREFIX)/lib/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libip*tc.so* $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/xtables.pc $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/libip*tc.pc $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
 
 	# XXX: needed by firewall3
-	$(CP) $(PKG_BUILD_DIR)/extensions/libiptext*.so $(1)/opt/lib/
+	$(CP) $(PKG_BUILD_DIR)/extensions/libiptext*.so $(1)$(ENTWARE_PREFIX)/lib/
   endef
 endif
 
 define Package/iptables/install
-	$(INSTALL_DIR) $(1)/opt/sbin
-	$(CP) $(PKG_INSTALL_DIR)/opt/sbin/xtables-multi $(1)/opt/sbin/
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libip*tc.so* $(1)/opt/lib/
-	$(CP) $(PKG_BUILD_DIR)/extensions/libiptext{,4,6}.so $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libxtables.so* $(1)/opt/lib/
-	$(INSTALL_DIR) $(1)/opt/lib/iptables
-	$(CP) $(PKG_BUILD_DIR)/extensions/libxt_*.so $(1)/opt/lib/iptables/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/sbin
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/sbin/xtables-multi $(1)$(ENTWARE_PREFIX)/sbin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libip*tc.so* $(1)$(ENTWARE_PREFIX)/lib/
+	$(CP) $(PKG_BUILD_DIR)/extensions/libiptext{,4,6}.so $(1)$(ENTWARE_PREFIX)/lib/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libxtables.so* $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/iptables
+	$(CP) $(PKG_BUILD_DIR)/extensions/libxt_*.so $(1)$(ENTWARE_PREFIX)/lib/iptables/
 endef
 
 $(eval $(call BuildPackage,iptables))

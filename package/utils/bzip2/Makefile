@@ -65,27 +65,27 @@ MAKE_FLAGS += \
 	-f Makefile-libbz2_so \
 	CFLAGS="$(TARGET_CFLAGS)" \
 	LDFLAGS="$(TARGET_LDFLAGS)" \
-	PREFIX=/opt \
+	PREFIX=$(ENTWARE_PREFIX) \
 	all
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include
-	$(CP) $(PKG_BUILD_DIR)/bzlib.h $(1)/opt/include/
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_BUILD_DIR)/libbz2.so.$(PKG_VERSION) $(1)/opt/lib/
-	$(LN) libbz2.so.$(PKG_VERSION) $(1)/opt/lib/libbz2.so.1.0
-	$(LN) libbz2.so.$(PKG_VERSION) $(1)/opt/lib/libbz2.so
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
+	$(CP) $(PKG_BUILD_DIR)/bzlib.h $(1)$(ENTWARE_PREFIX)/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_BUILD_DIR)/libbz2.so.$(PKG_VERSION) $(1)$(ENTWARE_PREFIX)/lib/
+	$(LN) libbz2.so.$(PKG_VERSION) $(1)$(ENTWARE_PREFIX)/lib/libbz2.so.1.0
+	$(LN) libbz2.so.$(PKG_VERSION) $(1)$(ENTWARE_PREFIX)/lib/libbz2.so
 endef
 
 define Package/libbz2/install
-	$(INSTALL_DIR) $(1)/opt/lib/
-	$(CP) $(PKG_BUILD_DIR)/libbz2.so.$(PKG_VERSION) $(1)/opt/lib/
-	$(LN) libbz2.so.$(PKG_VERSION) $(1)/opt/lib/libbz2.so.1.0
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/
+	$(CP) $(PKG_BUILD_DIR)/libbz2.so.$(PKG_VERSION) $(1)$(ENTWARE_PREFIX)/lib/
+	$(LN) libbz2.so.$(PKG_VERSION) $(1)$(ENTWARE_PREFIX)/lib/libbz2.so.1.0
 endef
 
 define Package/bzip2/install
-	$(INSTALL_DIR) $(1)/opt/bin/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bzip2-shared $(1)/opt/bin/bzip2
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin/
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bzip2-shared $(1)$(ENTWARE_PREFIX)/bin/bzip2
 #	$(INSTALL_DIR) $(1)/bin/
 #	$(LN) ../usr/bin/bzip2 $(1)/bin/bzip2
 endef

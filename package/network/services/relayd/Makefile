@@ -30,12 +30,12 @@ define Package/relayd
   DEPENDS:=+libubox
 endef
 
-TARGET_CFLAGS += -I$(STAGING_DIR)/opt/include
+TARGET_CFLAGS += -I$(STAGING_ENTWARE)/include
 
 define Package/relayd/install
-	$(INSTALL_DIR) $(1)/opt/sbin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/relayd $(1)/opt/sbin/relayd
-	$(INSTALL_DIR) $(1)/opt/etc/init.d
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/sbin
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/relayd $(1)$(ENTWARE_PREFIX)/sbin/relayd
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/etc/init.d
 #	$(INSTALL_BIN) ./files/relay.init $(1)/etc/init.d/relayd
 endef
 

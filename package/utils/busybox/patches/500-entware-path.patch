@@ -5,7 +5,7 @@
  
  		state = 1;
 -		read_profile("/etc/profile");
-+		read_profile("/opt/etc/profile");
++		read_profile("/kip/etc/profile");
   state1:
  		state = 2;
  		hp = lookupvar("HOME");
@@ -17,8 +17,8 @@
  
 -		debug_printf("sourcing /etc/profile\n");
 -		input = hfopen("/etc/profile");
-+		debug_printf("sourcing /opt/etc/profile\n");
-+		input = hfopen("/opt/etc/profile");
++		debug_printf("sourcing /kip/etc/profile\n");
++		input = hfopen("/kip/etc/profile");
   run_profile:
  		if (input != NULL) {
  			install_special_sighandlers();
@@ -29,7 +29,7 @@
  	if (!pw.pw_dir) {
  		/* create string for $HOME if not specified already */
 -		pw.pw_dir = xasprintf("/home/%s", argv[0]);
-+		pw.pw_dir = xasprintf("/opt/home/%s", argv[0]);
++		pw.pw_dir = xasprintf("/kip/home/%s", argv[0]);
  	}
  	pw.pw_passwd = (char *)"x";
  	if (opts & OPT_SYSTEM_ACCOUNT) {

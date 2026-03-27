@@ -149,32 +149,32 @@ define Build/Configure
 endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
 	$(CP) \
-		$(PKG_INSTALL_DIR)/opt/include/mbedtls \
-		$(PKG_INSTALL_DIR)/opt/include/psa \
-		$(1)/opt/include/
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/lib*.so* $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/lib*.a $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/cmake $(1)/opt/lib/
-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/mbedtls \
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/psa \
+		$(1)$(ENTWARE_PREFIX)/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/lib*.so* $(1)$(ENTWARE_PREFIX)/lib/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/lib*.a $(1)$(ENTWARE_PREFIX)/lib/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/cmake $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
 	$(CP) \
-		$(PKG_INSTALL_DIR)/opt/lib/pkgconfig/mbedcrypto.pc \
-		$(PKG_INSTALL_DIR)/opt/lib/pkgconfig/mbedtls.pc \
-		$(PKG_INSTALL_DIR)/opt/lib/pkgconfig/mbedx509.pc \
-		$(1)/opt/lib/pkgconfig/
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/mbedcrypto.pc \
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/mbedtls.pc \
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/mbedx509.pc \
+		$(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
 endef
 
 define Package/libmbedtls/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/lib*.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/lib*.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/mbedtls-util/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/gen_key $(1)/opt/bin/
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/cert_req $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/gen_key $(1)$(ENTWARE_PREFIX)/bin/
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/cert_req $(1)$(ENTWARE_PREFIX)/bin/
 endef
 
 $(eval $(call BuildPackage,libmbedtls))

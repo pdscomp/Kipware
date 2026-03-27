@@ -84,7 +84,7 @@ define Build/Compile
 		CC="$(TARGET_CROSS)gcc" \
 		AR="$(TARGET_CROSS)ar rcu" \
 		RANLIB="$(TARGET_CROSS)ranlib" \
-		INSTALL_ROOT=/opt \
+		INSTALL_ROOT=$(ENTWARE_PREFIX) \
 		CFLAGS="$(TARGET_CPPFLAGS) $(TARGET_CFLAGS)" \
 		MYLDFLAGS="$(TARGET_LDFLAGS) $(if $(CONFIG_USE_GLIBC),-lm -ldl)" \
 		PKG_VERSION=$(PKG_VERSION) \
@@ -92,7 +92,7 @@ define Build/Compile
 	rm -rf $(PKG_INSTALL_DIR)
 	mkdir -p $(PKG_INSTALL_DIR)
 	$(MAKE) -C $(PKG_BUILD_DIR) \
-		INSTALL_TOP="$(PKG_INSTALL_DIR)/opt" \
+		INSTALL_TOP="$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)" \
 		install
 endef
 
@@ -123,28 +123,28 @@ define Host/Install
 endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include/lua5.3 $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/lua5.3/lua{,lib,conf}.h $(1)/opt/include/lua5.3/
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/lua5.3/lua.hpp $(1)/opt/include/lua5.3/
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/lua5.3/lauxlib.h $(1)/opt/include/lua5.3/
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/liblua5.3.{a,so*} $(1)/opt/lib/
-	$(LN) liblua5.3.so.0.0.0 $(1)/opt/lib/liblualib5.3.so
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include/lua5.3 $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/lua5.3/lua{,lib,conf}.h $(1)$(ENTWARE_PREFIX)/include/lua5.3/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/lua5.3/lua.hpp $(1)$(ENTWARE_PREFIX)/include/lua5.3/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/lua5.3/lauxlib.h $(1)$(ENTWARE_PREFIX)/include/lua5.3/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/liblua5.3.{a,so*} $(1)$(ENTWARE_PREFIX)/lib/
+	$(LN) liblua5.3.so.0.0.0 $(1)$(ENTWARE_PREFIX)/lib/liblualib5.3.so
 endef
 
 define Package/liblua5.3/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/liblua5.3.so* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/liblua5.3.so* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/lua5.3/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/lua5.3 $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/lua5.3 $(1)$(ENTWARE_PREFIX)/bin/
 endef
 
 define Package/luac5.3/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/luac5.3 $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/luac5.3 $(1)$(ENTWARE_PREFIX)/bin/
 endef
 
 $(eval $(call BuildPackage,liblua5.3))

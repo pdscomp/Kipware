@@ -5,7 +5,7 @@
  PROGVERSION:=$(PROGVERSION_)-$(PROGRELEASE)
  PROGDATE:=December\ 2011
 -LOCKFILE?=/var/lib/ebtables/lock
-+LOCKFILE?=/opt/var/lib/ebtables/lock
++LOCKFILE?=/kip/var/lib/ebtables/lock
  LOCKDIR:=$(shell echo $(LOCKFILE) | sed 's/\(.*\)\/.*/\1/')/
  
  # default paths
@@ -15,12 +15,12 @@
 -ETCDIR:=/etc
 -INITDIR:=/etc/rc.d/init.d
 -SYSCONFIGDIR:=/etc/sysconfig
-+LIBDIR:=/opt/lib
-+MANDIR:=/opt/share/man
-+BINDIR:=/opt/sbin
-+ETCDIR:=/opt/etc
-+INITDIR:=/opt/etc/init.d
-+SYSCONFIGDIR:=/opt/etc
++LIBDIR:=/kip/lib
++MANDIR:=/kip/share/man
++BINDIR:=/kip/sbin
++ETCDIR:=/kip/etc
++INITDIR:=/kip/etc/init.d
++SYSCONFIGDIR:=/kip/etc
  DESTDIR:=
  
  CFLAGS:=-Wall -Wunused -Werror
@@ -31,7 +31,7 @@
  /* Absolute file name for network data base files.  */
  #ifndef	_PATH_ETHERTYPES
 -#define	_PATH_ETHERTYPES	"/etc/ethertypes"
-+#define	_PATH_ETHERTYPES	"/opt/etc/ethertypes"
++#define	_PATH_ETHERTYPES	"/kip/etc/ethertypes"
  #endif				/* _PATH_ETHERTYPES */
  
  struct ethertypeent {
@@ -42,7 +42,7 @@
  
  #ifndef LOCKFILE
 -#define LOCKDIR "/var/lib/ebtables"
-+#define LOCKDIR "/opt/var/lib/ebtables"
++#define LOCKDIR "/kip/var/lib/ebtables"
  #define LOCKFILE LOCKDIR"/lock"
  #endif
  int use_lockfd;
@@ -50,7 +50,7 @@
 +++ b/ebtables-save
 @@ -1,4 +1,4 @@
 -#!/usr/bin/perl -w
-+#!/opt/bin/perl -w
++#!/kip/bin/perl -w
  #
  #
  # A script that generates text output of the ebtables rules.

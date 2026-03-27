@@ -67,27 +67,27 @@ HOST_CONFIGURE_ARGS += \
 	--with-pic
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/lib/libiconv-full/include
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/iconv.h $(1)/opt/lib/libiconv-full/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/libiconv-full/include
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/iconv.h $(1)$(ENTWARE_PREFIX)/lib/libiconv-full/include/
 
-	$(INSTALL_DIR) $(1)/opt/lib/libiconv-full/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libcharset.{a,so*} $(1)/opt/lib/libiconv-full/lib/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libiconv.{a,so*} $(1)/opt/lib/libiconv-full/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/libiconv-full/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libcharset.{a,so*} $(1)$(ENTWARE_PREFIX)/lib/libiconv-full/lib/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libiconv.{a,so*} $(1)$(ENTWARE_PREFIX)/lib/libiconv-full/lib/
 endef
 
 define Package/libcharset/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libcharset.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libcharset.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libiconv-full/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libiconv.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libiconv.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/iconv/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/iconv $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/iconv $(1)$(ENTWARE_PREFIX)/bin/
 endef
 
 $(eval $(call BuildPackage,libcharset))

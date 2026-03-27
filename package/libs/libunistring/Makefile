@@ -49,17 +49,17 @@ CONFIGURE_ARGS += \
 	--with-pic
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/*.h $(1)/opt/include/
-	$(INSTALL_DIR) $(1)/opt/include/unistring
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/unistring/*.h $(1)/opt/include/unistring/
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libunistring.{a,so*} $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/*.h $(1)$(ENTWARE_PREFIX)/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include/unistring
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/unistring/*.h $(1)$(ENTWARE_PREFIX)/include/unistring/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libunistring.{a,so*} $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libunistring/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libunistring.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libunistring.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 $(eval $(call HostBuild))

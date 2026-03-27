@@ -33,7 +33,7 @@ BUSYBOX_SYM=$(if $(CONFIG_BUSYBOX_CUSTOM),CONFIG,DEFAULT)
 BUSYBOX_IF_ENABLED=$(if $(CONFIG_BUSYBOX_$(BUSYBOX_SYM)_$(1)),$(2))
 
 ifneq ($(CONFIG_BUSYBOX_$(BUSYBOX_SYM)_FEATURE_SUID),)
-  PKG_FILE_MODES:=/opt/bin/busybox:root:root:4755
+  PKG_FILE_MODES:=$(ENTWARE_PREFIX)/bin/busybox:root:root:4755
 endif
 
 include $(INCLUDE_DIR)/package.mk
@@ -80,13 +80,13 @@ endef
 
 ifneq ($(CONFIG_BUSYBOX_$(BUSYBOX_SYM)_FEATURE_SYSLOG)$(CONFIG_BUSYBOX_$(BUSYBOX_SYM)_FEATURE_SYSLOGD_CFG),)
 define Package/busybox/conffiles/syslog
-/opt/etc/syslog.conf
+$(ENTWARE_PREFIX)/etc/syslog.conf
 endef
 endif
 
 ifneq ($(CONFIG_BUSYBOX_$(BUSYBOX_SYM)_CROND),)
 define Package/busybox/conffiles/crond
-/opt/etc/crontabs/
+$(ENTWARE_PREFIX)/etc/crontabs/
 endef
 endif
 
@@ -144,78 +144,78 @@ endef
 
 define Build/Compile
 	$(call Build/Compile/Default, \
-		CONFIG_PREFIX="$(PKG_INSTALL_DIR)/opt" \
+		CONFIG_PREFIX="$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)" \
 		all install \
 	)
 endef
 
 define Package/busybox/install
-	$(INSTALL_DIR) $(1)/opt/{bin,sbin}
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/busybox $(1)/opt/bin/
-	$(INSTALL_DIR) $(1)/opt/share
-	$(FIND) $(PKG_INSTALL_DIR) -lname "*" | sed "s|$(PKG_INSTALL_DIR)/opt/||g" > $(1)/opt/share/busybox_applets.lst.dist
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/{bin,sbin}
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/busybox $(1)$(ENTWARE_PREFIX)/bin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/share
+	$(FIND) $(PKG_INSTALL_DIR) -lname "*" | sed "s|$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/||g" > $(1)$(ENTWARE_PREFIX)/share/busybox_applets.lst.dist
 endef
 
 Package/busybox-selinux/install = $(Package/busybox/install)
 
 # The postinst & prerm scripts will work only when busybox has readlink applet.
 # We cannot use readlink directly, it is not yet installed and use 'busybox readlink' instead.
-# We convert /opt/bin/busybox to canonical form because /opt is a symlink in some Entware installs
-# We remove all symlinks to /opt/bin/busybox in /opt/bin and /opt/sbin before installation and removal.
+# We convert $(ENTWARE_PREFIX)/bin/busybox to canonical form because /opt is a symlink in some Entware installs
+# We remove all symlinks to $(ENTWARE_PREFIX)/bin/busybox in $(ENTWARE_PREFIX)/bin and $(ENTWARE_PREFIX)/sbin before installation and removal.
 # It allows to handle applets list change and busybox reinstall in a correct way.
-# /opt/share/busybox_applets.lst is not needed any more
+# $(ENTWARE_PREFIX)/share/busybox_applets.lst is not needed any more
 
 define Package/busybox/postinst
-#!/opt/bin/busybox sh
+#!$(ENTWARE_PREFIX)/bin/busybox sh
 
-bb_fc=`/opt/bin/busybox readlink -f /opt/bin/busybox`
-for file in /opt/bin/*; do
-    if [ -L $$file  -a "`/opt/bin/busybox readlink -f $$file`" = $$bb_fc ]; then
-       /opt/bin/busybox rm -f $$file
+bb_fc=`$(ENTWARE_PREFIX)/bin/busybox readlink -f $(ENTWARE_PREFIX)/bin/busybox`
+for file in $(ENTWARE_PREFIX)/bin/*; do
+    if [ -L $$file  -a "`$(ENTWARE_PREFIX)/bin/busybox readlink -f $$file`" = $$bb_fc ]; then
+       $(ENTWARE_PREFIX)/bin/busybox rm -f $$file
     fi
 done
 
-for file in /opt/sbin/*; do
-    if [ -L $$file  -a "`/opt/bin/busybox readlink -f $$file`" = $$bb_fc ]; then
-       /opt/bin/busybox rm -f $$file
+for file in $(ENTWARE_PREFIX)/sbin/*; do
+    if [ -L $$file  -a "`$(ENTWARE_PREFIX)/bin/busybox readlink -f $$file`" = $$bb_fc ]; then
+       $(ENTWARE_PREFIX)/bin/busybox rm -f $$file
     fi
 done
 
-cd /opt
-for applet in $$(/opt/bin/busybox cat share/busybox_applets.lst.dist)
+cd $(ENTWARE_PREFIX)
+for applet in $$($(ENTWARE_PREFIX)/bin/busybox cat share/busybox_applets.lst.dist)
 do
     if [ ! -e $$applet ]
     then
-       /opt/bin/busybox ln -s /opt/bin/busybox $$applet
+       $(ENTWARE_PREFIX)/bin/busybox ln -s $(ENTWARE_PREFIX)/bin/busybox $$applet
     else
-       echo "Warning: '/opt/$$applet' is already exists, skipping."
+       echo "Warning: '$(ENTWARE_PREFIX)/$$applet' is already exists, skipping."
     fi
 done
 endef
 
 define Package/busybox/prerm
-#!/opt/bin/busybox sh
+#!$(ENTWARE_PREFIX)/bin/busybox sh
 
-bb_fc=`/opt/bin/busybox readlink -f /opt/bin/busybox`
-for file in /opt/bin/*; do
-    if [ -L $$file  -a "`/opt/bin/busybox readlink -f $$file`" = $$bb_fc ]; then
-       /opt/bin/busybox rm -f $$file
+bb_fc=`$(ENTWARE_PREFIX)/bin/busybox readlink -f $(ENTWARE_PREFIX)/bin/busybox`
+for file in $(ENTWARE_PREFIX)/bin/*; do
+    if [ -L $$file  -a "`$(ENTWARE_PREFIX)/bin/busybox readlink -f $$file`" = $$bb_fc ]; then
+       $(ENTWARE_PREFIX)/bin/busybox rm -f $$file
     fi
 done
 
-for file in /opt/sbin/*; do
-    if [ -L $$file  -a "`/opt/bin/busybox readlink -f $$file`" = $$bb_fc ]; then
-       /opt/bin/busybox rm -f $$file
+for file in $(ENTWARE_PREFIX)/sbin/*; do
+    if [ -L $$file  -a "`$(ENTWARE_PREFIX)/bin/busybox readlink -f $$file`" = $$bb_fc ]; then
+       $(ENTWARE_PREFIX)/bin/busybox rm -f $$file
     fi
 done
 endef
 
 define Package/busybox/preinst
-#!/opt/bin/busybox sh
+#!$(ENTWARE_PREFIX)/bin/busybox sh
 
-/opt/bin/busybox ln -snf busybox /opt/bin/[
-/opt/bin/busybox ln -snf busybox /opt/bin/basename
-/opt/bin/busybox ln -snf busybox /opt/bin/sh
+$(ENTWARE_PREFIX)/bin/busybox ln -snf busybox $(ENTWARE_PREFIX)/bin/[
+$(ENTWARE_PREFIX)/bin/busybox ln -snf busybox $(ENTWARE_PREFIX)/bin/basename
+$(ENTWARE_PREFIX)/bin/busybox ln -snf busybox $(ENTWARE_PREFIX)/bin/sh
 endef
 
 $(eval $(call BuildPackage,busybox))

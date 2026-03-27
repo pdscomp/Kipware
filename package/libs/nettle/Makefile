@@ -75,22 +75,22 @@ define Build/Compile
 endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include/nettle
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/nettle/*.h $(1)/opt/include/nettle/
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libnettle.{a,so*} $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libhogweed.{a,so*} $(1)/opt/lib/
-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include/nettle
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/nettle/*.h $(1)$(ENTWARE_PREFIX)/include/nettle/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnettle.{a,so*} $(1)$(ENTWARE_PREFIX)/lib/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libhogweed.{a,so*} $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
 	$(CP) \
-		$(PKG_INSTALL_DIR)/opt/lib/pkgconfig/nettle.pc \
-		$(PKG_INSTALL_DIR)/opt/lib/pkgconfig/hogweed.pc \
-		$(1)/opt/lib/pkgconfig/
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/nettle.pc \
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/hogweed.pc \
+		$(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
 endef
 
 define Package/libnettle/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libnettle.so.* $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libhogweed.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnettle.so.* $(1)$(ENTWARE_PREFIX)/lib/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libhogweed.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 $(eval $(call BuildPackage,libnettle))

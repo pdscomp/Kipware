@@ -47,8 +47,8 @@ define Package/dtc/config
 endef
 
 define Package/dtc/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/dtc $(1)/opt/bin
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/dtc $(1)$(ENTWARE_PREFIX)/bin
 endef
 
 
@@ -62,12 +62,12 @@ define Package/fdt-utils
 endef
 
 define Package/fdt-utils/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/convert-dtsv0 $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/fdtdump $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/fdtget $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/fdtput $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/fdtoverlay $(1)/opt/bin
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/convert-dtsv0 $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/fdtdump $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/fdtget $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/fdtput $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/fdtoverlay $(1)$(ENTWARE_PREFIX)/bin
 endef
 
 
@@ -83,8 +83,8 @@ define Package/libfdt/description
 endef
 
 define Package/libfdt/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libfdt*.so* $(1)/opt/lib
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libfdt*.so* $(1)$(ENTWARE_PREFIX)/lib
 endef
 
 MESON_ARGS += \
@@ -96,10 +96,10 @@ MESON_ARGS += \
 	-Dstatic-build=$(if $(CONFIG_DTC_STATIC_BUILD),true,false)
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(INSTALL_DIR) $(1)/opt/include
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/* $(1)/opt/include
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/* $(1)/opt/lib
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/* $(1)$(ENTWARE_PREFIX)/include
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/* $(1)$(ENTWARE_PREFIX)/lib
 endef
 
 $(eval $(call BuildPackage,dtc))

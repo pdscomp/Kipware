@@ -80,13 +80,13 @@
        info.path = NULL;
        info.len = info.alloc = 0;
 -      tmppath = concat (ld_sysroot, prefix, "/etc/ld.so.conf",
-+      tmppath = concat (ld_sysroot, prefix, "/opt/etc/ld.so.conf",
++      tmppath = concat (ld_sysroot, prefix, "/kip/etc/ld.so.conf",
  			(const char *) NULL);
        if (!ldelf_parse_ld_so_conf (&info, tmppath))
  	{
  	  free (tmppath);
 -	  tmppath = concat (ld_sysroot, "/etc/ld.so.conf",
-+	  tmppath = concat (ld_sysroot, "/opt/etc/ld.so.conf",
++	  tmppath = concat (ld_sysroot, "/kip/etc/ld.so.conf",
  			    (const char *) NULL);
  	  ldelf_parse_ld_so_conf (&info, tmppath);
  	}

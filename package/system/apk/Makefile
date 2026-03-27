@@ -79,20 +79,20 @@ MESON_ARGS += \
 	-Dminimal=true
 
 define Package/apk/conffiles
-/opt/etc/apk/repositories.d/customfeeds.list
+$(ENTWARE_PREFIX)/etc/apk/repositories.d/customfeeds.list
 endef
 
 Package/apk-mbedtls/conffiles = $(Package/apk/conffiles)
 Package/apk-openssl/conffiles = $(Package/apk/conffiles)
 
 define Package/apk/default/install
-	$(INSTALL_DIR) $(1)/opt/lib/apk/db
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/apk/db
 
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/apk $(1)/opt/bin/apk
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/apk $(1)$(ENTWARE_PREFIX)/bin/apk
 
-	$(INSTALL_DIR) $(1)/opt/etc/apk/repositories.d
-	$(INSTALL_DATA) ./files/customfeeds.list $(1)/opt/etc/apk/repositories.d/customfeeds.list
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/etc/apk/repositories.d
+	$(INSTALL_DATA) ./files/customfeeds.list $(1)$(ENTWARE_PREFIX)/etc/apk/repositories.d/customfeeds.list
 endef
 
 Package/apk-mbedtls/install = $(Package/apk/default/install)

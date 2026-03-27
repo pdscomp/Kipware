@@ -49,27 +49,27 @@ CONFIGURE_ARGS += \
 	--enable-shared
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/opt/include/libnftnl
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include/libnftnl
 	$(CP) \
-		$(PKG_INSTALL_DIR)/opt/include/libnftnl/*.h \
-		$(1)/opt/include/libnftnl/
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/libnftnl/*.h \
+		$(1)$(ENTWARE_PREFIX)/include/libnftnl/
 
-	$(INSTALL_DIR) $(1)/opt/lib
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
 	$(CP) \
-		$(PKG_INSTALL_DIR)/opt/lib/libnftnl.{so*,a,la} \
-		$(1)/opt/lib/
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnftnl.{so*,a,la} \
+		$(1)$(ENTWARE_PREFIX)/lib/
 
-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
 	$(CP) \
-		$(PKG_INSTALL_DIR)/opt/lib/pkgconfig/libnftnl.pc \
-		$(1)/opt/lib/pkgconfig/
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/libnftnl.pc \
+		$(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
 endef
 
 define Package/libnftnl/install
-	$(INSTALL_DIR) $(1)/opt/lib
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
 	$(CP) \
-		$(PKG_INSTALL_DIR)/opt/lib/libnftnl.so.* \
-		$(1)/opt/lib/
+		$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libnftnl.so.* \
+		$(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 $(eval $(call BuildPackage,libnftnl))

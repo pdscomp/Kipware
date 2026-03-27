@@ -57,8 +57,8 @@ ifeq ($(BUILD_VARIANT),mini)
 endif
 
 define Package/tcpdump/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/tcpdump $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/tcpdump $(1)$(ENTWARE_PREFIX)/bin/
 endef
 
 Package/tcpdump-mini/install = $(Package/tcpdump/install)

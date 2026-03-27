@@ -129,33 +129,33 @@ CMAKE_OPTIONS += \
 
 define Build/InstallDev
 	$(call Build/InstallDev/cmake,$(1))
-	$(SED) 's,/opt/include,$$$${prefix}/include,g' $(1)/opt/lib/pkgconfig/libevent*.pc
-	$(SED) 's,/opt/lib,$$$${exec_prefix}/lib,g' $(1)/opt/lib/pkgconfig/libevent*.pc
+	$(SED) 's,$(ENTWARE_PREFIX)/include,$$$${prefix}/include,g' $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/libevent*.pc
+	$(SED) 's,$(ENTWARE_PREFIX)/lib,$$$${exec_prefix}/lib,g' $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/libevent*.pc
 endef
 
 define Package/libevent2/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libevent-2.1.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libevent-2.1.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libevent2-core/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libevent_core-2.1.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libevent_core-2.1.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libevent2-extra/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libevent_extra-2.1.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libevent_extra-2.1.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libevent2-openssl/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libevent_openssl-2.1.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libevent_openssl-2.1.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libevent2-pthreads/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libevent_pthreads-2.1.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libevent_pthreads-2.1.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 $(eval $(call BuildPackage,libevent2))

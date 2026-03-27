@@ -63,7 +63,7 @@ LIBSELINUX_ALTS := \
 	selinuxenabled \
 	setenforce
 
-$(eval $(foreach a,$(LIBSELINUX_ALTS),ALTS_$(a):=300:/opt/sbin/$(a):/opt/sbin/libselinux-$(a)$(newline)))
+$(eval $(foreach a,$(LIBSELINUX_ALTS),ALTS_$(a):=300:$(ENTWARE_PREFIX)/sbin/$(a):$(ENTWARE_PREFIX)/sbin/libselinux-$(a)$(newline)))
 
 define Package/libselinux/Default
   TITLE:=Runtime SELinux library
@@ -121,8 +121,8 @@ TARGET_CFLAGS += -D_LARGEFILE64_SOURCE
 endif
 
 MAKE_FLAGS += \
-	PREFIX=/opt \
-	SHLIBDIR=/opt/lib \
+	PREFIX=$(ENTWARE_PREFIX) \
+	SHLIBDIR=$(ENTWARE_PREFIX)/lib \
 	OS=Linux
 
 define Build/Compile
@@ -135,25 +135,25 @@ endef
 
 # XXX Entware specific: don`t install dev
 #define Build/InstallDev
-#	$(INSTALL_DIR) $(1)/opt/include
-#	$(CP) $(PKG_INSTALL_DIR)/opt/include/* $(1)/opt/include/
-#	$(INSTALL_DIR) $(1)/opt/lib
-#	$(CP) $(PKG_INSTALL_DIR)/opt/lib/* $(1)/opt/lib/
-#	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
-#	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/libselinux.pc $(1)/opt/lib/pkgconfig/
-#	$(SED) 's,/opt/include,$$$${prefix}/include,g' $(1)/opt/lib/pkgconfig/libselinux.pc
-#	$(SED) 's,/opt/lib,$$$${exec_prefix}/lib,g' $(1)/opt/lib/pkgconfig/libselinux.pc
+#	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
+#	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/* $(1)$(ENTWARE_PREFIX)/include/
+#	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+#	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/* $(1)$(ENTWARE_PREFIX)/lib/
+#	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
+#	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/libselinux.pc $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
+#	$(SED) 's,$(ENTWARE_PREFIX)/include,$$$${prefix}/include,g' $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/libselinux.pc
+#	$(SED) 's,$(ENTWARE_PREFIX)/lib,$$$${exec_prefix}/lib,g' $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/libselinux.pc
 #endef
 
 define Package/libselinux/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libselinux.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libselinux.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define BuildUtil
   define Package/$(1)/install
-	$(INSTALL_DIR) $$(1)/opt/sbin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/$(2) $$(1)/opt/sbin/$(if $(ALTS_$(2)),libselinux-$(2),$(2))
+	$(INSTALL_DIR) $$(1)$(ENTWARE_PREFIX)/sbin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/sbin/$(2) $$(1)$(ENTWARE_PREFIX)/sbin/$(if $(ALTS_$(2)),libselinux-$(2),$(2))
   endef
 
   $$(eval $$(call BuildPackage,$(1)))

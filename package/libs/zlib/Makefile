@@ -64,35 +64,35 @@ CMAKE_OPTIONS += \
 	-DARMv8=$$$$(echo -e '\#ifdef __ARM_NEON__\nON\n\#else\nOFF\n\#endif' | $$(TARGET_CC) $$(TARGET_CFLAGS) -x c -E - | grep -xE 'ON|OFF')
 
 define Build/InstallDev
-	mkdir -p $(1)/opt/include
-	$(CP)	$(PKG_INSTALL_DIR)/opt/include/z{conf,lib}.h \
-		$(1)/opt/include/
-	mkdir -p $(1)/opt/lib
-	$(CP)	$(PKG_INSTALL_DIR)/opt/lib/libz.{a,so*} \
-		$(1)/opt/lib/
-	mkdir -p $(1)/opt/lib/pkgconfig
-	$(CP)	$(PKG_INSTALL_DIR)/opt/share/pkgconfig/zlib.pc \
-		$(1)/opt/lib/pkgconfig/
+	mkdir -p $(1)$(ENTWARE_PREFIX)/include
+	$(CP)	$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/z{conf,lib}.h \
+		$(1)$(ENTWARE_PREFIX)/include/
+	mkdir -p $(1)$(ENTWARE_PREFIX)/lib
+	$(CP)	$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libz.{a,so*} \
+		$(1)$(ENTWARE_PREFIX)/lib/
+	mkdir -p $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
+	$(CP)	$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/share/pkgconfig/zlib.pc \
+		$(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
 endef
 
 # libz.so is needed for openssl (zlib-dynamic)
 define Package/zlib/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libz.so $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libz.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libz.so $(1)$(ENTWARE_PREFIX)/lib/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libz.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/zlib-dev/install
-	$(INSTALL_DIR) $(1)/opt/include
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/include/zconf.h \
-	  $(1)/opt/include/
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/include/zlib.h \
-	  $(1)/opt/include/
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libz.a $(1)/opt/lib/
-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/pkgconfig/zlib.pc \
-	  $(1)/opt/lib/pkgconfig/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/zconf.h \
+	  $(1)$(ENTWARE_PREFIX)/include/
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/zlib.h \
+	  $(1)$(ENTWARE_PREFIX)/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libz.a $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/share/pkgconfig/zlib.pc \
+	  $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
 endef
 
 $(eval $(call BuildPackage,zlib))

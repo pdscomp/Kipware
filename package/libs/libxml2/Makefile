@@ -142,28 +142,28 @@ CMAKE_OPTIONS += \
 
 define Build/InstallDev
 	$(INSTALL_DIR) $(2)/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/xml2-config \
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/xml2-config \
 		$(2)/bin/$(GNU_TARGET_NAME)-xml2-config
-	$(SED) 's,^\(prefix\|exec_prefix\)=.*,\1=$(STAGING_DIR)/opt,g' \
+	$(SED) 's,^\(prefix\|exec_prefix\)=.*,\1=$(STAGING_ENTWARE),g' \
 		$(2)/bin/$(GNU_TARGET_NAME)-xml2-config
 	$(LN) $(GNU_TARGET_NAME)-xml2-config $(2)/bin/xml2-config
 
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/xmlcatalog $(1)/opt/bin/
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/xmllint $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/xmlcatalog $(1)$(ENTWARE_PREFIX)/bin/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/xmllint $(1)$(ENTWARE_PREFIX)/bin/
 
-	$(INSTALL_DIR) $(1)/opt/include
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/libxml2 $(1)/opt/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/libxml2 $(1)$(ENTWARE_PREFIX)/include/
 
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libxml2.so* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libxml2.so* $(1)$(ENTWARE_PREFIX)/lib/
 
-	$(INSTALL_DIR) $(1)/opt/lib/cmake/libxml2
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/cmake/libxml2/*.cmake \
-		$(1)/opt/lib/cmake/libxml2
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/cmake/libxml2
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/cmake/libxml2/*.cmake \
+		$(1)$(ENTWARE_PREFIX)/lib/cmake/libxml2
 
-	$(INSTALL_DIR) $(1)/opt/lib/pkgconfig
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/lib/pkgconfig/libxml-2.0.pc $(1)/opt/lib/pkgconfig/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/pkgconfig
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/pkgconfig/libxml-2.0.pc $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/
 endef
 
 define Host/Install
@@ -175,34 +175,34 @@ define Host/Install
 endef
 
 define Package/libxml2/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libxml2.so.* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libxml2.so.* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libxml2-dev/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/xml2-config $(1)/opt/bin/
-	$(SED) "s,$(STAGING_DIR),,g" $(1)/opt/bin/xml2-config
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/xml2-config $(1)$(ENTWARE_PREFIX)/bin/
+	$(SED) "s,$(STAGING_DIR),,g" $(1)$(ENTWARE_PREFIX)/bin/xml2-config
 
-	$(INSTALL_DIR) $(1)/opt/include/
-	$(CP) $(PKG_INSTALL_DIR)/opt/include/* $(1)/opt/include/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/include/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/include/* $(1)$(ENTWARE_PREFIX)/include/
 
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libxml2.so $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libxml2.so $(1)$(ENTWARE_PREFIX)/lib/
 
-	$(INSTALL_DIR) $(1)/opt/lib/{cmake,pkgconfig}
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/{cmake,pkgconfig} $(1)/opt/lib/
-	$(SED) "s,$(STAGING_DIR),,g" $(1)/opt/lib/pkgconfig/*.pc
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/{cmake,pkgconfig}
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/{cmake,pkgconfig} $(1)$(ENTWARE_PREFIX)/lib/
+	$(SED) "s,$(STAGING_DIR),,g" $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/*.pc
 
 	# XXX Entware specific: fix paths
 	$(SED) 's,/lib/libiconv-full,,g' \
-		$(1)/opt/bin/xml2-config $(1)/opt/lib/pkgconfig/*.pc
+		$(1)$(ENTWARE_PREFIX)/bin/xml2-config $(1)$(ENTWARE_PREFIX)/lib/pkgconfig/*.pc
 endef
 
 define Package/libxml2-utils/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/xmllint $(1)/opt/bin/
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/xmlcatalog $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/xmllint $(1)$(ENTWARE_PREFIX)/bin/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/xmlcatalog $(1)$(ENTWARE_PREFIX)/bin/
 endef
 
 $(eval $(call HostBuild))

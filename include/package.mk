@@ -176,7 +176,7 @@ override MAKEFLAGS=
 CONFIG_SITE:=$(INCLUDE_DIR)/site/$(ARCH)
 CUR_MAKEFILE:=$(filter-out Makefile,$(firstword $(MAKEFILE_LIST)))
 SUBMAKE:=$(NO_TRACE_MAKE) $(if $(CUR_MAKEFILE),-f $(CUR_MAKEFILE))
-PKG_CONFIG_PATH=$(STAGING_DIR)/opt/lib/pkgconfig:$(STAGING_DIR)/opt/share/pkgconfig
+PKG_CONFIG_PATH=$(STAGING_ENTWARE)/lib/pkgconfig:$(STAGING_ENTWARE)/share/pkgconfig
 unexport QUIET CONFIG_SITE
 
 ifeq ($(DUMP)$(filter prereq clean refresh update,$(MAKECMDGOALS)),)
@@ -223,8 +223,8 @@ ifdef USE_SOURCE_DIR
 endif
 
 define Build/Exports/Default
-  $(1) : export ACLOCAL_INCLUDE=$$(foreach p,$$(wildcard $$(STAGING_DIR)/opt/share/aclocal $$(STAGING_DIR)/opt/share/aclocal-* $$(STAGING_DIR_HOSTPKG)/share/aclocal $$(STAGING_DIR_HOSTPKG)/share/aclocal-* $$(STAGING_DIR)/host/share/aclocal $$(STAGING_DIR)/host/share/aclocal-*),-I $$(p))
-  $(1) : export STAGING_PREFIX=$$(STAGING_DIR)/opt
+  $(1) : export ACLOCAL_INCLUDE=$$(foreach p,$$(wildcard $$(STAGING_ENTWARE)/share/aclocal $$(STAGING_ENTWARE)/share/aclocal-* $$(STAGING_DIR_HOSTPKG)/share/aclocal $$(STAGING_DIR_HOSTPKG)/share/aclocal-* $$(STAGING_DIR)/host/share/aclocal $$(STAGING_DIR)/host/share/aclocal-*),-I $$(p))
+  $(1) : export STAGING_PREFIX=$$(STAGING_ENTWARE)
   $(1) : export PATH=$$(TARGET_PATH_PKG)
   $(1) : export CONFIG_SITE:=$$(CONFIG_SITE)
   $(1) : export PKG_CONFIG_PATH:=$$(PKG_CONFIG_PATH)
@@ -275,6 +275,18 @@ define Build/CoreTargets
 	$(Build/Compile)
 	$(foreach hook,$(Hooks/Compile/Post),$(call $(hook))$(sep))
 	$(Build/Install)
+	$(if $(filter-out /opt,$(ENTWARE_PREFIX)),\
+	  if [ -d "$(PKG_INSTALL_DIR)/opt" ] && [ ! -L "$(PKG_INSTALL_DIR)/opt" ]; then \
+	    if [ -d "$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)" ]; then \
+	      cp -a "$(PKG_INSTALL_DIR)/opt/." "$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/" 2>/dev/null || true; \
+	      rm -rf "$(PKG_INSTALL_DIR)/opt"; \
+	    else \
+	      mv "$(PKG_INSTALL_DIR)/opt" "$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)"; \
+	    fi; \
+	    ln -sfn "$(patsubst /%,%,$(ENTWARE_PREFIX))" "$(PKG_INSTALL_DIR)/opt"; \
+	  elif [ ! -e "$(PKG_INSTALL_DIR)/opt" ] && [ -d "$(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)" ]; then \
+	    ln -sfn "$(patsubst /%,%,$(ENTWARE_PREFIX))" "$(PKG_INSTALL_DIR)/opt"; \
+	  fi; true)
 	$(foreach hook,$(Hooks/Install/Post),$(call $(hook))$(sep))
 	touch $$@
 
@@ -295,10 +307,27 @@ define Build/CoreTargets
 			"$(STAGING_DIR)"; \
 	fi
 	if [ -d $(TMP_DIR)/stage-$(PKG_DIR_NAME) ]; then \
+		$(if $(filter-out /opt,$(ENTWARE_PREFIX)),\
+		  if [ -d "$(TMP_DIR)/stage-$(PKG_DIR_NAME)/opt" ] && [ ! -L "$(TMP_DIR)/stage-$(PKG_DIR_NAME)/opt" ]; then \
+		    if [ -d "$(TMP_DIR)/stage-$(PKG_DIR_NAME)$(ENTWARE_PREFIX)" ]; then \
+		      cp -a "$(TMP_DIR)/stage-$(PKG_DIR_NAME)/opt/." "$(TMP_DIR)/stage-$(PKG_DIR_NAME)$(ENTWARE_PREFIX)/"; \
+		    else \
+		      mv "$(TMP_DIR)/stage-$(PKG_DIR_NAME)/opt" "$(TMP_DIR)/stage-$(PKG_DIR_NAME)$(ENTWARE_PREFIX)"; \
+		    fi; \
+		    rm -rf "$(TMP_DIR)/stage-$(PKG_DIR_NAME)/opt"; \
+		  fi;) \
 		(cd $(TMP_DIR)/stage-$(PKG_DIR_NAME); find ./ > $(TMP_DIR)/stage-$(PKG_DIR_NAME).files); \
 		$(call locked, \
 			mv $(TMP_DIR)/stage-$(PKG_DIR_NAME).files $(STAGING_DIR)/packages/$(STAGING_FILES_LIST) && \
 			$(CP) $(TMP_DIR)/stage-$(PKG_DIR_NAME)/* $(STAGING_DIR)/; \
+			$(if $(filter-out /opt,$(ENTWARE_PREFIX)), \
+			  if [ -d "$(STAGING_DIR)/opt" ] && [ ! -L "$(STAGING_DIR)/opt" ]; then \
+			    cp -a "$(STAGING_DIR)/opt/." "$(STAGING_ENTWARE)/" 2>/dev/null || true; \
+			    rm -rf "$(STAGING_DIR)/opt"; \
+			    ln -sfn "$(patsubst /%,%,$(ENTWARE_PREFIX))" "$(STAGING_DIR)/opt"; \
+			  elif [ ! -e "$(STAGING_DIR)/opt" ] && [ -d "$(STAGING_ENTWARE)" ]; then \
+			    ln -sfn "$(patsubst /%,%,$(ENTWARE_PREFIX))" "$(STAGING_DIR)/opt"; \
+			  fi) \
 		,staging-dir); \
 	fi
 	rm -rf $(TMP_DIR)/stage-$(PKG_DIR_NAME)

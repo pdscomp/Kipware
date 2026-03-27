@@ -17,8 +17,8 @@
  conf.set_quoted('_PATH_LOCALSTATEDIR', localstatedir)
 -conf.set_quoted('CONFIG_ADJTIME_PATH', '/etc/adjtime')
 -conf.set_quoted('ADJTIME_PATH', '/etc/adjtime') # yes, both are used :(
-+conf.set_quoted('CONFIG_ADJTIME_PATH', '/opt/etc/adjtime')
-+conf.set_quoted('ADJTIME_PATH', '/opt/etc/adjtime') # yes, both are used :(
++conf.set_quoted('CONFIG_ADJTIME_PATH', '/kip/etc/adjtime')
++conf.set_quoted('ADJTIME_PATH', '/kip/etc/adjtime') # yes, both are used :(
  
  conf.set_quoted('_PATH_VENDORDIR', vendordir)
  conf.set('USE_VENDORDIR', vendordir == '' ? false : 1)
@@ -27,7 +27,7 @@
  	  '-a', 'VERSION=' + meson.project_version(),
  	  '-a', 'release-version=' + meson.project_version(),
 -	  '-a', 'ADJTIME_PATH=/etc/adjtime',
-+	  '-a', 'ADJTIME_PATH=/opt/etc/adjtime',
++	  '-a', 'ADJTIME_PATH=/kip/etc/adjtime',
  	  '-a', 'package-docdir=' + docdir,
  	  '--base-dir=' + meson.current_source_dir(),
            '--destination-dir=' + meson.current_build_dir(),
@@ -38,7 +38,7 @@
  option('fs-search-path',
         type : 'string',
 -       value : '/sbin:/sbin/fs.d:/sbin/fs',
-+       value : '/opt/sbin:/opt/sbin/fs.d:/opt/sbin/fs',
++       value : '/kip/sbin:/kip/sbin/fs.d:/kip/sbin/fs',
         description : 'default search path for fs helpers')
  option('fs-search-path-extra',
         type : 'string',

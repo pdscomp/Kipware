@@ -5,17 +5,17 @@
  
  PKG_CONFIG ?= pkg-config
 -PREFIX ?= /usr
-+PREFIX ?= /opt
++PREFIX ?= /kip
  DESTDIR ?=
 -SYSCONFDIR ?= /etc
-+SYSCONFDIR ?= /opt/etc
++SYSCONFDIR ?= /kip/etc
  BINDIR ?= $(PREFIX)/bin
  LIBDIR ?= $(PREFIX)/lib
  MANDIR ?= $(PREFIX)/share/man
  BASHCOMPDIR ?= $(PREFIX)/share/bash-completion/completions
  SYSTEMDUNITDIR ?= $(shell $(PKG_CONFIG) --variable=systemdsystemunitdir systemd 2>/dev/null || echo "$(PREFIX)/lib/systemd/system")
 -RUNSTATEDIR ?= /var/run
-+RUNSTATEDIR ?= /opt/var/run
++RUNSTATEDIR ?= /kip/var/run
  WITH_BASHCOMPLETION ?=
  WITH_WGQUICK ?=
  WITH_SYSTEMDUNITS ?=

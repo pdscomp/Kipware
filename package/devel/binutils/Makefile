@@ -58,7 +58,7 @@ define Package/binutils
   CATEGORY:=Development
   TITLE:=binutils
   DEPENDS:=+objdump +ar
-  ALTERNATIVES:=200:/opt/bin/strings:/opt/bin/binutils-strings
+  ALTERNATIVES:=200:$(ENTWARE_PREFIX)/bin/strings:$(ENTWARE_PREFIX)/bin/binutils-strings
 endef
 
 define Package/objdump
@@ -73,7 +73,7 @@ define Package/ar
   CATEGORY:=Development
   TITLE:=ar
   DEPENDS:=+zlib +libbfd
-  ALTERNATIVES:=200:/opt/bin/ar:/opt/bin/binutils-ar
+  ALTERNATIVES:=200:$(ENTWARE_PREFIX)/bin/ar:$(ENTWARE_PREFIX)/bin/binutils-ar
 endef
 
 define Package/binutils/description
@@ -93,7 +93,7 @@ CONFIGURE_ARGS += \
 	--enable-install-libiberty \
 	--enable-install-libbfd \
 	--enable-install-libctf \
-	--with-lib-path="/opt/lib/gcc/$(REAL_GNU_TARGET_NAME)/$(GCC_VERSION):/opt/lib:/opt/usr/lib" \
+	--with-lib-path="$(ENTWARE_PREFIX)/lib/gcc/$(REAL_GNU_TARGET_NAME)/$(GCC_VERSION):$(ENTWARE_PREFIX)/lib:$(ENTWARE_PREFIX)/usr/lib" \
 	--with-system-zlib \
 	--without-zstd \
 	--without-msgpack \
@@ -113,37 +113,37 @@ define Build/InstallDev
 endef
 
 define Package/libbfd/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libbfd*.so* $(1)/opt/lib/
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libsframe*.so* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libbfd*.so* $(1)$(ENTWARE_PREFIX)/lib/
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libsframe*.so* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libctf/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libctf*.so* $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libctf*.so* $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libopcodes/install
-	$(INSTALL_DIR) $(1)/opt/lib
-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libopcodes*.so $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libopcodes*.so $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/objdump/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/objdump $(1)/opt/bin/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/objdump $(1)$(ENTWARE_PREFIX)/bin/
 endef
 
 define Package/ar/install
-	$(INSTALL_DIR) $(1)/opt/bin
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/ar $(1)/opt/bin/binutils-ar
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/ar $(1)$(ENTWARE_PREFIX)/bin/binutils-ar
 endef
 
 define Package/binutils/install
-	$(INSTALL_DIR) $(1)/opt
-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/ $(1)/opt/
-	mv $(1)/opt/bin/strings $(1)/opt/bin/binutils-strings
-	rm -f $(1)/opt/bin/objdump
-	rm -f $(1)/opt/bin/ar
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)
+	$(CP) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/ $(1)$(ENTWARE_PREFIX)/
+	mv $(1)$(ENTWARE_PREFIX)/bin/strings $(1)$(ENTWARE_PREFIX)/bin/binutils-strings
+	rm -f $(1)$(ENTWARE_PREFIX)/bin/objdump
+	rm -f $(1)$(ENTWARE_PREFIX)/bin/ar
 endef
 
 $(eval $(call BuildPackage,libbfd))

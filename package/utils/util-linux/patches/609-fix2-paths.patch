@@ -5,7 +5,7 @@
  #define MAX_ARGS 32
  
 -#define FSCK_RUNTIME_DIRNAME	"/run/fsck"
-+#define FSCK_RUNTIME_DIRNAME	"/opt/var/run/fsck"
++#define FSCK_RUNTIME_DIRNAME	"/kip/var/run/fsck"
  
  static const char *const ignored_types[] = {
  	"ignore",
@@ -14,7 +14,7 @@
  static struct fsck_instance *instance_list;
  
 -#define FSCK_DEFAULT_PATH "/sbin"
-+#define FSCK_DEFAULT_PATH "/opt/sbin"
++#define FSCK_DEFAULT_PATH "/kip/sbin"
  static char *fsck_path;
  
  
@@ -25,17 +25,17 @@
  
  /* config file */
 -#define BLKID_CONFIG_FILE	"/etc/blkid.conf"
-+#define BLKID_CONFIG_FILE	"/opt/etc/blkid.conf"
++#define BLKID_CONFIG_FILE	"/kip/etc/blkid.conf"
  
  /* cache file on systemds with /run */
 -#define BLKID_RUNTIME_TOPDIR	"/run"
-+#define BLKID_RUNTIME_TOPDIR	"/opt/var/run"
++#define BLKID_RUNTIME_TOPDIR	"/kip/var/run"
  #define BLKID_RUNTIME_DIR	BLKID_RUNTIME_TOPDIR "/blkid"
  #define BLKID_CACHE_FILE	BLKID_RUNTIME_DIR "/blkid.tab"
  
  /* old systems */
 -#define BLKID_CACHE_FILE_OLD	"/etc/blkid.tab"
-+#define BLKID_CACHE_FILE_OLD	"/opt/etc/blkid.tab"
++#define BLKID_CACHE_FILE_OLD	"/kip/etc/blkid.tab"
  
  #define BLKID_ERR_IO	 5
  #define BLKID_ERR_SYSFS	 9
@@ -47,8 +47,8 @@
  
 -#define LIBUUID_CLOCK_FILE	_PATH_LOCALSTATEDIR "/lib/libuuid/clock.txt"
 -#define LIBUUID_CLOCK_CONT_FILE	_PATH_LOCALSTATEDIR "/lib/libuuid/clock-cont.txt"
-+#define LIBUUID_CLOCK_FILE		"/opt/var/lib/libuuid/clock.txt"
-+#define LIBUUID_CLOCK_CONT_FILE	"/opt/var/lib/libuuid/clock-cont.txt"
++#define LIBUUID_CLOCK_FILE		"/kip/var/lib/libuuid/clock.txt"
++#define LIBUUID_CLOCK_CONT_FILE	"/kip/var/lib/libuuid/clock-cont.txt"
  
  /*
   * Offset between 15-Oct-1582 and 1-Jan-70
@@ -59,7 +59,7 @@
  #define UUIDD_SOCKET_PATH	UUIDD_DIR "/request"
  #define UUIDD_PIDFILE_PATH	UUIDD_DIR "/uuidd.pid"
 -#define UUIDD_PATH		"/usr/sbin/uuidd"
-+#define UUIDD_PATH		"/opt/sbin/uuidd"
++#define UUIDD_PATH		"/kip/sbin/uuidd"
  
  #define UUIDD_OP_GETPID			0
  #define UUIDD_OP_GET_MAXOP		1
@@ -69,29 +69,29 @@
  };
  
  static const char *const bindirs[] = {
-+	"/opt/usr/bin",
-+	"/opt/usr/sbin",
-+	"/opt/bin",
-+	"/opt/sbin",
++	"/kip/usr/bin",
++	"/kip/usr/sbin",
++	"/kip/bin",
++	"/kip/sbin",
  	"/usr/bin",
  	"/usr/sbin",
  	"/bin",
  	"/sbin",
  #if defined(MULTIARCHTRIPLET)
-+	"/opt/lib/" MULTIARCHTRIPLET,
-+	"/opt/usr/lib/" MULTIARCHTRIPLET,
++	"/kip/lib/" MULTIARCHTRIPLET,
++	"/kip/usr/lib/" MULTIARCHTRIPLET,
  	"/lib/" MULTIARCHTRIPLET,
  	"/usr/lib/" MULTIARCHTRIPLET,
  	"/usr/local/lib/" MULTIARCHTRIPLET,
  #endif
-+	"/opt/usr/lib",
++	"/kip/usr/lib",
  	"/usr/lib",
  	"/usr/lib32",
  	"/usr/lib64",
-+	"/opt/etc",
++	"/kip/etc",
  	"/etc",
  	"/usr/etc",
-+	"/opt/lib",
++	"/kip/lib",
  	"/lib",
  	"/lib32",
  	"/lib64",
@@ -99,32 +99,32 @@
  	"/usr/old",
  	"/usr/new",
  	"/usr/local",
-+	"/opt/libexec",
++	"/kip/libexec",
  	"/usr/libexec",
-+	"/opt/share",
-+	"/opt/usr/share",
++	"/kip/share",
++	"/kip/usr/share",
  	"/usr/share",
  
- 	"/opt/*/bin",
+ 	"/kip/*/bin",
 @@ -163,16 +175,21 @@ static const char *const bindirs[] = {
  
  static const char *const mandirs[] = {
  	"/usr/man/*",
-+	"/opt/share/man/*",
-+	"/opt/usr/share/man/*",
++	"/kip/share/man/*",
++	"/kip/usr/share/man/*",
  	"/usr/share/man/*",
  	"/usr/X386/man/*",
  	"/usr/X11/man/*",
  	"/usr/TeX/man/*",
  	"/usr/interviews/man/mann",
-+	"/opt/share/info",
-+	"/opt/usr/share/info",
++	"/kip/share/info",
++	"/kip/usr/share/info",
  	"/usr/share/info",
  	NULL
  };
  
  static const char *const srcdirs[] = {
-+	"/opt/src/*",
++	"/kip/src/*",
  	"/usr/src/*",
  	"/usr/src/lib/libc/*",
  	"/usr/src/lib/libc/net/*",
@@ -135,7 +135,7 @@
  # include <linux/netlink.h>
  # include <linux/rtnetlink.h>
 -# define AGETTY_RELOAD_FILENAME "/run/agetty.reload"	/* trigger file */
-+# define AGETTY_RELOAD_FILENAME "/opt/var/run/agetty.reload"	/* trigger file */
++# define AGETTY_RELOAD_FILENAME "/kip/var/run/agetty.reload"	/* trigger file */
  # define AGETTY_RELOAD_FDNONE	-2			/* uninitialized fd */
  static int inotify_fd = AGETTY_RELOAD_FDNONE;
  static int netlink_fd = AGETTY_RELOAD_FDNONE;
@@ -146,13 +146,13 @@
  			err(EXIT_FAILURE, _("drop permissions failed"));
  		if (ctl->p_option)
 -			execl("/bin/umount", "/bin/umount", name, "-n", (char *)NULL);
-+			execl("/opt/bin/umount", "/opt/bin/umount", name, "-n", (char *)NULL);
++			execl("/kip/bin/umount", "/kip/bin/umount", name, "-n", (char *)NULL);
  		else
 -			execl("/bin/umount", "/bin/umount", name, (char *)NULL);
-+			execl("/opt/bin/umount", "/opt/bin/umount", name, (char *)NULL);
++			execl("/kip/bin/umount", "/kip/bin/umount", name, (char *)NULL);
  
 -		errexec("/bin/umount");
-+		errexec("/opt/bin/umount");
++		errexec("/kip/bin/umount");
  
  	case -1:
  		warn( _("unable to fork"));

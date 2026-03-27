@@ -66,34 +66,34 @@ define Package/libubox-lua
   TITLE:=Lua binding for the OpenWrt Basic utility library
 endef
 
-TARGET_CFLAGS += -I$(STAGING_DIR)/opt/include
+TARGET_CFLAGS += -I$(STAGING_ENTWARE)/include
 CMAKE_OPTIONS += \
-	-DLUAPATH=/opt/lib/lua
+	-DLUAPATH=$(ENTWARE_PREFIX)/lib/lua
 
 define Package/libubox/install
-	$(INSTALL_DIR) $(1)/opt/lib/
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/lib/libubox.so $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libubox.so $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libblobmsg-json/install
-	$(INSTALL_DIR) $(1)/opt/lib/
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/lib/libblobmsg_json.so $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libblobmsg_json.so $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/jshn/install
-	$(INSTALL_DIR) $(1)/opt/bin $(1)/opt/share/libubox
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/jshn $(1)/opt/bin
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/libubox/jshn.sh $(1)/opt/share/libubox
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/bin $(1)$(ENTWARE_PREFIX)/share/libubox
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/bin/jshn $(1)$(ENTWARE_PREFIX)/bin
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/share/libubox/jshn.sh $(1)$(ENTWARE_PREFIX)/share/libubox
 endef
 
 define Package/libjson-script/install
-	$(INSTALL_DIR) $(1)/opt/lib/
-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/lib/libjson_script.so $(1)/opt/lib/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)$(ENTWARE_PREFIX)/lib/libjson_script.so $(1)$(ENTWARE_PREFIX)/lib/
 endef
 
 define Package/libubox-lua/install
-	$(INSTALL_DIR) $(1)/opt/lib/lua
-	$(CP) $(PKG_BUILD_DIR)/lua/uloop.so $(1)/opt/lib/lua/
+	$(INSTALL_DIR) $(1)$(ENTWARE_PREFIX)/lib/lua
+	$(CP) $(PKG_BUILD_DIR)/lua/uloop.so $(1)$(ENTWARE_PREFIX)/lib/lua/
 endef
 
 

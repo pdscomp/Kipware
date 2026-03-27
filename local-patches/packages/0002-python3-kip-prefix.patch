@@ -169,3 +169,259 @@
  endef
  
  Py3Package/python3-light/install:=:
+--- a/lang/python/python3/files/python3-package-asyncio.mk
++++ b/lang/python/python3/files/python3-package-asyncio.mk
+@@ -18,5 +18,5 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-asyncio, \
+-	/opt/lib/python$(PYTHON3_VERSION)/asyncio \
++	/kip/lib/python$(PYTHON3_VERSION)/asyncio \
+ ))
+--- a/lang/python/python3/files/python3-package-codecs.mk
++++ b/lang/python/python3/files/python3-package-codecs.mk
+@@ -18,11 +18,11 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-codecs, \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_codecs_cn.$(PYTHON3_SO_SUFFIX) \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_codecs_hk.$(PYTHON3_SO_SUFFIX) \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_codecs_iso2022.$(PYTHON3_SO_SUFFIX) \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_codecs_jp.$(PYTHON3_SO_SUFFIX) \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_codecs_kr.$(PYTHON3_SO_SUFFIX) \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_codecs_tw.$(PYTHON3_SO_SUFFIX) \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/unicodedata.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_codecs_cn.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_codecs_hk.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_codecs_iso2022.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_codecs_jp.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_codecs_kr.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_codecs_tw.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/unicodedata.$(PYTHON3_SO_SUFFIX) \
+ ))
+--- a/lang/python/python3/files/python3-package-ctypes.mk
++++ b/lang/python/python3/files/python3-package-ctypes.mk
+@@ -18,6 +18,6 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-ctypes, \
+-	/opt/lib/python$(PYTHON3_VERSION)/ctypes \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_ctypes.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/ctypes \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_ctypes.$(PYTHON3_SO_SUFFIX) \
+ ))
+--- a/lang/python/python3/files/python3-package-dbm.mk
++++ b/lang/python/python3/files/python3-package-dbm.mk
+@@ -18,7 +18,7 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-dbm, \
+-	/opt/lib/python$(PYTHON3_VERSION)/dbm \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_dbm.$(PYTHON3_SO_SUFFIX) \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_gdbm.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/dbm \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_dbm.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_gdbm.$(PYTHON3_SO_SUFFIX) \
+ ))
+--- a/lang/python/python3/files/python3-package-decimal.mk
++++ b/lang/python/python3/files/python3-package-decimal.mk
+@@ -18,6 +18,6 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-decimal, \
+-	/opt/lib/python$(PYTHON3_VERSION)/decimal.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_decimal.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/decimal.py \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_decimal.$(PYTHON3_SO_SUFFIX) \
+ ))
+--- a/lang/python/python3/files/python3-package-dev.mk
++++ b/lang/python/python3/files/python3-package-dev.mk
+@@ -19,24 +19,24 @@
+ endef
+ 
+ define Py3Package/python3-dev/install
+-	$(INSTALL_DIR) $(1)/opt/bin $(1)/opt/lib
+-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/python$(PYTHON3_VERSION)-config $(1)/opt/bin
+-	$(LN) python$(PYTHON3_VERSION)-config $(1)/opt/bin/python3-config
+-	$(LN) python$(PYTHON3_VERSION)-config $(1)/opt/bin/python-config
+-	$(LN) python$(PYTHON3_VERSION)/config-$(PYTHON3_VERSION)-$(ARCH)-linux-$(TARGET_SUFFIX)/libpython$(PYTHON3_VERSION).a $(1)/opt/lib/
++	$(INSTALL_DIR) $(1)/kip/bin $(1)/kip/lib
++	$(CP) $(PKG_INSTALL_DIR)/kip/bin/python$(PYTHON3_VERSION)-config $(1)/kip/bin
++	$(LN) python$(PYTHON3_VERSION)-config $(1)/kip/bin/python3-config
++	$(LN) python$(PYTHON3_VERSION)-config $(1)/kip/bin/python-config
++	$(LN) python$(PYTHON3_VERSION)/config-$(PYTHON3_VERSION)-$(ARCH)-linux-$(TARGET_SUFFIX)/libpython$(PYTHON3_VERSION).a $(1)/kip/lib/
+ 
+ # XXX
+ 	$(SED) 's,$(STAGING_DIR),,g;s,$(TOOLCHAIN_DIR),/opt,g;s,$(STAGING_DIR_HOST),/opt,g; \
+ 		s,-f\(file\|macro\)-prefix-map=$(PKG_BUILD_DIR)=Python-$(PKG_VERSION),,g; \
+ 		s,-L$(PKG_BUILD_DIR),,g;s,$(PKG_BUILD_DIR),,g' \
+-			$(PKG_INSTALL_DIR)/opt/bin/python$(PYTHON3_VERSION)-config \
+-			$(PKG_INSTALL_DIR)/opt/lib/python$(PYTHON3_VERSION)/config-$(PYTHON3_VERSION)-*/Makefile
++			$(PKG_INSTALL_DIR)/kip/bin/python$(PYTHON3_VERSION)-config \
++			$(PKG_INSTALL_DIR)/kip/lib/python$(PYTHON3_VERSION)/config-$(PYTHON3_VERSION)-*/Makefile
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-dev, \
+-    /opt/lib/python$(PYTHON3_VERSION)/config-$(PYTHON3_VERSION)-* \
+-    /opt/include/python$(PYTHON3_VERSION) \
+-    /opt/lib/pkgconfig \
++    /kip/lib/python$(PYTHON3_VERSION)/config-$(PYTHON3_VERSION)-* \
++    /kip/include/python$(PYTHON3_VERSION) \
++    /kip/lib/pkgconfig \
+ 	, \
+ 	DO_NOT_ADD_TO_PACKAGE_DEPENDS \
+ ))
+--- a/lang/python/python3/files/python3-package-email.mk
++++ b/lang/python/python3/files/python3-package-email.mk
+@@ -18,5 +18,5 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-email, \
+-	/opt/lib/python$(PYTHON3_VERSION)/email \
++	/kip/lib/python$(PYTHON3_VERSION)/email \
+ ))
+--- a/lang/python/python3/files/python3-package-logging.mk
++++ b/lang/python/python3/files/python3-package-logging.mk
+@@ -18,5 +18,5 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-logging, \
+-	/opt/lib/python$(PYTHON3_VERSION)/logging \
++	/kip/lib/python$(PYTHON3_VERSION)/logging \
+ ))
+--- a/lang/python/python3/files/python3-package-lzma.mk
++++ b/lang/python/python3/files/python3-package-lzma.mk
+@@ -18,6 +18,6 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-lzma, \
+-	/opt/lib/python$(PYTHON3_VERSION)/lzma.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_lzma.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/lzma.py \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_lzma.$(PYTHON3_SO_SUFFIX) \
+ ))
+--- a/lang/python/python3/files/python3-package-multiprocessing.mk
++++ b/lang/python/python3/files/python3-package-multiprocessing.mk
+@@ -18,6 +18,6 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-multiprocessing, \
+-	/opt/lib/python$(PYTHON3_VERSION)/multiprocessing \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_multiprocessing.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/multiprocessing \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_multiprocessing.$(PYTHON3_SO_SUFFIX) \
+ ))
+--- a/lang/python/python3/files/python3-package-ncurses.mk
++++ b/lang/python/python3/files/python3-package-ncurses.mk
+@@ -18,7 +18,7 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-ncurses, \
+-	/opt/lib/python$(PYTHON3_VERSION)/curses \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_curses.$(PYTHON3_SO_SUFFIX) \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_curses_panel.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/curses \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_curses.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_curses_panel.$(PYTHON3_SO_SUFFIX) \
+ ))
+--- a/lang/python/python3/files/python3-package-openssl.mk
++++ b/lang/python/python3/files/python3-package-openssl.mk
+@@ -18,6 +18,6 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-openssl, \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_hashlib.$(PYTHON3_SO_SUFFIX) \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_ssl.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_hashlib.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_ssl.$(PYTHON3_SO_SUFFIX) \
+ ))
+--- a/lang/python/python3/files/python3-package-pydoc.mk
++++ b/lang/python/python3/files/python3-package-pydoc.mk
+@@ -18,7 +18,7 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-pydoc, \
+-	/opt/lib/python$(PYTHON3_VERSION)/doctest.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/pydoc.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/pydoc_data \
++	/kip/lib/python$(PYTHON3_VERSION)/doctest.py \
++	/kip/lib/python$(PYTHON3_VERSION)/pydoc.py \
++	/kip/lib/python$(PYTHON3_VERSION)/pydoc_data \
+ ))
+--- a/lang/python/python3/files/python3-package-readline.mk
++++ b/lang/python/python3/files/python3-package-readline.mk
+@@ -18,5 +18,5 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-readline, \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/readline.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/readline.$(PYTHON3_SO_SUFFIX) \
+ ))
+--- a/lang/python/python3/files/python3-package-sqlite3.mk
++++ b/lang/python/python3/files/python3-package-sqlite3.mk
+@@ -18,6 +18,6 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-sqlite3, \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_sqlite3.$(PYTHON3_SO_SUFFIX) \
+-	/opt/lib/python$(PYTHON3_VERSION)/sqlite3 \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_sqlite3.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/sqlite3 \
+ ))
+--- a/lang/python/python3/files/python3-package-unittest.mk
++++ b/lang/python/python3/files/python3-package-unittest.mk
+@@ -18,5 +18,5 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-unittest, \
+-	/opt/lib/python$(PYTHON3_VERSION)/unittest \
++	/kip/lib/python$(PYTHON3_VERSION)/unittest \
+ ))
+--- a/lang/python/python3/files/python3-package-urllib.mk
++++ b/lang/python/python3/files/python3-package-urllib.mk
+@@ -18,5 +18,5 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-urllib, \
+-	/opt/lib/python$(PYTHON3_VERSION)/urllib \
++	/kip/lib/python$(PYTHON3_VERSION)/urllib \
+ ))
+--- a/lang/python/python3/files/python3-package-uuid.mk
++++ b/lang/python/python3/files/python3-package-uuid.mk
+@@ -18,6 +18,6 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-uuid, \
+-	/opt/lib/python$(PYTHON3_VERSION)/uuid.py \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_uuid.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/uuid.py \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_uuid.$(PYTHON3_SO_SUFFIX) \
+ ))
+--- a/lang/python/python3/files/python3-package-venv.mk
++++ b/lang/python/python3/files/python3-package-venv.mk
+@@ -18,8 +18,8 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-venv, \
+-	/opt/lib/python$(PYTHON3_VERSION)/ensurepip \
+-	/opt/lib/python$(PYTHON3_VERSION)/venv \
++	/kip/lib/python$(PYTHON3_VERSION)/ensurepip \
++	/kip/lib/python$(PYTHON3_VERSION)/venv \
+ 	, \
+ 	DO_NOT_ADD_TO_PACKAGE_DEPENDS \
+ ))
+--- a/lang/python/python3/files/python3-package-xml.mk
++++ b/lang/python/python3/files/python3-package-xml.mk
+@@ -18,8 +18,8 @@
+ endef
+ 
+ $(eval $(call Py3BasePackage,python3-xml, \
+-	/opt/lib/python$(PYTHON3_VERSION)/xml \
+-	/opt/lib/python$(PYTHON3_VERSION)/xmlrpc \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/_elementtree.$(PYTHON3_SO_SUFFIX) \
+-	/opt/lib/python$(PYTHON3_VERSION)/lib-dynload/pyexpat.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/xml \
++	/kip/lib/python$(PYTHON3_VERSION)/xmlrpc \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/_elementtree.$(PYTHON3_SO_SUFFIX) \
++	/kip/lib/python$(PYTHON3_VERSION)/lib-dynload/pyexpat.$(PYTHON3_SO_SUFFIX) \
+ ))

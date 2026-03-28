@@ -225,7 +225,11 @@ ifeq ($(LIBC),glibc)
     DYNLINKER=ld-linux-aarch64.so.1
   endif
   ifeq ($(ARCH),arm)
-    DYNLINKER=ld-linux.so.3
+    ifneq ($(findstring eabihf,$(TARGET_SUFFIX)),)
+      DYNLINKER=ld-linux-armhf.so.3
+    else
+      DYNLINKER=ld-linux.so.3
+    endif
   endif
   ifeq ($(ARCH),i386)
     DYNLINKER=ld-linux.so.2

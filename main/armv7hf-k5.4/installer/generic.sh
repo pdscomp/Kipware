@@ -30,6 +30,7 @@ do
 done
 
 echo 'Info: Opkg package manager deployment...'
+ln -sf /lib/${LOADER} /opt/lib/${LOADER}
 wget "${REPO}/installer/opkg" -O /opt/bin/opkg
 chmod 755 /opt/bin/opkg
 wget "${REPO}/installer/opkg.conf" -O /opt/etc/opkg.conf

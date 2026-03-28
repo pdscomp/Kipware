@@ -680,6 +680,7 @@ ifneq ($(CONFIG_TARGET_x86_64),)
   ifeq ($(CONFIG_USE_GLIBC),y)
 	$(SED) 's|/lib/ld.so.1|$(ENTWARE_PREFIX)/lib/ld.so.1|g; \
 		s|/lib/ld-linux.so.3|$(ENTWARE_PREFIX)/lib/ld-linux.so.3|g; \
+		s|/lib/ld-linux-armhf.so.3|$(ENTWARE_PREFIX)/lib/ld-linux-armhf.so.3|g; \
 		s|/lib/ld-linux.so.2|$(ENTWARE_PREFIX)/lib/ld-linux.so.2|g; \
 		s|/lib/ld-linux-aarch64.so.1|$(ENTWARE_PREFIX)/lib/ld-linux-aarch64.so.1|g; \
 		s|/lib64/ld-linux-x86-64.so.2|$(ENTWARE_PREFIX)/lib/ld-linux-x86-64.so.2|g' $(1)$(ENTWARE_PREFIX)/bin/ldd

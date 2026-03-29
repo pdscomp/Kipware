@@ -96,6 +96,21 @@ apply_local_feed_fixes() {
     done < <(find "${feed_patches_dir}" -maxdepth 1 -type f -name '*.patch' | sort)
   fi
 
+  # Apply feed-level patches for other feeds (local-patches/<feed>-feed/*.patch → patch feeds/<feed>/)
+  local feed_level_dir
+  for feed_level_dir in "${REPO_ROOT}/local-patches"/*-feed/; do
+    [[ -d "${feed_level_dir}" ]] || continue
+    local dir_name feed
+    dir_name="$(basename "${feed_level_dir}")"
+    feed="${dir_name%-feed}"
+    [[ -d "${REPO_ROOT}/feeds/${feed}" ]] || { echo "WARNING: feeds/${feed} not found, skipping ${dir_name}"; continue; }
+    local patch_file
+    while IFS= read -r patch_file; do
+      log_step "apply feed patch ${dir_name}/$(basename "${patch_file}")"
+      patch -N -p1 -d "${REPO_ROOT}/feeds/${feed}" < "${patch_file}" || true
+    done < <(find "${feed_level_dir}" -maxdepth 1 -type f -name '*.patch' | sort)
+  done
+
   # Inject extra patches into pkg patch directories (local-patches/<feed>-<pkg>/*.patch → feeds/<feed>/<pkg>/patches/)
   local extra_dir
   for extra_dir in "${REPO_ROOT}/local-patches"/*/; do
@@ -103,6 +118,7 @@ apply_local_feed_fixes() {
     dir_name="${extra_dir%/}"
     dir_name="${dir_name##*/}"
     [[ "$dir_name" == "packages" ]] && continue
+    [[ "$dir_name" == *-feed ]] && continue
     [[ "$dir_name" == *-* ]] || continue
 
     local feed="${dir_name%%-*}"

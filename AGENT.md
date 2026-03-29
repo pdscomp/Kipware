@@ -98,15 +98,28 @@ upstream and have no opkg equivalent:
 
 ## Local patches
 
-### Feed-level patches (`local-patches/packages/*.patch`)
+### Feed-level patches for `packages` feed (`local-patches/packages/*.patch`)
 
 Applied with `patch -p1 -d feeds/packages` during `apply_local_feed_fixes`.
 Used for fixes that span multiple packages or touch feed-level build system files.
+
+Patch numbers `0001`–`0009` are reserved for build-system fixes (LTO disablement,
+compiler workarounds, etc.). Numbers `0010`+ are available for other customisations.
 
 Current patches:
 - `0001-python3-arm-disable-lto-and-strict-extensions.patch` — disables LTO for python3 (GCC 8.4.0 segfaults on ARM with LTO)
 - `0002-glib2-arm-disable-lto.patch` — same fix for glib2
 - `0003-zstd-arm-disable-lto.patch` — same fix for zstd
+
+### Feed-level patches for other feeds (`local-patches/<feed>-feed/*.patch`)
+
+Applied with `patch -p1 -d feeds/<feed>` during `apply_local_feed_fixes`.
+Use this layout when you need to patch an entire feed tree (e.g. global prefix
+changes, feed-wide build system adjustments) rather than a single package.
+
+To add patches for a feed named `rtndev`, place them in
+`local-patches/rtndev-feed/` — the `-feed` suffix distinguishes these directories
+from per-package directories (`local-patches/<feed>-<pkg>/`).
 
 ### Per-package extra patches (`local-patches/<feed>-<pkg>/*.patch`)
 

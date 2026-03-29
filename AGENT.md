@@ -83,6 +83,135 @@ cp configs/armv7hf-5.4.config .config
 make menuconfig
 ```
 
+### Step-by-step: adding a new package to both branches
+
+This is the verified workflow for adding a package (e.g. `python3-yaml`) to both
+`main` and `kip`.
+
+#### 1. Find the correct names
+
+A feed Makefile has two separate names that are easy to confuse:
+
+| Name | Where it appears | Example |
+|---|---|---|
+| `PKG_NAME` | Top of Makefile; used for the feed symlink path | `python-yaml` |
+| `Package/<name>` | `define Package/...` block; used in Kconfig | `python3-yaml` |
+
+Look up both with:
+
+```bash
+grep "PKG_NAME\|define Package/" feeds/packages/lang/python/python-yaml/Makefile
+# PKG_NAME:=python-yaml
+# define Package/python3-yaml
+```
+
+Or search the feed index:
+
+```bash
+./scripts/feeds search python3-yaml
+# Package name shown there is the one used in CONFIG_PACKAGE_...
+```
+
+The **Kconfig name** (`python3-yaml`) goes in `configs/armv7hf-5.4.config`.
+The **PKG_NAME** (`python-yaml`) is the argument to `./scripts/feeds install`
+and to `./bake_armv7hf.sh <pkg>`.
+
+#### 2. Add to `configs/armv7hf-5.4.config` on `main`
+
+```bash
+git checkout main
+# Add the line (use Kconfig name):
+echo 'CONFIG_PACKAGE_python3-yaml=m' >> configs/armv7hf-5.4.config
+# Commit and push; CI will build and publish automatically
+git add configs/armv7hf-5.4.config
+git commit -m "feat: add python3-yaml to build config"
+git push
+```
+
+Repeat for any additional packages in the same commit.
+
+#### 3. Apply the same change to `kip`
+
+The `kip` branch carries the `/kip` prefix changes on top of `main`. Apply the
+identical config edit there:
+
+```bash
+git checkout kip
+# Either cherry-pick the main commit, or apply the edit directly:
+echo 'CONFIG_PACKAGE_python3-yaml=m' >> configs/armv7hf-5.4.config
+git add configs/armv7hf-5.4.config
+git commit -m "feat: add python3-yaml to build config"
+git push
+```
+
+#### 4. Install the feed symlink locally (if building locally)
+
+The bake script's `feeds` step calls `./scripts/feeds install -a -f`, but if you
+already have feeds checked out and just added a new package you may need to
+install the symlink manually:
+
+```bash
+# Use PKG_NAME here (not the Kconfig name)
+./scripts/feeds install python-yaml python-charset-normalizer
+```
+
+If that produces no visible output but the symlink is still missing, confirm the
+package was found in the index:
+
+```bash
+./scripts/feeds search python3-yaml   # shows PKG_NAME and Kconfig name
+ls package/feeds/packages/python-yaml # symlink should exist after install
+```
+
+#### 5. Build and verify locally
+
+Use the PKG_NAME with the bake script:
+
+```bash
+# Skip feed update (already done), keep config fresh:
+BAKE_SKIP_FEEDS=1 BAKE_KEEP_CONFIG=1 ./bake_armv7hf.sh python-yaml
+```
+
+> **Note:** Even a single-package build runs `bootstrap_toolchain` first, which
+> may rebuild host/target toolchain components. This can take 20–40 minutes on a
+> cold cache. Subsequent runs are faster.
+
+Verify the IPK was produced and installs to the correct prefix:
+
+```bash
+ls -lh bin/targets/armv7-5.4/generic-glibc/packages/python3-yaml_*.ipk
+# Inspect install paths (should be ./kip/... on kip branch, ./opt/... on main):
+tar -xOf bin/targets/armv7-5.4/generic-glibc/packages/python3-yaml_*.ipk ./data.tar.gz \
+  | tar -tz | head -10
+```
+
+#### 6. CI build and publishing
+
+Pushing to `main` or `kip` triggers the `Build armv7hf-5.4` workflow. On
+success it:
+
+1. Runs `Verify published package set` — checks a hardcoded list of required IPKs
+   (see the *CI verification* section below to keep that list current)
+2. Deploys IPKs to GitHub Pages under:
+   `https://pdscomp.github.io/Kipware/<branch>/armv7hf-k5.4/`
+
+Confirm the new package is live:
+
+```bash
+curl -s "https://pdscomp.github.io/Kipware/kip/armv7hf-k5.4/" \
+  | grep python3-yaml
+# <a href="python3-yaml_6.0.3-1_armv7-5.4.ipk">...
+```
+
+#### Summary checklist
+
+- [ ] Locate `PKG_NAME` and `Package/<name>` in the feed Makefile
+- [ ] Add `CONFIG_PACKAGE_<name>=m` to `configs/armv7hf-5.4.config`
+- [ ] Commit and push to `main`
+- [ ] Apply the identical config change to `kip` and push
+- [ ] CI green on both branches (check with `gh run list --branch <branch>`)
+- [ ] Package visible at the GH Pages URL
+
 ### Python packages and Python version
 
 The feed currently ships **Python 3.13**. Several stdlib modules were removed

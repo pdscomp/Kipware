@@ -183,6 +183,7 @@ ls -lh bin/targets/armv7-5.4/generic-glibc/packages/python3-yaml_*.ipk
 # Inspect install paths (should be ./kip/... on kip branch, ./opt/... on main):
 tar -xOf bin/targets/armv7-5.4/generic-glibc/packages/python3-yaml_*.ipk ./data.tar.gz \
   | tar -tz | head -10
+# Paths will be ./opt/... on main, ./kip/... on the kip branch
 ```
 
 #### 6. CI build and publishing
@@ -198,7 +199,7 @@ success it:
 Confirm the new package is live:
 
 ```bash
-curl -s "https://pdscomp.github.io/Kipware/kip/armv7hf-k5.4/" \
+curl -s "https://pdscomp.github.io/Kipware/main/armv7hf-k5.4/" \
   | grep python3-yaml
 # <a href="python3-yaml_6.0.3-1_armv7-5.4.ipk">...
 ```

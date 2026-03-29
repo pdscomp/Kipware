@@ -83,10 +83,7 @@ cp configs/armv7hf-5.4.config .config
 make menuconfig
 ```
 
-### Step-by-step: adding a new package to both branches
-
-This is the verified workflow for adding a package (e.g. `python3-yaml`) to both
-`main` and `kip`.
+### Step-by-step: adding a package that is already in the feeds
 
 #### 1. Find the correct names
 
@@ -109,35 +106,26 @@ Or search the feed index:
 
 ```bash
 ./scripts/feeds search python3-yaml
-# Package name shown there is the one used in CONFIG_PACKAGE_...
 ```
 
 The **Kconfig name** (`python3-yaml`) goes in `configs/armv7hf-5.4.config`.
-The **PKG_NAME** (`python-yaml`) is the argument to `./scripts/feeds install`
-and to `./bake_armv7hf.sh <pkg>`.
+The **PKG_NAME** (`python-yaml`) is used by `./scripts/feeds install` and
+`./bake_armv7hf.sh <pkg>`.
 
 #### 2. Add to `configs/armv7hf-5.4.config` on `main`
 
 ```bash
 git checkout main
-# Add the line (use Kconfig name):
 echo 'CONFIG_PACKAGE_python3-yaml=m' >> configs/armv7hf-5.4.config
-# Commit and push; CI will build and publish automatically
 git add configs/armv7hf-5.4.config
 git commit -m "feat: add python3-yaml to build config"
 git push
 ```
 
-Repeat for any additional packages in the same commit.
-
 #### 3. Apply the same change to `kip`
-
-The `kip` branch carries the `/kip` prefix changes on top of `main`. Apply the
-identical config edit there:
 
 ```bash
 git checkout kip
-# Either cherry-pick the main commit, or apply the edit directly:
 echo 'CONFIG_PACKAGE_python3-yaml=m' >> configs/armv7hf-5.4.config
 git add configs/armv7hf-5.4.config
 git commit -m "feat: add python3-yaml to build config"
@@ -146,72 +134,180 @@ git push
 
 #### 4. Install the feed symlink locally (if building locally)
 
-The bake script's `feeds` step calls `./scripts/feeds install -a -f`, but if you
-already have feeds checked out and just added a new package you may need to
-install the symlink manually:
-
 ```bash
-# Use PKG_NAME here (not the Kconfig name)
-./scripts/feeds install python-yaml python-charset-normalizer
-```
-
-If that produces no visible output but the symlink is still missing, confirm the
-package was found in the index:
-
-```bash
-./scripts/feeds search python3-yaml   # shows PKG_NAME and Kconfig name
-ls package/feeds/packages/python-yaml # symlink should exist after install
+# Use PKG_NAME (not the Kconfig name)
+./scripts/feeds install python-yaml
+ls package/feeds/packages/python-yaml   # symlink should exist
 ```
 
 #### 5. Build and verify locally
 
-Use the PKG_NAME with the bake script:
-
 ```bash
-# Skip feed update (already done), keep config fresh:
 BAKE_SKIP_FEEDS=1 BAKE_KEEP_CONFIG=1 ./bake_armv7hf.sh python-yaml
-```
-
-> **Note:** Even a single-package build runs `bootstrap_toolchain` first, which
-> may rebuild host/target toolchain components. This can take 20–40 minutes on a
-> cold cache. Subsequent runs are faster.
-
-Verify the IPK was produced and installs to the correct prefix:
-
-```bash
 ls -lh bin/targets/armv7-5.4/generic-glibc/packages/python3-yaml_*.ipk
-# Inspect install paths (should be ./kip/... on kip branch, ./opt/... on main):
+# Inspect install paths (./opt/... on main):
 tar -xOf bin/targets/armv7-5.4/generic-glibc/packages/python3-yaml_*.ipk ./data.tar.gz \
   | tar -tz | head -10
 # Paths will be ./opt/... on main, ./kip/... on the kip branch
 ```
 
+> **Note:** Even a single-package build runs `bootstrap_toolchain` first, which
+> may rebuild host/target toolchain components. This can take 20–40 minutes on a
+> cold cache.
+
 #### 6. CI build and publishing
 
 Pushing to `main` or `kip` triggers the `Build armv7hf-5.4` workflow. On
-success it:
+success it deploys IPKs to GitHub Pages:
 
-1. Runs `Verify published package set` — checks a hardcoded list of required IPKs
-   (see the *CI verification* section below to keep that list current)
-2. Deploys IPKs to GitHub Pages under:
-   `https://pdscomp.github.io/Kipware/<branch>/armv7hf-k5.4/`
+```
+https://pdscomp.github.io/Kipware/<branch>/armv7hf-k5.4/
+```
 
 Confirm the new package is live:
 
 ```bash
-curl -s "https://pdscomp.github.io/Kipware/main/armv7hf-k5.4/" \
-  | grep python3-yaml
-# <a href="python3-yaml_6.0.3-1_armv7-5.4.ipk">...
+curl -s "https://pdscomp.github.io/Kipware/main/armv7hf-k5.4/" | grep python3-yaml
 ```
 
-#### Summary checklist
+#### Checklist
 
 - [ ] Locate `PKG_NAME` and `Package/<name>` in the feed Makefile
 - [ ] Add `CONFIG_PACKAGE_<name>=m` to `configs/armv7hf-5.4.config`
 - [ ] Commit and push to `main`
 - [ ] Apply the identical config change to `kip` and push
-- [ ] CI green on both branches (check with `gh run list --branch <branch>`)
+- [ ] CI green on both branches (`gh run list --branch <branch>`)
 - [ ] Package visible at the GH Pages URL
+
+---
+
+### Step-by-step: adding a package NOT in the feeds
+
+If `./scripts/feeds search <name>` returns nothing, the package is not in any
+upstream Entware feed and needs a local Makefile.
+
+**Always add all transitive dependencies too** — if the target package requires
+packages also missing from the feeds, create Makefiles for those first and add
+them all to the config. Partial dependency trees will cause install failures on
+device even though the build succeeds.
+
+#### 1. Gather PyPI metadata
+
+```bash
+curl -s "https://pypi.org/pypi/<name>/json" | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+i = d['info']
+v = d['releases'][i['version']]
+t = [r for r in v if r['packagetype'] == 'sdist'][0]
+print('version:', i['version'])
+print('hash:   ', t['digests']['sha256'])
+print('license:', i['license'] or [c for c in i['classifiers'] if 'License' in c])
+print('requires:', i['requires_dist'])
+"
+```
+
+Check whether each entry in `requires_dist` is a hard dependency (no `extra ==`
+guard) and whether it already exists in the feeds:
+
+```bash
+./scripts/feeds search <dep-name>
+```
+
+Repeat for every missing dependency.
+
+#### 2. Create `package/lang/python/<pkg-name>/Makefile`
+
+Packages in `package/` are tracked in git and survive `feeds-clean`.
+They reference the feed's Python build helpers via an absolute path variable.
+
+**Pure-Python template** (no C/Cython extension):
+
+```makefile
+include $(TOPDIR)/rules.mk
+
+PKG_NAME:=python-<name>
+PKG_VERSION:=<version>
+PKG_RELEASE:=1
+
+PYPI_NAME:=<pypi-project-name>           # matches PyPI project page slug
+PYPI_SOURCE_NAME:=<sdist-filename-stem>  # omit if same as PYPI_NAME
+PKG_HASH:=<sha256-of-sdist>
+
+PKG_LICENSE:=<SPDX-id>
+PKG_LICENSE_FILES:=LICENSE
+
+PYTHON3_PKG_HELPER_DIR:=$(TOPDIR)/feeds/packages/lang/python
+
+include $(PYTHON3_PKG_HELPER_DIR)/pypi.mk
+include $(INCLUDE_DIR)/package.mk
+include $(PYTHON3_PKG_HELPER_DIR)/python3-package.mk
+
+define Package/python3-<name>
+  SECTION:=lang
+  CATEGORY:=Languages
+  SUBMENU:=Python
+  TITLE:=<short description>
+  URL:=<upstream url>
+  DEPENDS:=+python3-light <+python3-dep1 ...>
+endef
+
+define Package/python3-<name>/description
+  <longer description>
+endef
+
+$(eval $(call Py3Package,python3-<name>))
+$(eval $(call BuildPackage,python3-<name>))
+$(eval $(call BuildPackage,python3-<name>-src))
+```
+
+**C-extension package** — add `PYTHON3_PKG_BUILD_VARS` to disable the extension
+(pure-Python fallback) when the C build is not needed for correctness:
+
+```makefile
+# Builds pure-Python; C extension is a performance optimisation only
+PYTHON3_PKG_BUILD_VARS:=WRAPT_DISABLE_EXTENSIONS=True
+```
+
+**Cython-extension package** — add `PKG_BUILD_DEPENDS` so Cython is available
+to regenerate `.c` files from `.pyx` sources if the sdist does not include
+pre-generated `.c` files:
+
+```makefile
+PKG_BUILD_DEPENDS:=python3/host python-setuptools/host python-wheel/host python-cython/host
+```
+
+> **Tip:** Try without `PKG_BUILD_DEPENDS` first. Many Cython packages ship
+> pre-generated `.c` files in their sdist, making Cython unnecessary at build
+> time. Only add `python-cython/host` if the build fails with a Cython error.
+
+#### 3. Add all packages to config and commit
+
+Add a `CONFIG_PACKAGE_python3-<name>=m` line for every new package (including
+dependencies) to `configs/armv7hf-5.4.config`, then commit to both branches:
+
+```bash
+# main
+git checkout main
+# edit configs/armv7hf-5.4.config
+git add package/lang/python/ configs/armv7hf-5.4.config
+git commit -m "feat: add python3-<name> (+ deps)"
+git push
+
+# kip — same Makefiles, same config entries
+git checkout kip
+git cherry-pick main   # or apply manually
+git push
+```
+
+#### Current local packages
+
+| `package/` path | Kconfig name | Notes |
+|---|---|---|
+| `package/lang/python/python-wrapt/` | `python3-wrapt` | C extension disabled (pure-Python build) |
+| `package/lang/python/python-aiofiles/` | `python3-aiofiles` | Pure Python |
+| `package/lang/python/python-smart-open/` | `python3-smart-open` | Pure Python; cloud-storage extras via pip |
+| `package/lang/python/python-streaming-form-data/` | `python3-streaming-form-data` | Cython; uncomment `PKG_BUILD_DEPENDS` if build fails |
 
 ### Python packages and Python version
 
@@ -228,28 +324,15 @@ upstream and have no opkg equivalent:
 
 ## Local patches
 
-### Feed-level patches for `packages` feed (`local-patches/packages/*.patch`)
+### Feed-level patches (`local-patches/packages/*.patch`)
 
 Applied with `patch -p1 -d feeds/packages` during `apply_local_feed_fixes`.
 Used for fixes that span multiple packages or touch feed-level build system files.
-
-Patch numbers `0001`–`0009` are reserved for build-system fixes (LTO disablement,
-compiler workarounds, etc.). Numbers `0010`+ are available for other customisations.
 
 Current patches:
 - `0001-python3-arm-disable-lto-and-strict-extensions.patch` — disables LTO for python3 (GCC 8.4.0 segfaults on ARM with LTO)
 - `0002-glib2-arm-disable-lto.patch` — same fix for glib2
 - `0003-zstd-arm-disable-lto.patch` — same fix for zstd
-
-### Feed-level patches for other feeds (`local-patches/<feed>-feed/*.patch`)
-
-Applied with `patch -p1 -d feeds/<feed>` during `apply_local_feed_fixes`.
-Use this layout when you need to patch an entire feed tree (e.g. global prefix
-changes, feed-wide build system adjustments) rather than a single package.
-
-To add patches for a feed named `rtndev`, place them in
-`local-patches/rtndev-feed/` — the `-feed` suffix distinguishes these directories
-from per-package directories (`local-patches/<feed>-<pkg>/`).
 
 ### Per-package extra patches (`local-patches/<feed>-<pkg>/*.patch`)
 

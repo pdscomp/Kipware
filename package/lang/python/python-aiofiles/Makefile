@@ -16,6 +16,8 @@ PKG_HASH:=a8d728f0a29de45dc521f18f07297428d56992a742f0cd2701ba86e44d23d5b2
 PKG_LICENSE:=Apache-2.0
 PKG_LICENSE_FILES:=LICENSE
 
+PKG_BUILD_DEPENDS:=python-hatchling/host python-hatch-vcs/host
+
 PYTHON3_PKG_HELPER_DIR:=$(TOPDIR)/feeds/packages/lang/python
 
 include $(PYTHON3_PKG_HELPER_DIR)/pypi.mk

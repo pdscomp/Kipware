@@ -16,6 +16,9 @@ PKG_HASH:=2e06f9ebad47e67f3f184bb789a7966bec3261a53556c90acb1b1cdb85d84a2c
 PKG_LICENSE:=BSD-2-Clause
 PKG_LICENSE_FILES:=LICENSE
 
+# FIX: Add babel as build dependency (needed for i18n localization support)
+PKG_BUILD_DEPENDS:=python-babel/host
+
 PYTHON3_PKG_HELPER_DIR:=$(TOPDIR)/feeds/packages/lang/python
 
 include $(PYTHON3_PKG_HELPER_DIR)/pypi.mk

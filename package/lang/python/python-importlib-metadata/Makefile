@@ -37,6 +37,16 @@ define Package/python3-importlib-metadata/description
   for Python 3.8+. Used by Moonraker.
 endef
 
+# FIX: Remove coherent.licensed build dependency
+# This package is only needed for upstream CI license compliance, not for
+# actual functionality. Removing it allows the build to proceed without
+# adding unnecessary build-time dependencies.
+define Build/Prepare
+	$(call Build/Prepare/Default)
+	$(SED) '/coherent.licensed/d' $(PKG_BUILD_DIR)/pyproject.toml
+	$(SED) '/jaraco\/skeleton/d' $(PKG_BUILD_DIR)/pyproject.toml
+endef
+
 $(eval $(call Py3Package,python3-importlib-metadata))
 $(eval $(call BuildPackage,python3-importlib-metadata))
 $(eval $(call BuildPackage,python3-importlib-metadata-src))

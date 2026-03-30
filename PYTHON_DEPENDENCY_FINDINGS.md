@@ -67,25 +67,30 @@ including:
 - `terminfo`
 - `zlib`
 
-## Packages requested by `oc-build-tools` but not installable via current config
+## Packages requested by `oc-build-tools` — RESOLVED ✅
 
-I checked these against the current Entware tree and current target config
-resolution. They are not available as installable `CONFIG_PACKAGE_*` targets in
-this repository right now:
+The following packages have been added to the repository as local packages:
 
-- `python3-can`
-- `python3-streaming-form-data`
-- `python3-inotify-simple`
-- `python3-libnacl`
-- `python3-preprocess-cancellation`
-- `python3-apprise`
-- `python3-ldap3`
-- `python3-periphery`
-- `python3-importlib-metadata`
+| Package | Status | Notes |
+|---------|--------|-------|
+| `python3-can` | ✅ Added | v4.6.1; CAN bus for MCU communication |
+| `python3-streaming-form-data` | ✅ Added | v2.0.0; local package |
+| `python3-inotify-simple` | ✅ Added | v2.0.1; file monitoring |
+| `python3-libnacl` | ✅ Added | v2.1.0; crypto with libsodium dep |
+| `python3-preprocess-cancellation` | ✅ Added | v0.2.1; cancel-object preprocessor |
+| `python3-apprise` | ✅ Added | v1.9.8; push notifications |
+| `python3-ldap3` | ✅ Added | v2.9.1; LDAP authentication |
+| `python3-periphery` | ✅ Added | v2.4.1; GPIO/SPI/I2C/UART |
+| `python3-importlib-metadata` | ✅ Added | v8.7.1; package metadata |
 
-Some of these may exist upstream only as pip/wheel dependencies rather than
-Entware packages, which matches the `oc-build-tools` approach of building and
-shipping wheels for them.
+### Transitive dependencies also added
+- `python3-typing-extensions` (required by python-can)
+- `python3-requests-oauthlib` (required by apprise)
+- `python3-certifi` (required by apprise)
+- `python3-packaging`, `python3-pyasn1`, `python3-zipp` (from feeds)
+- `libsodium` (C library for python-libnacl)
+
+These additions enable full support for Kalico/Klipper + Moonraker + Fluidd/Mainsail.
 
 ## Validation performed
 

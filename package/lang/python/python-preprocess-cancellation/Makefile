@@ -37,6 +37,14 @@ define Package/python3-preprocess-cancellation/description
   Allows selective cancellation of objects during a 3D print.
 endef
 
+# FIX: Add build-system section for Poetry-based package
+# The original package uses Poetry but lacks [build-system] configuration,
+# causing setuptools to produce wheel with version 0.0.0 instead of 0.2.1
+define Build/Prepare
+	$(call Build/Prepare/Default)
+	$(SED) '1s/^/[build-system]\nrequires = ["poetry-core"]\nbuild-backend = "poetry.core.masonry.api"\n\n/' $(PKG_BUILD_DIR)/pyproject.toml
+endef
+
 $(eval $(call Py3Package,python3-preprocess-cancellation))
 $(eval $(call BuildPackage,python3-preprocess-cancellation))
 $(eval $(call BuildPackage,python3-preprocess-cancellation-src))

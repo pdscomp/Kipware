@@ -112,23 +112,24 @@ The **Kconfig name** (`python3-yaml`) goes in `configs/armv7hf-5.4.config`.
 The **PKG_NAME** (`python-yaml`) is used by `./scripts/feeds install` and
 `./bake_armv7hf.sh <pkg>`.
 
-#### 2. Add to `configs/armv7hf-5.4.config` on `main`
+#### 2. Add to `configs/armv7hf-5.4.config` and CI verify list, then open a PR
 
 ```bash
 git checkout main
+git checkout -b feat/add-python3-yaml
 echo 'CONFIG_PACKAGE_python3-yaml=m' >> configs/armv7hf-5.4.config
-git add configs/armv7hf-5.4.config
+# Also add python3-yaml to required_pkgs in .github/workflows/build-armv7hf-5.4.yml
+git add configs/armv7hf-5.4.config .github/workflows/build-armv7hf-5.4.yml
 git commit -m "feat: add python3-yaml to build config"
-git push
+git push -u origin feat/add-python3-yaml
+# Open PR targeting main, wait for CI, merge
 ```
 
-#### 3. Apply the same change to `kip`
+#### 3. Cherry-pick to `kip`
 
 ```bash
 git checkout kip
-echo 'CONFIG_PACKAGE_python3-yaml=m' >> configs/armv7hf-5.4.config
-git add configs/armv7hf-5.4.config
-git commit -m "feat: add python3-yaml to build config"
+git cherry-pick <merge-sha>   # SHA of the merge commit on main
 git push
 ```
 
@@ -175,8 +176,9 @@ curl -s "https://pdscomp.github.io/Kipware/kip/armv7hf-k5.4/" \
 
 - [ ] Locate `PKG_NAME` and `Package/<name>` in the feed Makefile
 - [ ] Add `CONFIG_PACKAGE_<name>=m` to `configs/armv7hf-5.4.config`
-- [ ] Commit and push to `main`
-- [ ] Apply the identical config change to `kip` and push
+- [ ] Add `python3-<name>` to `required_pkgs` in `.github/workflows/build-armv7hf-5.4.yml`
+- [ ] Open a PR targeting `main` and verify CI passes
+- [ ] Cherry-pick to `kip` (see **Branch and PR workflow** below)
 - [ ] CI green on both branches (`gh run list --branch <branch>`)
 - [ ] Package visible at the GH Pages URL
 
@@ -282,24 +284,16 @@ PKG_BUILD_DEPENDS:=python3/host python-setuptools/host python-wheel/host python-
 > pre-generated `.c` files in their sdist, making Cython unnecessary at build
 > time. Only add `python-cython/host` if the build fails with a Cython error.
 
-#### 3. Add all packages to config and commit
+#### 3. Add all packages to config, CI verify list, and commit
 
 Add a `CONFIG_PACKAGE_python3-<name>=m` line for every new package (including
-dependencies) to `configs/armv7hf-5.4.config`, then commit to both branches:
+dependencies) to `configs/armv7hf-5.4.config`, and add `python3-<name>` to
+`required_pkgs` in `.github/workflows/build-armv7hf-5.4.yml`.
 
-```bash
-# main
-git checkout main
-# edit configs/armv7hf-5.4.config
-git add package/lang/python/ configs/armv7hf-5.4.config
-git commit -m "feat: add python3-<name> (+ deps)"
-git push
-
-# kip — same Makefiles, same config entries
-git checkout kip
-git cherry-pick main   # or apply manually
-git push
-```
+Open a PR targeting `main`, verify CI passes, merge, then cherry-pick to `kip`
+(see **Branch and PR workflow** for the full process). Local Makefiles in
+`package/lang/python/` are identical on both branches — no kip-specific edits
+needed since all paths go through `$(ENTWARE_PREFIX)` automatically.
 
 #### Current local packages
 
@@ -422,16 +416,122 @@ Bump the `v1` version suffix in the workflow when a cache must be force-purged
 
 ---
 
+## Branch and PR workflow
+
+### Branch model
+
+| Branch | Purpose | Install prefix |
+|--------|---------|----------------|
+| `main` | Standard Entware `/opt` build — upstream-compatible | `/opt` |
+| `kip`  | Kipware build with custom `/kip` prefix | `/kip` |
+
+**`main` is the development target.** All PRs should target `main` first.
+After a PR is merged to `main`, the changes are brought into `kip` via
+cherry-pick (or a separate `kip`-targeted PR when kip-specific patches are also
+needed).
+
+### Standard workflow for any change
+
+```
+1.  Create a feature branch off main:
+      git checkout main && git pull
+      git checkout -b feat/my-change
+
+2.  Make changes, commit, push:
+      git push -u origin feat/my-change
+
+3.  Open a PR targeting main.
+    CI runs a full world build + verification on the PR.
+
+4.  Merge the PR to main.
+
+5.  Cherry-pick the commit(s) to kip:
+      git checkout kip && git pull
+      git cherry-pick <sha>   # or range: <sha1>..<sha2>
+      git push
+
+6.  If kip needs extra work (see below), do it in a separate
+    commit on kip and push.
+```
+
+### When kip needs extra work after cherry-pick
+
+Most changes cherry-pick cleanly because `ENTWARE_PREFIX := /kip` in `rules.mk`
+propagates the prefix automatically. Extra work is only needed when:
+
+| Scenario | What to do |
+|---|---|
+| A **feed package** (in `feeds/`) hardcodes `/opt` in its Makefile | Add a prefix-fix patch to `local-patches/packages/` (numbered `0010`+) |
+| A **feed-level file** hardcodes `/opt` across an entire feed | Add a patch to `local-patches/<feed>-feed/` |
+| A **local package** (`package/lang/python/`) hardcodes `/opt` | Edit the Makefile directly — local packages are identical on both branches and must not hardcode the prefix (use `$(ENTWARE_PREFIX)`) |
+
+Local packages in `package/lang/python/` do **not** need kip-specific patches;
+they pick up `$(ENTWARE_PREFIX)` automatically through the build system.
+
+### Adding a new Python package — complete checklist
+
+This covers both feed packages and local packages. Do every step:
+
+#### On `main`
+- [ ] Write `package/lang/python/<pkg-name>/Makefile` (if not in a feed)
+- [ ] Add `CONFIG_PACKAGE_python3-<name>=m` to `configs/armv7hf-5.4.config`
+- [ ] Add `python3-<name>` to `required_pkgs` in `.github/workflows/build-armv7hf-5.4.yml`
+- [ ] Commit, open PR targeting `main`, verify CI passes, merge
+
+#### On `kip`
+- [ ] `git cherry-pick <sha>` (the merge commit or the feature commits)
+- [ ] Check if any hardcoded `/opt` paths were introduced — add a local-patch if so
+- [ ] `git push origin kip`
+- [ ] Verify CI passes on `kip`
+
+### Adding to the CI required_pkgs list
+
+Every package added to `configs/armv7hf-5.4.config` **must** also be added to
+`required_pkgs` in the `Verify published package set` step of
+`.github/workflows/build-armv7hf-5.4.yml`. This ensures CI catches regressions.
+
+The list is in the `required_pkgs=(...)` array starting around line 208 of the
+workflow file. Add one entry per line, alphabetical within the grouping:
+
+```yaml
+required_pkgs=(
+  ...
+  python3-<new-package>
+  ...
+)
+```
+
+Apply this change on `main`, then cherry-pick to `kip` (the workflow file is
+identical on both branches).
+
+---
+
 ## CI verification
 
 The `Verify published package set` step asserts that these IPKs are present after
-every build. Update this list when adding required packages to the config:
+every build. **Keep this list in sync with `configs/armv7hf-5.4.config`** —
+add an entry here whenever you add a package to the config.
+
+Current required packages:
 
 ```
-python3, libpython3, python3-cffi, python3-dbus-fast, python3-distro,
-python3-greenlet, python3-jinja2, python3-markupsafe, python3-numpy,
-python3-paho-mqtt, python3-pillow, python3-pip, python3-pkg-resources,
-python3-pyserial, python3-setuptools, python3-tornado, python3-zeroconf,
+# Python runtime (from upstream feeds)
+python3, libpython3,
+python3-cffi, python3-charset-normalizer, python3-dbus-fast,
+python3-distro, python3-greenlet, python3-jinja2, python3-markupsafe,
+python3-numpy, python3-paho-mqtt, python3-pillow, python3-pip,
+python3-pkg-resources, python3-pyserial, python3-setuptools,
+python3-tornado, python3-yaml, python3-zeroconf,
+
+# Custom local packages (package/lang/python/)
+python3-wrapt, python3-aiofiles, python3-smart-open,
+python3-streaming-form-data, python3-apprise, python3-can,
+python3-certifi, python3-importlib-metadata, python3-inotify-simple,
+python3-ldap3, python3-libnacl, python3-msgspec, python3-periphery,
+python3-preprocess-cancellation, python3-requests-oauthlib,
+python3-typing-extensions,
+
+# Entware bootstrap
 entware-release, entware-upgrade
 ```
 

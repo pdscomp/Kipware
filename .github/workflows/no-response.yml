@@ -5,9 +5,6 @@ name: No Response
 on:
   issue_comment:
     types: [created]
-  schedule:
-    # Once a day, at 00:15 UTC
-    - cron: '15 0 * * *'
 
 jobs:
   noResponse:

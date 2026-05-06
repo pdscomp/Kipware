@@ -231,7 +231,6 @@ jobs:
               python3-streaming-form-data
               python3-apprise
               python3-can
-              headscale
               netbird
               tailscale
               wireguard-go

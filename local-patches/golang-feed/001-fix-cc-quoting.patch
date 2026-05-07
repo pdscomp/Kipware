@@ -1,0 +1,13 @@
+--- a/go_env.mk
++++ b/go_env.mk
+@@ -31,8 +31,8 @@
+
+ GO_VARS += \
+ 	AR=$(TARGET_AR) \
+-	CC=$(TARGET_CC) \
+-	CXX=$(TARGET_CXX) \
++	CC="$(TARGET_CC)" \
++	CXX="$(TARGET_CXX)" \
+ 	CGO_CFLAGS="$(filter-out $(EXCLUDE_FLAGS),$(TARGET_CFLAGS))" \
+ 	CGO_CPPFLAGS="$(TARGET_CPPFLAGS) -I$(STAGING_DIR)/opt/include" \
+ 	CGO_CXXFLAGS="$(filter-out $(EXCLUDE_FLAGS),$(TARGET_CXXFLAGS))" \

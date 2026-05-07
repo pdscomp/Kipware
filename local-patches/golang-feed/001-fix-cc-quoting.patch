@@ -1,0 +1,13 @@
+--- a/feeds/golang/go_env.mk
++++ b/feeds/golang/go_env.mk
+@@ -40,8 +40,8 @@ else
+   GO_VARS += CGO_ENABLED=0
+ endif
+
+-CC=$(TARGET_CC) \
+-CXX=$(TARGET_CXX) \
++CC="$(TARGET_CC)" \
++CXX="$(TARGET_CXX)" \
+ EXCLUDE_FLAGS = -mips16 -minterlink-mips16 -mips32r2
+
+ GO_VARS += \

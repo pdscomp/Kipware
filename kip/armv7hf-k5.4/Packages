@@ -5,15 +5,15 @@ Provides: adb-any
 Source: feeds/base/utils/adb
 SourceName: adb
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://developer.android.com/tools/adb
 CPE-ID: cpe:/a:google:android_debug_bridge
 Maintainer: Henryk Heisig <hyniu@o2.pl>
 Architecture: armv7-5.4
 Installed-Size: 143360
 Filename: adb_5.0.2~6fe92d1a-4_armv7-5.4.ipk
-Size: 59670
-SHA256sum: d4b27e177f61919b6ef984d9e5139743a19cfa853b60b9e15d39a0063452dc66
+Size: 59665
+SHA256sum: 036d1d747fc167015f66d69be86f4ac343ddbff458953c130d674c2573cae5a6
 Description:  Android Debug Bridge (adb) is a versatile command line tool that lets you communicate with an emulator instance or connected Android-powered device.
 
 Package: agetty
@@ -24,14 +24,14 @@ Source: feeds/base/utils/util-linux
 SourceName: util-linux
 License: Public-Domain
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 81920
 Filename: agetty_2.41.3-1_armv7-5.4.ipk
-Size: 37595
-SHA256sum: 564b815898cb7d301f7a6de984809325b50a8b3bd0ff3b65aed8c60c22a0e80a
+Size: 37607
+SHA256sum: a8ddf18f655c77df1b7cc78a73ea980f39780809c5868857854e99b490d7267f
 Description:  agetty opens a tty port, prompts for a login name and invokes the
  /bin/login command
 
@@ -44,14 +44,14 @@ Source: feeds/base/devel/binutils
 SourceName: binutils
 License: GPL-3.0+
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 CPE-ID: cpe:/a:gnu:binutils
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 61440
 Filename: ar_2.45.1-1_armv7-5.4.ipk
-Size: 25126
-SHA256sum: c360e55de1df4a5f7ee8171c2cd00d7e765a2d5e7e5ca53674e0b6f13ceb8125
+Size: 25128
+SHA256sum: eb1b081f906c44b32550ce59946dc1902c1826e4a30927a5f906d42d157d0352
 Description:  ar
 
 Package: arptables-legacy
@@ -64,13 +64,13 @@ SourceName: arptables
 License: GPL-2.0
 LicenseFiles: COPYING
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://git.netfilter.org/arptables/
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: arptables-legacy_0.0.5-1_armv7-5.4.ipk
-Size: 22939
-SHA256sum: 5b614db87ff3fa84bcf79395c04f33d6bbb79f3f9502996a2fe9574538f53698
+Size: 22944
+SHA256sum: c222953e3a9f942d08966e7a4ef763585cbdc3a71ad25e58b2dacdd372940998
 Description:  ARP firewalling software
 
 Package: badblocks
@@ -82,14 +82,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: badblocks_1.47.3-1_armv7-5.4.ipk
-Size: 12512
-SHA256sum: c2b68a0e46cc5ce4f38ccc65198891e33ab39cf12fefda4885d0bb3408ffe2d3
+Size: 12483
+SHA256sum: 42659302e568f1d9243e38b267b8fb6068c0cf7b3ed31c1c93ce0cf56f8aaf13
 Description:  Ext2 Filesystem badblocks utility
 
 Package: bash
@@ -109,7 +109,7 @@ Architecture: armv7-5.4
 Installed-Size: 1064960
 Filename: bash_5.3-2_armv7-5.4.ipk
 Size: 511010
-SHA256sum: d7970cd0931f10051413b8cef494ca42186995e0a715b0cbd645bb8e5d2aa6b3
+SHA256sum: cef680e51a50a969eab4edfcb43957cb34e694e037d215d879f90ceba4826638
 Description:  Bash is an sh-compatible command language interpreter that executes
  commands read from the standard input or from a file. Bash also
  incorporates useful features from the Korn and C shells (ksh and csh).
@@ -123,14 +123,14 @@ Source: feeds/base/devel/binutils
 SourceName: binutils
 License: GPL-3.0+
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 CPE-ID: cpe:/a:gnu:binutils
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 4044800
 Filename: binutils_2.45.1-1_armv7-5.4.ipk
-Size: 1240122
-SHA256sum: e3297a49a0d9d6c5270d18432ac0e187bcceeae2cdd6b3c2a3ff612cb865b076
+Size: 1239231
+SHA256sum: e3fef2b57391c3cfb6694a50a5de94642d89ae8b0ff4ab1e4b8773119b7c6678
 Description:  The Binutils package contains a linker, an assembler, and other tools for handling object files
 
 Package: blkdiscard
@@ -142,14 +142,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: blkdiscard_2.41.3-1_armv7-5.4.ipk
-Size: 12884
-SHA256sum: 55947a1e068f7f0f4b7f0522cea0ff99a35c66f6ca8b275d90cfbb1a5a3d051c
+Size: 12894
+SHA256sum: de2f9b77c361e10a0980f55693d31d30108b09086a66e8a96558f657650e7044
 Description:  The blkdiscard is used to discard device sectors. This is useful for
  solid-state drivers (SSDs) and thinly-provisioned storage. Unlike fstrim,
  this command is used directly on the block device.
@@ -164,14 +164,14 @@ SourceName: util-linux
 License: LGPL-2.1-or-later
 LicenseFiles: Documentation/licenses/COPYING.LGPL-2.1-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 112640
 Filename: blkid_2.41.3-1_armv7-5.4.ipk
-Size: 50916
-SHA256sum: 9017a12b30874e73d8ed0fb7073982bad8ff8cc8b3bda134a94ff7ac608e0c62
+Size: 50931
+SHA256sum: 413d8682e1cfb1c3cc085e3b052c07e1539e17d6072b5c20130cad6f280df749
 Description:  The blkid program is the command-line interface to working with the libblkid
  library.
 
@@ -185,14 +185,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: blockdev_2.41.3-1_armv7-5.4.ipk
-Size: 31102
-SHA256sum: 22bd483ad52707ffacedadd6a83a44c81167b996ec98068872ba64f3f8ee06ab
+Size: 31107
+SHA256sum: 9fa95082c92a9324659ef3306df42172e8995ed6d1eb4d621bfb2a7cedf78224
 Description:  The blockdev program is the command-line interface to call block device ioctls.
 
 Package: bsdiff
@@ -203,15 +203,15 @@ Source: feeds/base/utils/bsdiff
 SourceName: bsdiff
 License: BSD-2-Clause
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.daemonology.net/bsdiff/
 CPE-ID: cpe:/a:daemonology:bsdiff
 Maintainer: Hauke Mehrtens <hauke@hauke-m.de>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: bsdiff_4.3-2_armv7-5.4.ipk
-Size: 5409
-SHA256sum: 95714408bb3085a5ae284eb601c4641801e5c3a65c46a730ab697a4625fa819d
+Size: 5415
+SHA256sum: ee82b1a82ce4573f6b8488f8ad372df2502c431413212c5357f75ed173b80190
 Description:  Binary diff tool
 
 Package: bspatch
@@ -222,15 +222,15 @@ Source: feeds/base/utils/bsdiff
 SourceName: bsdiff
 License: BSD-2-Clause
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.daemonology.net/bsdiff/
 CPE-ID: cpe:/a:daemonology:bsdiff
 Maintainer: Hauke Mehrtens <hauke@hauke-m.de>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: bspatch_4.3-2_armv7-5.4.ipk
-Size: 4157
-SHA256sum: fa18c978acf0ba9b04b7e9b6c7afdb451023dfdc08daf5c301de2b9498c16599
+Size: 4164
+SHA256sum: ded715ba8a6e44ca6d2166531b8bb431f7d26fd6764f304af904d85428bc01a7
 Description:  Binary patch tool
 
 Package: busybox
@@ -244,7 +244,7 @@ License: GPL-2.0
 LicenseFiles: LICENSE archival/libarchive/bz/LICENSE
 Section: base
 Require-User: ntp=123:ntp=123
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://busybox.net/
 CPE-ID: cpe:/a:busybox:busybox
 Essential: yes
@@ -252,8 +252,8 @@ Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 573440
 Filename: busybox_1.37.0-6_armv7-5.4.ipk
-Size: 322090
-SHA256sum: 1f54c075a2b5a9ebea63b1e31609a2e240ace0b75f76090d78749879fb79a1ae
+Size: 322089
+SHA256sum: af5d6565c5629cc4cb7fd8178d74e67736a649ade3847646f0f298814a912126
 Description:  The Swiss Army Knife of embedded Linux.
  It slices, it dices, it makes Julian Fries.
 
@@ -266,15 +266,15 @@ SourceName: bzip2
 License: bzip2-1.0.8
 LicenseFiles: LICENSE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://sourceware.org/bzip2/
 CPE-ID: cpe:/a:bzip:bzip2
 Maintainer: Steven Barth <cyrus@openwrt.org>
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: bzip2_1.0.8-2_armv7-5.4.ipk
-Size: 14354
-SHA256sum: b0fded5710cae6c957e539c1398f036d82b64a33792c8712458123145d8e4836
+Size: 14360
+SHA256sum: fbceed1b5f0bb4ff427cfc296db8db58aff0f08d07d311c2d3a000309d115490
 Description:  bzip2 is a freely available, patent free, high-quality
  data compressor. This package provides the binary.
 
@@ -287,12 +287,12 @@ SourceName: ca-certificates
 License: GPL-2.0-or-later MPL-2.0
 LicenseFiles: debian/copyright
 Section: base
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 Architecture: all
 Installed-Size: 235520
 Filename: ca-bundle_20250419-2_all.ipk
-Size: 131054
-SHA256sum: 9deaf9eb9030cd7d25f11d02b65b2013ddd1c1b48ffc1ac36741e8eae15fb8b5
+Size: 131040
+SHA256sum: c02a2c256af08166fe54d70208247c5030acfaebc68501a186d6b706437a3c46
 Description:  System CA certificates as a bundle
 
 Package: ca-certificates
@@ -304,12 +304,12 @@ SourceName: ca-certificates
 License: GPL-2.0-or-later MPL-2.0
 LicenseFiles: debian/copyright
 Section: base
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 Architecture: all
 Installed-Size: 419840
 Filename: ca-certificates_20250419-2_all.ipk
-Size: 142227
-SHA256sum: a97892196dc87ba3b5b5c39e4eb90f794b293a2621569b0ba42ce393a7724ba9
+Size: 142238
+SHA256sum: ddd04f76b010e6c5a290105cde19c589ef6d5ac3123dbed568d8f9c1ad638aa8
 Description:  System CA certificates
 
 Package: cal
@@ -321,14 +321,14 @@ SourceName: util-linux
 License: BSD-4-Clause-UC
 LicenseFiles: Documentation/licenses/COPYING.BSD-4-Clause-UC
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 61440
 Filename: cal_2.41.3-1_armv7-5.4.ipk
-Size: 28711
-SHA256sum: 04a55a60d731edc3db9a49d13a9cc17e3496933b067241780ca1f4f8fbae9798
+Size: 28710
+SHA256sum: b9697477788d261e6483aa9997b3a3e16cce4ab5cbe603d70745d9f5bab8a41b
 Description:  cal displays a simple calendar
 
 Package: cfdisk
@@ -340,14 +340,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 92160
 Filename: cfdisk_2.41.3-1_armv7-5.4.ipk
-Size: 40941
-SHA256sum: a154a555a3cc4cb65211072a6b9f034ea3d5b3bf92316318638a47b2437585fc
+Size: 40946
+SHA256sum: 3801b676b306ab23af8ed58048e31a5764e4db84c56f141a707d02831cfada69
 Description:  cfdisk is a curses-based program for partitioning any hard disk drive
 
 Package: chat
@@ -358,15 +358,15 @@ Source: feeds/base/network/services/ppp
 SourceName: ppp
 License: BSD-4-Clause
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://ppp.samba.org/
 CPE-ID: cpe:/a:point-to-point_protocol_project:point-to-point_protocol
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: chat_2.4.8_git20201003-3_armv7-5.4.ipk
-Size: 10553
-SHA256sum: 2a574aafa3f34ee99e5b6b525b728156bb753ad5c654f16ab612d15754457342
+Size: 10556
+SHA256sum: 87d01147e816ee66a9995c37ecfe2a63e0bb8e0d4c2969a655f3ee9571caa753
 Description:  This package contains an utility to establish conversation with other PPP servers
  (via a modem).
 
@@ -379,14 +379,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: chattr_1.47.3-1_armv7-5.4.ipk
-Size: 4765
-SHA256sum: 10c121c0769c0dec48e7ff5499278e498554d8258317bb7d8e51b5888e1a9844
+Size: 4783
+SHA256sum: fe9b0390e18786cdb35ff8c6c502e25e09ad111b1428001f35f3d1ed7785d7d5
 Description:  Ext2 Filesystem chattr utility
 
 Package: colrm
@@ -398,14 +398,14 @@ SourceName: util-linux
 License: BSD-4-Clause-UC
 LicenseFiles: Documentation/licenses/COPYING.BSD-4-Clause-UC
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: colrm_2.41.3-1_armv7-5.4.ipk
-Size: 10526
-SHA256sum: fb80691463c2b4602e950145665d648f30dc5e92e759227e48f09bcb6ec2e0ae
+Size: 10529
+SHA256sum: f140f420265dbee99768e52a6ae51217bb06eceff50cc63eab178e833bcf84be
 Description:  colrm removes selected columns from a file. Input is taken from
  standard input. Output is sent to standard output.
 
@@ -418,14 +418,14 @@ SourceName: util-linux
 License: BSD-4-Clause-UC
 LicenseFiles: Documentation/licenses/COPYING.BSD-4-Clause-UC
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: column_2.41.3-1_armv7-5.4.ipk
-Size: 20813
-SHA256sum: 2734f41417de95d378d22576632b7bc068c87c90e91575322bc9f553b98eaef7
+Size: 20828
+SHA256sum: 446ccc9ce2083ead7d71994b23a8a433ebfa76552d93b77d0e062c0eb3f9f54d
 Description:  The  column  utility  formats  its  input  into  multiple  columns.
 
 Package: comgt
@@ -436,14 +436,14 @@ Source: feeds/base/network/utils/comgt
 SourceName: comgt
 License: GPL-2.0+
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://manpages.ubuntu.com/manpages/trusty/man1/comgt.1.html
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: comgt_0.32-36_armv7-5.4.ipk
-Size: 21117
-SHA256sum: a66d5a5c8d9dfe81e5fc7d70dfcc52a804a93093b3182b199e65181e3f414fa0
+Size: 21134
+SHA256sum: 3a4e751fc70eb9f7e63c749b42c1ef1ebdbd52c0a05e3edac5d85add7c79df64
 Description:  comgt is a scripting language interpreter useful for establishing 
  communications on serial lines and through PCMCIA modems as well as GPRS 
  and 3G datacards.
@@ -456,13 +456,13 @@ Source: feeds/base/network/utils/comgt
 SourceName: comgt
 License: GPL-2.0+
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: comgt-directip_0.32-36_armv7-5.4.ipk
-Size: 1247
-SHA256sum: a55da521fa8759b5e3c112702363377cf725255aa4c4124047a2d0a59a7f7bf8
+Size: 1251
+SHA256sum: eb1ea3865d85038a0e086543033593c4041392ac5e40b5d24bf2496f1f2cefbe
 Description:  Sierra Wireless Direct-IP support
 
 Package: comgt-ncm
@@ -473,13 +473,13 @@ Source: feeds/base/network/utils/comgt
 SourceName: comgt
 License: GPL-2.0+
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: comgt-ncm_0.32-36_armv7-5.4.ipk
-Size: 1689
-SHA256sum: 99951c552017f64e46aceb31e5e0d77259a2c09e075ec2ca5a3380ae09899332
+Size: 1699
+SHA256sum: e8b4406212196f77b1f84cbed991d8d5090687b880f9426e57142835a197f105
 Description:  NCM 3G/4G Support
 
 Package: debugfs
@@ -491,14 +491,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 174080
 Filename: debugfs_1.47.3-1_armv7-5.4.ipk
-Size: 79094
-SHA256sum: 43b5b3886063dc63699ab6227bba4492de3bf716f4335269d4df5018759dea23
+Size: 79100
+SHA256sum: 8dfc9c767a3662626cb427254192a5a8637eeae7fe1225d2e9422c5891a0abd1
 Description:  Ext2 Filesystem debugger
 
 Package: dmesg
@@ -511,14 +511,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: dmesg_2.41.3-1_armv7-5.4.ipk
-Size: 32411
-SHA256sum: f25d80444c7af5cc60b025d9c89e5324cfa9cb1e6ee19f7933b145d509d2fba9
+Size: 32343
+SHA256sum: 0dfa4910e4a2f4070f22aa1ca8927b1c20eb3d7a7355279678e30047f7e11948
 Description:  dmesg  is used to examine or control the kernel ring buffer
 
 Package: dnsmasq-full
@@ -531,14 +531,14 @@ License: GPL-2.0
 LicenseFiles: COPYING
 Section: net
 Require-User: dnsmasq=453:dnsmasq=453
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://www.thekelleys.org.uk/dnsmasq/
 CPE-ID: cpe:/a:thekelleys:dnsmasq
 Architecture: armv7-5.4
 Installed-Size: 368640
 Filename: dnsmasq-full_2.92-1_armv7-5.4.ipk
-Size: 184257
-SHA256sum: 5df5a1eabe72775ea0c3425941e70de4f07764b5cdaae3ccc3100145a5ae1640
+Size: 184256
+SHA256sum: 9c6720240941d6af940679739e8bc915963a62d8ef1e3b0859d3c5d5aa00cbbf
 Description:  It is intended to provide coupled DNS and DHCP service to a LAN.
  
  This is a fully configurable variant with DHCPv4, DHCPv6, DNSSEC, Authoritative DNS
@@ -554,14 +554,14 @@ SourceName: dropbear
 License: MIT
 LicenseFiles: LICENSE libtomcrypt/LICENSE libtommath/LICENSE
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://matt.ucc.asn.au/dropbear/
 CPE-ID: cpe:/a:dropbear_ssh_project:dropbear_ssh
 Architecture: armv7-5.4
 Installed-Size: 204800
 Filename: dropbear_2025.89-1_armv7-5.4.ipk
-Size: 104565
-SHA256sum: 2c6de7db12e23049ce4087fe2ea2b8e325a101e8abe8f970c0e87a273e7d51cf
+Size: 104662
+SHA256sum: 33e99353da9f69c4cdf5c8c47b84ecb341efd9237ca005744635d391c71b225e
 Description:  A small SSH2 server/client designed for small memory environments.
 
 Package: dropbearconvert
@@ -573,14 +573,14 @@ SourceName: dropbear
 License: MIT
 LicenseFiles: LICENSE libtomcrypt/LICENSE libtommath/LICENSE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://matt.ucc.asn.au/dropbear/
 CPE-ID: cpe:/a:dropbear_ssh_project:dropbear_ssh
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: dropbearconvert_2025.89-1_armv7-5.4.ipk
-Size: 23863
-SHA256sum: b9e6b2be1d083666c5ec9c14a50524c6159f079714755448570c791409046003
+Size: 23868
+SHA256sum: 81458bec19ebeea37368720e7a3be2c74185c025ade7b5bedabc3cb107278bdb
 Description:  Utility for converting SSH keys
 
 Package: dtc
@@ -592,15 +592,15 @@ SourceName: dtc
 License: GPL-2.0-only
 LicenseFiles: GPL
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://git.kernel.org/pub/scm/utils/dtc/dtc.git
 CPE-ID: cpe:/a:dtc_project:dtc
 Maintainer: Yousong Zhou <yszhou4tech@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 102400
 Filename: dtc_1.7.2-1_armv7-5.4.ipk
-Size: 45169
-SHA256sum: 9e5f6dde789c5e095b39d0b45737b20e890e0daa5efd199da37f6991f6a2814f
+Size: 45159
+SHA256sum: 3998bc00b7a6bd48c1638703e418a594bb09bcece9006065dcac3da9ef42d9c4
 Description:  Device Tree Compiler for Flat Device Trees Device Tree Compiler, dtc, takes
  as input a device-tree in a given format and outputs a device-tree in another
  format for booting kernels on embedded systems.
@@ -614,14 +614,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: dumpe2fs_1.47.3-1_armv7-5.4.ipk
-Size: 11493
-SHA256sum: 564cd39fda98ea9d9baf335ca4246bb920284e2606b2ab6f96d305ff15e927e5
+Size: 11494
+SHA256sum: c632647271c048e7656d444f4b37647f2a54c0482123cac5eedfdfc7f72e6502
 Description:  Ext2 Filesystem information dumping utility
 
 Package: e2freefrag
@@ -633,14 +633,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: e2freefrag_1.47.3-1_armv7-5.4.ipk
-Size: 5639
-SHA256sum: 5f016be6dcdd6b1091865c3ec9fc6d3cccdf58ff3613da3c4f19b3444fe99963
+Size: 5650
+SHA256sum: a8b67b7ced83789002222a8de58a972317a6f8e90f954eeda8c007b95069cc56
 Description:  Ext2 Filesystem free space fragmentation information utility
 
 Package: e2fsprogs
@@ -652,14 +652,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 419840
 Filename: e2fsprogs_1.47.3-1_armv7-5.4.ipk
-Size: 200747
-SHA256sum: 9f948d9a90c0bef94ebaa548b068f74444246fb3a27066521497aedd5438a2e9
+Size: 200679
+SHA256sum: 3417241e4c057bd236933846907fda328d1ffc578219c66bbbf213ffe5045f6a
 Description:  This package contains essential ext2 filesystem utilities which consists of
  e2fsck, mke2fs and most of the other core ext2 filesystem utilities.
 
@@ -672,14 +672,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: e4crypt_1.47.3-1_armv7-5.4.ipk
-Size: 8832
-SHA256sum: 3ce7428bfbebb7d70c96967f0463872c17419e621d9bce15eafe1c6c3020a2b3
+Size: 8836
+SHA256sum: e0cf330eba13d682ed506e01225576998c9a94af383efce99f17b31b3a9cb22a
 Description:  Ext4 Filesystem encryption utility
 
 Package: ebtables-legacy
@@ -691,14 +691,14 @@ Source: feeds/base/network/utils/ebtables
 SourceName: ebtables
 License: GPL-2.0
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://ebtables.netfilter.org/
 CPE-ID: cpe:/a:netfilter:ebtables
 Architecture: armv7-5.4
 Installed-Size: 256000
 Filename: ebtables-legacy_2018.06.27~48cff25d-2_armv7-5.4.ipk
-Size: 72294
-SHA256sum: 042387b4d9643e8793b0bd5e567a65b2a25d1c0375e8d883d97cdd3ccc7f57e6
+Size: 72283
+SHA256sum: 59421ffbb7ca64dc06896f5c99fb97a5a42133f63812fcbd2b76bafe87c38d1c
 Description:  The ebtables program is a filtering tool for a bridging firewall. The
  filtering is focussed on the Link Layer Ethernet frame fields. Apart
  from filtering, it also gives the ability to alter the Ethernet MAC
@@ -713,14 +713,14 @@ Source: feeds/base/network/utils/ebtables
 SourceName: ebtables
 License: GPL-2.0
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://ebtables.netfilter.org/
 CPE-ID: cpe:/a:netfilter:ebtables
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: ebtables-legacy-utils_2018.06.27~48cff25d-2_armv7-5.4.ipk
-Size: 4122
-SHA256sum: f3fa9dbc6369d6ff8f96803826a79171510e9574d74d6f1b764543db597849fc
+Size: 4127
+SHA256sum: 0883480e7077b6c2bf50044e73bc1407643f84dec863edeab634182d1d798eaf
 Description:  The ebtables program is a filtering tool for a bridging firewall. The
  filtering is focussed on the Link Layer Ethernet frame fields. Apart
  from filtering, it also gives the ability to alter the Ethernet MAC
@@ -786,15 +786,15 @@ SourceName: ethtool
 License: GPL-2.0
 LicenseFiles: COPYING
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/software/network/ethtool/
 CPE-ID: cpe:/a:kernel:ethtool
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 102400
 Filename: ethtool_6.15-1_armv7-5.4.ipk
-Size: 43776
-SHA256sum: 10acb2eb2fc375b1008d7440e7a73c6241b298de589d42e36c248a5e04c61483
+Size: 43795
+SHA256sum: b06cb9da7c3143a1c2af9ad93ec9f312db2b09ed465b6fe42b16fcb92dc7d8f2
 Description:  ethtool is a small utility for examining and tuning your ethernet-based
  network interface
 
@@ -807,15 +807,15 @@ SourceName: ethtool
 License: GPL-2.0
 LicenseFiles: COPYING
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/software/network/ethtool/
 CPE-ID: cpe:/a:kernel:ethtool
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 747520
 Filename: ethtool-full_6.15-1_armv7-5.4.ipk
-Size: 254164
-SHA256sum: 816a0dcf77219557d430828a63081bb013a3d29c6b02d75047faaedb1b545826
+Size: 254071
+SHA256sum: c511a64657a51a4b5679b643fb80ee006b8984f10482b695f22d2296912704aa
 Description:  ethtool is a small utility for examining and tuning your ethernet-based
  network interface
 
@@ -829,15 +829,15 @@ SourceName: f2fs-tools
 License: GPL-2.0-only
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs-tools.git
 CPE-ID: cpe:/a:f2fs-tools_project:f2fs-tools
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 204800
 Filename: f2fsck_1.16.0-4_armv7-5.4.ipk
-Size: 94528
-SHA256sum: 3b1498e32f26c9b0da0dbbc4f47929c47bca885882c13f16c204a58b2ead027c
+Size: 94551
+SHA256sum: ae9a82b3c600c73a8549ce54a2fd3e768f2cc77ce40180b8589b1a76df629da6
 Description:  Utility for checking/repairing a Flash-Friendly File System (F2FS)
 
 Package: f2fs-tools
@@ -850,15 +850,15 @@ SourceName: f2fs-tools
 License: GPL-2.0-only
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs-tools.git
 CPE-ID: cpe:/a:f2fs-tools_project:f2fs-tools
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: f2fs-tools_1.16.0-4_armv7-5.4.ipk
-Size: 6195
-SHA256sum: d79cabcf9c164dbe42929c3e450d441b32cf2f99b55e72cd0a90a984ad1e6507
+Size: 6196
+SHA256sum: 1f34874eb4579d36f1f3247c95b99120b8ccc0e97051c481db8b305628dbce3d
 Description:  Tools for Flash-Friendly File System (F2FS)
 
 Package: fallocate
@@ -870,14 +870,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: fallocate_2.41.3-1_armv7-5.4.ipk
-Size: 12863
-SHA256sum: 9e18e083d7d69eef5ec3a21e26ce83949ca8d602173c05e642190e5245f4fda1
+Size: 12865
+SHA256sum: fbfd7b9e6984c7d223b8ec1602a07facc09a8d80c2eaa28c62ba809f30af21a1
 Description:  fallocate is used to manipulate the allocated disk space for a file.
 
 Package: fdisk
@@ -889,14 +889,14 @@ SourceName: util-linux
 License: GPL-1.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-1.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 133120
 Filename: fdisk_2.41.3-1_armv7-5.4.ipk
-Size: 59068
-SHA256sum: 9dfc827ac6ce12e77f96820e90a12b65d122a212dd66c94a1ecaf4a225d5c1ab
+Size: 59077
+SHA256sum: d4a1c9b3e2702db5256353f03abe2926b88455f4b486318aba6274b0677d857f
 Description:  a menu-driven program for creation and manipulation of partition tables
 
 Package: file
@@ -915,8 +915,8 @@ Maintainer: Marko Ratkaj <markoratkaj@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: file_5.45-1_armv7-5.4.ipk
-Size: 9355
-SHA256sum: 2355e8a161ddebabda5527115b914e896a05d3cd231f43d41f1430c556b5c175
+Size: 9349
+SHA256sum: 2b45131f60803eef98a6a680de550f98309a286dfabf3ab4ca82236f68950275
 Description:  File type determination utility
 
 Package: filefrag
@@ -928,14 +928,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: filefrag_1.47.3-1_armv7-5.4.ipk
-Size: 8190
-SHA256sum: 8d804a31fefd15d07707fafa9bf3d3b6589c180f97664fc83019a57cef847da0
+Size: 8199
+SHA256sum: 6ed592c1d3d23b422ed60952fad2015ebaf8bf8ce30cd2c61392d3840a3a2508
 Description:  Ext2 Filesystem file fragmentation report utility
 
 Package: findfs
@@ -947,14 +947,14 @@ SourceName: util-linux
 License: GPL-1.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-1.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: findfs_2.41.3-1_armv7-5.4.ipk
-Size: 3815
-SHA256sum: 71cdf21d6b7e2c0e69888d7d32f9b5c161d10bda7453f07551f094adb5667069
+Size: 3822
+SHA256sum: a70110f9e36df17006be9c0c8716b31c6501a19c7e5bf32bb4126223be55412c
 Description:  findfs will search the disks in the system looking for a filesystem which has
  a label matching label or a UUID equal to uuid
 
@@ -974,8 +974,8 @@ CPE-ID: cpe:/a:gnu:findutils
 Architecture: armv7-5.4
 Installed-Size: 307200
 Filename: findutils_4.10.0-1_armv7-5.4.ipk
-Size: 152390
-SHA256sum: 0ecd041751042d34f54a0c581da879df66c11fbe01bf7aaa321896c36f21bc17
+Size: 152392
+SHA256sum: 204b6072c5797f642224d0710c4a04f511759a83d7cbb89d87e55622b89ba867
 Description:  Replace busybox versions of findutils with full GNU versions.
  This is normally not needed as busybox is smaller and provides
  sufficient functionality, but some users may want or need
@@ -992,14 +992,14 @@ SourceName: util-linux
 License: MIT
 LicenseFiles: Documentation/licenses/COPYING.MIT
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: flock_2.41.3-1_armv7-5.4.ipk
-Size: 13229
-SHA256sum: 81eabb62f305f0d68adae57106fe3355261a47df25508ada9f192891ea7660ac
+Size: 13232
+SHA256sum: c136c5a0d0b95ddc78452b87d384413811ed0ac7bf518cab173bb71cde4654f6
 Description:  manages flock locks from within shell scripts or the command line
 
 Package: fsfreeze
@@ -1011,14 +1011,14 @@ SourceName: util-linux
 License: GPL-1.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-1.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: fsfreeze_2.41.3-1_armv7-5.4.ipk
-Size: 4427
-SHA256sum: 2aa8828fc04d628b049dcb6ff577542e9a87a7860a9862cdc86072b2b09fd514
+Size: 4438
+SHA256sum: d3c29f9aeb8a491d28c4e9c627e42394685c40dfcb2d30a38362ef3833d6d014
 Description:  fsfreeze halts new access to the filesystem and creates a stable image on disk.
  fsfreeze is intended to be used with hardware RAID devices that support the creation of snapshots.
 
@@ -1031,14 +1031,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: fstrim_2.41.3-1_armv7-5.4.ipk
-Size: 30368
-SHA256sum: 017427ac6d03677c9c92aca273225561be65933bc766c02db9c8abb81c2f348a
+Size: 30375
+SHA256sum: 5f0c3f1b3926b5b264c34332a3570e8e097e2045f6c78e6d985307f5dc21769e
 Description:  fstrim is used on a mounted filesystem to discard (or "trim") blocks
  which are not in use by the filesystem.  This is useful for solid-
  state drives (SSDs) and thinly-provisioned storage.
@@ -1052,15 +1052,15 @@ SourceName: libusb
 License: LGPL-2.1-or-later
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://linux-hotplug.sourceforge.net
 CPE-ID: cpe:/a:libusb:libusb
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: fxload_1.0.29-1_armv7-5.4.ipk
-Size: 9920
-SHA256sum: 9de329084de33e89b15cc6e7a82e932beaccbfc715ab77a664971e1ee52a1cf8
+Size: 9928
+SHA256sum: 344d10ccb6defff870b6cca38337ac88181b05e0a75750e33261980dc92a93ba
 Description:  This program is conveniently able to download firmware into FX, FX2,
  and FX2LP EZ-USB devices, as well as the original AnchorChips EZ-USB.
  It is intended to be invoked by hotplug scripts when the unprogrammed
@@ -1073,14 +1073,14 @@ Source: feeds/base/libs/toolchain
 SourceName: toolchain
 License: GPL-3.0-with-GCC-exception
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://gcc.gnu.org/
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 6000640
 Filename: gconv-modules_2.27-12_armv7-5.4.ipk
-Size: 2436667
-SHA256sum: 7a4a153fac0f158ce6586ea420d88369a990fa61fe7695442d2819f0430d0e43
+Size: 2436594
+SHA256sum: 23323254a8c43210bff887dc128acd4b77dce3912fe7118e801cc5779e00e91a
 Description:  Glibc gconv modules
 
 Package: gdb
@@ -1091,14 +1091,14 @@ Source: feeds/base/devel/gdb
 SourceName: gdb
 License: GPL-3.0+
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.gnu.org/software/gdb/
 CPE-ID: cpe:/a:gnu:gdb
 Architecture: armv7-5.4
 Installed-Size: 6942720
 Filename: gdb_16.3-1_armv7-5.4.ipk
-Size: 3146459
-SHA256sum: f72ffae7c2134bbec03f27d45558d8dd50a620099467cb4d5738a7f926616a48
+Size: 3146427
+SHA256sum: fb6a1214d779e040a76bd1fabae750ef48fe0406aeb57828c0060ce75a172148
 Description:  GDB, the GNU Project debugger, allows you to see what is going on 'inside'
  another program while it executes -- or what another program was doing at the
  moment it crashed.
@@ -1111,14 +1111,14 @@ Source: feeds/base/devel/gdb
 SourceName: gdb
 License: GPL-3.0+
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.gnu.org/software/gdb/
 CPE-ID: cpe:/a:gnu:gdb
 Architecture: armv7-5.4
 Installed-Size: 512000
 Filename: gdbserver_16.3-1_armv7-5.4.ipk
-Size: 233763
-SHA256sum: bb9602de872594cffc6f72cf9ddf9439802186d10d7af854916c199472756ca5
+Size: 233770
+SHA256sum: 6fb467ce9d74d21b34481c5ad0305c2fdd68f029d0359d279802b3c9f89848d8
 Description:  GDBSERVER is a program that allows you to run GDB on a different machine than the
  one which is running the program being debugged.
 
@@ -1130,15 +1130,15 @@ Source: feeds/base/network/utils/iproute2
 SourceName: iproute2
 License: GPL-2.0
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://wiki.linuxfoundation.org/networking/iproute2
 CPE-ID: cpe:/a:iproute2_project:iproute2
 Maintainer: Russell Senior <russell@personaltelco.net>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: genl_4.4.0-11_armv7-5.4.ipk
-Size: 8152
-SHA256sum: d70992faabc3d0614235b4eba3264ca17c6d4c902d7fc499972a223befab2ca8
+Size: 8154
+SHA256sum: d5d87889549bf37cf8847ec7c37b2587bc8d4fef901c7fff5c81d604a60eae67
 Description:  General netlink utility frontend
 
 Package: getopt
@@ -1150,14 +1150,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: getopt_2.41.3-1_armv7-5.4.ipk
-Size: 12366
-SHA256sum: 7ff858277e6c0fcb1eeb1bc49d91eb6b66ca4d159c845db27e89d275b93f8e86
+Size: 12369
+SHA256sum: 4263ecbbb2eeffa58399727c1f864a4db5dee826cf74fba66a113ae0e7565b60
 Description:  getopt is used to break up (parse) options in command lines for easy parsing
  by shell procedures, and to check for legal options
 
@@ -1178,8 +1178,8 @@ Maintainer: Julen Landa Alustiza <julen@zokormazo.info>
 Architecture: armv7-5.4
 Installed-Size: 204800
 Filename: grep_3.12-1_armv7-5.4.ipk
-Size: 104637
-SHA256sum: f4d24d991c354a3f74f55592468baca1d2cef2263fbd2b438a0ee5d7db3c02fa
+Size: 104636
+SHA256sum: 9455c32bce8341609f135b2c8332f2bb36778ab7aa2d2c2cc9c2ffe6d64bec93
 Description:  The grep command searches one or more input files for lines
  containing a match to a specified pattern. By default, grep
  prints the matching lines.
@@ -1193,15 +1193,38 @@ SourceName: util-linux
 License: MIT
 LicenseFiles: Documentation/licenses/COPYING.MIT
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: hardlink_2.41.3-1_armv7-5.4.ipk
-Size: 22785
-SHA256sum: dae2122672bc44fae8bbbdab67c0c477cb4027a7e99506bf917c694ca7df48f5
+Size: 22776
+SHA256sum: 6ebdb663a8faaf138afa4d4bc98fe722139edf02c1833202e32e0c90ee3407b1
 Description:  Consolidate duplicate files using hardlinks.
+
+Package: headscale
+Version: v0.28.0-1
+Depends: ca-bundle
+Provides: headscale-any
+Source: feeds/golang/headscale
+SourceName: headscale
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Section: net
+SourceDateEpoch: 1776673921
+URL: https://github.com/juanfont/headscale
+Maintainer: Entware team, https://entware.net
+Architecture: armv7-5.4
+Installed-Size: 49776640
+Filename: headscale_v0.28.0-1_armv7-5.4.ipk
+Size: 18591555
+SHA256sum: d0930963ce463dea7e8fbde2098b993514fa487f596bbc2b7bd61ebff07d807b
+Description:  Headscale aims to implement a self-hosted, open source alternative
+ to the Tailscale control server. Headscale's goal is to provide self-hosters
+ and hobbyists with an open-source server they can use for their projects and
+ labs. It implements a narrow scope, a single Tailnet, suitable for a personal
+ use, or a small open-source organisation.
 
 Package: hwclock
 Version: 2.41.3-1
@@ -1212,14 +1235,14 @@ SourceName: util-linux
 License: GPL-3.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-3.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 92160
 Filename: hwclock_2.41.3-1_armv7-5.4.ipk
-Size: 40387
-SHA256sum: 40ce0b2f440068f03225ddb2be9cae19002566a2a3f1d4fa11c894a9c6b0fe72
+Size: 40406
+SHA256sum: 43dfa69535bf09ef3de9eecf5f7d56f7ce7ffeebebdff05bbd8a5753a3c02667
 Description:  hwclock is a tool for accessing the Hardware Clock
 
 Package: iconv
@@ -1231,14 +1254,14 @@ SourceName: libiconv-full
 License: LGPL-2.1-or-later
 LicenseFiles: COPYING.LIB
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.gnu.org/software/libiconv/
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: iconv_1.18-1_armv7-5.4.ipk
-Size: 12355
-SHA256sum: fd4b7eaa557eccb26d69a62c148614ba7900e6a6258a925e2a81ad1e9b136884
+Size: 12327
+SHA256sum: 4edcb8be1381bd439c23e89d6fd1b97b39bfcb64999ac47bccc5532d936d5ee2
 Description:  Character set conversion utility
 
 Package: ionice
@@ -1250,14 +1273,14 @@ SourceName: util-linux
 License: GPL-2.0-only
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-only
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: ionice_2.41.3-1_armv7-5.4.ipk
-Size: 11714
-SHA256sum: 6eda31969f3d3d2fbfd26e1150226a8849d62515963e64e16ac4ecf9c572edc2
+Size: 11718
+SHA256sum: 3962ccf7fde58c4f5d6bb15a1d7fdfa2ecf463fa974a856ea5d534d2577812c9
 Description:  This program sets or gets the io scheduling class and priority for a program.
  If no arguments or just -p is given, ionice will query the current io scheduling
  class and priority for that process. 
@@ -1270,15 +1293,15 @@ Source: feeds/base/network/utils/iproute2
 SourceName: iproute2
 License: GPL-2.0
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://wiki.linuxfoundation.org/networking/iproute2
 CPE-ID: cpe:/a:iproute2_project:iproute2
 Maintainer: Russell Senior <russell@personaltelco.net>
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: ip-bridge_4.4.0-11_armv7-5.4.ipk
-Size: 21904
-SHA256sum: 0d36ee073912e3146ca84fa3de6ecf36a730c4515b9fa4587ec3355b2177757e
+Size: 21897
+SHA256sum: a2fede76688ccded318505746988e1c8b2ec888220298c74c42bd8f60476fd2e
 Description:  Bridge configuration utility from iproute2
 
 Package: ipcs
@@ -1290,14 +1313,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: ipcs_2.41.3-1_armv7-5.4.ipk
-Size: 27471
-SHA256sum: cb0bd8043959ad47029cf7aa5fe111c8830763038912d7d20b84a8418d855ccc
+Size: 27390
+SHA256sum: 26e1119027354143c89bf358e4230903df667f0f1d8ae3e3c3fdedcb8df00e24
 Description:  ipcs shows information on the inter-process communication facilities for
  which the calling process has read access. By default it shows information
  about all three resources: shared memory segments, message queues, and
@@ -1312,15 +1335,15 @@ Source: feeds/base/network/utils/iproute2
 SourceName: iproute2
 License: GPL-2.0
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://wiki.linuxfoundation.org/networking/iproute2
 CPE-ID: cpe:/a:iproute2_project:iproute2
 Maintainer: Russell Senior <russell@personaltelco.net>
 Architecture: armv7-5.4
 Installed-Size: 317440
 Filename: ip-full_4.4.0-11_armv7-5.4.ipk
-Size: 135492
-SHA256sum: e72de00df5a926ea8383769643837799f1e107ea8186dbae8824c7e4507ea122
+Size: 135475
+SHA256sum: dd6148f24cadedce0bf4a192fb8bb2ff78eaf27cc6e8f85ebfe511d5b415e55e
 Description:  Routing control utility (Full)
 
 Package: ipset
@@ -1331,15 +1354,15 @@ Source: feeds/base/network/utils/ipset
 SourceName: ipset
 License: GPL-2.0
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://ipset.netfilter.org/
 CPE-ID: cpe:/a:netfilter:ipset
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: ipset_7.24-1_armv7-5.4.ipk
-Size: 2674
-SHA256sum: b1b35747011d81f72033f1750a7bf1ffd6588fe4d8a9dbd98cd96456773aea04
+Size: 2680
+SHA256sum: d44e33ae378ac6ba1846ed1fe319db0cb95c910335bcd05ad4188f8c8fea8b5f
 Description:  IPset administration utility
 
 Package: ipset-dns
@@ -1351,14 +1374,14 @@ SourceName: ipset-dns
 License: GPL-2.0
 LicenseFiles: COPYING
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://git.zx2c4.com/ipset-dns/about/
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: ipset-dns_2017.10.08~ade2cf88-2_armv7-5.4.ipk
-Size: 5123
-SHA256sum: 6a360917eb4882828b41e60ace66488de93eed7613d12ba680eda6b92d6e959e
+Size: 5134
+SHA256sum: 901957bb399247875e2843133b29a552a401f6269bd7a545669c1871609284ef
 Description:  The ipset-dns daemon is a lightweight DNS forwarding server that adds all
  resolved IPs to a given netfilter ipset. It is designed to be used in
  conjunction with dnsmasq's upstream server directive.
@@ -1376,14 +1399,14 @@ Source: feeds/base/network/utils/iptables
 SourceName: iptables
 License: GPL-2.0
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://netfilter.org/
 CPE-ID: cpe:/a:netfilter:iptables
 Architecture: armv7-5.4
 Installed-Size: 460800
 Filename: iptables_1.4.21-5_armv7-5.4.ipk
-Size: 159770
-SHA256sum: 3e2645c3034f05092cb3442c46f650ebd17e0d1a127289ea9647666876d0f2ed
+Size: 159893
+SHA256sum: b2a7bd52473dd9969d88850b256903732876255b60a7f60becce54fccc0e23df
 Description:  IP firewall administration tool.
  
  Matches:
@@ -1430,14 +1453,14 @@ SourceName: jansson
 License: MIT
 LicenseFiles: LICENSE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/akheron/jansson
 CPE-ID: cpe:/a:jansson_project:jansson
 Architecture: armv7-5.4
 Installed-Size: 92160
 Filename: jansson_2.15.0-1_armv7-5.4.ipk
-Size: 51351
-SHA256sum: 12a3ad47c2b6c5993dbc5181fb3bdc66899f44a89f242b0ef5ca81f6ae9d0c6f
+Size: 51372
+SHA256sum: 331f8a8497b5a0efaf24d884e48d32cfeb4290f21e702d9540775c4dd95acbe6
 Description:  Jansson is a C library for encoding, decoding and manipulating JSON data
 
 Package: jshn
@@ -1448,13 +1471,13 @@ Source: feeds/base/libs/libubox
 SourceName: libubox
 License: ISC
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: jshn_2026.02.13~1aa36ee7-1_armv7-5.4.ipk
-Size: 7699
-SHA256sum: 0159719849a11d2bfd549166f30579c70c4b2713b9fb4884030bcbc2c1505d42
+Size: 7711
+SHA256sum: ca23d51538a6d78c68389bc0c0c6e7b49d777f249551f3ebad4c4f01c459476c
 Description:  Library for parsing and generating JSON from shell scripts
 
 Package: jsonfilter
@@ -1465,14 +1488,14 @@ Source: feeds/base/utils/jsonfilter
 SourceName: jsonfilter
 License: ISC
 Section: base
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://git.openwrt.org/project/jsonpath.git
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: jsonfilter_2025.10.04~f4fe702d-1_armv7-5.4.ipk
-Size: 10478
-SHA256sum: 37110993c7dad5342a0273530868fa521f8d961d6f6a7dca5293f181c9cae949
+Size: 10468
+SHA256sum: 8f9ee25a628bdbfdbcec791b28a5c43cac62cae4bd84379a532189ecbfd5d79a
 Description:  OpenWrt JSON filter utility
 
 Package: kexec
@@ -1484,14 +1507,14 @@ SourceName: kexec-tools
 License: GPL-2.0-only
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/horms/kexec-tools
 CPE-ID: cpe:/a:kernel:kexec-tools
 Architecture: armv7-5.4
 Installed-Size: 81920
 Filename: kexec_2.0.32-3_armv7-5.4.ipk
-Size: 37219
-SHA256sum: d641ac6c5a10a316978325691b9ef3d22326197c2bbde2ab1b11d4cc7b36c73f
+Size: 37220
+SHA256sum: bcf91d43a5dfbeb24f76212fc54127465655c2d4b42728cafd6a74691c46b470
 Description:  The kexec utility allows to load and boot another kernel.
 
 Package: kexec-tools
@@ -1503,14 +1526,14 @@ SourceName: kexec-tools
 License: GPL-2.0-only
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/horms/kexec-tools
 CPE-ID: cpe:/a:kernel:kexec-tools
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: kexec-tools_2.0.32-3_armv7-5.4.ipk
-Size: 788
-SHA256sum: fec6696078b34e63218f6429a6f39954317d5d7ebba7a902920444c834ade083
+Size: 792
+SHA256sum: 3664242a1c17577ae69a49ef25349423a8b472273000ea1062bcb48fa052cbec
 Description:  kexec is a set of system calls that allows you to load
  another kernel from the currently executing Linux kernel.
  The kexec utility allows to load and boot another kernel.
@@ -1522,14 +1545,14 @@ Source: feeds/base/libs/toolchain
 SourceName: toolchain
 License: GPL-3.0-with-GCC-exception
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://www.gnu.org/software/libc/
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 522240
 Filename: ldconfig_2.27-12_armv7-5.4.ipk
-Size: 250138
-SHA256sum: 5cfc5b061252be07419ce6b7f1235c52cacf8b261fc2cbf734b3bf868b01c5cd
+Size: 250504
+SHA256sum: c4cb9dd7257f0f1f135f0aa396ede7aa5df2fbaf4d04bd47fb67f2e7a11faa30
 Description:  Shared library path configuration
 
 Package: ldd
@@ -1539,14 +1562,14 @@ Source: feeds/base/libs/toolchain
 SourceName: toolchain
 License: GPL-3.0-with-GCC-exception
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://www.gnu.org/software/libc/
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: ldd_2.27-12_armv7-5.4.ipk
-Size: 3105
-SHA256sum: b0331e0ac9cf3e423d7ae879e2df91f5cd1722e422bf0afb48773aae6d647ac2
+Size: 3115
+SHA256sum: cd740ec73862995f12586e4e858f1ed52e05920cde5e3d6ba0939ef57c6c461f
 Description:  LDD trace utility
 
 Package: libacl
@@ -1565,8 +1588,8 @@ Maintainer: Maxim Storchak <m.storchak@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: libacl_2.3.2-2_armv7-5.4.ipk
-Size: 13152
-SHA256sum: d8497b979cf09f980a4bfd2af25b566b9018bcaf89f6d90c6b0754ad5277e872
+Size: 13155
+SHA256sum: 705a015cce1118fd4f2862fc4d6347fbedbecd85f39cda72c96bf8ebb09d5c00
 Description:  Access control list support
  This package provides libacl
 
@@ -1578,14 +1601,14 @@ Source: feeds/base/libs/toolchain
 SourceName: toolchain
 License: GPL-3.0-with-GCC-exception
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://gcc.gnu.org/
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: libatomic_8.4.0-12_armv7-5.4.ipk
-Size: 6897
-SHA256sum: c77600050bfde990269f4c799d93624f6845cdd16ec537809b3c9601f4bcc902
+Size: 6902
+SHA256sum: b3b04c55cc7defb7c6c47f203463f5e5b62554377e90d0d75c870d2fcfb6edd1
 Description:  Atomic support library
 
 Package: libattr
@@ -1604,8 +1627,8 @@ Maintainer: Maxim Storchak <m.storchak@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: libattr_2.5.2-3_armv7-5.4.ipk
-Size: 7447
-SHA256sum: 4bf29d329efacfe182f8d9e8dd0c3971f408b03c3d1f50fa5e4c47ff6f3b6ca8
+Size: 7445
+SHA256sum: 0be406dfe430a5d6a2f1d5504234fb052b0df4c36fe22a08f11e5167e717b404
 Description:  Extended attributes support
  This package provides libattr
 
@@ -1617,14 +1640,14 @@ Source: feeds/base/devel/binutils
 SourceName: binutils
 License: GPL-3.0+
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 CPE-ID: cpe:/a:gnu:binutils
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 870400
 Filename: libbfd_2.45.1-1_armv7-5.4.ipk
-Size: 392678
-SHA256sum: 6429a2fd28f274619fd6b6dadb3e0600f1bcdc88262d317da6d08bf7ebc4ce82
+Size: 392657
+SHA256sum: a048a6effac77e8589a0edabaefeb5512fd4bd3dbb440d5001d60fe4fed185ea
 Description:  libbfd
 
 Package: libblkid
@@ -1636,14 +1659,14 @@ SourceName: util-linux
 License: LGPL-2.1-or-later
 LicenseFiles: Documentation/licenses/COPYING.LGPL-2.1-or-later
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 266240
 Filename: libblkid_2.41.3-1_armv7-5.4.ipk
-Size: 126846
-SHA256sum: b70ec6aa6231cf14e255d07d2473947602d51f9495391b8ce69e004873de6cad
+Size: 126857
+SHA256sum: e49455712dec4803ceb636e300ffa6fffd4cd66af864f35cdb87fadf3b52e55e
 Description:  The libblkid library is used to identify block devices (disks) as to their
  content (e.g. filesystem type, partitions) as well as extracting additional
  information such as filesystem labels/volume names, partitions, unique
@@ -1657,13 +1680,13 @@ Source: feeds/base/libs/libubox
 SourceName: libubox
 License: ISC
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: libblobmsg-json_2026.02.13~1aa36ee7-1_armv7-5.4.ipk
 Size: 4375
-SHA256sum: 7fa14018c6fbc207a1ad3f3eb397577a01dff4c45877a0c368dfc106ba57a90f
+SHA256sum: 87b05360bc8a79fe077ab7283b3e2303b90056c353b880f0ba09bcb90c3d284b
 Description:  blobmsg <-> json conversion library
 
 Package: libbsd
@@ -1675,13 +1698,13 @@ SourceName: libbsd
 License: BSD-4-Clause
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 CPE-ID: cpe:/a:freedesktop:libbsd
 Architecture: armv7-5.4
 Installed-Size: 81920
 Filename: libbsd_0.12.2-1_armv7-5.4.ipk
-Size: 37890
-SHA256sum: f60f3114508f874517ab1ef587dbecd90a879592469a0bdd9195d82a9f2053ce
+Size: 37943
+SHA256sum: c12aaeffd3633756673773aa7530400517db6c11af639966c6c34826f71ed15f
 Description:  This library provides useful functions commonly found on BSD systems, and lacking on others like GNU systems, thus making it easier to port projects with strong BSD origins, without needing to embed the same code over and over again on each project.
 
 Package: libbz2
@@ -1693,15 +1716,15 @@ SourceName: bzip2
 License: bzip2-1.0.8
 LicenseFiles: LICENSE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://sourceware.org/bzip2/
 CPE-ID: cpe:/a:bzip:bzip2
 Maintainer: Steven Barth <cyrus@openwrt.org>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: libbz2_1.0.8-2_armv7-5.4.ipk
-Size: 30781
-SHA256sum: ebafbbab812e8fda814d596eaa3e6959d413ab9a63610d98d2b2ec6ccdc77805
+Size: 30794
+SHA256sum: e40e7e813aefafc64089f8c2b061168c2e3117f40b26c9cb09faf7742a4cea05
 Description:  bzip2 is a freely available, patent free, high-quality
  data compressor. This packages provides libbz2 library.
 
@@ -1713,14 +1736,14 @@ Source: feeds/base/libs/toolchain
 SourceName: toolchain
 License: GPL-3.0-with-GCC-exception
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://www.gnu.org/software/libc/
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 2324480
 Filename: libc_2.27-12_armv7-5.4.ipk
-Size: 1159985
-SHA256sum: c7ddf3f0e6125e493078aba7b0535978580317301bc5dcf5cf36414bdb29fd1b
+Size: 1159980
+SHA256sum: 263c8216250238687abba641d3bfbe01cd9ff57a49c1b8b711ccb834a1c2db11
 Description:  C library
 
 Package: libcap
@@ -1732,15 +1755,15 @@ SourceName: libcap
 License: GPL-2.0-only
 LicenseFiles: License
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/
 CPE-ID: cpe:/a:libcap_project:libcap
 Maintainer: Paul Wassi <p.wassi@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: libcap_2.69-1_armv7-5.4.ipk
-Size: 15332
-SHA256sum: dd4825cb31d914895118b16bd3d8c26b7ebeeb0d54a8ddfb36db9b1d5393f814
+Size: 15337
+SHA256sum: 12cb60e856de99c20a2dbf39c267cffb60bcc98ecffabafa01c381348cd1a671
 Description:  Linux capabilities library library
 
 Package: libcap-bin
@@ -1752,15 +1775,15 @@ SourceName: libcap
 License: GPL-2.0-only
 LicenseFiles: License
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/
 CPE-ID: cpe:/a:libcap_project:libcap
 Maintainer: Paul Wassi <p.wassi@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: libcap-bin_2.69-1_armv7-5.4.ipk
-Size: 23994
-SHA256sum: eb2bacebdcf19fd07a8e7fd9f9400aa882f025df384ed878167d1980e373b582
+Size: 23916
+SHA256sum: 12f9d2c7d264ac8343317fb4356cb6de55e736160f466ad35cb79ee7c5645131
 Description:  Linux capabilities
  .
  This package contains the libcap utilities.
@@ -1774,14 +1797,14 @@ SourceName: libiconv-full
 License: LGPL-2.1-or-later
 LicenseFiles: COPYING.LIB
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.gnu.org/software/libiconv/
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: libcharset_1.18-1_armv7-5.4.ipk
-Size: 2094
-SHA256sum: a3ec83026488a6d5ff5e7fb3948cf7a90c411640afae111fd115f16d2ee7d44d
+Size: 2092
+SHA256sum: 141977a29cd67583c95ed9f736a1723ca24ef3cbe7742175c433235aee4d2705
 Description:  Character set conversion library
 
 Package: libcomerr
@@ -1793,14 +1816,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: libcomerr_1.47.3-1_armv7-5.4.ipk
-Size: 5142
-SHA256sum: 5b3c9c0c2c07ecffdd04481b28ecebf0d732bcb5e9f1b7c36c9899812b04d91e
+Size: 5148
+SHA256sum: 76e90455923e4959dc377c803f5b51a368d8c7536427791f1f59d81de41dc1d3
 Description:  This package contains libcom_err, the common error description library
  bundled with e2fsprogs.
 
@@ -1812,14 +1835,14 @@ Source: feeds/base/devel/binutils
 SourceName: binutils
 License: GPL-3.0+
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 CPE-ID: cpe:/a:gnu:binutils
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 307200
 Filename: libctf_2.45.1-1_armv7-5.4.ipk
-Size: 152434
-SHA256sum: b245c181be95073afa3887307d3ea14745c9b2372e272a5ccfa6673e77bcef4b
+Size: 152451
+SHA256sum: e839c386792c85349a4e769c48e542fcb72752a72114825ddbbe66fdf5f96bf3
 Description:  libctf
 
 Package: libdw
@@ -1831,15 +1854,15 @@ SourceName: elfutils
 License: GPL-2.0-or-later LGPL-3.0-or-later
 LicenseFiles: COPYING COPYING-GPLV2 COPYING-LGPLV3
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://fedorahosted.org/elfutils/
 CPE-ID: cpe:/a:elfutils_project:elfutils
 Maintainer: Luiz Angelo Daros de Luca <luizluca@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 573440
 Filename: libdw_0.192-2_armv7-5.4.ipk
-Size: 242402
-SHA256sum: 1434977ae32428007115e4cb3d17b824167c2752b44b981fd5d440b180baa212
+Size: 242422
+SHA256sum: 643e95087c1128e7ff91aba5c5b8ff36e32c6e9c3910e00c8618e518d5f99bb9
 Description:  ELF manipulation libraries (libdw)
 
 Package: libe2p
@@ -1851,14 +1874,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: libe2p_1.47.3-1_armv7-5.4.ipk
-Size: 13934
-SHA256sum: 81117139e717b6677f78841ddba96c84fba01818ee8dbd75aa6515fd062f2bde
+Size: 13972
+SHA256sum: 4bab2a7dae1ac62d9a9eda95856d176a2a695ebacd40cae94eec67b018a88290
 Description:  This package contains libe2p, ext2fs userspace programs utility library
  bundled with e2fsprogs.
 
@@ -1871,15 +1894,15 @@ SourceName: elfutils
 License: GPL-2.0-or-later LGPL-3.0-or-later
 LicenseFiles: COPYING COPYING-GPLV2 COPYING-LGPLV3
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://fedorahosted.org/elfutils/
 CPE-ID: cpe:/a:elfutils_project:elfutils
 Maintainer: Luiz Angelo Daros de Luca <luizluca@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 92160
 Filename: libelf_0.192-2_armv7-5.4.ipk
-Size: 44514
-SHA256sum: 3ee183cb91e635dcf259ddef42495e160f8586ab54539b6358e81d1fa2e85724
+Size: 44528
+SHA256sum: 39698fb7d89fde0dae1324a57502b6100ee42e9784c5a6b1977c1bb4e12b9650
 Description:  ELF manipulation libraries (libelf)
 
 Package: libevent2
@@ -1891,15 +1914,15 @@ SourceName: libevent2
 License: BSD-3-Clause
 LicenseFiles: LICENSE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://libevent.org
 CPE-ID: cpe:/a:libevent_project:libevent
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 235520
 Filename: libevent2_2.1.12-2_armv7-5.4.ipk
-Size: 104480
-SHA256sum: 08e06d98c1aa1f0fcc7e00136f6d2c1ae270ced1d5f4f31ad06dd01ac63b6793
+Size: 104498
+SHA256sum: 22823820c0b90e816c92c19afde8fe594bceffc88878ac52e9191b4bebc26218
 Description:  The libevent API provides a mechanism to execute a callback function
  when a specific event occurs on a file descriptor or after a timeout
  has been reached. Furthermore, libevent also support callbacks due
@@ -1922,15 +1945,15 @@ SourceName: libevent2
 License: BSD-3-Clause
 LicenseFiles: LICENSE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://libevent.org
 CPE-ID: cpe:/a:libevent_project:libevent
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 153600
 Filename: libevent2-core_2.1.12-2_armv7-5.4.ipk
-Size: 63610
-SHA256sum: f3a1a699844eb10b8ca982939e0042619bcd7ee0041a59bfd4efa999bda70374
+Size: 63622
+SHA256sum: fec32dabe3b5bbb02b7bbf3aa11f3a83d21f53943c8917d1f3caef1bfaab7e6e
 Description:  The libevent API provides a mechanism to execute a callback function
  when a specific event occurs on a file descriptor or after a timeout
  has been reached. Furthermore, libevent also support callbacks due
@@ -1953,15 +1976,15 @@ SourceName: libevent2
 License: BSD-3-Clause
 LicenseFiles: LICENSE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://libevent.org
 CPE-ID: cpe:/a:libevent_project:libevent
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 102400
 Filename: libevent2-extra_2.1.12-2_armv7-5.4.ipk
-Size: 45519
-SHA256sum: 54c7573b1d38e67fc479618098ae976b1996692a731b12544b7f1b1bd0bbeeeb
+Size: 45504
+SHA256sum: 512d1f1ce588702d42c5bc01d9f6d88cb1baf6d87a0aaea58e3c1c7ce4d3e01c
 Description:  The libevent API provides a mechanism to execute a callback function
  when a specific event occurs on a file descriptor or after a timeout
  has been reached. Furthermore, libevent also support callbacks due
@@ -1984,15 +2007,15 @@ SourceName: libevent2
 License: BSD-3-Clause
 LicenseFiles: LICENSE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://libevent.org
 CPE-ID: cpe:/a:libevent_project:libevent
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: libevent2-openssl_2.1.12-2_armv7-5.4.ipk
-Size: 8832
-SHA256sum: bf51f5d27a494b76730550f6a7433fbe8b58e505b9b7b8761a472b9c206da310
+Size: 8831
+SHA256sum: 3a0dc89606a02f3c8ff41f381b9225ac863eb3f06d798a626a8346abc45a2b08
 Description:  The libevent API provides a mechanism to execute a callback function
  when a specific event occurs on a file descriptor or after a timeout
  has been reached. Furthermore, libevent also support callbacks due
@@ -2015,15 +2038,15 @@ SourceName: libevent2
 License: BSD-3-Clause
 LicenseFiles: LICENSE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://libevent.org
 CPE-ID: cpe:/a:libevent_project:libevent
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: libevent2-pthreads_2.1.12-2_armv7-5.4.ipk
-Size: 3177
-SHA256sum: 2431276ec0be093d734af318ee4801d342360cd13da26e7f2e617aba9b2dae73
+Size: 3191
+SHA256sum: a6c8c8aa9593d04928d2bfed39875c80404eae7b4996d308b69dd130f4b6d851
 Description:  The libevent API provides a mechanism to execute a callback function
  when a specific event occurs on a file descriptor or after a timeout
  has been reached. Furthermore, libevent also support callbacks due
@@ -2046,14 +2069,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 378880
 Filename: libext2fs_1.47.3-1_armv7-5.4.ipk
-Size: 186820
-SHA256sum: 768a9fa108cfa7e78e2136957222f6d9c840cb82050cd16709a2176d65bbf5dc
+Size: 186848
+SHA256sum: e1d76db377a08c1a1c677025288b2459f770de1f4321713870b59ecd2dd8fca1
 Description:  libext2fs is a library which can access ext2, ext3 and ext4 filesystems.
 
 Package: libf2fs
@@ -2066,14 +2089,14 @@ SourceName: f2fs-tools
 License: GPL-2.0-only
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 CPE-ID: cpe:/a:f2fs-tools_project:f2fs-tools
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 112640
 Filename: libf2fs_1.16.0-4_armv7-5.4.ipk
-Size: 43648
-SHA256sum: 25b7d95c8bee2a86f05d43b78987fb7227e544d945e2c2b30db230fcf14627dc
+Size: 43662
+SHA256sum: 1b6818a17196860c39735b86b087cac9fa89dddcf97e0b3dd586eebaa09d004a
 Description:  Library for Flash-Friendly File System (F2FS) tools
 
 Package: libfdisk
@@ -2085,14 +2108,14 @@ SourceName: util-linux
 License: LGPL-2.1-or-later
 LicenseFiles: Documentation/licenses/COPYING.LGPL-2.1-or-later
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 368640
 Filename: libfdisk_2.41.3-1_armv7-5.4.ipk
-Size: 171158
-SHA256sum: 01c04d0fd9eaa5519f38736f1fbc0cad33307a0ca67b1afed3ba58eada2935f3
+Size: 171156
+SHA256sum: c3969987c9953698ed06f20fe5bab138414748372fda0b9daca14252551fe5d7
 Description:  The libfdisk library is used for manipulating with partition tables.
 
 Package: libffi
@@ -2111,8 +2134,8 @@ Maintainer: Peter Wagner <tripolar@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: libffi_3.4.7-1_armv7-5.4.ipk
-Size: 17266
-SHA256sum: 905f94066669946d96ca49f42a08f9ed4090042a4dfdc6233698f2cbb92a604e
+Size: 17261
+SHA256sum: 567455ab66193bd88087f89cfed0927f82a1144fb85b279097448aba9918ffd6
 Description:  The libffi library provides a portable, high level programming interface to
  various calling conventions. This allows a programmer to call any function
  specified by a call interface description at run-time.
@@ -2140,8 +2163,8 @@ Maintainer: Val Kulkov <val.kulkov@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 573440
 Filename: libfreetype_2.13.3-1_armv7-5.4.ipk
-Size: 313043
-SHA256sum: 3c27e5de26d2b9bdf38e0489827cb63b904561b3be527227be2ea169dedab6dc
+Size: 313044
+SHA256sum: dd33b1b2f587a00a5ca2dcc2e0b757d3c2d25b501092d85748780f97157d4117
 Description:  The FreeType project is a team of volunteers who develop free,
  portable and high-quality software solutions for digital typography.
  They specifically target embedded systems and focus on bringing small,
@@ -2154,14 +2177,14 @@ Source: feeds/base/libs/toolchain
 SourceName: toolchain
 License: GPL-3.0-with-GCC-exception
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://gcc.gnu.org/
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: libgcc_8.4.0-12_armv7-5.4.ipk
-Size: 22708
-SHA256sum: d937ff20e0909d44437bc2fe13a63f91dad9ef48aa4aeef0c75e4ae43f5dd66b
+Size: 22707
+SHA256sum: 4bb6a023eea6641aff68b048f913387e89e9452337af8376f196d0ee231713d0
 Description:  GCC support library
 
 Package: libgdbm
@@ -2179,8 +2202,8 @@ Maintainer: Marcel Denia <naoir@gmx.net>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: libgdbm_1.25-1_armv7-5.4.ipk
-Size: 32514
-SHA256sum: 1776af0dbb47947f924246f290dbd7b70f1d32e1715d0222ecac1965f5802ee9
+Size: 32518
+SHA256sum: 21ca3c2ec73885df00354e06a776c919e06803d8d579fbb1fa5c6ef3fe578a29
 Description:  GNU database manager library
  GNU dbm is a set of database routines that use extendible hashing and
  works similar to the standard UNIX dbm routines.
@@ -2193,14 +2216,14 @@ Source: feeds/base/libs/gmp
 SourceName: gmp
 License: GPL-2.0-or-later
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://gmplib.org/
 CPE-ID: cpe:/a:gmplib:gmp
 Architecture: armv7-5.4
 Installed-Size: 399360
 Filename: libgmp_6.3.0-2_armv7-5.4.ipk
-Size: 210625
-SHA256sum: a568946dc4c7480ec0872fef89fef400a45a8389d1feef04e9e9d529e5729581
+Size: 210628
+SHA256sum: 36d89ba76a206c13a977d4f6fb80d1859221c54ca7f88ffb7664a6c9984ee082
 Description:  GMP is a free library for arbitrary precision arithmetic, operating on
  signed integers, rational numbers, and floating point numbers.
 
@@ -2213,14 +2236,14 @@ SourceName: libiconv-full
 License: LGPL-2.1-or-later
 LicenseFiles: COPYING.LIB
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.gnu.org/software/libiconv/
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 931840
 Filename: libiconv-full_1.18-1_armv7-5.4.ipk
-Size: 671584
-SHA256sum: 8fbf5b5caf9d38958dc683ba167b590200901276d863d715b2acdd250f6ebc54
+Size: 671582
+SHA256sum: aae8dd59e9c6e3997238ce4779bee74e18dbf0a72957f1df56ef80383ca2636f
 Description:  Character set conversion library
 
 Package: libintl-full
@@ -2232,15 +2255,15 @@ SourceName: gettext-full
 License: LGPL-2.1-or-later
 LicenseFiles: gettext-runtime/intl/COPYING.LIB
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.gnu.org/software/gettext/
 CPE-ID: cpe:/a:gnu:gettext
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 61440
 Filename: libintl-full_0.24.1-1_armv7-5.4.ipk
-Size: 28894
-SHA256sum: 66c4ed8b6f299ea70aeb40bd15d06a4ee1576985587b74aadca07a3298bd9030
+Size: 28891
+SHA256sum: 11931eeaa029f55102d120aca08abc91f71de62a375ea19972800acdf501bf42
 Description:  GNU Internationalization library
 
 Package: libipset
@@ -2251,15 +2274,15 @@ Source: feeds/base/network/utils/ipset
 SourceName: ipset
 License: GPL-2.0
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://ipset.netfilter.org/
 CPE-ID: cpe:/a:netfilter:ipset
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 174080
 Filename: libipset_7.24-1_armv7-5.4.ipk
-Size: 49301
-SHA256sum: 5afc77be000488c9ef3c330410644c91e9720c28fb3541ffc4ef651df26bf110
+Size: 49306
+SHA256sum: 765bc2b20906b87070099b6b6d00f40d30ecdd7850713796de113d65eb5c76b5
 Description:  IPset administration utility
 
 Package: libjpeg-turbo
@@ -2278,8 +2301,8 @@ Maintainer: Rosen Penev <rosenp@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 419840
 Filename: libjpeg-turbo_3.1.1-1_armv7-5.4.ipk
-Size: 191076
-SHA256sum: 6d353fe9b2692b59258f879a2fdaf7615db4a94b4b7881fb698cf4b401af3f45
+Size: 191083
+SHA256sum: ee66c838f72e1b316f0183bbc6164a55dc632c38e3404bd5768c9744bf4ad4ec
 Description:  libjpeg-turbo is a speed focused fork of libjpeg.
 
 Package: libjson-c
@@ -2291,15 +2314,15 @@ SourceName: json-c
 License: MIT
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://json-c.github.io/json-c/
 CPE-ID: cpe:/a:json-c:json-c
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 61440
 Filename: libjson-c_0.18-1_armv7-5.4.ipk
-Size: 25946
-SHA256sum: 1cc9cc43ccc9df1d6119e8f4940b15d27df0cd3bd44701d871a4962074b72c02
+Size: 25952
+SHA256sum: 2598b63a77aa7195c9771ae3d57073e76e26d7f8224713580dfa90fa996fd36c
 Description:  This package contains a library for javascript object notation backends.
 
 Package: libjson-script
@@ -2310,13 +2333,13 @@ Source: feeds/base/libs/libubox
 SourceName: libubox
 License: ISC
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: libjson-script_2026.02.13~1aa36ee7-1_armv7-5.4.ipk
 Size: 5275
-SHA256sum: 867b5ca75752cc35006dd99cf9c25bfd3bce9cb0c46ea6242829c0527a2f5e51
+SHA256sum: cdee36bed13a7ecf6399483b0a3bdfa2a57c70426081fcf075385c37c29bda29
 Description:  Minimalistic JSON based scripting engine
 
 Package: libltdl
@@ -2328,14 +2351,14 @@ SourceName: libtool
 License: GPL-2.0+
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.gnu.org/software/libtool/
 CPE-ID: cpe:/a:gnu:libtool
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: libltdl_2.5.4-1_armv7-5.4.ipk
-Size: 14554
-SHA256sum: 9c7f2aacf83158b19a5a7cdddd39d4965c2e0f3e3ec799029451a93b1d3074ab
+Size: 14545
+SHA256sum: 3c6547a343d7b13da5eb58a45d05cf11f586411484b4daa986ce5eb8153cdd59
 Description:  A generic dynamic object loading library
 
 Package: liblua
@@ -2347,15 +2370,15 @@ SourceName: lua
 License: MIT
 LicenseFiles: COPYRIGHT
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.lua.org/
 CPE-ID: cpe:/a:lua:lua
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 143360
 Filename: liblua_5.1.5-11_armv7-5.4.ipk
-Size: 67877
-SHA256sum: 519af2da4b6bf5476e2dd24d9a2b32b772c70e6f502a01f1a9bbb4c13194897b
+Size: 67830
+SHA256sum: 909bc7a34788fc2245b178694641b6a633a392d92357f8f74eee8c026933407b
 Description:  Lua is a powerful light-weight programming language designed for extending 
  applications. Lua is also frequently used as a general-purpose, stand-alone 
  language. Lua is free software.
@@ -2370,15 +2393,15 @@ SourceName: lua
 License: MIT
 LicenseFiles: COPYRIGHT
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.lua.org/
 CPE-ID: cpe:/a:lua:lua
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 184320
 Filename: liblua5.3_5.3.5-6_armv7-5.4.ipk
-Size: 84656
-SHA256sum: b11d00cdc042a4f823de1f99a9ee467ff72d262c784901bc9a945f34984b9442
+Size: 84650
+SHA256sum: dc5789b430fa0c5e1b0a219a1df6769d558417e1e37be7d1e3fbf77156e71f69
 Description:  Lua is a powerful, efficient, lightweight, embeddable scripting language. It
  supports procedural programming, object-oriented programming, functional
  programming, data-driven programming, and data description.
@@ -2399,8 +2422,8 @@ CPE-ID: cpe:/a:tukaani:xz
 Architecture: armv7-5.4
 Installed-Size: 133120
 Filename: liblzma_5.8.2-1_armv7-5.4.ipk
-Size: 70114
-SHA256sum: e5edb8622533efff1ecb6cbc9f1c0c09b1fc5c0e1144cb19012e0cfd4fab9db3
+Size: 70133
+SHA256sum: 3ca110c2fb48ecc30bf91e60a2c25b752e60560a89a9d515fc065978289a0bfa
 Description:  liblzma library from XZ Utils
 
 Package: libmagic
@@ -2419,8 +2442,8 @@ Maintainer: Marko Ratkaj <markoratkaj@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 1024000
 Filename: libmagic_5.45-1_armv7-5.4.ipk
-Size: 295048
-SHA256sum: ac2ed37266ece4bc64ea3411224422587d77471ecb0642906ead8772314ff339
+Size: 295051
+SHA256sum: fd03545444c1b74828fd8f28fea44a626e6d211e37e04875004e0a6cf60b1450
 Description:  File type determination library
 
 Package: libmbedtls
@@ -2432,14 +2455,14 @@ SourceName: mbedtls
 License: GPL-2.0-or-later
 LicenseFiles: LICENSE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.trustedfirmware.org/projects/mbed-tls/
 CPE-ID: cpe:/a:arm:mbed_tls
 Architecture: armv7-5.4
 Installed-Size: 532480
 Filename: libmbedtls_3.6.5-1_armv7-5.4.ipk
-Size: 262290
-SHA256sum: 064763e00bb0775c71669bdbb5e8a4bb4454b194ac89b97dc6ff3d5b340fb14f
+Size: 262243
+SHA256sum: 7975c42e0c7bdff59cdbe435a843a8a65c7aea0d3d38c003afbd82de3cc6f7f7
 Description:  The aim of the mbedtls project is to provide a quality, open-source
  cryptographic library written in C and targeted at embedded systems.
  This package contains the mbedtls library.
@@ -2452,15 +2475,15 @@ Source: feeds/base/libs/libmnl
 SourceName: libmnl
 License: LGPL-2.1+
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://www.netfilter.org/projects/libmnl/
 CPE-ID: cpe:/a:netfilter:libmnl
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: libmnl_1.0.5-1_armv7-5.4.ipk
-Size: 7319
-SHA256sum: 8a7aea21ef6a794b686686989bc1cff44ff9f4ebc6a3e029d71d832b7fc4bc14
+Size: 7325
+SHA256sum: 46aa5f159b314d7b574e03a394761a275affee96ae4be3b944523423136e0366
 Description:  libmnl is a minimalistic user-space library oriented to Netlink developers.
  There are a lot of common tasks in parsing, validating, constructing of
  both the Netlink header and TLVs that are repetitive and easy to get wrong.
@@ -2492,14 +2515,14 @@ SourceName: util-linux
 License: LGPL-2.1-or-later
 LicenseFiles: Documentation/licenses/COPYING.LGPL-2.1-or-later
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 337920
 Filename: libmount_2.41.3-1_armv7-5.4.ipk
-Size: 148648
-SHA256sum: 7d5778a63d9a608677b4458d69593073682e001bb13c8686a4c4e894564bd421
+Size: 148693
+SHA256sum: 45752b34aff99994dda2775d291a29e468781cc127ce5da67d99d495cefc2ee5
 Description:  The libmount library is used to parse /etc/fstab, /etc/mtab and
  /proc/self/mountinfo files, manage the mtab file, evaluate mount options...
 
@@ -2512,15 +2535,15 @@ SourceName: mpfr
 License: LGPL-3.0-or-later
 LicenseFiles: COPYING.LESSER
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.mpfr.org/
 CPE-ID: cpe:/a:mpfr:gnu_mpfr
 Maintainer: Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 419840
 Filename: libmpfr_4.2.2-1_armv7-5.4.ipk
-Size: 208806
-SHA256sum: 442bd042fe418eb5b84ea61ca68db8a46854d07dcc0926ab6e3da331d2d13616
+Size: 208815
+SHA256sum: a42da7f37a6c01920069e9c8bbb3a648884582e099869c906e7e200a0807f054
 Description:  MPFR is a portable library written in C for arbitrary precision
  arithmetic on floating-point numbers. It is based on the GNU MP library.
  It aims to provide a class of floating-point numbers with precise
@@ -2535,14 +2558,14 @@ SourceName: ncurses
 License: MIT
 LicenseFiles: README
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.gnu.org/software/ncurses/
 CPE-ID: cpe:/a:gnu:ncurses
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: libncurses_6.4-3_armv7-5.4.ipk
-Size: 983
-SHA256sum: 5d02d236277e8d5bf6fe26443076b4b2a9f312b360c7aff4846b8ed3aedac3e4
+Size: 978
+SHA256sum: d46a30070486cbd7ba0eedb25cf7911b08f4c96acc3292f78451b2bbe19ed6e6
 Description:  Terminal handling library
 
 Package: libncurses-dev
@@ -2554,13 +2577,13 @@ SourceName: ncurses
 License: MIT
 LicenseFiles: README
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 CPE-ID: cpe:/a:gnu:ncurses
 Architecture: armv7-5.4
 Installed-Size: 1280000
 Filename: libncurses-dev_6.4-3_armv7-5.4.ipk
-Size: 365191
-SHA256sum: 804607dacc17ed4adcc326deef19d04c9cf4fa135485f10ce0336c4d0eeda34f
+Size: 365144
+SHA256sum: c6cea908ba53784b58cf329de24d2af4dba968080ef1090268d8090a40b23d07
 Description:  Development files for the ncurses library
 
 Package: libncursesw
@@ -2572,14 +2595,14 @@ SourceName: ncurses
 License: MIT
 LicenseFiles: README
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.gnu.org/software/ncurses/
 CPE-ID: cpe:/a:gnu:ncurses
 Architecture: armv7-5.4
 Installed-Size: 471040
 Filename: libncursesw_6.4-3_armv7-5.4.ipk
-Size: 210059
-SHA256sum: 45c3fbc559647873a28ddd5f54a0c839d84d47d5b9f0c2a1c4bcb38279150825
+Size: 210075
+SHA256sum: 1022133ac2f1427fedb5e04cec602e459865feae45b5defba12f7740b924d53c
 Description:  Terminal handling library (Unicode)
 
 Package: libnetfilter-conntrack
@@ -2591,15 +2614,15 @@ SourceName: libnetfilter_conntrack
 License: GPL-2.0-or-later
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://www.netfilter.org/projects/libnetfilter_conntrack/
 CPE-ID: cpe:/a:netfilter:libnetfilter_conntrack
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 92160
 Filename: libnetfilter-conntrack_1.1.0-1_armv7-5.4.ipk
-Size: 37122
-SHA256sum: 8b59b3884bfc88061a24560a07e4410854bbccfb3170d68e1c6b40a1f8db80e1
+Size: 37103
+SHA256sum: ff71a564e64c72d8285da5449784d7684ec7b88429a83f87e6e369be7606bd7b
 Description:  libnetfilter_conntrack is a userspace library providing a programming
  interface (API) to the in-kernel connection tracking state table. The
  library libnetfilter_conntrack has been previously known as
@@ -2615,14 +2638,14 @@ SourceName: nettle
 License: GPL-2.0-or-later
 LicenseFiles: COPYING.LESSERv3 COPYINGv2 COPYINGv3
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.lysator.liu.se/~nisse/nettle/
 CPE-ID: cpe:/a:nettle_project:nettle
 Architecture: armv7-5.4
 Installed-Size: 583680
 Filename: libnettle_3.10.2-1_armv7-5.4.ipk
-Size: 363786
-SHA256sum: 7e14d0168e2731854ba66441fac920ea72f9042f5e0f773e6dee1f45a5d74343
+Size: 363778
+SHA256sum: dd70b86b1af22daa1183ccd4dec9d0b8fa37dc59f6afd168becc3a0c311778bb
 Description:  GNU crypto library
 
 Package: libnfnetlink
@@ -2633,15 +2656,15 @@ Source: feeds/base/libs/libnfnetlink
 SourceName: libnfnetlink
 License: GPL-2.0+
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://netfilter.org/projects/libnfnetlink/
 CPE-ID: cpe:/a:netfilter:libnfnetlink
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: libnfnetlink_1.0.2-1_armv7-5.4.ipk
-Size: 11313
-SHA256sum: 28db4f05326e7947f4ef3b973378ba3b76a8d026d42a0f69926edb5e2fd3c68c
+Size: 11314
+SHA256sum: b83643e820b7edd76e032619d83844720ec8f42e094db204ddd9403507b6de63
 Description:  libnfnetlink is is the low-level library for netfilter related kernel/userspace communication.
  It provides a generic messaging infrastructure for in-kernel netfilter subsystems
  (such as nfnetlink_log, nfnetlink_queue, nfnetlink_conntrack) and their respective users
@@ -2656,15 +2679,15 @@ SourceName: libnftnl
 License: GPL-2.0-or-later
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://www.netfilter.org/projects/libnftnl
 CPE-ID: cpe:/a:netfilter:libnftnl
 Maintainer: Steven Barth <steven@midlink.org>
 Architecture: armv7-5.4
 Installed-Size: 153600
 Filename: libnftnl_1.3.1-1_armv7-5.4.ipk
-Size: 54633
-SHA256sum: eb52f7ebb764b9535bcc1301d870f1ddec812609077c52172ad4fad43a710868
+Size: 54646
+SHA256sum: 9b1ebcbf6018b6736f5ff8a1d452ce41740ae236b5ff9ae0dc13c4ee7341ab04
 Description:  libnftnl is a userspace library providing a low-level netlink
  programming interface (API) to the in-kernel nf_tables subsystem.
 
@@ -2677,14 +2700,14 @@ SourceName: libnl
 License: LGPL-2.1
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.infradead.org/~tgr/libnl/
 CPE-ID: cpe:/a:libnl_project:libnl
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: libnl_3.11.0-1_armv7-5.4.ipk
-Size: 797
-SHA256sum: ed947874810c74cb68b194141524087618b6f9fba83213df7b545e881e567d12
+Size: 801
+SHA256sum: 5667d636a31da12b76bbff674c25eab4ada89bd149164332197f4fb47f635957
 Description:  Socket handling, connection management, sending and receiving of data,
  message construction and parsing, object caching system, etc.
 
@@ -2697,14 +2720,14 @@ SourceName: libnl
 License: LGPL-2.1
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.infradead.org/~tgr/libnl/
 CPE-ID: cpe:/a:libnl_project:libnl
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: libnl-cli_3.11.0-1_armv7-5.4.ipk
-Size: 11895
-SHA256sum: 96a1be0feea2df75281b06662f100a542a00fbc119d19349ae3d574fd1f11c09
+Size: 11900
+SHA256sum: 7234273d8aea6ce2883b76e6334f5e9c16c908b4c31ceeba73e6a76f093c96de
 Description:  CLI Netlink Library Functions
 
 Package: libnl-core
@@ -2716,14 +2739,14 @@ SourceName: libnl
 License: LGPL-2.1
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.infradead.org/~tgr/libnl/
 CPE-ID: cpe:/a:libnl_project:libnl
 Architecture: armv7-5.4
 Installed-Size: 92160
 Filename: libnl-core_3.11.0-1_armv7-5.4.ipk
 Size: 39313
-SHA256sum: 7615d3e96bf0886a7f8b02bbbe60c20818684199224909c41eb862554e0e4a50
+SHA256sum: 20b8d0586a5158f306dad6a870cd612773a9bee30789812acc0db9b87b1a8663
 Description:  Common code for all netlink libraries
 
 Package: libnl-genl
@@ -2735,14 +2758,14 @@ SourceName: libnl
 License: LGPL-2.1
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.infradead.org/~tgr/libnl/
 CPE-ID: cpe:/a:libnl_project:libnl
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: libnl-genl_3.11.0-1_armv7-5.4.ipk
-Size: 8242
-SHA256sum: 1e7aa818a00643e14fa2ca8c7a731677ececff79926877942da92422d778d24a
+Size: 8249
+SHA256sum: c25eadb443552e1ab3d97476e8517fb156ef4dedf4de73962c9277035b281bed
 Description:  Generic Netlink Library Functions
 
 Package: libnl-nf
@@ -2754,14 +2777,14 @@ SourceName: libnl
 License: LGPL-2.1
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.infradead.org/~tgr/libnl/
 CPE-ID: cpe:/a:libnl_project:libnl
 Architecture: armv7-5.4
 Installed-Size: 81920
 Filename: libnl-nf_3.11.0-1_armv7-5.4.ipk
-Size: 28360
-SHA256sum: 0626d6e84e23816031d89a0767949a8956f788f90ca0a810b0e0c9e0508fc3b2
+Size: 28359
+SHA256sum: cfb69944b1bffd91e9247eeb26079c495c31046a987eacade9f521f67519e86c
 Description:  Netfilter Netlink Library Functions
 
 Package: libnl-route
@@ -2773,14 +2796,14 @@ SourceName: libnl
 License: LGPL-2.1
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.infradead.org/~tgr/libnl/
 CPE-ID: cpe:/a:libnl_project:libnl
 Architecture: armv7-5.4
 Installed-Size: 481280
 Filename: libnl-route_3.11.0-1_armv7-5.4.ipk
-Size: 177880
-SHA256sum: 9662b6e51557ac18e5b16b59f00e3577443140fbf06c5a8cd912807825146d7a
+Size: 177874
+SHA256sum: 45696fdda04816e6ab53ace99f2bc630b2224f861f921ba25ce0d039a1410104
 Description:  Routing Netlink Library Functions
 
 Package: libnl-tiny
@@ -2791,13 +2814,13 @@ Source: feeds/base/libs/libnl-tiny
 SourceName: libnl-tiny
 License: LGPL-2.1
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: libnl-tiny_2025.12.02~40493a65-1_armv7-5.4.ipk
-Size: 14027
-SHA256sum: 3d7594996367055cbe6e68b38484f1a8d3003de291dd4e4ac3a762f78f18c390
+Size: 14041
+SHA256sum: 6c102235354e61c78df936742a2cee1f189403ef2c3e40895bb8e44d3b1ba4c0
 Description:  This package contains a stripped down version of libnl
 
 Package: libopcodes
@@ -2808,14 +2831,14 @@ Source: feeds/base/devel/binutils
 SourceName: binutils
 License: GPL-3.0+
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 CPE-ID: cpe:/a:gnu:binutils
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 194560
 Filename: libopcodes_2.45.1-1_armv7-5.4.ipk
-Size: 60505
-SHA256sum: 6907a15019cf3eceb48573ee82f4cd036e6d480dce7116344c40ddb8ded802c0
+Size: 60464
+SHA256sum: 0c749906d3c465b54fb575490aaba2c8c052ebfd88e248b1544ca90de93cf00e
 Description:  libopcodes
 
 Package: libopenssl
@@ -2827,15 +2850,15 @@ SourceName: openssl
 License: Apache-2.0
 LicenseFiles: LICENSE.txt
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.openssl.org/
 CPE-ID: cpe:/a:openssl:openssl
 Maintainer: Eneas U de Queiroz <cotequeiroz@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 4485120
 Filename: libopenssl_3.5.5-1_armv7-5.4.ipk
-Size: 2061915
-SHA256sum: 47a95314d2a4e7a3937808ad074d19b0ab0510a2d9a20f7f494585300b3b70f9
+Size: 2061950
+SHA256sum: dc0d32ccf527bdd511ad646302ad9ea94e9fd14ec145a14aa75976e53052c364
 Description:  The OpenSSL Project is a collaborative effort to develop a robust,
  commercial-grade, full-featured, and Open Source toolkit implementing the
  Transport Layer Security (TLS) protocol as well as a full-strength
@@ -2851,15 +2874,15 @@ SourceName: openssl
 License: Apache-2.0
 LicenseFiles: LICENSE.txt
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.openssl.org/
 CPE-ID: cpe:/a:openssl:openssl
 Maintainer: Eneas U de Queiroz <cotequeiroz@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: libopenssl-conf_3.5.5-1_armv7-5.4.ipk
-Size: 5661
-SHA256sum: 1d208fbef484cc3dec52b6cf6ea3c38410576a658894de59a2257d4d2b3dd69c
+Size: 5665
+SHA256sum: c61d356ca6faf6e26b1fa2cfee588a6f594d68a3bf0d91e3290c9a476507eebf
 Description:  The OpenSSL Project is a collaborative effort to develop a robust,
  commercial-grade, full-featured, and Open Source toolkit implementing the
  Transport Layer Security (TLS) protocol as well as a full-strength
@@ -2875,15 +2898,15 @@ SourceName: openssl
 License: Apache-2.0
 LicenseFiles: LICENSE.txt
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.openssl.org/
 CPE-ID: cpe:/a:openssl:openssl
 Maintainer: Eneas U de Queiroz <cotequeiroz@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 81920
 Filename: libopenssl-legacy_3.5.5-1_armv7-5.4.ipk
-Size: 28979
-SHA256sum: a6885aa658edc7f85ad7c86b37e7124bd5187b7ef22c9045f3d471a8228b4917
+Size: 28982
+SHA256sum: 0194ac06cc8cfe36eb9799dc3455c3710762b3d15ef1aca2e3db3c94f80eb021
 Description:  The OpenSSL legacy provider supplies OpenSSL implementations of algorithms that
  have been deemed legacy. Such algorithms have commonly fallen out of use, have
  been deemed insecure by the cryptography community, or something similar.  See
@@ -2898,15 +2921,15 @@ SourceName: libpcap
 License: BSD-3-Clause
 LicenseFiles: LICENSE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.tcpdump.org/
 CPE-ID: cpe:/a:tcpdump:libpcap
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 286720
 Filename: libpcap_1.10.6-1_armv7-5.4.ipk
-Size: 124418
-SHA256sum: 045791736a9e3a17f3b18e3cec6ff898cf75826e2bcea0d2afe61a29c541e82c
+Size: 124449
+SHA256sum: c676f35505c86f9202022a20901c495cecfb70379352f6531dc896c6bc0a984e
 Description:  This package contains a system-independent library for user-level network packet
  capture.
 
@@ -2919,15 +2942,15 @@ SourceName: pcre2
 License: BSD-3-Clause
 LicenseFiles: LICENCE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.pcre.org/
 CPE-ID: cpe:/a:pcre:pcre2
 Maintainer: Shane Peelar <lookatyouhacker@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 624640
 Filename: libpcre2_10.47-1_armv7-5.4.ipk
-Size: 251764
-SHA256sum: 16b417c39be4684753a6b3f4a8ded49ffb2765e83cd6043952d4cfda7f91de45
+Size: 251773
+SHA256sum: d5af24598c2db8670d49f3258da79f3cbd961c20ee213165b7e7b3a83851f2e9
 Description:  A Perl Compatible Regular Expression library
 
 Package: libpcre2-32
@@ -2939,15 +2962,15 @@ SourceName: pcre2
 License: BSD-3-Clause
 LicenseFiles: LICENCE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.pcre.org/
 CPE-ID: cpe:/a:pcre:pcre2
 Maintainer: Shane Peelar <lookatyouhacker@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 542720
 Filename: libpcre2-32_10.47-1_armv7-5.4.ipk
-Size: 216211
-SHA256sum: 204c7dea9d52a3b491bdd1c22eca155fe5f35a987674cde78338c07aa89ecb74
+Size: 216259
+SHA256sum: 132949d31e739c99db91da75d0c9c471addc69eca9f7201e89e698e28ba62790
 Description:  A Perl Compatible Regular Expression library (32bit support)
 
 Package: libpng
@@ -2966,8 +2989,8 @@ Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 184320
 Filename: libpng_1.6.50-1_armv7-5.4.ipk
-Size: 92791
-SHA256sum: ff7de5d17f8bba55347ecfa3a8b6d2434c37f16a0c8365456ec0c1f78a6ba867
+Size: 92781
+SHA256sum: 5c9c97b8ebac1c5a9dc1329a1e6c7a1512483e84080dbc1d8c76a49347339114
 Description:  A PNG format files handling library
 
 Package: libpopt
@@ -2978,14 +3001,14 @@ Source: feeds/base/libs/popt
 SourceName: popt
 License: MIT
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/rpm-software-management/popt
 CPE-ID: cpe:/a:popt_project:popt
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: libpopt_1.19-1_armv7-5.4.ipk
-Size: 21441
-SHA256sum: bc4a4f17786efa0fe152d06eba0ce2a2421a5607627d7c63abb1f86ec6ff4d6a
+Size: 21434
+SHA256sum: b71deabde70e04ef8db01f4a1fb72ca38e6dd090094f95e7d23f42ea0a24f6db
 Description:  A command line option parsing library
 
 Package: libpthread
@@ -2996,14 +3019,14 @@ Source: feeds/base/libs/toolchain
 SourceName: toolchain
 License: GPL-3.0-with-GCC-exception
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://www.gnu.org/software/libc/
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 102400
 Filename: libpthread_2.27-12_armv7-5.4.ipk
-Size: 40237
-SHA256sum: eed2aacc24d4047bdc951c4706f8b8f73b0d35e7b380cf1f267f0c6a0acbb806
+Size: 40245
+SHA256sum: e00b046117280638a2db9cb68907430511179031cf504ca0ccd82fc802706630
 Description:  POSIX thread library
 
 Package: libpython3
@@ -3022,8 +3045,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@
 Architecture: armv7-5.4
 Installed-Size: 4157440
 Filename: libpython3_3.13.9-2_armv7-5.4.ipk
-Size: 1543839
-SHA256sum: 7f26c31f48b5aed597ff73b9b3b89f95f905600b439cb2cab0e261cb804569db
+Size: 1543846
+SHA256sum: 3ad7b73ce03b551fcd4cc7f31a731a738b0adc71688f4a9b9d16da89f2d91388
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -3046,14 +3069,14 @@ SourceName: readline
 License: GPL-3.0-or-later
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://tiswww.case.edu/php/chet/readline/rltop.html
 CPE-ID: cpe:/a:gnu:readline
 Architecture: armv7-5.4
 Installed-Size: 327680
 Filename: libreadline_8.3-1_armv7-5.4.ipk
-Size: 153995
-SHA256sum: fda974f35f76d2bd4779b87f873d9307771d7118bcf3376e421027d6cd4af28c
+Size: 154061
+SHA256sum: 4e67b2c1d54d679d63e7c3343040c7ee15c8b1da7d54565d3bdc59edfb24a167
 Description:  The Readline library provides a set of functions for use by applications
  that allow users to edit command lines as they are typed in. Both Emacs
  and vi editing modes are available. The Readline library includes
@@ -3069,14 +3092,14 @@ Source: feeds/base/libs/toolchain
 SourceName: toolchain
 License: GPL-3.0-with-GCC-exception
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://www.gnu.org/software/libc/
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: librt_2.27-12_armv7-5.4.ipk
-Size: 12190
-SHA256sum: 43f14a667fce486feaf0459f6eed1d38bf641bb234cea97a9874267bafe1f9f3
+Size: 12194
+SHA256sum: a96184a8ce84e85b467e182bf93f2f2f5a29e0961eb3165d68a4bf5cdcc52dc0
 Description:  POSIX.1b RealTime extension library
 
 Package: libsmartcols
@@ -3088,14 +3111,14 @@ SourceName: util-linux
 License: LGPL-2.1-or-later
 LicenseFiles: Documentation/licenses/COPYING.LGPL-2.1-or-later
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 143360
 Filename: libsmartcols_2.41.3-1_armv7-5.4.ipk
-Size: 63339
-SHA256sum: b923e13619b3e43a678ac99e754449bf919598a55750c321c77b4d74370f5044
+Size: 63324
+SHA256sum: 71ecb14a41fc95c6c9e36f0151adf2fa45d4a11c11abac3f3bb223b1fa1c8996
 Description:  The smartcols library is used to print tables and trees in a pretty way.
 
 Package: libsodium
@@ -3114,7 +3137,7 @@ Architecture: armv7-5.4
 Installed-Size: 317440
 Filename: libsodium_1.0.20-1_armv7-5.4.ipk
 Size: 160299
-SHA256sum: 46caecac9d990b934e1ff464c87f7df1ea58f2681721cdf1937254afdf8b216d
+SHA256sum: 22ca35c1a1225cd39bf7827ee655d9e792f276a771abcca844391b699dbad4ae
 Description:  NaCl (pronounced "salt") is a new easy-to-use high-speed software library for network communication, encryption, decryption, signatures, etc.
  NaCl's goal is to provide all of the core operations needed to build higher-level cryptographic tools.
  Sodium is a portable, cross-compilable, installable, packageable fork of NaCl (based on the latest released upstream version nacl-20110221), with a compatible API.
@@ -3137,8 +3160,8 @@ CPE-ID: cpe:/a:sqlite:sqlite
 Architecture: armv7-5.4
 Installed-Size: 1146880
 Filename: libsqlite3_3.51.2-1_armv7-5.4.ipk
-Size: 639081
-SHA256sum: d0c47c6f4f8c6ac79e3cdc5676554a31bf7356829de04999f4848b269e9fc4b2
+Size: 639083
+SHA256sum: 3a444275356789767bddee462c8a7e7d5eb67d390af7b133bf6032365bf0aa37
 Description:  SQLite is a small C library that implements a self-contained, embeddable,
  zero-configuration SQL database engine.
  This package contains the SQLite (v3.x) shared library, used by other
@@ -3153,14 +3176,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: libss_1.47.3-1_armv7-5.4.ipk
-Size: 9325
-SHA256sum: 7c7793965ac81e0fb2f17d82b300f4df8c30570605365e3ca236d51442933657
+Size: 9327
+SHA256sum: 96709080f2bca824dea53aa273870626749fed2dd8c3933bef597f00df267a57
 Description:  This pacakge contains libss, a command-line interface parsing library
  bundled with e2fsprogs.
 
@@ -3171,14 +3194,14 @@ Source: feeds/base/libs/toolchain
 SourceName: toolchain
 License: GPL-3.0-with-GCC-exception
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://gcc.gnu.org/
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: libssp_8.4.0-12_armv7-5.4.ipk
-Size: 3564
-SHA256sum: 9b98c9a7a22fbd66c7f4dfacb256ccdcf06aee0c357343cf26c44b4cf8db6f07
+Size: 3580
+SHA256sum: 8ff92ceaac8da23ce70f8c7fa850a676349a5d17eb33c827cf25ee6bda0061a4
 Description:  GCC support library
 
 Package: libstdcpp
@@ -3188,14 +3211,14 @@ Source: feeds/base/libs/toolchain
 SourceName: toolchain
 License: GPL-3.0-with-GCC-exception
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://gcc.gnu.org/
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 1044480
 Filename: libstdcpp_8.4.0-12_armv7-5.4.ipk
-Size: 335588
-SHA256sum: ba8069741e478f978a0595de3803358e4ebc6e19093de783f59ed9f63f7057a9
+Size: 335652
+SHA256sum: f32c8bdc3928200751770a24d46f322e51f65859d5b15a3f36ac60cdcbf00c40
 Description:  GNU Standard C++ Library v3
 
 Package: libsysfs
@@ -3207,15 +3230,15 @@ SourceName: sysfsutils
 License: LGPL-2.1
 LicenseFiles: COPYING cmd/GPL lib/LGPL
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/linux-ras/sysfsutils
 CPE-ID: cpe:/a:sysfsutils_project:sysfsutils
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: libsysfs_2.1.0-5_armv7-5.4.ipk
-Size: 12966
-SHA256sum: 1fd528b4bfb3fec22cedbca82742924ee38fb9f329a7ad4ce3d00b289bcb0e1b
+Size: 12964
+SHA256sum: dfeb39f514abb7729b69bda0fe8039a1d2f092cc3352dbd0cea13d738b2d73ad
 Description:  The library's purpose is to provide a consistant and stable interface for
  querying system device information exposed through sysfs.
 
@@ -3226,14 +3249,14 @@ Source: feeds/base/libs/toolchain
 SourceName: toolchain
 License: GPL-3.0-with-GCC-exception
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://www.gnu.org/software/libc/
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: libthread-db_2.27-12_armv7-5.4.ipk
-Size: 10947
-SHA256sum: efe22b18bc9f228afa3d2b1899e5781328fb9c2b6b837f1fe844448816246ba7
+Size: 10956
+SHA256sum: 06dcc10ab87a61b575b8fa9b94e35c2df06b6e45f50ac114c8d77a23b02b40d9
 Description:  POSIX thread library debugging support
 
 Package: libtiff
@@ -3252,8 +3275,8 @@ Maintainer: Jiri Slachta <jiri@slachta.eu>
 Architecture: armv7-5.4
 Installed-Size: 460800
 Filename: libtiff_4.7.1-1_armv7-5.4.ipk
-Size: 169403
-SHA256sum: 7b112aa54116a1fba2a24cb4ad7ef69ecee6ed6a3a6c31fd37b0ddcbace22036
+Size: 169401
+SHA256sum: 873b7cb1e510d7ed59a9638b41d90e8a9b9278db858bbd59a9a102f817c3ab83
 Description:  TIFF library
 
 Package: libubox
@@ -3264,13 +3287,13 @@ Source: feeds/base/libs/libubox
 SourceName: libubox
 License: ISC
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 61440
 Filename: libubox_2026.02.13~1aa36ee7-1_armv7-5.4.ipk
-Size: 25466
-SHA256sum: 3fdc678f7fdbb6aae88e182cdf81f4b4249066a2a036df64026d681dab38401e
+Size: 25473
+SHA256sum: c264e80b1b05d7221ffd9d7a6f49867cb4d91d2b976e921ed3a2b402b69642a4
 Description:  Basic utility library
 
 Package: libunistring
@@ -3282,14 +3305,14 @@ SourceName: libunistring
 License: GPL-3.0
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.gnu.org/software/libunistring
 CPE-ID: cpe:/a:gnu:libunistring
 Architecture: armv7-5.4
 Installed-Size: 1884160
 Filename: libunistring_1.4.1-1_armv7-5.4.ipk
-Size: 724366
-SHA256sum: 6c834bae0939f89c19bfbd0fed99fe56a6bc8e54b459d67317a48cf66a6b0b93
+Size: 724337
+SHA256sum: 8253389f0bc2b0f26bf51bbd3b90c08d2ec5f6b56c5228c2fdbe3e44e62ad818
 Description:  This library provides functions for manipulating Unicode strings
  and for manipulating C strings according to the Unicode standard.
 
@@ -3302,15 +3325,15 @@ SourceName: libusb
 License: LGPL-2.1-or-later
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://libusb.info/
 CPE-ID: cpe:/a:libusb:libusb
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: libusb-1.0_1.0.29-1_armv7-5.4.ipk
-Size: 34059
-SHA256sum: 021e6bd491e37ac0ad8611fbf7e8bbf4c2067a109fca2987dcea86218d312306
+Size: 34141
+SHA256sum: 66d0bb5eba39ba65fc212d2d9aad588f6581bb43ff52d2c913dc44fd53645afe
 Description:  libusb is a C library that gives applications easy access to USB devices on
  many different operating systems.
 
@@ -3323,14 +3346,14 @@ SourceName: util-linux
 License: BSD-3-Clause
 LicenseFiles: Documentation/licenses/COPYING.BSD-3-Clause
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: libuuid_2.41.3-1_armv7-5.4.ipk
-Size: 14655
-SHA256sum: 5c8c7b2a02b807753517d90907a0940ac34b57479698d996a15f88fed57b935a
+Size: 14657
+SHA256sum: 685d922c113bf8edc4930f3d04cec395c916510637730b08a792792ddb26d625
 Description:  The UUID library is used to generate unique identifiers for objects
  that may be accessible beyond the local system. This library
  generates UUIDs compatible with those created by the Open Software
@@ -3351,8 +3374,8 @@ Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 491520
 Filename: libwebp_1.5.0-1_armv7-5.4.ipk
-Size: 269780
-SHA256sum: 52a5cbadc77b0b97dd55f564277941e4d8b6e2c0ce1d834c79ad6b7ca25d1e3c
+Size: 269778
+SHA256sum: 9d786887e918ddb5d69304d8dba0c9e84cdd8da1018d52dcb06dd94165b17b78
 Description:  The libwebp package contains a library for the WebP format.
 
 Package: libwolfssl
@@ -3365,15 +3388,15 @@ SourceName: wolfssl
 License: GPL-3.0-or-later
 LicenseFiles: LICENSING COPYING
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.wolfssl.com/
 CPE-ID: cpe:/a:wolfssl:wolfssl
 Maintainer: Eneas U de Queiroz <cotequeiroz@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 1198080
 Filename: libwolfssl_5.8.4-1_armv7-5.4.ipk
-Size: 586292
-SHA256sum: 08f0d0ccf5fc44cacefb09cc9c06a6293e7ef3921b1b576c3bb95f92c16ebdc5
+Size: 586277
+SHA256sum: 5f683f471e0b9b9116c2de1ba1b1193f60dc835f8451262a429259cf1a476ecd
 Description:  wolfSSL (formerly CyaSSL) is an SSL library optimized for small
  footprint, both on disk and for memory use.
 
@@ -3386,14 +3409,14 @@ SourceName: libxml2
 License: MIT
 LicenseFiles: Copyright
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://gitlab.gnome.org/GNOME/libxml2
 CPE-ID: cpe:/a:xmlsoft:libxml2
 Architecture: armv7-5.4
 Installed-Size: 1024000
 Filename: libxml2_2.15.1-1_armv7-5.4.ipk
-Size: 480877
-SHA256sum: 7eed194eb08891f2027e907583e7d276c5ddec39e8a404e648c8b24720fa27b3
+Size: 480837
+SHA256sum: c7f53890a815bced80852056c27bdcd3dd24c30a3c14a38ac837aa2c5b1c6dfa
 Description:  A library for manipulating XML and HTML resources.
 
 Package: libxml2-dev
@@ -3405,14 +3428,14 @@ SourceName: libxml2
 License: MIT
 LicenseFiles: Copyright
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://gitlab.gnome.org/GNOME/libxml2
 CPE-ID: cpe:/a:xmlsoft:libxml2
 Architecture: armv7-5.4
 Installed-Size: 460800
 Filename: libxml2-dev_2.15.1-1_armv7-5.4.ipk
-Size: 82715
-SHA256sum: 83207615427e3d06178931ff2fad8e0f5b9b1c6d168814292bb7e564aae79db6
+Size: 82712
+SHA256sum: 4d64a92417136d83a6437a621381cdabe233768ea59f9e94011ef868fe8716f5
 Description:  A library for manipulating XML and HTML resources.
  
  This package contains the headers and xml2-config binary.
@@ -3426,14 +3449,14 @@ SourceName: libxml2
 License: MIT
 LicenseFiles: Copyright
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://gitlab.gnome.org/GNOME/libxml2
 CPE-ID: cpe:/a:xmlsoft:libxml2
 Architecture: armv7-5.4
 Installed-Size: 81920
 Filename: libxml2-utils_2.15.1-1_armv7-5.4.ipk
-Size: 31928
-SHA256sum: 005b623213a9abaaa13a493a40b9198ce53f7d58522c4adb47a45a2100770d5b
+Size: 31892
+SHA256sum: f43291d6af29cc61f1001b1d57b9f160a0d3918c601b429c11edb9278461a241
 Description:  This package contains the binaries xmllint and xmlcatalog
  from libxml2, a library for manipulating XML and HTML resources.
 
@@ -3452,8 +3475,8 @@ CPE-ID: cpe:/a:pyyaml_project:pyyaml
 Architecture: armv7-5.4
 Installed-Size: 112640
 Filename: libyaml_0.2.5-2_armv7-5.4.ipk
-Size: 45506
-SHA256sum: 2e4a2d4d5d1d23edb469d1786354b837c3e800eca350d95c63dffa33c03adbdf
+Size: 45496
+SHA256sum: d5aeaa04d09a29f1d2f1341f22521b14b0f0b190f7fac1c5655098027f87d176
 Description:  Fast YAML 1.1 parser and emitter library
 
 Package: libzstd
@@ -3471,8 +3494,8 @@ CPE-ID: cpe:/a:facebook:zstandard
 Architecture: armv7-5.4
 Installed-Size: 747520
 Filename: libzstd_1.5.7-1_armv7-5.4.ipk
-Size: 347170
-SHA256sum: 08ffa2c418e46ca3a2aaaef7097e57b5ec239c3c57720570f613cd36fab5f603
+Size: 347172
+SHA256sum: 4dbbe4063704f982611cf1616a3d24a451a2903f89729f719b145c30e2d18eb3
 Description:  Zstandard - Fast real-time compression algorithm.
  This package provides libzstd library.
 
@@ -3485,15 +3508,15 @@ SourceName: lldpd
 License: ISC
 Section: net
 Require-User: lldp=121:lldp=129
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://lldpd.github.io/
 CPE-ID: cpe:/a:lldpd_project:lldpd
 Maintainer: Stijn Tintel <stijn@linux-ipv6.be>
 Architecture: armv7-5.4
 Installed-Size: 296960
 Filename: lldpd_1.0.20-1_armv7-5.4.ipk
-Size: 122649
-SHA256sum: a3580ce3f6eb210299537671c40d9645ae94a363abef302cbcbe53fcd813dbf2
+Size: 122607
+SHA256sum: a8f455d3919ce46dda0ff1252d17e651d134a28b65a90c5db337efcc4c391875
 Description:  LLDP (Link Layer Discovery Protocol) is an industry standard protocol designed
  to supplant proprietary Link-Layer protocols such as
  Extreme's EDP (Extreme Discovery Protocol) and
@@ -3514,8 +3537,8 @@ Maintainer: Entware team, https://entware.net
 Architecture: armv7-5.4
 Installed-Size: 1669120
 Filename: locales_2.27-9_armv7-5.4.ipk
-Size: 640957
-SHA256sum: ad89a960b8b8e48da3bb2c32411a53ce99c1cf651a6b435556b5a5e4665f9adf
+Size: 640954
+SHA256sum: ec191db786b9d54a3032187c92db14ed3ccb6de90cd1561830e3dc506e32b1f7
 Description:  locales support (independent of system lib)
 
 Package: logger
@@ -3528,14 +3551,14 @@ SourceName: util-linux
 License: BSD-4-Clause-UC
 LicenseFiles: Documentation/licenses/COPYING.BSD-4-Clause-UC
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: logger_2.41.3-1_armv7-5.4.ipk
-Size: 18750
-SHA256sum: aa8556127f37641a92980b17dd8adc95c705196ed9d099781c4400a3affa0979
+Size: 18743
+SHA256sum: 978c3ce752547a2da6481fc580ee859e6526f03b09bb05fd0c229e81e37fe5b9
 Description:  logger makes entries in the system log, it provides a shell command interface
  to the syslog system log module
 
@@ -3548,14 +3571,14 @@ SourceName: util-linux
 License: BSD-4-Clause-UC
 LicenseFiles: Documentation/licenses/COPYING.BSD-4-Clause-UC
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: look_2.41.3-1_armv7-5.4.ipk
-Size: 5018
-SHA256sum: b250cb4f085206128c2ee23a1cebacbd7c94fabbf6babd5aa829750c569bd75f
+Size: 5022
+SHA256sum: 87121c791077dbc0d510db318f06bced83a8e609d01427e0a300a842ac7a0608
 Description:  look utility displays any lines in file which contain string
 
 Package: losetup
@@ -3568,14 +3591,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 112640
 Filename: losetup_2.41.3-1_armv7-5.4.ipk
-Size: 47351
-SHA256sum: 35b7eb759c80d82df8ea9a44fe858ebe36afaed6cf6a03527453b358b69475c5
+Size: 47296
+SHA256sum: 4a2c34db1f7256a08d6690e6f3a59e16e5ad2db8a32bd13a0e6d9d3afb8bc49c
 Description:  losetup is used to associate loop devices with regular files or block devices,
  to detach loop devices and to query the status of a loop device
 
@@ -3588,14 +3611,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: lsattr_1.47.3-1_armv7-5.4.ipk
-Size: 4064
-SHA256sum: e7acd45234b986f797308845591724e729d1f0b1cd17b0af860942108c6f6085
+Size: 4072
+SHA256sum: 69490010581a8b4226590674b8fb3bbed96eef270e01a762907b77ebdf50ffc0
 Description:  Ext2 Filesystem lsattr utility
 
 Package: lsblk
@@ -3607,14 +3630,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 184320
 Filename: lsblk_2.41.3-1_armv7-5.4.ipk
-Size: 82378
-SHA256sum: cdf2d45c9139327134006b955e4fccb9bebef9f17ff188d24b8c219831ccdc27
+Size: 82380
+SHA256sum: 57cbb63bb1a43a590acb3338c418b1d41a73ece18c200075978da1759efbf355
 Description:  lsblk lists information about all or the specified block devices
 
 Package: lscpu
@@ -3626,14 +3649,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 122880
 Filename: lscpu_2.41.3-1_armv7-5.4.ipk
-Size: 54855
-SHA256sum: 26672452fbff48b861f3bd08d754fe076708f9adf674b165fd9025cb540943b7
+Size: 54840
+SHA256sum: 32cec24d3b9ff03e0f4ddb8dcd8697f57e810a3513a9a5605a83bc348237e78a
 Description:  lscpu displays information about the CPU architecture
 
 Package: lslocks
@@ -3645,14 +3668,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 61440
 Filename: lslocks_2.41.3-1_armv7-5.4.ipk
-Size: 26883
-SHA256sum: dc6f1d7a8a2c24c23aeea4d6dcc299d8c6edbe43998a56684d717cd8e04db418
+Size: 26932
+SHA256sum: 41cca6c23a87ebe730e1cb0cf7db6204e7ebb2e7ccd945f97d858b0f46d820a7
 Description:  lslocks lists information about all the currently held file locks in a Linux system
 
 Package: lsns
@@ -3664,14 +3687,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: lsns_2.41.3-1_armv7-5.4.ipk
-Size: 29946
-SHA256sum: 89938d2a3ac13a2c88d5ff6e4cde25221c4f1a7c274d62135bdafdd4acfea84a
+Size: 29956
+SHA256sum: e046e9922ef50117c463131ea49f85b96017bd6e1dc97ef3b9232135ff9e5fec
 Description:  lsns lists information about all namespaces and their processes
 
 Package: lua
@@ -3683,15 +3706,15 @@ SourceName: lua
 License: MIT
 LicenseFiles: COPYRIGHT
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.lua.org/
 CPE-ID: cpe:/a:lua:lua
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: lua_5.1.5-11_armv7-5.4.ipk
-Size: 6312
-SHA256sum: b62f1370fd657356d599c0941118e1c246196f943fe830b2957051067a5de635
+Size: 6322
+SHA256sum: bfc3d23dd8b778d641900384b694308b104f6124dbce9647c337048dad75213b
 Description:  Lua is a powerful light-weight programming language designed for extending 
  applications. Lua is also frequently used as a general-purpose, stand-alone 
  language. Lua is free software.
@@ -3706,15 +3729,15 @@ SourceName: lua
 License: MIT
 LicenseFiles: COPYRIGHT
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.lua.org/
 CPE-ID: cpe:/a:lua:lua
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: lua5.3_5.3.5-6_armv7-5.4.ipk
-Size: 6738
-SHA256sum: 457f585c03e6c9e34b1dab91598149d1f7a9f6868d67b7db3cc834bef365a080
+Size: 6748
+SHA256sum: 76efb68004ca3f346b9c893565b91455dee5f8b84372743b60c0a75d396cb7d8
 Description:  Lua is a powerful, efficient, lightweight, embeddable scripting language. It
  supports procedural programming, object-oriented programming, functional
  programming, data-driven programming, and data description.
@@ -3729,15 +3752,15 @@ SourceName: lua
 License: MIT
 LicenseFiles: COPYRIGHT
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.lua.org/
 CPE-ID: cpe:/a:lua:lua
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: luac_5.1.5-11_armv7-5.4.ipk
-Size: 7555
-SHA256sum: 83ead5c49c1f839cc6905e46be2e663ab316cba454e7328c141733f745ac121f
+Size: 7558
+SHA256sum: a9ae557da576fe77dd84eecdaf1ebaa110bd4725814832a10aebee0c1f680290
 Description:  Lua is a powerful light-weight programming language designed for extending 
  applications. Lua is also frequently used as a general-purpose, stand-alone 
  language. Lua is free software.
@@ -3752,7 +3775,7 @@ SourceName: lua
 License: MIT
 LicenseFiles: COPYRIGHT
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.lua.org/
 CPE-ID: cpe:/a:lua:lua
 Maintainer: Jo-Philipp Wich <jo@mein.io>
@@ -3760,7 +3783,7 @@ Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: luac5.3_5.3.5-6_armv7-5.4.ipk
 Size: 7504
-SHA256sum: b369187c38200adc053a38a5b552bf361a2d2d604283b4b52c76a87b2ea0e090
+SHA256sum: 6beb245d389e4b55eed25910504ebdad8db2b2efe93889aeaf0898b9bfb7ae75
 Description:  Lua is a powerful, efficient, lightweight, embeddable scripting language. It
  supports procedural programming, object-oriented programming, functional
  programming, data-driven programming, and data description.
@@ -3775,15 +3798,15 @@ SourceName: lua
 License: MIT
 LicenseFiles: COPYRIGHT
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.lua.org/
 CPE-ID: cpe:/a:lua:lua
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: lua-examples_5.1.5-11_armv7-5.4.ipk
-Size: 6068
-SHA256sum: 69ac91558a3d1fd4b0de98af794423437f164616228c7000c38074139ff14afd
+Size: 6074
+SHA256sum: 158e779d325e94654421110b93f3d922d3fd3f550221794b5d48a2f3618c5eaf
 Description:  Lua is a powerful light-weight programming language designed for extending 
  applications. Lua is also frequently used as a general-purpose, stand-alone 
  language. Lua is free software.
@@ -3798,14 +3821,14 @@ SourceName: mbedtls
 License: GPL-2.0-or-later
 LicenseFiles: LICENSE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.trustedfirmware.org/projects/mbed-tls/
 CPE-ID: cpe:/a:arm:mbed_tls
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: mbedtls-util_3.6.5-1_armv7-5.4.ipk
-Size: 10225
-SHA256sum: cc46023d3ca9300e225cf041273543904fd8aaa224091d8a1fc179fb45101590
+Size: 10219
+SHA256sum: e8e5b2a8790d2ba63cdf60dece912de316f71bbda50262aca6bc0cadfab9c30e
 Description:  The aim of the mbedtls project is to provide a quality, open-source
  cryptographic library written in C and targeted at embedded systems.
  This package contains mbedtls helper programs for private key and
@@ -3819,14 +3842,14 @@ Source: feeds/base/utils/util-linux
 SourceName: util-linux
 License: Public-Domain
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: mcookie_2.41.3-1_armv7-5.4.ipk
-Size: 14328
-SHA256sum: 7eff159a007aa5f6e8b8b4dd46ec6f1d725d0490c69431a2f997ccd085e05064
+Size: 14333
+SHA256sum: 6ff4aa7a2590877a4a3babfe7d391e30c84fb9503a4b12b6ad6134b1ef19628a
 Description:  mcookie generates a 128-bit random hexadecimal number for use with the X
  authority system
 
@@ -3840,15 +3863,15 @@ SourceName: f2fs-tools
 License: GPL-2.0-only
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs-tools.git
 CPE-ID: cpe:/a:f2fs-tools_project:f2fs-tools
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: mkf2fs_1.16.0-4_armv7-5.4.ipk
-Size: 18599
-SHA256sum: 6fbc3ac091c04a3d0d1fbe3441c15e7310d1d34b261edbe8f7c86fc6adfea26b
+Size: 18602
+SHA256sum: 76d0931cab426ed4507b6c63dacc3cfc6cdde41eed5c4518baab251a1d4d9659
 Description:  Utility for creating a Flash-Friendly File System (F2FS)
 
 Package: mlocate
@@ -3863,8 +3886,8 @@ URL: https://fedorahosted.org/mlocate/
 Architecture: armv7-5.4
 Installed-Size: 81920
 Filename: mlocate_0.26-1_armv7-5.4.ipk
-Size: 36826
-SHA256sum: d886e08d2c9f4e49faa788e0ca5c2700ab85b03469fa7109003b2b75a31546fb
+Size: 36928
+SHA256sum: 55a7a362bef8fcab5289db9eacc7f3e9167af4aaf789a6e9e8307a9810babf30
 Description:  Quickly find files on the filesystem based on their name mlocate is a new
  implementation of locate, a tool to find files anywhere in the filesystem
  based on their name, using a fixed pattern or a regular expression. Unlike
@@ -3881,14 +3904,14 @@ Source: feeds/base/utils/util-linux
 SourceName: util-linux
 License: BSD-4.3TAHOE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: more_2.41.3-1_armv7-5.4.ipk
-Size: 22047
-SHA256sum: c4e9a288aa42498c1c7569e278e510e427378831579edbffef54a41994d4fdc5
+Size: 22052
+SHA256sum: 66cce6aa16440921414dec5a46b542113d3932f3b6441d83d3e27d8be685b6f8
 Description:  more is a filter for paging through text one screenful at a time
 
 Package: mount-utils
@@ -3901,14 +3924,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 174080
 Filename: mount-utils_2.41.3-1_armv7-5.4.ipk
-Size: 75100
-SHA256sum: 4e57104e10eb9d2bfbc7e3a85c4ea3febfd6174314375e54d437a68dd2172f90
+Size: 75105
+SHA256sum: a53eea7dd87d20fad6ee58023b59fab099cf5c3297813dc32945c4e0c3f60dfd
 Description:  contains: mount, umount, findmnt
 
 Package: namei
@@ -3920,14 +3943,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: namei_2.41.3-1_armv7-5.4.ipk
-Size: 12388
-SHA256sum: 69344b2475adf11eab4341da08645ec12df645af19cb101ec074227dcdc18206
+Size: 12434
+SHA256sum: d478d87e62cf865accfd82e3032b174f175335f3a723f35f16c8078cf0f27a7b
 Description:  namei uses its arguments as pathnames to any type of Unix file (symlinks,
  files, directories, and so forth)
 
@@ -3939,15 +3962,15 @@ Source: feeds/base/utils/mtd-utils
 SourceName: mtd-utils
 License: GPLv2
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://www.linux-mtd.infradead.org/
 CPE-ID: cpe:/a:mtd-utils_project:mtd-utils
 Maintainer: John Crispin <john@phrozen.org>
 Architecture: armv7-5.4
 Installed-Size: 174080
 Filename: nand-utils_2.3.0-1_armv7-5.4.ipk
-Size: 56090
-SHA256sum: 27a7928b7fe7d6f773bf02558d836da66a8a81f053cf4700a0689b760a0235c4
+Size: 56113
+SHA256sum: e95f9ce3a73d8d378e69a5aacc255f3446ec79114c8bf9c6eaaca0b70634ce55
 Description:  Utilities for NAND devices.
 
 Package: ncurses-bin
@@ -3960,15 +3983,34 @@ SourceName: ncurses
 License: MIT
 LicenseFiles: README
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.gnu.org/software/ncurses/
 CPE-ID: cpe:/a:gnu:ncurses
 Architecture: armv7-5.4
 Installed-Size: 225280
 Filename: ncurses-bin_6.4-3_armv7-5.4.ipk
-Size: 89977
-SHA256sum: 5e807842eda4c8f58d966cf4b6d315818b29180a0ca0d397bdf3dfa870e59b78
+Size: 89891
+SHA256sum: bf0f7eaa386c8e3a5d9bb9192ebfdb71fc1398029737b9afaf3651c92ef501c3
 Description:  Terminal-related programs
+
+Package: netbird
+Version: 0.66.4-1
+Provides: netbird-any
+Source: feeds/golang/netbird
+SourceName: netbird
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Section: net
+SourceDateEpoch: 1776673921
+URL: https://netbird.io/
+Maintainer: Entware team, https://entware.net
+Architecture: armv7-5.4
+Installed-Size: 34355200
+Filename: netbird_0.66.4-1_armv7-5.4.ipk
+Size: 12566769
+SHA256sum: a221b3e486b6396d92d5741fa30f493cc29afa219814ea14285cfd8a37f2f8ac
+Description:  Connect your devices into a single secure private WireGuard®-based
+ mesh network with SSO/MFA and simple access controls.
 
 Package: nsenter
 Version: 2.41.3-1
@@ -3979,14 +4021,14 @@ SourceName: util-linux
 License: GPL-2.0-only
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-only
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: nsenter_2.41.3-1_armv7-5.4.ipk
-Size: 28407
-SHA256sum: a0fecb42b5a02adb87f68acd0370384f18b07f7c49b5a41f52651b57dd70c81f
+Size: 28344
+SHA256sum: 17c8e74472d02f5924348c2f2f626f538fbd04852e2f3cc15e03e76e0230bfdb
 Description:  run program with namespaces of other processes
 
 Package: nstat
@@ -3997,15 +4039,15 @@ Source: feeds/base/network/utils/iproute2
 SourceName: iproute2
 License: GPL-2.0
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://wiki.linuxfoundation.org/networking/iproute2
 CPE-ID: cpe:/a:iproute2_project:iproute2
 Maintainer: Russell Senior <russell@personaltelco.net>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: nstat_4.4.0-11_armv7-5.4.ipk
-Size: 8795
-SHA256sum: ef179a665a9f0f54199aa7464d6b62b56838c32bdbb4c265abf46177d92c64e0
+Size: 8792
+SHA256sum: 4be2c05c716c4c7f8309269d481b99f4b454e2569eb8e7cf9d2828daa3c1cdf9
 Description:  Network statistics utility
 
 Package: objdump
@@ -4016,14 +4058,14 @@ Source: feeds/base/devel/binutils
 SourceName: binutils
 License: GPL-3.0+
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 CPE-ID: cpe:/a:gnu:binutils
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 409600
 Filename: objdump_2.45.1-1_armv7-5.4.ipk
-Size: 187680
-SHA256sum: dcaaaf4fd7b55eacc9c03e4432aa2af819e340c2178ff38025d88c57fa0eaec7
+Size: 187679
+SHA256sum: f7f79fa8627c771fe665d089693767725c8ca53a1bd1f57782a3c35e28f3d7a7
 Description:  objdump
 
 Package: openssh-client
@@ -4043,8 +4085,8 @@ Maintainer: Peter Wagner <tripolar@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 1064960
 Filename: openssh-client_10.2_p1-1_armv7-5.4.ipk
-Size: 507555
-SHA256sum: 90a0790517e7e78e682d72f0fc9be6c67bb0ad9d9393f643f901780bcb20990a
+Size: 507558
+SHA256sum: 277e816f9a7d63934388c1bb006d82adff6ac13a2671e65e54739797c448cd0d
 Description:  OpenSSH client.
 
 Package: openssh-client-utils
@@ -4063,8 +4105,8 @@ Maintainer: Peter Wagner <tripolar@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 1638400
 Filename: openssh-client-utils_10.2_p1-1_armv7-5.4.ipk
-Size: 750902
-SHA256sum: c31afabbedb75f2a24d249bf7dde54f5588013c693270783975372a7b9ab56d5
+Size: 750964
+SHA256sum: 32e754db67c5dc32c04e4567ad5f7601bc09095de3e2a75eb3d38dcadac59580
 Description:  OpenSSH client utilities.
 
 Package: openssh-keygen
@@ -4085,7 +4127,7 @@ Architecture: armv7-5.4
 Installed-Size: 481280
 Filename: openssh-keygen_10.2_p1-1_armv7-5.4.ipk
 Size: 220209
-SHA256sum: 6da0653a27e5c0474459b43a1bf17f687479e04106daae5697d90e1443052320
+SHA256sum: a36cbf8559b198dd6421cbaff99e09dbc798be6d18957dff224bd3adf07c4804
 Description:  OpenSSH keygen.
 
 Package: openssh-server
@@ -4106,7 +4148,7 @@ Architecture: armv7-5.4
 Installed-Size: 2273280
 Filename: openssh-server_10.2_p1-1_armv7-5.4.ipk
 Size: 1065456
-SHA256sum: d491ef062399b4d322d6b25b02f54edcd10c346e9ac5b4ea9fddd87bf4a8c2b2
+SHA256sum: 8b975239c45ecc7eb3007b47a5b065ae949764173155718926ac5f7762ef5a79
 Description:  OpenSSH server.
 
 Package: openssh-sftp-client
@@ -4125,8 +4167,8 @@ Maintainer: Peter Wagner <tripolar@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 204800
 Filename: openssh-sftp-client_10.2_p1-1_armv7-5.4.ipk
-Size: 95346
-SHA256sum: c5da7335b41a978d8b6aee1531546dcbcf670801880b651965bdf59b185afe8d
+Size: 95345
+SHA256sum: 68e86f042a3921b5644bdc7d599c256df1572e249579fde7f7d4922a0efe6582
 Description:  OpenSSH SFTP client.
 
 Package: openssh-sftp-server
@@ -4145,8 +4187,8 @@ Maintainer: Peter Wagner <tripolar@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 133120
 Filename: openssh-sftp-server_10.2_p1-1_armv7-5.4.ipk
-Size: 62456
-SHA256sum: db7291e2915946becda8309cf68cf7cba148b7c6ae4d38c584652e1585446d77
+Size: 62459
+SHA256sum: d803bd8d841e9911c20a708f9076b893555d9a15e768ffd0eb41ecc92c56fd63
 Description:  OpenSSH SFTP server.
 
 Package: openssl-util
@@ -4158,15 +4200,15 @@ SourceName: openssl
 License: Apache-2.0
 LicenseFiles: LICENSE.txt
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.openssl.org/
 CPE-ID: cpe:/a:openssl:openssl
 Maintainer: Eneas U de Queiroz <cotequeiroz@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 870400
 Filename: openssl-util_3.5.5-1_armv7-5.4.ipk
-Size: 392139
-SHA256sum: 45b0da3623224c6259aa7c2a255d8fca361d194b4da09ea680d9436067addef3
+Size: 392185
+SHA256sum: 9e10cf52a7a3ee80cd07010389e72cd708c84a81a489b8c777353f70c5b4c828
 Description:  The OpenSSL Project is a collaborative effort to develop a robust,
  commercial-grade, full-featured, and Open Source toolkit implementing the
  Transport Layer Security (TLS) protocol as well as a full-strength
@@ -4181,14 +4223,14 @@ SourceName: opkg
 License: GPL-2.0
 LicenseFiles: COPYING
 Section: base
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://git.openwrt.org/project/opkg-lede.git
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 747520
 Filename: opkg_2025.11.05~80503d94-1_armv7-5.4.ipk
-Size: 371605
-SHA256sum: 7885a5b29457a6826d0e46474eb69433742c5b413e13e69105d100013af235d7
+Size: 371606
+SHA256sum: f4081127bdd42e8cefc73dee9005e144f20ebbe0b3ecc30aefe0f732d82e9cde
 Description:  Lightweight package management system
  opkg is the opkg Package Management System, for handling
  installation and removal of packages on a system. It can
@@ -4206,14 +4248,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 143360
 Filename: partx-utils_2.41.3-1_armv7-5.4.ipk
-Size: 57867
-SHA256sum: 276d46c448bc59da7e8ca11b1eec2063f9a73dbfc6a7095021f4963f691a9c0e
+Size: 57870
+SHA256sum: 5909d01620a1fa8c9c919866a3b43d8c7bea2e32b7bc4ee9e17dfe1b999d5cdd
 Description:  contains partx, addpart, delpart
 
 Package: ppp
@@ -4224,15 +4266,15 @@ Source: feeds/base/network/services/ppp
 SourceName: ppp
 License: BSD-4-Clause
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://ppp.samba.org/
 CPE-ID: cpe:/a:point-to-point_protocol_project:point-to-point_protocol
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 245760
 Filename: ppp_2.4.8_git20201003-3_armv7-5.4.ipk
-Size: 116977
-SHA256sum: 321167d42fcdca578d147b2d4aa009a03bcbbbc7c11fca89d532328acf0bb6bb
+Size: 116954
+SHA256sum: 16894eeea3f5d2eb83c0696f52256c4827fc47c4768442d068b9d04b46496144
 Description:  This package contains the PPP (Point-to-Point Protocol) daemon.
 
 Package: pppdump
@@ -4243,15 +4285,15 @@ Source: feeds/base/network/services/ppp
 SourceName: ppp
 License: BSD-4-Clause
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://ppp.samba.org/
 CPE-ID: cpe:/a:point-to-point_protocol_project:point-to-point_protocol
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: pppdump_2.4.8_git20201003-3_armv7-5.4.ipk
-Size: 16344
-SHA256sum: e526c36326254440d293e3c0dd48710a7e4ed31d543f43802d516cbb7f052de5
+Size: 16349
+SHA256sum: a71a59ef71b0ad7a71a27c042167d0852647fb4ff299dcab91453450005a5e48
 Description:  This package contains an utility to read PPP record file.
 
 Package: ppp-mod-pppoa
@@ -4262,15 +4304,15 @@ Source: feeds/base/network/services/ppp
 SourceName: ppp
 License: BSD-4-Clause
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://ppp.samba.org/
 CPE-ID: cpe:/a:point-to-point_protocol_project:point-to-point_protocol
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: ppp-mod-pppoa_2.4.8_git20201003-3_armv7-5.4.ipk
-Size: 8138
-SHA256sum: 542d948a5ad4c1e5ea21a2dad7ed4fd20b085b766f8695e839f272bf215ad382
+Size: 8146
+SHA256sum: 7dc91427988e73ac149fc7c0d523ef52ffd09854ceddb22fd8a78488f83b5f42
 Description:  This package contains a PPPoA (PPP over ATM) plugin for ppp.
 
 Package: ppp-mod-pppoe
@@ -4281,7 +4323,7 @@ Source: feeds/base/network/services/ppp
 SourceName: ppp
 License: BSD-4-Clause
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://ppp.samba.org/
 CPE-ID: cpe:/a:point-to-point_protocol_project:point-to-point_protocol
 Maintainer: Felix Fietkau <nbd@nbd.name>
@@ -4289,7 +4331,7 @@ Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: ppp-mod-pppoe_2.4.8_git20201003-3_armv7-5.4.ipk
 Size: 11456
-SHA256sum: ec3f68f56857600d4f1473ec0d6546ace9ccf60be1f85eeb9756e81e7dc0bd35
+SHA256sum: bfc54d56108ae19ea7bb62608aa9ad8f509a65bb72410d72dd1de12e11855e64
 Description:  This package contains a PPPoE (PPP over Ethernet) plugin for ppp.
 
 Package: ppp-mod-pppol2tp
@@ -4300,15 +4342,15 @@ Source: feeds/base/network/services/ppp
 SourceName: ppp
 License: BSD-4-Clause
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://ppp.samba.org/
 CPE-ID: cpe:/a:point-to-point_protocol_project:point-to-point_protocol
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: ppp-mod-pppol2tp_2.4.8_git20201003-3_armv7-5.4.ipk
-Size: 5962
-SHA256sum: 44afe3c333e1a073a8d9cd2a823c5d74a82b9116da49b0af555cee86752e9d29
+Size: 5968
+SHA256sum: a4e87aca76c6ec91e358a0045270cb0de8015f20a6e21d370517dc9ce94b849b
 Description:  This package contains a PPPoL2TP (PPP over L2TP) plugin for ppp.
 
 Package: ppp-mod-pptp
@@ -4319,15 +4361,15 @@ Source: feeds/base/network/services/ppp
 SourceName: ppp
 License: BSD-4-Clause
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://ppp.samba.org/
 CPE-ID: cpe:/a:point-to-point_protocol_project:point-to-point_protocol
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: ppp-mod-pptp_2.4.8_git20201003-3_armv7-5.4.ipk
-Size: 18262
-SHA256sum: f09e300d34cf051e543d50279ebfe0b61244d175f7bf46c27e60358e3d70b806
+Size: 18200
+SHA256sum: 87c2c359d6002165bb1c7e0ee6c2920e5623f73bb072b6e963d0be7821612835
 Description:  This package contains a PPtP plugin for ppp.
 
 Package: ppp-mod-radius
@@ -4338,15 +4380,15 @@ Source: feeds/base/network/services/ppp
 SourceName: ppp
 License: BSD-4-Clause
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://ppp.samba.org/
 CPE-ID: cpe:/a:point-to-point_protocol_project:point-to-point_protocol
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: ppp-mod-radius_2.4.8_git20201003-3_armv7-5.4.ipk
-Size: 24377
-SHA256sum: 1222dc896b6fe5422210b3b8f3b93ca1af8fc6d60605fa964bb8d2b8638b754e
+Size: 24379
+SHA256sum: e218323b283b0c685bdd28494a7ed096df150e23642a0dd242987738372522ef
 Description:  This package contains a RADIUS (Remote Authentication Dial-In User Service)
  plugin for ppp.
 
@@ -4358,15 +4400,15 @@ Source: feeds/base/network/services/ppp
 SourceName: ppp
 License: BSD-4-Clause
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://ppp.samba.org/
 CPE-ID: cpe:/a:point-to-point_protocol_project:point-to-point_protocol
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: pppoe-discovery_2.4.8_git20201003-3_armv7-5.4.ipk
-Size: 8028
-SHA256sum: 4aeef03d6409e0a5968720e6b858a4b9fde4417cd6b8358ab4103337fc5eee2c
+Size: 8036
+SHA256sum: 8052e749a9c65ff1050e544c9e97b0399535b9f3abbb2c62ae2d7494a8ed06d0
 Description:  This tool performs the same discovery process as pppoe, but does
  not initiate a session. Can be useful to debug pppoe.
 
@@ -4378,15 +4420,15 @@ Source: feeds/base/network/services/ppp
 SourceName: ppp
 License: BSD-4-Clause
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://ppp.samba.org/
 CPE-ID: cpe:/a:point-to-point_protocol_project:point-to-point_protocol
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: pppstats_2.4.8_git20201003-3_armv7-5.4.ipk
-Size: 5619
-SHA256sum: b0ddb44b3e7048d364a69d480a95998138ee3d04d1e64912e889424e311ef74a
+Size: 5623
+SHA256sum: 646af3665386db64617f8989f5fd995e7530a92bf40b8e5c014688b7f0fced2b
 Description:  This package contains an utility to report PPP statistics.
 
 Package: prlimit
@@ -4398,14 +4440,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: prlimit_2.41.3-1_armv7-5.4.ipk
-Size: 14343
-SHA256sum: b2bf6100fcdf4b20036345f4b90de5e43862ec75cbc3a1bc8c9e90e7ab5158f5
+Size: 14333
+SHA256sum: efc976d8b0deb266fbcad2ee35503b6789283a60a1507a8079ec19342ccac521
 Description:  Given a process id and one or more resources, prlimit tries to retrieve
  and/or modify the limits.
 
@@ -4450,13 +4492,13 @@ SourceName: python-aiofiles
 License: Apache-2.0
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/Tinche/aiofiles
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: python3-aiofiles_25.1.0-1_armv7-5.4.ipk
-Size: 20080
-SHA256sum: c1d7f93303e5e2bdbed6bd7071d3b2a9842bcdcee24eb64e119da4482dcc1a78
+Size: 20084
+SHA256sum: 43b82a3f9e2b0fd917a1a896a3f2bdc15303045e9a4ca99987d43978226a3ac5
 Description:  aiofiles is a library for handling local disk files in asyncio
  applications. It provides non-blocking file operations by delegating
  work to a thread pool.
@@ -4470,13 +4512,13 @@ SourceName: python-apprise
 License: BSD-2-Clause
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://appriseit.com
 Architecture: armv7-5.4
 Installed-Size: 3788800
 Filename: python3-apprise_1.9.8-1_armv7-5.4.ipk
-Size: 1591017
-SHA256sum: a27b01c6315e6a04650348d63ff4bd1d3de4de2222d410afc6c9bf656ff152ae
+Size: 1590974
+SHA256sum: 889061436cf6f2c2098cdd6626290c3e1e7a3cecd739cb7010f7845af758111e
 Description:  Push Notifications that work with just about every platform!
  Used by Moonraker for printer status notifications.
 
@@ -4546,8 +4588,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@
 Architecture: armv7-5.4
 Installed-Size: 1044480
 Filename: python3-base_3.13.9-2_armv7-5.4.ipk
-Size: 225701
-SHA256sum: b52ac8cfd4d09fe5cbe970458eac29df5adda821831f956b56b655416ef2e833
+Size: 225733
+SHA256sum: b76167b7547fd0be7a0c27f5163b30ad42d574acfd3ef3ac2a6463158fa9ea6b
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -4571,13 +4613,13 @@ SourceName: python-can
 License: LGPL-3.0
 LicenseFiles: LICENSE.txt
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/hardbyte/python-can
 Architecture: armv7-5.4
 Installed-Size: 1239040
 Filename: python3-can_4.6.1-1_armv7-5.4.ipk
-Size: 461485
-SHA256sum: 38a93061ae448ec23472254e03f61793967addc92d6dfee8842224cc4f40118f
+Size: 461495
+SHA256sum: 20882ce08e205b8461f1d289570acaf37b815b890b76c9c624007891f2a42821
 Description:  Controller Area Network interface module for Python.
  Provides support for CAN bus communication used by Klipper for
  MCU connections.
@@ -4619,8 +4661,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 675840
 Filename: python3-cffi_2.0.0-1_armv7-5.4.ipk
-Size: 268313
-SHA256sum: 472c710d1ad5cb1e006d405189491b371987afe1e619ba1b550405df93e6e46a
+Size: 268319
+SHA256sum: 8dbf2fecb38f410bd5a38420d63ad91df71539da8c69fad001868e1abf5665e5
 Description:  Foreign Function Interface for Python calling C code.
 
 Package: python3-chardet
@@ -4701,8 +4743,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@
 Architecture: armv7-5.4
 Installed-Size: 1433600
 Filename: python3-codecs_3.13.9-2_armv7-5.4.ipk
-Size: 673326
-SHA256sum: 84d08431a6bbee19141d31ff1c5328481019214534152deac05cee854eacb9e3
+Size: 673420
+SHA256sum: 4cf9ebab4cb9fd7441a03cfe5120d4cd73bac7f2a049c83ea5bf98816848b9c2
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -4732,8 +4774,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@
 Architecture: armv7-5.4
 Installed-Size: 204800
 Filename: python3-ctypes_3.13.9-2_armv7-5.4.ipk
-Size: 80952
-SHA256sum: f5565c8ff8e248b461f8117f2348b1e51d6637d55fade151c81e7fae1ccb0644
+Size: 80948
+SHA256sum: 1f0e26c3dacd079547b24d3d5646c4be3961621380d107c7fb2bc1b99690528a
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -4763,8 +4805,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: python3-dbm_3.13.9-2_armv7-5.4.ipk
-Size: 24486
-SHA256sum: d0735bfa49fa984b6ef528ecb804e68a44d00143b5859dd206e79fc9b0f8ae0f
+Size: 24454
+SHA256sum: 4b8fbc447a7c10e648ca3df72ef9774843738825039f28bdd504c166923ce7ec
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -4793,8 +4835,8 @@ Maintainer: Quintin Hill <stuff@quintin.me.uk>
 Architecture: armv7-5.4
 Installed-Size: 1904640
 Filename: python3-dbus-fast_2.21.1-1_armv7-5.4.ipk
-Size: 749036
-SHA256sum: a44c3332c44b059622e083ca504e8219ac81ef084c7e256a7fb523aed80e5181
+Size: 749050
+SHA256sum: 7ef3b38b2de29cce2f78116a3a348bf7621d843d9df9f0bbdf4d1c01fc144bfb
 Description:  dbus-fast is a Python library for DBus that aims to be a performant fully
  featured high level library primarily geared towards integration of
  applications into Linux desktop and mobile environments.
@@ -4816,7 +4858,7 @@ Architecture: armv7-5.4
 Installed-Size: 266240
 Filename: python3-decimal_3.13.9-2_armv7-5.4.ipk
 Size: 103567
-SHA256sum: 38746d2fca001ad33138af31312396fe96725b531ef79a8c488a0281a6ea2bb3
+SHA256sum: 7843b8d82018055ccc66fef12e6d12413ed95ad6bc459c993b15f9455525fbb8
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -4896,8 +4938,8 @@ Maintainer: Jan Pavlinec <jan.pavlinec1@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 778240
 Filename: python3-greenlet_3.3.1-1_armv7-5.4.ipk
-Size: 220648
-SHA256sum: 1b0283229d5a4d3ae9ea11a6f7ebb825f32597e2b0721b8830cf83b7263ceb61
+Size: 220659
+SHA256sum: 94f3224ad1d28e9ac847c6b9a663935da3cf476f733725e5cbe82b39f0629a04
 Description:  The greenlet package is a spin-off of Stackless
  a version of CPython that supports micro-threads called tasklets.
 
@@ -4952,13 +4994,13 @@ SourceName: python-importlib-metadata
 License: Apache-2.0
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/python/importlib_metadata
 Architecture: armv7-5.4
 Installed-Size: 133120
 Filename: python3-importlib-metadata_8.7.1-1_armv7-5.4.ipk
-Size: 44460
-SHA256sum: 46dae9cc06fcf4d78babcdd7e5e5df90abb3e3a0ce5ebf7f7e0f3d6af88fb662
+Size: 44466
+SHA256sum: ee15c1e284b16caa99c6e8ffd7a328031f742e26f67361ec452c29f3c0c5163a
 Description:  Read metadata from Python packages. Backport of importlib.metadata
  for Python 3.8+. Used by Moonraker.
 
@@ -4971,13 +5013,13 @@ SourceName: python-inotify-simple
 License: BSD-2-Clause
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/chrisjbillington/inotify_simple
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: python3-inotify-simple_2.0.1-1_armv7-5.4.ipk
-Size: 9503
-SHA256sum: 743e493d154956a051d6a3bea32fc5884270d3b6796c37f520d0ee1a10ce424a
+Size: 9508
+SHA256sum: e972648037543ccdcf48d181f13d27a20c2a6cfcaa62cd013b418347eb801896
 Description:  A simple wrapper around inotify. No fancy bells and whistles,
  just a literal wrapper with ctypes. Under 100 lines of code!
 
@@ -5012,13 +5054,13 @@ SourceName: python-ldap3
 License: LGPL-3.0
 LicenseFiles: LICENSE.txt COPYING.txt COPYING.LESSER.txt
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/cannatag/ldap3
 Architecture: armv7-5.4
 Installed-Size: 2375680
 Filename: python3-ldap3_2.9.1-1_armv7-5.4.ipk
-Size: 565078
-SHA256sum: 59e768ba4c56f9af0b99f6b2b20e049abffa90e7c4eb1cc31f176f4d358ebe16
+Size: 565909
+SHA256sum: 716f9760715a589d55123d4ea70f3a2697dd31ee835c5680541121778c422ff6
 Description:  A strictly RFC 4510 conforming LDAP V3 pure Python client library.
  Supports both standard and secure (LDAPS) connections.
 
@@ -5031,13 +5073,13 @@ SourceName: python-libnacl
 License: Apache-2.0
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://libnacl.readthedocs.org
 Architecture: armv7-5.4
 Installed-Size: 133120
 Filename: python3-libnacl_2.1.0-1_armv7-5.4.ipk
-Size: 35884
-SHA256sum: 2684391880d4e047ed566bc58f4e81b97d2371ef88e408f5f51556ac2c8ec52b
+Size: 35879
+SHA256sum: 8f01f1803140035e2c7fe469ada58b9279d7e6bb13a7f5fc44e1341ae827fb41
 Description:  Python bindings for libsodium/tweetnacl based on ctypes.
  Provides cryptographic operations like encryption, decryption,
  signing, and hashing.
@@ -5058,8 +5100,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@
 Architecture: armv7-5.4
 Installed-Size: 7403520
 Filename: python3-light_3.13.9-2_armv7-5.4.ipk
-Size: 2918608
-SHA256sum: 787c1c3dfd6684d3f69fe62cdb102516e206d9dd4789236edda51ee474ddd56e
+Size: 2918586
+SHA256sum: 026fb1bf488d9bd2220b7d528bd7f8519b73f0d27008373b894b76c928cef0d7
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5121,8 +5163,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: python3-lzma_3.13.9-2_armv7-5.4.ipk
-Size: 19254
-SHA256sum: 0a8bdfc7081e0e35fe1443c756bc473ee4ac52c1cefad7b6bcc304fedeee9ae3
+Size: 19257
+SHA256sum: ba90f2108bc63291dce8b8d8f062e4d2880d310ffea2add9cc64225dc063aea2
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5172,8 +5214,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 61440
 Filename: python3-markupsafe_3.0.3-2_armv7-5.4.ipk
-Size: 16767
-SHA256sum: e2a88d971e584cc52e240a11e73ec45b93a043103d36aad4ebad46ff5c5bbf32
+Size: 16769
+SHA256sum: 18c82f805ee9b0882e5d8e4617b20df626e98c30ca6ba86f4e43816982b7ecc5
 Description:  MarkupSafe implements a text object that escapes characters so it is
  safe to use in HTML and XML. Characters that have special meanings are
  replaced so that they display as the actual characters. This mitigates
@@ -5189,13 +5231,13 @@ SourceName: python-msgspec
 License: BSD-3-Clause
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://jcristharif.com/msgspec/
 Architecture: armv7-5.4
 Installed-Size: 501760
 Filename: python3-msgspec_0.19.0-1_armv7-5.4.ipk
-Size: 217078
-SHA256sum: 211158833d9b8511f731d1c5eea68243256ab7d2c9865b7a8f7419663eaa15d6
+Size: 217089
+SHA256sum: d4c82a921c94fc0356c08dd69a297c22ee92b8f9eabb89746bba0f019fbf32fc
 Description:  A fast serialization and validation library, with builtin support
  for JSON, MessagePack, YAML, and TOML. Used by Klipper webhooks.
 
@@ -5215,8 +5257,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@
 Architecture: armv7-5.4
 Installed-Size: 450560
 Filename: python3-multiprocessing_3.13.9-2_armv7-5.4.ipk
-Size: 174038
-SHA256sum: 47b0bc2c716a4ee00579c8219dc4fa59b27ea3849d4d026cc3f55f0f819516f3
+Size: 174046
+SHA256sum: cace33dd7c1ce15a2848050c11f2ac244b8c18ec8b276b587726b73f6e8b3e44
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5246,8 +5288,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@
 Architecture: armv7-5.4
 Installed-Size: 163840
 Filename: python3-ncurses_3.13.9-2_armv7-5.4.ipk
-Size: 53636
-SHA256sum: feb103abda742f927c2189b6d151d6d5819bcd90384d2bab099ee2795431344b
+Size: 53641
+SHA256sum: 8509b493decf81adb819ea489368060356ef7b5ef4c9ed8efded1216aa6a7bed
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5277,8 +5319,8 @@ Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 24391680
 Filename: python3-numpy_2.3.4-1_armv7-5.4.ipk
-Size: 8445367
-SHA256sum: eb003fffea225f00c61ab73beba958833a1ac60d616c7a54cb0b4ed022cd4cd5
+Size: 8445501
+SHA256sum: 75a267fbecc184899fd7ca8b54f8e274153aaeef2351336f9b68446b7ede1991
 Description:  NumPy is the fundamental package for array computing with Python.
  
  By default, this package is built without some modules.
@@ -5301,8 +5343,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@
 Architecture: armv7-5.4
 Installed-Size: 215040
 Filename: python3-openssl_3.13.9-2_armv7-5.4.ipk
-Size: 73893
-SHA256sum: 8493e2dc8b385b91ecd3c806b5884623554ab33bc12832cc4618b89f342ad53b
+Size: 73901
+SHA256sum: f05b35636f36c90943f6cdeddd93581afa85ebeffe88713975ddbe4848db76ed
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5364,13 +5406,13 @@ SourceName: python-periphery
 License: MIT
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/vsergeev/python-periphery
 Architecture: armv7-5.4
 Installed-Size: 235520
 Filename: python3-periphery_2.4.1-1_armv7-5.4.ipk
-Size: 62000
-SHA256sum: da0b6b4865de1ed363b0499bf4a7c87e0a36d6b7e85f3ecac27cf85f32c26dba
+Size: 62001
+SHA256sum: 25aed44f902b082b7646eb613ee2d05a18c31380bb3d0013e71a7fd66a321b23
 Description:  A pure Python 2/3 library for peripheral I/O (GPIO, LED, PWM, SPI,
  I2C, MMIO, Serial) in Linux. Useful for 3D printer board communication.
 
@@ -5390,8 +5432,8 @@ Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 1914880
 Filename: python3-pillow_12.0.0-1_armv7-5.4.ipk
-Size: 787197
-SHA256sum: faed0886df1419263ddcce477a1d30b064ed5e768091316beebaeee8bbd1dfeb
+Size: 787237
+SHA256sum: 4d6352655aac965abc9abdb77a537422ae6e1865a10d4615633e10cd629811de
 Description:  The friendly PIL fork
 
 Package: python3-pip
@@ -5471,13 +5513,13 @@ SourceName: python-preprocess-cancellation
 License: GPL-3.0-only
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/kageurufu/cancelobject-preprocessor
 Architecture: armv7-5.4
 Installed-Size: 81920
 Filename: python3-preprocess-cancellation_0.2.1-1_armv7-5.4.ipk
-Size: 26164
-SHA256sum: be761e23b6cb43aebfaef1e6e4cc3253d8993b61b9a54ea7fe66fbb7a811b092
+Size: 26170
+SHA256sum: 79e439c25a104e619291caa4da00e45ea55634b74b18956423f586d105e6c068
 Description:  GCode processor to add Klipper cancel-object markers.
  Allows selective cancellation of objects during a 3D print.
 
@@ -5593,8 +5635,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: python3-readline_3.13.9-2_armv7-5.4.ipk
-Size: 11055
-SHA256sum: d90655db28f5491a99d229b7a9201feac67751210c50fe279adaa1bc90d0990b
+Size: 11060
+SHA256sum: 39d823e3196f0170c4a27c53bd519f34464194247cd4eefe447163699712fad7
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5637,13 +5679,13 @@ SourceName: python-requests-oauthlib
 License: ISC
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/requests/requests-oauthlib
 Architecture: armv7-5.4
 Installed-Size: 102400
 Filename: python3-requests-oauthlib_2.0.0-1_armv7-5.4.ipk
-Size: 29146
-SHA256sum: 35b4e3c64d501d3cd2a38191cdabad870572c5c506c98bc2df297e26fc23ddea
+Size: 29148
+SHA256sum: 766a09d061d9909b1b55a0dd16320292d094f7203ac78c788ec2f7babb63b19f
 Description:  OAuthlib authentication support for Requests.
  Provides OAuth 1.0 and 2.0 support for the Python Requests library.
  Required by apprise.
@@ -5684,13 +5726,13 @@ SourceName: python-smart-open
 License: MIT
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/piskvorky/smart_open
 Architecture: armv7-5.4
 Installed-Size: 245760
 Filename: python3-smart-open_7.5.1-1_armv7-5.4.ipk
-Size: 92798
-SHA256sum: 05efa03bdd121a4464df11c0ab97c0ca0bd703ec823a1638c2c34f4a56c5a272
+Size: 92802
+SHA256sum: 1e4b991519b965960c930c2d8a4a5f21c8be50ad52cc3921a695223f3ebd5e57
 Description:  smart_open is a Python library for efficient streaming of very large
  files from/to local filesystem, S3, GCS, Azure Blob Storage, and
  other locations. This package installs core (local file) support only;
@@ -5712,8 +5754,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@
 Architecture: armv7-5.4
 Installed-Size: 122880
 Filename: python3-sqlite3_3.13.9-2_armv7-5.4.ipk
-Size: 47561
-SHA256sum: 12f6c49ab1b07439264689544b50105968bef0637c5c8aa31b364f8ba0fe0577
+Size: 47554
+SHA256sum: 5db16934a18952e0b58ba19448958289871510e36e6555f15c51efa766ac1841
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5736,13 +5778,13 @@ SourceName: python-streaming-form-data
 License: MIT
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/siddhantgoel/streaming-form-data
 Architecture: armv7-5.4
 Installed-Size: 1433600
 Filename: python3-streaming-form-data_2.0.0-1_armv7-5.4.ipk
-Size: 220329
-SHA256sum: f689b29bf0ce109d594ab158e29f6eb83e7f37a4689aff264811473dcebe229c
+Size: 220292
+SHA256sum: 9df95cb1bcfc39c9ab8a9daad82fef670201b2561cac02f5970946266a4d3dc2
 Description:  streaming-form-data provides a streaming parser for
  multipart/form-data encoded data, which is the encoding used by HTML
  forms with file uploads. It is useful for parsing large uploads
@@ -5764,8 +5806,8 @@ Maintainer: Josef Schlehofer <pepe.schlehofer@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 2232320
 Filename: python3-tornado_6.3.3-1_armv7-5.4.ipk
-Size: 787840
-SHA256sum: 4e3ed5f4823759350fedf928c77fdbc3b903ce40b9bfd0fd7243c1e3da76d30d
+Size: 787844
+SHA256sum: ca89b3395b3f5ed94fb3d620c62b3ef72e6c84e28b38f32735365196952ed6d6
 Description:  Tornado is a Python web framework and asynchronous networking library,
  originally developed at FriendFeed. By using non-blocking network I/O,
  Tornado can scale to tens of thousands of open connections, making it
@@ -5896,8 +5938,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: python3-uuid_3.13.9-2_armv7-5.4.ipk
-Size: 17172
-SHA256sum: c2d9b9dde2c2e7e148087535aa9f2b225cdd7d7e78756965d8e9e4924e19dd63
+Size: 17169
+SHA256sum: 2c4ef7adbbfb4ab56cb842edb77a7368ad3eca4cf5bff855d6fb0f7ef63a9825
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5920,13 +5962,13 @@ SourceName: python-wrapt
 License: BSD-2-Clause
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/GrahamDumpleton/wrapt
 Architecture: armv7-5.4
 Installed-Size: 296960
 Filename: python3-wrapt_2.1.2-1_armv7-5.4.ipk
-Size: 66669
-SHA256sum: 3a79c9a5215285920ecf6a762dace5cb6bd881ba212ba69630f8fa42503f9046
+Size: 66680
+SHA256sum: 3bd3f92e30020526185cfa6db016f0297147dd35f86efd335c2c72deead9a8b1
 Description:  A Python module for decorating functions, methods and objects,
  providing better introspection support and consistent behaviour
  between different decoration patterns.
@@ -5947,8 +5989,8 @@ Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@
 Architecture: armv7-5.4
 Installed-Size: 808960
 Filename: python3-xml_3.13.9-2_armv7-5.4.ipk
-Size: 290193
-SHA256sum: a14463b2c622699e5a6465cc7b7536330f2039f2155d41c32b5ff382045d1f3c
+Size: 290204
+SHA256sum: ec5327e935182ebee55db08ad4f92d4f8f5cda0564dffc15c6ccd89315e47e0a
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5978,8 +6020,8 @@ Maintainer: Josef Schlehofer <pepe.schlehofer@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 512000
 Filename: python3-yaml_6.0.3-1_armv7-5.4.ipk
-Size: 177464
-SHA256sum: b4488d7b5ec301e68c620a5a6bacf29d4a5a0474d9cbf3929125eee92245ec1a
+Size: 177490
+SHA256sum: 3e7bc7fa161dc5d4c27ca886c06ac4d9d3b8135053af1678e9c911e66a76d9c2
 Description:  PyYAML is a YAML parser and emitter for the Python programming language.
 
 Package: python3-zeroconf
@@ -5997,8 +6039,8 @@ Maintainer: Josef Schlehofer <pepe.schlehofer@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 3962880
 Filename: python3-zeroconf_0.131.0-1_armv7-5.4.ipk
-Size: 1635037
-SHA256sum: 99dc031df9f7d52d390f5b30afad8a341282cb2a70e4236dc6df11ed5cc3d468
+Size: 1635061
+SHA256sum: 7387c359b2a21356739aba2469ab79ece2ec0de4110cda827df4ce422b1518f4
 Description:  Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 
 Package: python3-zipp
@@ -6029,14 +6071,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: rename_2.41.3-1_armv7-5.4.ipk
-Size: 8203
-SHA256sum: a209a59a3c5698381f700f15f3e5503fa19d0b8e3ec8dda71c624a8b540a31b3
+Size: 8288
+SHA256sum: 694662ec36dd3212e1d638662449fd01809ef6104e5c85cc1f0c88724bdcff9c
 Description:  rename will rename the specified files by replacing the first occurrence of
  expression in their name by replacement
 
@@ -6049,14 +6091,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 61440
 Filename: resize2fs_1.47.3-1_armv7-5.4.ipk
-Size: 28968
-SHA256sum: 88ecc3823587796469bc4b9f838fef0c78f6d95c04ec36c1fcb0a72e3166b21d
+Size: 28979
+SHA256sum: 4fd97fa8e0ecd206db6c75d45eb7b53491e524c28f9f969fc03910408ddf9c94
 Description:  Ext2 Filesystem resize utility
 
 Package: resolveip
@@ -6067,13 +6109,13 @@ Source: feeds/base/network/utils/resolveip
 SourceName: resolveip
 License: GPL-2.0
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: resolveip_2_armv7-5.4.ipk
-Size: 3007
-SHA256sum: af2d9ae38646ce7f9f20d37998639910a2b041e6f55b958de696699103fe0733
+Size: 3023
+SHA256sum: 1158484c1317e911ced00aa4868bc852996e43f5f026e9211b2be46c6da9cc22
 Description:  This package contains the small resolveip utility which
  can be used by scripts to turn host names into numeric
  IP addresses. It supports IPv4 and IPv6 resolving and
@@ -6090,14 +6132,14 @@ SourceName: util-linux
 License: BSD-4-Clause-UC
 LicenseFiles: Documentation/licenses/COPYING.BSD-4-Clause-UC
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: rev_2.41.3-1_armv7-5.4.ipk
-Size: 4561
-SHA256sum: c771ea982760e753b0f7f909e4a565e74105edecb5cc46f6ccaf4a62e2893daa
+Size: 4575
+SHA256sum: 11631355c5394943a258dfd19ff28ed1a52d1462f2104ca9015104cb79b62da5
 Description:  rev utility copies the specified files to the standard output, reversing the
  order of characters in every line. If no files are specified, the standard
  input is read.
@@ -6111,15 +6153,15 @@ SourceName: libpcap
 License: BSD-3-Clause
 LicenseFiles: LICENSE
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.tcpdump.org/
 CPE-ID: cpe:/a:tcpdump:libpcap
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 276480
 Filename: rpcapd_1.10.6-1_armv7-5.4.ipk
-Size: 125380
-SHA256sum: 43c5ce39aa4d0871f6b62e8d87d6633709fafb949b28c667c908adb56cc2dc4d
+Size: 125381
+SHA256sum: 5f82c9727e7cf1430d9f80f37dadc7e1cf362728b11dcc43d9dfa040ba35ec04
 Description:  Capture daemon to be controlled by a remote libpcap application
 
 Package: rsync
@@ -6138,8 +6180,8 @@ Maintainer: Maxim Storchak <m.storchak@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 389120
 Filename: rsync_3.4.1-3_armv7-5.4.ipk
-Size: 195699
-SHA256sum: c8d7441f7b9da6b43428572f2a6ff2e8325f058a2feac418c6851ad4d184eb72
+Size: 195703
+SHA256sum: 7a77a5b3b915a8f39a304a024d65870a188beee93ac3f1f88d6ad7cf8a4dea9e
 Description:  rsync is a program that allows files to be copied to and from remote machines
  in much the same way as rcp. It has many more options than rcp, and uses the
  rsync remote-update protocol to greatly speed up file transfers when the
@@ -6157,14 +6199,14 @@ SourceName: util-linux
 License: BSD-4-Clause-UC
 LicenseFiles: Documentation/licenses/COPYING.BSD-4-Clause-UC
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 102400
 Filename: script-utils_2.41.3-1_armv7-5.4.ipk
-Size: 43546
-SHA256sum: ac7c809724bbea4bfd2eb2cde4180567e73a984af02dbd54e924fe5d8d4fd23c
+Size: 43304
+SHA256sum: 1c7cb5ed38720e3b4997f92981eef38915eb9901905e9d4f11a7b3dcde2e16d8
 Description:  contains: script, scriptreplay
 
 Package: setterm
@@ -6176,14 +6218,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: setterm_2.41.3-1_armv7-5.4.ipk
-Size: 17168
-SHA256sum: e7b61d90b48db0056a465715dfc7786eee2e675138d2ae3b804c2f0059b22e92
+Size: 17198
+SHA256sum: 180c3c318336dbb156b1e006e276c12aa0fb35eab8a7218fa46469123aca320d
 Description:  setterm writes to standard output a character string that will invoke the
  specified terminal capabilities
 
@@ -6196,14 +6238,14 @@ SourceName: util-linux
 License: GPL-1.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-1.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 133120
 Filename: sfdisk_2.41.3-1_armv7-5.4.ipk
-Size: 58058
-SHA256sum: 2834d8990c9c1cbc6c6e2352d64aa1864da2f9a884b133525f5ca19a25404227
+Size: 58043
+SHA256sum: 9e3db640c2b6669ec8a7059ec1485b187c5a47903a23d71f164362d0d2cb3f89
 Description:  list the size of a partition, list the partitions on a device, check the
  partitions on a device and repartition a device
 
@@ -6215,15 +6257,15 @@ Source: feeds/base/network/utils/iproute2
 SourceName: iproute2
 License: GPL-2.0
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://wiki.linuxfoundation.org/networking/iproute2
 CPE-ID: cpe:/a:iproute2_project:iproute2
 Maintainer: Russell Senior <russell@personaltelco.net>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: ss_4.4.0-11_armv7-5.4.ipk
-Size: 33025
-SHA256sum: 662856524346fd5cedb4bd02a5d9aadaa8bd37f3bb82a7e68b063871c9705138
+Size: 33020
+SHA256sum: ce52d50396d531b2be4987afa1e89ce7a67696674745d5de60b5ffe579c1f44a
 Description:  Socket statistics utility
 
 Package: strace
@@ -6235,15 +6277,15 @@ SourceName: strace
 License: LGPL-2.1-or-later
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://strace.io/
 CPE-ID: cpe:/a:strace_project:strace
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 1105920
 Filename: strace_6.18-2_armv7-5.4.ipk
-Size: 399998
-SHA256sum: d22f8e3fe59ff32de5bcc6dfd7ffa5f2d7c74f7e88aeee437cc3960cd6a634ab
+Size: 400079
+SHA256sum: 41d9d77a9fb68b9beed725d0b5fea7f2dd014ad5b81d38bbab7bcb573ff358bd
 Description:  A useful diagnostic, instructional, and debugging tool. Allows you to track what
  system calls a program makes while it is running.
 
@@ -6257,14 +6299,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 194560
 Filename: swap-utils_2.41.3-1_armv7-5.4.ipk
-Size: 85826
-SHA256sum: bc22632647128074d54c4ea02e13f34ff39fa193ccb00051ec205e4f0248e181
+Size: 85845
+SHA256sum: e0cf58c968f73416d4bf539cc7187453a03cb400e2076c7f9b5c99a34f8a6477
 Description:  contains: mkswap, swaplabel, swapon, swapoff
 
 Package: sysfsutils
@@ -6276,16 +6318,36 @@ SourceName: sysfsutils
 License: LGPL-2.1
 LicenseFiles: COPYING cmd/GPL lib/LGPL
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://github.com/linux-ras/sysfsutils
 CPE-ID: cpe:/a:sysfsutils_project:sysfsutils
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: sysfsutils_2.1.0-5_armv7-5.4.ipk
-Size: 8935
-SHA256sum: 15f216a1cbb591dcc005d4b0a6d9a3d8ea4616c67a1e22e269283eb977a01080
+Size: 8938
+SHA256sum: a6d14fed4cfed07e6ff224df80d9edf860ae6156a59ec86339b7ef5ed24182f9
 Description:  A utility built upon libsysfs that lists devices by bus, class, and topology.
+
+Package: tailscale
+Version: 1.96.1-1
+Depends: ca-bundle, coreutils-nohup
+Provides: tailscale-any
+Source: feeds/golang/tailscale
+SourceName: tailscale
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Section: net
+SourceDateEpoch: 1776673921
+URL: https://tailscale.com/
+Maintainer: Entware team, https://entware.net
+Architecture: armv7-5.4
+Installed-Size: 44113920
+Filename: tailscale_1.96.1-1_armv7-5.4.ipk
+Size: 17019396
+SHA256sum: 1014f45f941f275b42ccfe15c9ee17dd69f1cd5d7ee8ffdc00254a99c4f89ade
+Description:  Zero config VPN. Installs on any device in minutes, manages
+ firewall rules for you, and works from anywhere
 
 Package: taskset
 Version: 2.41.3-1
@@ -6297,14 +6359,14 @@ SourceName: util-linux
 License: GPL-2.0-only
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-only
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: taskset_2.41.3-1_armv7-5.4.ipk
-Size: 21958
-SHA256sum: 53992e8f0382f0fb9d65fd5ba6b56d28072734d307ed3c9da2b47768c85fd321
+Size: 21965
+SHA256sum: 99c15a109c1a5e933da4bee024e0be1020a52892370667456a614a5c3ceccdbb
 Description:  contains: taskset
 
 Package: tc
@@ -6315,15 +6377,15 @@ Source: feeds/base/network/utils/iproute2
 SourceName: iproute2
 License: GPL-2.0
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://wiki.linuxfoundation.org/networking/iproute2
 CPE-ID: cpe:/a:iproute2_project:iproute2
 Maintainer: Russell Senior <russell@personaltelco.net>
 Architecture: armv7-5.4
 Installed-Size: 266240
 Filename: tc_4.4.0-11_armv7-5.4.ipk
-Size: 115124
-SHA256sum: 039d8dbef911f006f1a587d9035e40228383745ae62c34cfc00d06ba7bdbd795
+Size: 115109
+SHA256sum: ce06af486c28833d02cab18e3d16771ce43dd4ff95cc1871517b3179c8c45d11
 Description:  Traffic control utility
 
 Package: tcpdump
@@ -6334,15 +6396,15 @@ Source: feeds/base/network/utils/tcpdump
 SourceName: tcpdump
 License: BSD-3-Clause
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.tcpdump.org/
 CPE-ID: cpe:/a:tcpdump:tcpdump
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 901120
 Filename: tcpdump_4.99.6-1_armv7-5.4.ipk
-Size: 396470
-SHA256sum: adb91ebfa6af458a4ca798d4c64badb4066580e468ac87074c573043b6f20547
+Size: 396471
+SHA256sum: 666617d6046434c61c0affb8c72c4c7338866c075f16b91d29251f57c8ee7c59
 Description:  Network monitoring and data acquisition tool
 
 Package: terminfo
@@ -6354,14 +6416,14 @@ SourceName: ncurses
 License: MIT
 LicenseFiles: README
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.gnu.org/software/ncurses/
 CPE-ID: cpe:/a:gnu:ncurses
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: terminfo_6.4-3_armv7-5.4.ipk
-Size: 9663
-SHA256sum: 568a11dc47a077a1f208c548286628357adad892604f30bce217493d7a148683
+Size: 9681
+SHA256sum: a25cf77712d4298d8e8e70cd6e6c2dc3ff7b50aaedde70afbdf2840fb335eaed
 Description:  Terminal Info Database (ncurses)
 
 Package: tune2fs
@@ -6373,14 +6435,14 @@ SourceName: e2fsprogs
 License: GPL-2.0
 LicenseFiles: NOTICE
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://e2fsprogs.sourceforge.net/
 CPE-ID: cpe:/a:e2fsprogs_project:e2fsprogs
 Architecture: armv7-5.4
 Installed-Size: 102400
 Filename: tune2fs_1.47.3-1_armv7-5.4.ipk
-Size: 46388
-SHA256sum: 6e4eb38ce53a9d1cfc944458b1ef6d31effaffc0c6d8f2aa27085c52ccf1c836
+Size: 46398
+SHA256sum: 84b17167c53a8b285c9fa15142ea520b75f3d5a48dbf17d50a0a6d3c2d1262fc
 Description:  Ext2 Filesystem tune utility
 
 Package: ubi-utils
@@ -6391,15 +6453,15 @@ Source: feeds/base/utils/mtd-utils
 SourceName: mtd-utils
 License: GPLv2
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: http://www.linux-mtd.infradead.org/
 CPE-ID: cpe:/a:mtd-utils_project:mtd-utils
 Maintainer: John Crispin <john@phrozen.org>
 Architecture: armv7-5.4
 Installed-Size: 286720
 Filename: ubi-utils_2.3.0-1_armv7-5.4.ipk
-Size: 85524
-SHA256sum: b765915bc0b883ec4b32fe448fbb062a12e988653bb1b4891b810797706e4991
+Size: 85538
+SHA256sum: 16fd6f81843f56f1bb7f6c91f8a88acb1141a27ec3644cbd7ab06b81a6624a48
 Description:  Utilities for manipulating memory technology devices.
 
 Package: uboot-envtools
@@ -6410,13 +6472,13 @@ Source: feeds/base/boot/uboot-tools
 License: GPL-2.0 GPL-2.0+
 LicenseFiles: Licenses/README
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://docs.u-boot.org/en/latest/
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: uboot-envtools_2026.01-1_armv7-5.4.ipk
-Size: 15644
-SHA256sum: 397ab79e011930ea495b2bfb1c4e65c3146d06515ee18fb112c389edeebc499e
+Size: 15646
+SHA256sum: b49c6155f88d2f1d07d01d96596476c1deb66f65efc7e6570055bf6ebd39888a
 Description:  This package includes tools to read and modify U-Boot
  bootloader environment.
 
@@ -6429,14 +6491,14 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: unshare_2.41.3-1_armv7-5.4.ipk
-Size: 29942
-SHA256sum: edc828c6190ef32a983388d514c9b52425daf78b4a0ba68d5f098133e5ea30b5
+Size: 29962
+SHA256sum: 3169f89814634443b06be2e67de8caf26690754eb85b6273526fcb256361fc0f
 Description:  run programs with some namespaces unshared from parent
 
 Package: uqmi
@@ -6447,13 +6509,13 @@ Source: feeds/base/network/utils/uqmi
 SourceName: uqmi
 License: GPL-2.0
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 Maintainer: Matti Laakso <malaakso@elisanet.fi>
 Architecture: armv7-5.4
 Installed-Size: 112640
 Filename: uqmi_2025.07.30~7914da43-2_armv7-5.4.ipk
-Size: 44950
-SHA256sum: 4471c2e3aecf9c245c8f6de9c74e0a37157343580e66fd903350cad27e0eada3
+Size: 44955
+SHA256sum: 479940bbd1a998b6d880868c9eefda8ae2b75b35017a1bdaa75bafe4f59faa54
 Description:  uqmi is a command line tool for controlling mobile broadband modems using
  the QMI-protocol.
 
@@ -6466,14 +6528,14 @@ SourceName: util-linux
 License: GPL-1.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-1.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: uuidd_2.41.3-1_armv7-5.4.ipk
-Size: 16117
-SHA256sum: 5004b789b4be6452d594a9d37363183fb0ab76782aa7ecde124d424ed654a555
+Size: 16116
+SHA256sum: a94eaff1fadb4a48c2a6572380085720e8a58707822a4539ee744e4d73217718
 Description:  The uuidd daemon is used by the UUID library to generate universally unique
  identifiers (UUIDs), especially time-based UUIDs, in a secure and
  guaranteed-unique fashion, even in the face of large numbers of threads
@@ -6488,14 +6550,14 @@ SourceName: util-linux
 License: GPL-1.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-1.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: uuidgen_2.41.3-1_armv7-5.4.ipk
-Size: 12000
-SHA256sum: 9c1a050ed2004cde6fc0c201feb488cb1dccebae80ad9386445e3a3a63f5e610
+Size: 12005
+SHA256sum: 68fbfa5c19a73a69d181dbab5db72d438cd4c0089ac164af507039c2b573fd0c
 Description:  The uuidgen program creates (and prints) a new universally unique identifier
  (UUID) using the libuuid library. The new UUID can reasonably be considered
  unique among all UUIDs created on the local system, and among UUIDs created on
@@ -6509,15 +6571,15 @@ Source: feeds/base/devel/valgrind
 SourceName: valgrind
 License: GPL-3.0
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://valgrind.org
 CPE-ID: cpe:/a:valgrind:valgrind
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 26900480
 Filename: valgrind_3.26.0-1_armv7-5.4.ipk
-Size: 9771170
-SHA256sum: 0e4ef54b3d06001ef6702e019090f3e5da1d85d31ab89126db00ad01f8f643de
+Size: 9771336
+SHA256sum: 145542932b824f828c3903b4fb4cad8861015c98c32dea716dc5c5622d2a560f
 Description:  Valgrind is an award-winning suite of tools for debugging and
  profiling Linux programs. With the tools that come with Valgrind,
  you can automatically detect many memory management and threading
@@ -6533,15 +6595,15 @@ Source: feeds/base/devel/valgrind
 SourceName: valgrind
 License: GPL-3.0
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://valgrind.org
 CPE-ID: cpe:/a:valgrind:valgrind
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 12380160
 Filename: valgrind-cachegrind_3.26.0-1_armv7-5.4.ipk
-Size: 4581586
-SHA256sum: c7b076a3eeb4f6875907d1ef5133b0ed028ba87b92aa88db3f6eb48dff038c42
+Size: 4582275
+SHA256sum: c8dbf9a48089b4801b0515c65e13eca513d09f72de8b85b4368f074c2e95311b
 Description:  debugging and profiling tools for Linux (cache profiling)
 
 Package: valgrind-callgrind
@@ -6552,15 +6614,15 @@ Source: feeds/base/devel/valgrind
 SourceName: valgrind
 License: GPL-3.0
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://valgrind.org
 CPE-ID: cpe:/a:valgrind:valgrind
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 12922880
 Filename: valgrind-callgrind_3.26.0-1_armv7-5.4.ipk
-Size: 4808774
-SHA256sum: e5ea86385717171b2939f7b85339c2678156ecd9c20515c1e90970b0fbdd5ce5
+Size: 4808674
+SHA256sum: a974ede886a992b4b2d21f58df29aa8b17f67f7f9086eb9063ddd4d7362bc7a5
 Description:  debugging and profiling tools for Linux (callgraph profiling)
 
 Package: valgrind-drd
@@ -6571,15 +6633,15 @@ Source: feeds/base/devel/valgrind
 SourceName: valgrind
 License: GPL-3.0
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://valgrind.org
 CPE-ID: cpe:/a:valgrind:valgrind
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 13680640
 Filename: valgrind-drd_3.26.0-1_armv7-5.4.ipk
-Size: 4960591
-SHA256sum: 65678f26b0bec9a9d1650f9edf1f36a07015b9f626d916ce004163e87e72dd99
+Size: 4960510
+SHA256sum: 5b1fb1d06b38157a79ac5aa460e1b6a7f21e5d20e90133c1ce8de76ee82798a4
 Description:  debugging and profiling tools for Linux (thread error detection)
 
 Package: valgrind-helgrind
@@ -6590,15 +6652,15 @@ Source: feeds/base/devel/valgrind
 SourceName: valgrind
 License: GPL-3.0
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://valgrind.org
 CPE-ID: cpe:/a:valgrind:valgrind
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 13434880
 Filename: valgrind-helgrind_3.26.0-1_armv7-5.4.ipk
-Size: 4961946
-SHA256sum: 9efa5ba014efc94f69a04e7c38731710b854503e82c1a185c154e9df42f5eee4
+Size: 4961925
+SHA256sum: d58e7a18a1cc4ea77cfc1f152ffabd0b0fd9729abc47a12928db093a273c4495
 Description:  debugging and profiling tools for Linux (thread debugging)
 
 Package: valgrind-massif
@@ -6609,15 +6671,15 @@ Source: feeds/base/devel/valgrind
 SourceName: valgrind
 License: GPL-3.0
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://valgrind.org
 CPE-ID: cpe:/a:valgrind:valgrind
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 12513280
 Filename: valgrind-massif_3.26.0-1_armv7-5.4.ipk
-Size: 4628779
-SHA256sum: b374691f5a085b4ecdc4327c79c30f81cfc3d91545321b7821ec2728832e44f7
+Size: 4628581
+SHA256sum: ae60f702844711c4d89b859748af6397e45a42356262e98fd30cc0a2edb9be33
 Description:  debugging and profiling tools for Linux (heap profiling)
 
 Package: valgrind-vgdb
@@ -6628,15 +6690,15 @@ Source: feeds/base/devel/valgrind
 SourceName: valgrind
 License: GPL-3.0
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://valgrind.org
 CPE-ID: cpe:/a:valgrind:valgrind
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: valgrind-vgdb_3.26.0-1_armv7-5.4.ipk
-Size: 29848
-SHA256sum: 71250a21f1f7ea124bebc69f45317a0580e762b0d70b434964ea4b52e26943d6
+Size: 29853
+SHA256sum: 81e4326dbf500cc85dc2e8685f0411513f26b76c5d0c9f6015c1e960dce30797
 Description:  debugging and profiling tools for Linux (GDB interface)
 
 Package: wall
@@ -6648,14 +6710,14 @@ SourceName: util-linux
 License: BSD-4-Clause-UC
 LicenseFiles: Documentation/licenses/COPYING.BSD-4-Clause-UC
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: wall_2.41.3-1_armv7-5.4.ipk
-Size: 15222
-SHA256sum: 57a45fa841087707f108587db17148ab2d32f8993406e44c761379ffd2dec3ed
+Size: 15227
+SHA256sum: 7e303b985dd666885c95f4845cf3fc5227a0487eb67c37bfb230e382c9dd994d
 Description:  wall sends a message to everybody logged in with their mesg permission
  set to yes
 
@@ -6675,8 +6737,8 @@ CPE-ID: cpe:/a:gnu:wget
 Architecture: armv7-5.4
 Installed-Size: 460800
 Filename: wget-ssl_1.25.0-4_armv7-5.4.ipk
-Size: 223135
-SHA256sum: 264f691a18b8762f04bd48173ff17acb34478e64cb4362fa0072b78884e21928
+Size: 223134
+SHA256sum: aa924583cc5c7ed71f549c2953edc3fd9aa3466845f41f6f683b0f9e794bb38f
 Description:  Wget is a network utility to retrieve files from the Web using http
  and ftp, the two most widely used Internet protocols. It works
  non-interactively, so it will work in the background, after having
@@ -6694,14 +6756,14 @@ SourceName: util-linux
 License: BSD-4-Clause-UC
 LicenseFiles: Documentation/licenses/COPYING.BSD-4-Clause-UC
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: whereis_2.41.3-1_armv7-5.4.ipk
-Size: 10170
-SHA256sum: 333843d77ae490eb7e2a264fb86292018ba483b080bcb8b7bf94ba2e8ccc6836
+Size: 10178
+SHA256sum: dda1692b2d07924d093e864ec0ccc44f5e1792076d64f82865688807aa2dc609
 Description:  whereis locates source/binary and manuals sections for specified files
 
 Package: wipefs
@@ -6713,17 +6775,36 @@ SourceName: util-linux
 License: GPL-2.0-or-later
 LicenseFiles: Documentation/licenses/COPYING.GPL-2.0-or-later
 Section: utils
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.kernel.org/pub/linux/utils/util-linux/
 CPE-ID: cpe:/a:kernel:util-linux
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: wipefs_2.41.3-1_armv7-5.4.ipk
-Size: 18359
-SHA256sum: c62a2a754ed198c678923b45baf6bda38d93658f53d4b491bbc3808582cfae7e
+Size: 18363
+SHA256sum: 40c8fcca37aeaf5faa5925f085c37250ff252d685e2ea5e1efd6ec977fd95d41
 Description:  wipefs can erase filesystem, raid or partition table signatures (magic
  strings) from the specified device to make the signature invisible for
  libblkid.
+
+Package: wireguard-go
+Version: 0.0.20250522-1
+Depends: wg-quick, wireguard-tools
+Provides: wireguard-go-any
+Source: feeds/golang/wireguard-go
+SourceName: wireguard-go
+License: MIT
+LicenseFiles: LICENSE
+Section: net
+SourceDateEpoch: 1776673921
+URL: https://git.zx2c4.com/wireguard-go/about/
+Maintainer: Entware team, https://entware.net
+Architecture: armv7-5.4
+Installed-Size: 3215360
+Filename: wireguard-go_0.0.20250522-1_armv7-5.4.ipk
+Size: 1368761
+SHA256sum: 92032954762f0083fccae7596f98e9955af9a7d2935d5bf86e44b8fba39271cc
+Description:  This is an implementation of WireGuard in Go.
 
 Package: wireguard-tools
 Version: 1.0.20250521-1
@@ -6734,14 +6815,14 @@ SourceName: wireguard-tools
 License: GPL-2.0
 LicenseFiles: COPYING
 Section: net
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.wireguard.com
 Maintainer: Jason A. Donenfeld <Jason@zx2c4.com>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: wireguard-tools_1.0.20250521-1_armv7-5.4.ipk
-Size: 29689
-SHA256sum: 1e163f307500f47622818353bdaa85d5d1f622c8eab79f47b8599fdbab04b60d
+Size: 29701
+SHA256sum: bbe95aa4d12f6c9f7310a75565f89b6f7b65575b5423c9f1fc7544acbf01a2a4
 Description:  WireGuard is a novel VPN that runs inside the Linux Kernel and utilizes
  state-of-the-art cryptography. It aims to be faster, simpler, leaner, and
  more useful than IPSec, while avoiding the massive headache. It intends to
@@ -6751,6 +6832,25 @@ Description:  WireGuard is a novel VPN that runs inside the Linux Kernel and uti
  
  This package provides the userspace control program for WireGuard,
  `wg(8)`, a netifd protocol helper, and a re-resolve watchdog script.
+
+Package: wireguard-ui
+Version: 0.6.2-1
+Depends: ca-bundle, iptables, jq, wireguard-tools
+Provides: wireguard-ui-any
+Source: feeds/golang/wireguard-ui
+SourceName: wireguard-ui
+License: MIT
+LicenseFiles: LICENSE
+Section: net
+SourceDateEpoch: 1776673921
+URL: https://github.com/ngoduykhanh/wireguard-ui
+Maintainer: Entware team, https://entware.net
+Architecture: armv7-5.4
+Installed-Size: 19343360
+Filename: wireguard-ui_0.6.2-1_armv7-5.4.ipk
+Size: 6985594
+SHA256sum: 666946ea1a9eb6053f5b75b35913bbc3405ead5441a1e63bc0c0e291b7e1ef58
+Description:  A web user interface to manage your WireGuard setup.
 
 Package: xxd
 Version: 2025.08.24
@@ -6768,8 +6868,8 @@ Maintainer: Marko Ratkaj <markoratkaj@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: xxd_2025.08.24_armv7-5.4.ipk
-Size: 9513
-SHA256sum: 2e8651389c76fdecc9e4969d3ab002c6cb265c134daa415e8bb69662b0bb9c9a
+Size: 9514
+SHA256sum: f4ff6f920dcb61cce1e8971cacc0879fa9f84b8db2fa4153920069c157dc587d
 Description:  xxd creates a hex dump of a given file or standard input, it can also convert
  a hex dump back to its original binary form.
 
@@ -6782,14 +6882,14 @@ SourceName: zlib
 License: Zlib
 LicenseFiles: LICENSE
 Section: libs
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 URL: https://www.zlib.net/
 CPE-ID: cpe:/a:zlib:zlib
 Architecture: armv7-5.4
 Installed-Size: 92160
 Filename: zlib_1.3.1-1_armv7-5.4.ipk
-Size: 44888
-SHA256sum: c5668b2659975222a71f210d9a1a76582b576151df2ca9c9881baeb76b295e28
+Size: 44889
+SHA256sum: c50c8965434f5af865652009a5067efb39219f3985174cd45fc60e8e28e33b6d
 Description:  zlib is a lossless data-compression library.
  This package includes the shared library.
 
@@ -6802,13 +6902,13 @@ SourceName: zlib
 License: Zlib
 LicenseFiles: LICENSE
 Section: devel
-SourceDateEpoch: 1777845225
+SourceDateEpoch: 1778195164
 CPE-ID: cpe:/a:zlib:zlib
 Architecture: armv7-5.4
 Installed-Size: 225280
 Filename: zlib-dev_1.3.1-1_armv7-5.4.ipk
-Size: 80291
-SHA256sum: 6c12c3d1374206ccc28c6c7dc3069f11514d6c751950565bb8fa72bdc7561325
+Size: 80296
+SHA256sum: 3640e393305b1388a7cb6ae95d952ad3ba9f0d8b5c6091256a158406b8a6a70b
 Description:  zlib is a lossless data-compression library.
  This package includes the development support files.
 

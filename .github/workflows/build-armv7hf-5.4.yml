@@ -92,9 +92,9 @@ jobs:
             build_dir/toolchain-arm_cortex-a7+neon-vfpv4_gcc-8.4.0_glibc-2.27_eabi
             staging_dir/host
             staging_dir/toolchain-arm_cortex-a7+neon-vfpv4_gcc-8.4.0_glibc-2.27_eabi
-          key: ${{ runner.os }}-armv7hf-5.4-host-toolchain-v1-${{ hashFiles('configs/armv7hf-5.4.config', 'bake_armv7hf.sh', 'feeds.conf', 'feeds.conf.default') }}
+          key: ${{ runner.os }}-armv7hf-5.4-host-toolchain-v2-${{ hashFiles('configs/armv7hf-5.4.config', 'bake_armv7hf.sh', 'feeds.conf', 'feeds.conf.default', 'rules.mk', 'scripts/rstrip.sh', 'toolchain/glibc/patches/2.27/**', 'toolchain/glibc/patches/2.27.arm/**') }}
           restore-keys: |
-            ${{ runner.os }}-armv7hf-5.4-host-toolchain-v1-
+            ${{ runner.os }}-armv7hf-5.4-host-toolchain-v2-
 
       - name: Restore rustc-dev host cache
         id: restore-rustc-dev-cache

@@ -114,6 +114,7 @@ install -m 0644 "${ENTWARE_OPT_FILES_DIR}/group.1" "${INSTALLER_DIR}/group.1"
 install -m 0644 "${ENTWARE_OPT_FILES_DIR}/shells.1" "${INSTALLER_DIR}/shells.1"
 install -m 0644 "${ENTWARE_OPT_FILES_DIR}/.profile" "${INSTALLER_DIR}/dot-profile"
 install -m 0644 "${ENTWARE_OPT_FILES_DIR}/.inputrc" "${INSTALLER_DIR}/dot-inputrc"
+install -m 0644 "${REPO_ROOT}/installers/profile-kipware.sh" "${INSTALLER_DIR}/profile-kipware.sh"
 
 cat > "${INSTALLER_DIR}/generic.sh" <<EOF
 #!/bin/sh
@@ -170,6 +171,8 @@ wget "\${REPO}/installer/rc.func" -O /opt/etc/init.d/rc.func
 chmod 644 /opt/etc/init.d/rc.func
 wget "\${REPO}/installer/profile" -O /opt/etc/profile
 chmod 755 /opt/etc/profile
+wget "\${REPO}/installer/profile-kipware.sh" -O /opt/profile-kipware.sh
+chmod 644 /opt/profile-kipware.sh
 wget "\${REPO}/installer/passwd.1" -O /opt/etc/passwd.1
 wget "\${REPO}/installer/group.1" -O /opt/etc/group.1
 wget "\${REPO}/installer/shells.1" -O /opt/etc/shells.1
@@ -203,7 +206,7 @@ done
 
 echo 'Info: Congratulations!'
 echo 'Info: If there are no errors above then Entware was successfully initialized.'
-echo 'Info: Add /opt/bin & /opt/sbin to \$PATH variable'
+echo 'Info: Add ". /opt/profile-kipware.sh" to /etc/profile or another shell startup file to add Kipware to PATH on login'
 echo 'Info: Add "/opt/etc/init.d/rc.unslung start" to startup script for Entware services to start'
 if [ \$TYPE = 'alternative' ]; then
   echo 'Info: Use ssh server from Entware for better compatibility.'

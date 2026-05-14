@@ -103,7 +103,8 @@ def main() -> int:
     parser.add_argument("--package-list", default="release/kipware-install-packages.txt")
     parser.add_argument("--target-dir", default="release/targets")
     parser.add_argument("--config", default="configs/armv7hf-5.4.config")
-    parser.add_argument("--output", required=True)
+    parser.add_argument("--output", required=True, help="Full release notes markdown output")
+    parser.add_argument("--summary-output", help="Compact GitHub Release body markdown output")
     args = parser.parse_args()
 
     if not DATE_TAG_RE.match(args.tag):
@@ -122,7 +123,7 @@ def main() -> int:
     added_feed_packages = current_config - previous_config
     removed_feed_packages = previous_config - current_config
 
-    commits = commit_lines(prev_tag, end_ref)
+    commits = commit_lines(prev_tag, end_ref) if prev_tag else []
 
     release_title = f"Kipware {args.tag}"
     previous_text = prev_tag or "the beginning of tracked release history"
@@ -135,7 +136,9 @@ Kipware is an optimized port of Entware for armv7l 3D printers built around the 
 
 - `kipware-cc1-{args.tag}.tar.gz` — Elegoo Centauri Carbon 1 image (`/user-resource/.kipware` with `/kip` symlink)
 - `kipware-cc2-{args.tag}.tar.gz` — Elegoo Centauri Carbon 2 image (`/opt/usr/.kipware` with `/kip` symlink)
-- `kipware-install-images-{args.tag}.sha256` — SHA256 checksums for release tarballs
+- `kipware-install-baremetal.sh` — base Kipware installer for compatible ARM targets that install directly to `/kip`
+- `kipware-install-images-{args.tag}.sha256` — SHA256 checksums for release install assets
+- `release-notes-{args.tag}.md` — full generated release notes, package deltas, and commit list when applicable
 
 ## Install image targets
 
@@ -143,13 +146,48 @@ Kipware is an optimized port of Entware for armv7l 3D printers built around the 
 
 Both stock target locations are expected to have roughly 6GB free. If installing manually on another armv7l platform, ensure the target partition has adequate free space; at least several hundred MB is recommended for the base package set, and more if installing additional packages.
 
+## Installing prebuilt CC1/CC2 tarballs
+
+Copy the matching tarball to the target system's root directory, then extract it from `/`:
+
+```sh
+cd /
+tar zxvf kipware-cc1-{args.tag}.tar.gz
+# or:
+tar zxvf kipware-cc2-{args.tag}.tar.gz
+```
+
+After extraction, add Kipware to login shells by sourcing its profile snippet from your system profile, such as `/etc/profile`, `/root/.profile`, or another firmware-specific shell startup file:
+
+```sh
+. /kip/profile-kipware.sh
+```
+
+You can also source it immediately in the current shell:
+
+```sh
+. /kip/profile-kipware.sh
+```
+
 ## Manual install
 
 Manual install is also supported using the generic installer:
 
+```sh
+sh kipware-install-baremetal.sh
+```
+
+The same installer is available from the live feed:
+
 https://pdscomp.github.io/Kipware/kip/armv7hf-k5.4/installer/generic.sh
 
-For nonstandard layouts, create `/kip` as a symlink or bind mount to the desired install location before running `generic.sh`. On many embedded targets, installing `wget-ssl` and `ca-certificates` is necessary before `opkg` can fetch HTTPS package updates reliably.
+For nonstandard layouts, create `/kip` as a symlink or bind mount to the desired install location before running `kipware-install-baremetal.sh` or `generic.sh`. On many embedded targets, installing `wget-ssl` and `ca-certificates` is necessary before `opkg` can fetch HTTPS package updates reliably.
+
+After installation, add Kipware to login shells by sourcing its profile snippet from your system profile, such as `/etc/profile`, `/root/.profile`, or another firmware-specific shell startup file:
+
+```sh
+. /kip/profile-kipware.sh
+```
 
 ## Changes since {previous_text}
 
@@ -174,8 +212,10 @@ Removed feed packages:
 """
     if commits:
         content += "\n".join(f"- {line}" for line in commits)
-    else:
+    elif prev_tag:
         content += "- None detected."
+    else:
+        content += "- First date-tagged install-image release; historical pre-release commits are not enumerated. Future date-tagged releases will list commits since the previous date tag."
 
     content += """
 
@@ -189,6 +229,86 @@ Removed feed packages:
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(content)
     print(f"Wrote {output}")
+
+    if prev_tag:
+        runtime_summary = f"Build/runtime commit entries in the full notes: {len(commits)}."
+    else:
+        runtime_summary = "Build/runtime changes: first date-tagged install-image release; historical pre-release commits are not enumerated."
+
+    if args.summary_output:
+        summary = f"""# {release_title}
+
+Kipware is an optimized Entware port for armv7l 3D printers built around Allwinner R528/T113-class systems, including Elegoo Centauri Carbon printers.
+
+## Downloads
+
+- `kipware-cc1-{args.tag}.tar.gz` — CC1 image for `/user-resource/.kipware` with `/kip` symlink
+- `kipware-cc2-{args.tag}.tar.gz` — CC2 image for `/opt/usr/.kipware` with `/kip` symlink
+- `kipware-install-baremetal.sh` — base installer for compatible ARM targets that install directly to `/kip`
+- `kipware-install-images-{args.tag}.sha256` — checksums for install assets
+- `release-notes-{args.tag}.md` — full generated notes, package deltas, and commit list when applicable
+
+The install image tarballs are already gzip-compressed. Do not wrap them in another zip file for target use.
+
+## Highlights
+
+- Install image package set: {len(added_image_packages)} added, {len(removed_image_packages)} removed since {previous_text}.
+- Kipware feed package config: {len(added_feed_packages)} added, {len(removed_feed_packages)} removed since {previous_text}.
+- {runtime_summary}
+
+See the attached `release-notes-{args.tag}.md` for the complete generated changelog and package details.
+
+## Install image targets
+
+{target_summary(Path(args.target_dir))}
+
+## Installing prebuilt CC1/CC2 tarballs
+
+Copy the matching tarball to the target system's root directory, then extract it from `/`:
+
+```sh
+cd /
+tar zxvf kipware-cc1-{args.tag}.tar.gz
+# or:
+tar zxvf kipware-cc2-{args.tag}.tar.gz
+```
+
+After extraction, add Kipware to login shells by sourcing its profile snippet from `/etc/profile`, `/root/.profile`, or another firmware-specific shell startup file:
+
+```sh
+. /kip/profile-kipware.sh
+```
+
+## Manual install
+
+Manual install is also supported using the bare-metal installer asset:
+
+```sh
+sh kipware-install-baremetal.sh
+```
+
+The same installer is available from the live feed:
+
+https://pdscomp.github.io/Kipware/kip/armv7hf-k5.4/installer/generic.sh
+
+For nonstandard layouts, create `/kip` as a symlink or bind mount to the desired install location before running `kipware-install-baremetal.sh` or `generic.sh`.
+
+After installation, add Kipware to login shells by sourcing its profile snippet from `/etc/profile`, `/root/.profile`, or another firmware-specific shell startup file:
+
+```sh
+. /kip/profile-kipware.sh
+```
+
+## Known notes
+
+- Do **not** add `/kip/lib` to global `LD_LIBRARY_PATH` on firmware environments with their own glibc loader.
+- HTTPS package operations on embedded targets often require `wget-ssl` and `ca-certificates`.
+"""
+        summary_output = Path(args.summary_output)
+        summary_output.parent.mkdir(parents=True, exist_ok=True)
+        summary_output.write_text(summary)
+        print(f"Wrote {summary_output}")
+
     return 0
 
 

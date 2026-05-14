@@ -15,7 +15,7 @@ The release workflow builds preinstalled Kipware tarballs from the published `ki
   - Install tree: `/opt/usr/.kipware`
   - Symlink: `/kip -> /opt/usr/.kipware`
 
-Both tarballs are gzip-compressed directly and are uploaded as GitHub Release assets. Do not zip them again.
+Both tarballs are gzip-compressed directly and are uploaded as raw GitHub Release assets. The release also publishes `kipware-install-baremetal.sh`, a copy of the live `kip` feed installer for compatible ARM systems that should install directly to `/kip`. Do not zip release assets again. GitHub Actions may show internal workflow artifacts as `.zip` downloads during dry runs; those are CI handoff/debug artifacts only, not target-system deliverables.
 
 ## Directory layout
 
@@ -65,6 +65,29 @@ To add another target later:
 3. Confirm the target's install location has adequate free space.
 4. Run a dry-run workflow and inspect the tarball structure.
 
+## Installing prebuilt CC1/CC2 tarballs
+
+Copy the matching tarball to the target system's root directory, then extract it from `/`:
+
+```sh
+cd /
+tar zxvf kipware-cc1-YYYY-MM-DD.tar.gz
+# or:
+tar zxvf kipware-cc2-YYYY-MM-DD.tar.gz
+```
+
+Then add Kipware to login shells by sourcing its profile snippet from `/etc/profile`, `/root/.profile`, or another firmware-specific shell startup file:
+
+```sh
+. /kip/profile-kipware.sh
+```
+
+You can also source it immediately in the current shell:
+
+```sh
+. /kip/profile-kipware.sh
+```
+
 ## Release process
 
 1. Ensure the `kip` branch build is green and the published feed is current:
@@ -91,7 +114,7 @@ To add another target later:
    git tag -a "$tag" -m "Kipware $tag"
    git push origin "$tag"
    ```
-5. The workflow creates a **draft** GitHub Release with both tarballs and a checksum file.
+5. The workflow creates a **draft** GitHub Release with both tarballs, the bare-metal installer script, a checksum file, and full generated notes named `release-notes-${tag}.md`. The release body itself is a compact summary; the attached notes carry the complete package deltas and commit list when applicable.
 6. Verify assets:
    ```bash
    gh release download "$tag" --dir /tmp/kipware-release-${tag}
@@ -105,7 +128,15 @@ To add another target later:
 
 ## Dry-run workflow
 
-Use `workflow_dispatch` with `dry_run=true` to build and upload workflow artifacts without creating a GitHub Release.
+Use `workflow_dispatch` with `dry_run=true` to build and validate the images without creating a GitHub Release. The downloadable workflow artifacts shown by GitHub Actions are always `.zip` wrappers; this is unavoidable for Actions artifacts and should be treated as CI/debug output only.
+
+To verify the actual user-facing release download shape, run `workflow_dispatch` with `dry_run=false` or push a date tag. The draft GitHub Release will contain direct raw assets:
+
+- `kipware-cc1-YYYY-MM-DD.tar.gz`
+- `kipware-cc2-YYYY-MM-DD.tar.gz`
+- `kipware-install-baremetal.sh`
+- `kipware-install-images-YYYY-MM-DD.sha256`
+- `release-notes-YYYY-MM-DD.md`
 
 ## If changes are needed after a draft release
 
@@ -114,8 +145,14 @@ Use `workflow_dispatch` with `dry_run=true` to build and upload workflow artifac
 
 ## Manual install note
 
-Manual install is supported using:
+Manual install is supported using the release asset `kipware-install-baremetal.sh` or the live feed installer:
 
 https://pdscomp.github.io/Kipware/kip/armv7hf-k5.4/installer/generic.sh
 
-For nonstandard layouts, create `/kip` as a symlink or bind mount to a partition with adequate space before running `generic.sh`. Embedded targets often need `wget-ssl` and `ca-certificates` for HTTPS package updates.
+For nonstandard layouts, create `/kip` as a symlink or bind mount to a partition with adequate space before running the installer. Embedded targets often need `wget-ssl` and `ca-certificates` for HTTPS package updates.
+
+After installation, add Kipware to login shells by sourcing its profile snippet from `/etc/profile`, `/root/.profile`, or another firmware-specific shell startup file:
+
+```sh
+. /kip/profile-kipware.sh
+```

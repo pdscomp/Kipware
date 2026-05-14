@@ -245,7 +245,7 @@ ifeq ($(LIBC),glibc)
   endif
 endif
 
-TARGET_LDFLAGS:= -Wl,--dynamic-linker=$(ENTWARE_PREFIX)/lib/$(DYNLINKER) -Wl,-rpath=$(ENTWARE_PREFIX)/lib
+TARGET_LDFLAGS:= -Wl,--dynamic-linker=$(ENTWARE_PREFIX)/lib/$(DYNLINKER) -Wl,--disable-new-dtags -Wl,-rpath=$(ENTWARE_PREFIX)/lib
 
 ifeq ($(CONFIG_ARCH_64BIT),y)
   LIB_SUFFIX:=64

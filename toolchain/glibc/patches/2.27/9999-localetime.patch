@@ -5,7 +5,7 @@
  # localizing the configuration data elsewhere.
  ifndef localtime-file
 -localtime-file = $(sysconfdir)/localtime
-+localtime-file = /opt/etc/localtime
++localtime-file = /kip/etc/localtime
  endif
  
  # What to use for leap second specifications in compiling the default

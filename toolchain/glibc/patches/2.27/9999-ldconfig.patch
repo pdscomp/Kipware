@@ -5,7 +5,7 @@
  
  #ifndef LD_SO_CONF
 -# define LD_SO_CONF SYSCONFDIR "/ld.so.conf"
-+# define LD_SO_CONF "/opt/etc/ld.so.conf"
++# define LD_SO_CONF "/kip/etc/ld.so.conf"
  #endif
  
  /* Get libc version number.  */
@@ -16,7 +16,7 @@
 -      add_system_dir (SLIBDIR);
 -      if (strcmp (SLIBDIR, LIBDIR))
 -	add_system_dir (LIBDIR);
-+      add_dir ("/opt/lib");
++      add_dir ("/kip/lib");
      }
  
    const char *aux_cache_file = _PATH_LDCONFIG_AUX_CACHE;
@@ -38,7 +38,7 @@
       the work but this does not matter, since it is not for production
       use.  */
 -  static const char preload_file[] = "/etc/ld.so.preload";
-+  static const char preload_file[] = "/opt/etc/ld.so.preload";
++  static const char preload_file[] = "/kip/etc/ld.so.preload";
    if (__glibc_unlikely (__access (preload_file, R_OK) == 0))
      {
        /* Read the contents of the file.  */
@@ -54,7 +54,7 @@
 -  { "/lib/ld-linux-aarch64_be_ilp32.so.1", FLAG_ELF_LIBC6 }, \
 -  { "/lib/ld-linux.so.3", FLAG_ELF_LIBC6 }, \
 -  { "/lib/ld-linux-armhf.so.3", FLAG_ELF_LIBC6 },
-+  { "/opt/lib/ld-linux-aarch64.so.1", FLAG_ELF_LIBC6 },
++  { "/kip/lib/ld-linux-aarch64.so.1", FLAG_ELF_LIBC6 },
  #define SYSDEP_KNOWN_LIBRARY_NAMES \
    { "libc.so.6", FLAG_ELF_LIBC6 },	\
    { "libm.so.6", FLAG_ELF_LIBC6 },
@@ -66,7 +66,7 @@
  #define SYSDEP_KNOWN_INTERPRETER_NAMES \
 -  { "/lib/ld-linux.so.3", FLAG_ELF_LIBC6 }, \
 -  { "/lib/ld-linux-armhf.so.3", FLAG_ELF_LIBC6 },
-+  { "/opt/lib/ld-linux.so.3", FLAG_ELF_LIBC6 },
++  { "/kip/lib/ld-linux.so.3", FLAG_ELF_LIBC6 },
  #define SYSDEP_KNOWN_LIBRARY_NAMES \
    { "libc.so.6", FLAG_ELF_LIBC6 },	\
    { "libm.so.6", FLAG_ELF_LIBC6 },
@@ -77,7 +77,7 @@
  
  #define SYSDEP_KNOWN_INTERPRETER_NAMES \
 -  { "/lib/ld-linux.so.1", FLAG_ELF_LIBC5 },
-+  { "/opt/lib/ld-linux.so.2", FLAG_ELF_LIBC5 },
++  { "/kip/lib/ld-linux.so.2", FLAG_ELF_LIBC5 },
  #define SYSDEP_KNOWN_LIBRARY_NAMES \
    { "libc.so.5", FLAG_ELF_LIBC5 },	\
    { "libm.so.5", FLAG_ELF_LIBC5 },
@@ -90,7 +90,7 @@
 -  { "/lib/ld-linux.so.2", FLAG_ELF_LIBC6 }, \
 -  { "/libx32/ld-linux-x32.so.2", FLAG_ELF_LIBC6 }, \
 -  { "/lib64/ld-linux-x86-64.so.2", FLAG_ELF_LIBC6 },
-+  { "/opt/lib/ld-linux-x86-64.so.2", FLAG_ELF_LIBC6 },
++  { "/kip/lib/ld-linux-x86-64.so.2", FLAG_ELF_LIBC6 },
  #define SYSDEP_KNOWN_LIBRARY_NAMES \
    { "libc.so.6", FLAG_ELF_LIBC6 },	\
    { "libm.so.6", FLAG_ELF_LIBC6 },
@@ -101,7 +101,7 @@
  
  #ifndef LD_SO_CACHE
 -# define LD_SO_CACHE SYSCONFDIR "/ld.so.cache"
-+# define LD_SO_CACHE "/opt/etc/ld.so.cache"
++# define LD_SO_CACHE "/kip/etc/ld.so.cache"
  #endif
  
  #ifndef add_system_dir

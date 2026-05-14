@@ -1,4 +1,4 @@
-add /opt/lib to default search path for the dynamic linker
+add /kip/lib to default search path for the dynamic linker
 
 --- a/Makeconfig
 +++ b/Makeconfig
@@ -6,8 +6,8 @@ add /opt/lib to default search path for the dynamic linker
  default-rpath = $(libdir)
  endif
  
-+# Add /opt/lib to default search path for the dynamic linker
-+user-defined-trusted-dirs := /opt/lib
++# Add /kip/lib to default search path for the dynamic linker
++user-defined-trusted-dirs := /kip/lib
 +
  ifndef link-extra-libs
  link-extra-libs = $(LDLIBS-$(@F))

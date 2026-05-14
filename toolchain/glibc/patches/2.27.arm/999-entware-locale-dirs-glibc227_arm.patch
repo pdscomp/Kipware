@@ -4,11 +4,11 @@
  # The path to the compiled binary locale archive or compiled locales,
  # along with the parent path to the source locales and source
  # charmaps.
-+complocaledir = /opt/usr/lib/locale
-+i18ndir = /opt/usr/share/i18n
-+rtld-LDFLAGS = -Wl,--dynamic-linker=/opt/lib/ld-linux.so.3
-+LDFLAGS-locale = -Wl,-rpath,/opt/lib
-+LDFLAGS-localedef = -Wl,-rpath,/opt/lib
++complocaledir = /kip/usr/lib/locale
++i18ndir = /kip/usr/share/i18n
++rtld-LDFLAGS = -Wl,--dynamic-linker=/kip/lib/ld-linux.so.3
++LDFLAGS-locale = -Wl,-rpath,/kip/lib
++LDFLAGS-localedef = -Wl,-rpath,/kip/lib
 +
  localepath = "$(complocaledir):$(i18ndir)"
  

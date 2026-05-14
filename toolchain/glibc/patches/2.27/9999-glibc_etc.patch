@@ -5,7 +5,7 @@
    if (ent->stream == NULL)
      {
 -      ent->stream = fopen ("/etc/group", "rme");
-+      ent->stream = fopen ("/opt/etc/group", "rme");
++      ent->stream = fopen ("/kip/etc/group", "rme");
  
        if (ent->stream == NULL)
  	status = errno == EAGAIN ? NSS_STATUS_TRYAGAIN : NSS_STATUS_UNAVAIL;
@@ -16,7 +16,7 @@
      ent->blacklist.current = 0;
  
 -  ent->stream = fopen ("/etc/group", "rme");
-+  ent->stream = fopen ("/opt/etc/group", "rme");
++  ent->stream = fopen ("/kip/etc/group", "rme");
  
    if (ent->stream == NULL)
      status = errno == EAGAIN ? NSS_STATUS_TRYAGAIN : NSS_STATUS_UNAVAIL;
@@ -27,7 +27,7 @@
    if (ent->stream == NULL)
      {
 -      ent->stream = fopen ("/etc/passwd", "rme");
-+      ent->stream = fopen ("/opt/etc/passwd", "rme");
++      ent->stream = fopen ("/kip/etc/passwd", "rme");
  
        if (ent->stream == NULL)
  	status = errno == EAGAIN ? NSS_STATUS_TRYAGAIN : NSS_STATUS_UNAVAIL;
@@ -38,7 +38,7 @@
    if (ent->stream == NULL)
      {
 -      ent->stream = fopen ("/etc/shadow", "rme");
-+      ent->stream = fopen ("/opt/etc/shadow", "rme");
++      ent->stream = fopen ("/kip/etc/shadow", "rme");
  
        if (ent->stream == NULL)
  	status = errno == EAGAIN ? NSS_STATUS_TRYAGAIN : NSS_STATUS_UNAVAIL;
@@ -59,11 +59,11 @@
  #include <nscd/nscd.h>
  
 -#define PWD_FILENAME "/etc/passwd"
-+#define PWD_FILENAME "/opt/etc/passwd"
++#define PWD_FILENAME "/kip/etc/passwd"
  define_traced_file (pwd, PWD_FILENAME);
  
 -#define GRP_FILENAME "/etc/group"
-+#define GRP_FILENAME "/opt/etc/group"
++#define GRP_FILENAME "/kip/etc/group"
  define_traced_file (grp, GRP_FILENAME);
  
  #define HST_FILENAME "/etc/hosts"
@@ -74,7 +74,7 @@
  			   int *errnop)
  {
 -  FILE *stream = fopen ("/etc/group", "rce");
-+  FILE *stream = fopen ("/opt/etc/group", "rce");
++  FILE *stream = fopen ("/kip/etc/group", "rce");
    if (stream == NULL)
      {
        *errnop = errno;
@@ -115,7 +115,7 @@
  #define ENTNAME_r	CONCAT(ENTNAME,_r)
  
 +#ifdef DATABASE_PREFIX
-+#define DATAFILE	"/opt/etc/" DATABASE
++#define DATAFILE	"/kip/etc/" DATABASE
 +#else
  #define DATAFILE	"/etc/" DATABASE
 +#endif
@@ -129,7 +129,7 @@
  
  /* Name of the lock file.  */
 -#define PWD_LOCKFILE "/etc/.pwd.lock"
-+#define PWD_LOCKFILE "/opt/etc/.pwd.lock"
++#define PWD_LOCKFILE "/kip/etc/.pwd.lock"
  
  /* How long to wait for getting the lock before returning with an
     error.  */
@@ -140,7 +140,7 @@
  #define	_PATH_DEVNULL	"/dev/null"
  #define	_PATH_DRUM	"/dev/drum"
 -#define	_PATH_GSHADOW	"/etc/gshadow"
-+#define	_PATH_GSHADOW	"/opt/etc/gshadow"
++#define	_PATH_GSHADOW	"/kip/etc/gshadow"
  #define	_PATH_KMEM	"/dev/kmem"
  #define	_PATH_LASTLOG	"/var/log/lastlog"
  #define	_PATH_MAILDIR	"/var/mail"
@@ -150,8 +150,8 @@
  #define	_PATH_SENDMAIL	"/usr/sbin/sendmail"
 -#define	_PATH_SHADOW	"/etc/shadow"
 -#define	_PATH_SHELLS	"/etc/shells"
-+#define	_PATH_SHADOW	"/opt/etc/shadow"
-+#define	_PATH_SHELLS	"/opt/etc/shells"
++#define	_PATH_SHADOW	"/kip/etc/shadow"
++#define	_PATH_SHELLS	"/kip/etc/shells"
  #define	_PATH_TTY	"/dev/tty"
  #define	_PATH_UNIX	"/vmunix"
  #define	_PATH_UTMP	"/var/run/utmp"
@@ -162,7 +162,7 @@
  #define	_PATH_DEVNULL	"/dev/null"
  #define	_PATH_DRUM	"/dev/drum"
 -#define	_PATH_GSHADOW	"/etc/gshadow"
-+#define	_PATH_GSHADOW	"/opt/etc/gshadow"
++#define	_PATH_GSHADOW	"/kip/etc/gshadow"
  #define	_PATH_KLOG	"/proc/kmsg"
  #define	_PATH_KMEM	"/dev/kmem"
  #define	_PATH_LASTLOG	"/var/log/lastlog"
@@ -172,8 +172,8 @@
  #define	_PATH_SENDMAIL	"/usr/sbin/sendmail"
 -#define	_PATH_SHADOW	"/etc/shadow"
 -#define	_PATH_SHELLS	"/etc/shells"
-+#define	_PATH_SHADOW	"/opt/etc/shadow"
-+#define	_PATH_SHELLS	"/opt/etc/shells"
++#define	_PATH_SHADOW	"/kip/etc/shadow"
++#define	_PATH_SHELLS	"/kip/etc/shells"
  #define	_PATH_TTY	"/dev/tty"
  #define	_PATH_UNIX	"/boot/vmlinux"
  #define	_PATH_UTMP	"/var/run/utmp"

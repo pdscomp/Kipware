@@ -63,7 +63,6 @@ validate_tag "${GITHUB_TAG}"
 preflight_packages_in_index "${REPO_BASE_URL}" "${PACKAGE_LIST}"
 prepare_kip_symlink "${KIP_TARGET}"
 download_and_run_generic_installer "${REPO_BASE_URL}"
-write_profile /kip/profile-kipware.sh
 # shellcheck disable=SC1091
 source /kip/profile-kipware.sh
 install_package_manifest "${PACKAGE_LIST}"

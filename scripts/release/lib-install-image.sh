@@ -72,16 +72,6 @@ download_and_run_generic_installer() {
   "${installer}"
 }
 
-write_profile() {
-  local profile_path="$1"
-  log "Writing ${profile_path}"
-  cat > "${profile_path}" <<'EOF'
-# /kip/profile-kipware.sh
-export PATH=/kip/bin:/kip/sbin:$PATH
-EOF
-  chmod 0644 "${profile_path}"
-}
-
 install_package_manifest() {
   local package_list="$1"
   local -a packages=()

@@ -73,8 +73,10 @@ jobs:
           set -euo pipefail
           curl -fsSL "${REPO_BASE_URL}/Packages" -o /tmp/Packages
           curl -fsSL "${REPO_BASE_URL}/installer/generic.sh" -o /tmp/generic.sh
+          curl -fsSL "${REPO_BASE_URL}/installer/profile-kipware.sh" -o /tmp/profile-kipware.sh
           grep -q '^Package: opkg$' /tmp/Packages
           grep -q '^Package: wget-ssl$' /tmp/Packages
+          grep -q '^export PATH=/kip/bin:/kip/sbin:' /tmp/profile-kipware.sh
 
       - name: Build ${{ matrix.target }} install image
         env:
@@ -85,12 +87,16 @@ jobs:
           set -euo pipefail
           sudo -E bash scripts/release/build-target-image.sh
 
-      - name: Upload ${{ matrix.target }} workflow artifact
+      - name: Upload ${{ matrix.target }} workflow artifact for release assembly
         uses: actions/upload-artifact@v4
         with:
-          name: kipware-${{ matrix.target }}-${{ steps.tag.outputs.tag }}
+          name: kipware-${{ matrix.target }}-${{ steps.tag.outputs.tag }}-internal
           path: dist/kipware-${{ matrix.target }}-${{ steps.tag.outputs.tag }}.tar.gz
           if-no-files-found: error
+          # GitHub Actions artifacts are always zip-wrapped when downloaded
+          # from a workflow run. These are internal handoff artifacts only;
+          # release assets are uploaded below as raw .tar.gz files.
+          compression-level: 0
 
   publish-release:
     name: Publish draft release
@@ -123,7 +129,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: dist-artifacts
-          pattern: kipware-*-${{ steps.tag.outputs.tag }}
+          pattern: kipware-*-${{ steps.tag.outputs.tag }}-internal
           merge-multiple: true
 
       - name: Prepare release dist
@@ -133,8 +139,10 @@ jobs:
           set -euo pipefail
           mkdir -p dist
           mv dist-artifacts/kipware-*-${TAG}.tar.gz dist/
+          curl -fsSL "${REPO_BASE_URL}/installer/generic.sh" -o dist/kipware-install-baremetal.sh
+          chmod 0755 dist/kipware-install-baremetal.sh
           cd dist
-          sha256sum kipware-*-${TAG}.tar.gz > "kipware-install-images-${TAG}.sha256"
+          sha256sum kipware-*-${TAG}.tar.gz kipware-install-baremetal.sh > "kipware-install-images-${TAG}.sha256"
           ls -lh
 
       - name: Generate release notes
@@ -146,18 +154,8 @@ jobs:
             --tag "${GITHUB_TAG}" \
             --package-list release/kipware-install-packages.txt \
             --target-dir release/targets \
-            --output dist/release-notes.md
-
-      - name: Upload combined release artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: kipware-install-images-${{ steps.tag.outputs.tag }}
-          path: |
-            dist/kipware-cc1-${{ steps.tag.outputs.tag }}.tar.gz
-            dist/kipware-cc2-${{ steps.tag.outputs.tag }}.tar.gz
-            dist/kipware-install-images-${{ steps.tag.outputs.tag }}.sha256
-            dist/release-notes.md
-          if-no-files-found: error
+            --output "dist/release-notes-${GITHUB_TAG}.md" \
+            --summary-output dist/release-summary.md
 
       - name: Create or update draft GitHub Release
         if: github.event_name == 'push' || inputs.dry_run == false
@@ -169,23 +167,25 @@ jobs:
           assets=(
             "dist/kipware-cc1-${TAG}.tar.gz"
             "dist/kipware-cc2-${TAG}.tar.gz"
+            "dist/kipware-install-baremetal.sh"
             "dist/kipware-install-images-${TAG}.sha256"
+            "dist/release-notes-${TAG}.md"
           )
           if gh release view "${TAG}" >/dev/null 2>&1; then
             gh release edit "${TAG}" \
               --draft=true \
               --title "Kipware ${TAG}" \
-              --notes-file dist/release-notes.md
+              --notes-file dist/release-summary.md
             gh release upload "${TAG}" --clobber "${assets[@]}"
           else
             gh release create "${TAG}" \
               --draft \
               --title "Kipware ${TAG}" \
-              --notes-file dist/release-notes.md \
+              --notes-file dist/release-summary.md \
               "${assets[@]}"
           fi
 
       - name: Dry-run notice
         if: github.event_name == 'workflow_dispatch' && inputs.dry_run == true
         run: |
-          echo "Dry run complete. Artifacts were uploaded to the workflow run; no GitHub Release was created."
+          echo "Dry run complete. Internal workflow handoff artifacts are available from this run, but GitHub always zip-wraps workflow artifact downloads. End-user release downloads are created only when dry_run=false or on a date-tag push, and are uploaded as raw .tar.gz files."

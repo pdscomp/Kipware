@@ -1,0 +1,191 @@
+name: Release Kipware install images
+
+on:
+  push:
+    tags:
+      - '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag/date, e.g. 2026-05-14'
+        required: true
+        type: string
+      dry_run:
+        description: 'Build artifacts without creating/updating a GitHub Release'
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kipware-release-${{ github.ref_name || inputs.tag }}
+  cancel-in-progress: false
+
+env:
+  REPO_BASE_URL: https://pdscomp.github.io/Kipware/kip/armv7hf-k5.4
+
+jobs:
+  build-install-image:
+    name: Build ${{ matrix.target }} install image
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [cc1, cc2]
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve and validate release tag
+        id: tag
+        run: |
+          set -euo pipefail
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            tag="${{ inputs.tag }}"
+          else
+            tag="${GITHUB_REF_NAME}"
+          fi
+          [[ "${tag}" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]
+          [[ "$(date -d "${tag}" +%F)" == "${tag}" ]]
+          echo "tag=${tag}" >> "${GITHUB_OUTPUT}"
+
+      - name: Prepare runner for armhf Kipware binaries
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            ca-certificates curl wget file tar gzip coreutils qemu-user-static binfmt-support
+          uname -m
+          update-binfmts --display || true
+
+      - name: Verify published Kipware feed
+        run: |
+          set -euo pipefail
+          curl -fsSL "${REPO_BASE_URL}/Packages" -o /tmp/Packages
+          curl -fsSL "${REPO_BASE_URL}/installer/generic.sh" -o /tmp/generic.sh
+          grep -q '^Package: opkg$' /tmp/Packages
+          grep -q '^Package: wget-ssl$' /tmp/Packages
+
+      - name: Build ${{ matrix.target }} install image
+        env:
+          TARGET_ID: ${{ matrix.target }}
+          GITHUB_TAG: ${{ steps.tag.outputs.tag }}
+          OUT_DIR: ${{ github.workspace }}/dist
+        run: |
+          set -euo pipefail
+          sudo -E bash scripts/release/build-target-image.sh
+
+      - name: Upload ${{ matrix.target }} workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: kipware-${{ matrix.target }}-${{ steps.tag.outputs.tag }}
+          path: dist/kipware-${{ matrix.target }}-${{ steps.tag.outputs.tag }}.tar.gz
+          if-no-files-found: error
+
+  publish-release:
+    name: Publish draft release
+    needs: build-install-image
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve and validate release tag
+        id: tag
+        run: |
+          set -euo pipefail
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            tag="${{ inputs.tag }}"
+          else
+            tag="${GITHUB_REF_NAME}"
+          fi
+          [[ "${tag}" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]
+          [[ "$(date -d "${tag}" +%F)" == "${tag}" ]]
+          echo "tag=${tag}" >> "${GITHUB_OUTPUT}"
+
+      - name: Download install image artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist-artifacts
+          pattern: kipware-*-${{ steps.tag.outputs.tag }}
+          merge-multiple: true
+
+      - name: Prepare release dist
+        env:
+          TAG: ${{ steps.tag.outputs.tag }}
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          mv dist-artifacts/kipware-*-${TAG}.tar.gz dist/
+          cd dist
+          sha256sum kipware-*-${TAG}.tar.gz > "kipware-install-images-${TAG}.sha256"
+          ls -lh
+
+      - name: Generate release notes
+        env:
+          GITHUB_TAG: ${{ steps.tag.outputs.tag }}
+        run: |
+          set -euo pipefail
+          python3 scripts/release/generate-release-notes.py \
+            --tag "${GITHUB_TAG}" \
+            --package-list release/kipware-install-packages.txt \
+            --target-dir release/targets \
+            --output dist/release-notes.md
+
+      - name: Upload combined release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: kipware-install-images-${{ steps.tag.outputs.tag }}
+          path: |
+            dist/kipware-cc1-${{ steps.tag.outputs.tag }}.tar.gz
+            dist/kipware-cc2-${{ steps.tag.outputs.tag }}.tar.gz
+            dist/kipware-install-images-${{ steps.tag.outputs.tag }}.sha256
+            dist/release-notes.md
+          if-no-files-found: error
+
+      - name: Create or update draft GitHub Release
+        if: github.event_name == 'push' || inputs.dry_run == false
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.tag.outputs.tag }}
+        run: |
+          set -euo pipefail
+          assets=(
+            "dist/kipware-cc1-${TAG}.tar.gz"
+            "dist/kipware-cc2-${TAG}.tar.gz"
+            "dist/kipware-install-images-${TAG}.sha256"
+          )
+          if gh release view "${TAG}" >/dev/null 2>&1; then
+            gh release edit "${TAG}" \
+              --draft=true \
+              --title "Kipware ${TAG}" \
+              --notes-file dist/release-notes.md
+            gh release upload "${TAG}" --clobber "${assets[@]}"
+          else
+            gh release create "${TAG}" \
+              --draft \
+              --title "Kipware ${TAG}" \
+              --notes-file dist/release-notes.md \
+              "${assets[@]}"
+          fi
+
+      - name: Dry-run notice
+        if: github.event_name == 'workflow_dispatch' && inputs.dry_run == true
+        run: |
+          echo "Dry run complete. Artifacts were uploaded to the workflow run; no GitHub Release was created."

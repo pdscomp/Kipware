@@ -51,35 +51,95 @@ jobs:
 
           test -f /usr/include/stdc-predef.h
 
+      - name: Resolve feed lock
+        id: feed-lock
+        run: |
+          python3 scripts/ci/feed_lock.py \
+            --feeds-conf feeds.conf \
+            --output .ci/feed-lock.json
+
+      - name: Compute build fingerprint
+        id: fingerprint
+        run: |
+          target_ref="${GITHUB_BASE_REF:-${GITHUB_REF_NAME}}"
+          python3 scripts/ci/build_fingerprint.py \
+            --branch "${target_ref}" \
+            --feed-lock .ci/feed-lock.json \
+            --output .ci/build-fingerprint.json
+
+      - name: Compare previous published manifest
+        id: preflight
+        run: |
+          target_ref="${GITHUB_BASE_REF:-${GITHUB_REF_NAME}}"
+          repo_name="${GITHUB_REPOSITORY#*/}"
+          manifest_url="https://${GITHUB_REPOSITORY_OWNER}.github.io/${repo_name}/${target_ref}/armv7hf-k5.4/build-manifest.json"
+          echo "Previous manifest URL: ${manifest_url}"
+          python3 scripts/ci/compare_manifest.py \
+            --current .ci/build-fingerprint.json \
+            --previous-url "${manifest_url}" \
+            --output .ci/build-decision.json
+
+      - name: Build decision summary
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          fp = json.loads(Path('.ci/build-fingerprint.json').read_text())
+          decision = json.loads(Path('.ci/build-decision.json').read_text())
+          print(f"build_fingerprint={fp['build_fingerprint']}")
+          print(f"needs_build={decision['needs_build']}")
+          print(f"force_world_rebuild={decision['force_world_rebuild']}")
+          print(f"reason={decision['reason']}")
+          print(f"changed_components={','.join(decision.get('changed_components', []))}")
+          PY
+
+      - name: Verify existing published feed for no-op build
+        if: steps.preflight.outputs.needs_build == 'false'
+        run: |
+          target_ref="${GITHUB_BASE_REF:-${GITHUB_REF_NAME}}"
+          repo_name="${GITHUB_REPOSITORY#*/}"
+          packages_url="https://${GITHUB_REPOSITORY_OWNER}.github.io/${repo_name}/${target_ref}/armv7hf-k5.4/Packages.gz"
+          curl -fsS "${packages_url}" >/dev/null
+          echo "No build needed; existing feed is available at ${packages_url}"
+
       - name: Restore download cache
+        if: steps.preflight.outputs.needs_build == 'true'
         id: restore-download-cache
         uses: actions/cache/restore@v4
         with:
           path: dl
-          key: ${{ runner.os }}-armv7hf-5.4-dl-${{ hashFiles('feeds.conf', 'feeds.conf.default') }}
+          key: ${{ runner.os }}-armv7hf-5.4-dl-v2-${{ steps.feed-lock.outputs.feed_lock_sha }}
           restore-keys: |
+            ${{ runner.os }}-armv7hf-5.4-dl-v2-
             ${{ runner.os }}-armv7hf-5.4-dl-
 
       - name: Restore ccache
+        if: steps.preflight.outputs.needs_build == 'true'
         id: restore-ccache
         uses: actions/cache/restore@v4
         with:
           path: .ccache
-          key: ${{ runner.os }}-armv7hf-5.4-ccache-${{ hashFiles('configs/armv7hf-5.4.config', 'bake_armv7hf.sh', 'feeds.conf', 'feeds.conf.default') }}
+          key: ${{ runner.os }}-armv7hf-5.4-ccache-v2-${{ steps.fingerprint.outputs.toolchain_cache_sha }}-${{ steps.fingerprint.outputs.package_input_sha }}
           restore-keys: |
+            ${{ runner.os }}-armv7hf-5.4-ccache-v2-${{ steps.fingerprint.outputs.toolchain_cache_sha }}-
+            ${{ runner.os }}-armv7hf-5.4-ccache-v2-
             ${{ runner.os }}-armv7hf-5.4-ccache-
 
       - name: Restore feed checkout cache
+        if: steps.preflight.outputs.needs_build == 'true'
         id: restore-feeds-cache
         uses: actions/cache/restore@v4
         with:
           path: |
             feeds
-          key: ${{ runner.os }}-armv7hf-5.4-feeds-${{ hashFiles('feeds.conf') }}
+          key: ${{ runner.os }}-armv7hf-5.4-feeds-v2-${{ steps.feed-lock.outputs.feed_lock_sha }}-${{ hashFiles('local-patches/**/*.patch') }}
           restore-keys: |
+            ${{ runner.os }}-armv7hf-5.4-feeds-v2-${{ steps.feed-lock.outputs.feed_lock_sha }}-
+            ${{ runner.os }}-armv7hf-5.4-feeds-v2-
             ${{ runner.os }}-armv7hf-5.4-feeds-
 
       - name: Restore host and toolchain cache
+        if: steps.preflight.outputs.needs_build == 'true'
         id: restore-host-toolchain-cache
         uses: actions/cache/restore@v4
         with:
@@ -92,11 +152,14 @@ jobs:
             build_dir/toolchain-arm_cortex-a7+neon-vfpv4_gcc-8.4.0_glibc-2.27_eabi
             staging_dir/host
             staging_dir/toolchain-arm_cortex-a7+neon-vfpv4_gcc-8.4.0_glibc-2.27_eabi
-          key: ${{ runner.os }}-armv7hf-5.4-host-toolchain-v1-${{ hashFiles('configs/armv7hf-5.4.config', 'bake_armv7hf.sh', 'feeds.conf', 'feeds.conf.default') }}
+          key: ${{ runner.os }}-armv7hf-5.4-host-toolchain-v3-${{ steps.fingerprint.outputs.toolchain_cache_sha }}
           restore-keys: |
+            ${{ runner.os }}-armv7hf-5.4-host-toolchain-v3-
+            ${{ runner.os }}-armv7hf-5.4-host-toolchain-v2-
             ${{ runner.os }}-armv7hf-5.4-host-toolchain-v1-
 
       - name: Restore rustc-dev host cache
+        if: steps.preflight.outputs.needs_build == 'true'
         id: restore-rustc-dev-cache
         uses: actions/cache/restore@v4
         with:
@@ -104,22 +167,44 @@ jobs:
             # rustc-dev uses a non-standard install prefix: $(STAGING_DIR)/host rather than
             # $(STAGING_DIR_HOST).  This encodes CPU type and glibc version; update if bumped.
             staging_dir/target-arm_cortex-a7+neon-vfpv4_glibc-2.27_eabi/host
-          # Key is based on the rustc-dev Makefile (contains PKG_VERSION and PKG_HASH).
-          # hashFiles returns '' when feeds haven't been cloned yet (feeds cache miss on this
-          # run); the restore-keys prefix still finds any existing cache in that case, and the
-          # save step always runs after bake (which clones feeds), so the key is always full
-          # when saving.
-          key: ${{ runner.os }}-armv7hf-5.4-rustc-dev-host-v1-${{ hashFiles('feeds/rustlang/rustc-dev/Makefile') }}
+          key: ${{ runner.os }}-armv7hf-5.4-rustc-dev-host-v2-${{ steps.feed-lock.outputs.feed_lock_sha }}
           restore-keys: |
+            ${{ runner.os }}-armv7hf-5.4-rustc-dev-host-v2-
             ${{ runner.os }}-armv7hf-5.4-rustc-dev-host-v1-
 
       - name: Prepare appuser workspace
+        if: steps.preflight.outputs.needs_build == 'true'
         run: |
           id appuser
           chown -R appuser:appuser "${GITHUB_WORKSPACE}"
           install -d -o appuser -g appuser /home/appuser/.cache
 
+      - name: Check restored precursor caches
+        if: steps.preflight.outputs.needs_build == 'true'
+        run: |
+          sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -euo pipefail -lc '
+            cd "${GITHUB_WORKSPACE}"
+            echo "Cache hit summary:"
+            echo "  dl=${{ steps.restore-download-cache.outputs.cache-hit }}"
+            echo "  ccache=${{ steps.restore-ccache.outputs.cache-hit }}"
+            echo "  feeds=${{ steps.restore-feeds-cache.outputs.cache-hit }}"
+            echo "  host_toolchain=${{ steps.restore-host-toolchain-cache.outputs.cache-hit }}"
+            echo "  rustc_dev=${{ steps.restore-rustc-dev-cache.outputs.cache-hit }}"
+            du -sh dl .ccache feeds build_dir/host staging_dir/host 2>/dev/null || true
+            if [[ -x staging_dir/host/bin/mkhash ]]; then
+              echo "mkhash restored: staging_dir/host/bin/mkhash"
+            else
+              echo "mkhash not restored yet; build will create it if needed"
+            fi
+            if find staging_dir -path "*/bin/arm-openwrt-linux-gnueabihf-gcc" -print -quit | grep -q .; then
+              echo "toolchain compiler present"
+            else
+              echo "toolchain compiler not restored yet; build will create it if needed"
+            fi
+          '
+
       - name: Bake full armv7hf-5.4 build
+        if: steps.preflight.outputs.needs_build == 'true'
         run: |
           sudo -H -u appuser env \
             GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" \
@@ -133,21 +218,21 @@ jobs:
             '
 
       - name: Save download cache
-        if: always() && steps.restore-download-cache.outputs.cache-hit != 'true'
+        if: always() && steps.preflight.outputs.needs_build == 'true' && steps.restore-download-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v4
         with:
           path: dl
           key: ${{ steps.restore-download-cache.outputs.cache-primary-key }}
 
       - name: Save ccache
-        if: always() && steps.restore-ccache.outputs.cache-hit != 'true'
+        if: always() && steps.preflight.outputs.needs_build == 'true' && steps.restore-ccache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v4
         with:
           path: .ccache
           key: ${{ steps.restore-ccache.outputs.cache-primary-key }}
 
       - name: Save feed checkout cache
-        if: always() && steps.restore-feeds-cache.outputs.cache-hit != 'true'
+        if: always() && steps.preflight.outputs.needs_build == 'true' && steps.restore-feeds-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v4
         with:
           path: |
@@ -155,7 +240,7 @@ jobs:
           key: ${{ steps.restore-feeds-cache.outputs.cache-primary-key }}
 
       - name: Save host and toolchain cache
-        if: always() && steps.restore-host-toolchain-cache.outputs.cache-hit != 'true'
+        if: always() && steps.preflight.outputs.needs_build == 'true' && steps.restore-host-toolchain-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v4
         with:
           path: |
@@ -167,20 +252,19 @@ jobs:
 
       - name: Save rustc-dev host cache
         # Save even on build failure: rustc-dev/host-compile may have completed successfully
-        # before another package failed (it runs in parallel).  The stamp file in
+        # before another package failed (it runs in parallel). The stamp file in
         # staging_dir/target-.../host/stamp/ is what make checks; if it's present the 2h
-        # rustc-dev rebuild is skipped on the next run.
-        # Key is re-evaluated here (not from restore outputs) so it always contains the full
-        # Makefile hash — bake has run feeds update by this point so the file is guaranteed
-        # to exist.
-        if: always() && steps.restore-rustc-dev-cache.outputs.cache-hit != 'true'
+        # rustc-dev rebuild is skipped on the next run. Key this by feed lock because the
+        # rustc-dev package definition comes from the rustlang feed.
+        if: always() && steps.preflight.outputs.needs_build == 'true' && steps.restore-rustc-dev-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v4
         with:
           path: |
             staging_dir/target-arm_cortex-a7+neon-vfpv4_glibc-2.27_eabi/host
-          key: ${{ runner.os }}-armv7hf-5.4-rustc-dev-host-v1-${{ hashFiles('feeds/rustlang/rustc-dev/Makefile') }}
+          key: ${{ steps.restore-rustc-dev-cache.outputs.cache-primary-key }}
 
       - name: Verify hard-float toolchain
+        if: steps.preflight.outputs.needs_build == 'true'
         run: |
           sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -euo pipefail -lc '
             cd "${GITHUB_WORKSPACE}"
@@ -193,6 +277,7 @@ jobs:
           '
 
       - name: Verify published package set
+        if: steps.preflight.outputs.needs_build == 'true'
         run: |
           sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -euo pipefail -lc '
             cd "${GITHUB_WORKSPACE}"
@@ -258,6 +343,7 @@ jobs:
           '
 
       - name: Stage GitHub Pages feed
+        if: steps.preflight.outputs.needs_build == 'true'
         env:
           PUBLISH_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ github.ref_name }}/armv7hf-k5.4
         run: |
@@ -269,7 +355,25 @@ jobs:
               ./scripts/stage-armv7hf-pages.sh pages "${PUBLISH_BASE_URL}"
             '
 
+      - name: Write build manifests
+        if: steps.preflight.outputs.needs_build == 'true'
+        run: |
+          sudo -H -u appuser env \
+            GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" \
+            GITHUB_REPOSITORY="${GITHUB_REPOSITORY}" \
+            GITHUB_RUN_ID="${GITHUB_RUN_ID}" \
+            GITHUB_SHA="${GITHUB_SHA}" \
+            GITHUB_REF="${GITHUB_REF}" \
+            bash -euo pipefail -lc '
+              cd "${GITHUB_WORKSPACE}"
+              python3 scripts/ci/write_build_manifest.py \
+                --feed-dir pages/armv7hf-k5.4 \
+                --fingerprint .ci/build-fingerprint.json \
+                --decision .ci/build-decision.json
+            '
+
       - name: Upload build artifacts
+        if: steps.preflight.outputs.needs_build == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: armv7hf-5.4-artifacts
@@ -280,12 +384,12 @@ jobs:
             .config
 
       - name: Create root index page
-        if: github.event_name != 'pull_request'
+        if: steps.preflight.outputs.needs_build == 'true' && github.event_name != 'pull_request'
         run: |
           python3 scripts/gen-index.py root pages-root/index.html
 
       - name: Deploy to GitHub Pages
-        if: github.event_name != 'pull_request'
+        if: steps.preflight.outputs.needs_build == 'true' && github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -294,7 +398,7 @@ jobs:
           keep_files: true
 
       - name: Update root index page
-        if: github.event_name != 'pull_request'
+        if: steps.preflight.outputs.needs_build == 'true' && github.event_name != 'pull_request'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

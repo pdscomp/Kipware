@@ -31,6 +31,13 @@ find $TARGETS -not -path \*/lib/firmware/\* -a -type f -a -exec file {} \; | \
 		eval "$STRIP_KMOD $F"
 	} || {
 		b=$(stat -c '%a' $F)
+		case "${F##*/}" in
+			ld-*.so|ld-linux*.so*)
+				# Do not patchelf the runtime linker itself. Adding a new
+				# PT_LOAD/RPATH segment to glibc's dynamic loader can make
+				# dynamically linked programs segfault before main().
+				;;
+			*)
 		[ -z "$PATCHELF" ] || [ -z "$TOPDIR" ] || {
 			old_rpath="$($PATCHELF --print-rpath $F)"
 			new_rpath=""
@@ -49,6 +56,8 @@ find $TARGETS -not -path \*/lib/firmware/\* -a -type f -a -exec file {} \; | \
 				fi
 			fi
 		}
+				;;
+		esac
 		eval "$STRIP $F"
 		a=$(stat -c '%a' $F)
 		[ "$a" = "$b" ] || chmod $b $F

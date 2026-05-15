@@ -1,0 +1,40 @@
+{
+  "branch": "main",
+  "build_fingerprint": "sha256:cd04a071e8d39364717123d985f73a1c74ba7f5f2766fe021b9b5212df675794",
+  "components": {
+    "config_sha": "sha256:32a0ff349803c134f934dc12956ec561d9251f3f6ff5a0f1cc02644c6ce0fd16",
+    "feed_lock_sha": "sha256:e943478e2a69dc81cbaa74f223f54856f7c680a23fdf883c97427a0fdaeed109",
+    "foundation_sha": "sha256:1b4ef2a9322d0bfa9bf8c8b4e9bceda342a3b6e5e25b2f3ba6008efaffcf6707",
+    "global_packaging_sha": "sha256:eeb73de75dc7ade49df6a601ad86ce90126ebeb86e6963de4c397059042402af",
+    "output_staging_sha": "sha256:7cfb8d81fa073b2cbf3938e6d80d1e3192341324b65e1584c63dc74b73651f5a",
+    "package_input_sha": "sha256:bb058e3a394f6a8b79f6273c03fb990dc5d40ce4288cd72088fa261ecd2ca897",
+    "toolchain_cache_sha": "sha256:966debab0001986da8cbd67e305a6bf4028cd22b6b28b20d0163612a3d9ab120"
+  },
+  "created_at": "2026-05-15T06:39:22.972201+00:00",
+  "decision": {
+    "changed_components": [],
+    "force_world_rebuild": true,
+    "needs_build": true,
+    "reason": "no previous manifest"
+  },
+  "github_run_id": "25900154581",
+  "outputs": {
+    "ipk_manifest_sha256": "sha256:72324993315b4480dda393c442036071663d048809ac0db53920e4b2bc4aed04",
+    "packages_count": 329,
+    "packages_gz_sha256": "sha256:034328852b442feb1a9a803a4e62793ca50328b3fab930e71cec93afb3268503",
+    "packages_sha256": "sha256:a6df2cdd0a3f658dc85dc4a68208ae32b081285161120da0edaeb75359434c0f"
+  },
+  "repo": {
+    "owner_repo": "pdscomp/Kipware",
+    "ref": "refs/heads/main",
+    "sha": "d7995d7187eed9b743ba20c72306a6d7bb61e82d"
+  },
+  "schema": 1,
+  "target": {
+    "board": "armv7-5.4",
+    "cpu": "arm_cortex-a7+neon-vfpv4",
+    "gcc": "8.4.0",
+    "libc": "glibc-2.27",
+    "prefix": "/opt"
+  }
+}

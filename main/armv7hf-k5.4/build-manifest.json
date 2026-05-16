@@ -1,33 +1,38 @@
 {
   "branch": "main",
-  "build_fingerprint": "sha256:cd04a071e8d39364717123d985f73a1c74ba7f5f2766fe021b9b5212df675794",
+  "build_fingerprint": "sha256:fb08fb048cf3bc860335d37f7e89afff80306fb64f9f56530e5fb6e0de2e3c2e",
   "components": {
-    "config_sha": "sha256:32a0ff349803c134f934dc12956ec561d9251f3f6ff5a0f1cc02644c6ce0fd16",
+    "config_sha": "sha256:d175f00ed94c4fd8520b7cfca0d2b5ffd3b34ff7d635ec80f75314b2f60c1348",
     "feed_lock_sha": "sha256:e943478e2a69dc81cbaa74f223f54856f7c680a23fdf883c97427a0fdaeed109",
-    "foundation_sha": "sha256:1b4ef2a9322d0bfa9bf8c8b4e9bceda342a3b6e5e25b2f3ba6008efaffcf6707",
+    "foundation_sha": "sha256:36647efcff92569a421069d8afe6c59f4bacedb033f57ad00046f24f0adf75a0",
     "global_packaging_sha": "sha256:eeb73de75dc7ade49df6a601ad86ce90126ebeb86e6963de4c397059042402af",
     "output_staging_sha": "sha256:7cfb8d81fa073b2cbf3938e6d80d1e3192341324b65e1584c63dc74b73651f5a",
-    "package_input_sha": "sha256:bb058e3a394f6a8b79f6273c03fb990dc5d40ce4288cd72088fa261ecd2ca897",
-    "toolchain_cache_sha": "sha256:966debab0001986da8cbd67e305a6bf4028cd22b6b28b20d0163612a3d9ab120"
+    "package_input_sha": "sha256:8dd241cd42b7dbc567d6fe306d2593437eeb9d694a38c39f2239506ec9a74bd6",
+    "toolchain_cache_sha": "sha256:e35cb53c8f95c80111c8f3bb5fcc99eea3710cf4110d840a48c62f5c44313a62"
   },
-  "created_at": "2026-05-15T06:39:22.972201+00:00",
+  "created_at": "2026-05-16T03:56:03.212895+00:00",
   "decision": {
-    "changed_components": [],
+    "changed_components": [
+      "config_sha",
+      "foundation_sha",
+      "package_input_sha",
+      "toolchain_cache_sha"
+    ],
     "force_world_rebuild": true,
     "needs_build": true,
-    "reason": "no previous manifest"
+    "reason": "build fingerprint changed"
   },
-  "github_run_id": "25900154581",
+  "github_run_id": "25949461226",
   "outputs": {
-    "ipk_manifest_sha256": "sha256:72324993315b4480dda393c442036071663d048809ac0db53920e4b2bc4aed04",
-    "packages_count": 329,
-    "packages_gz_sha256": "sha256:034328852b442feb1a9a803a4e62793ca50328b3fab930e71cec93afb3268503",
-    "packages_sha256": "sha256:a6df2cdd0a3f658dc85dc4a68208ae32b081285161120da0edaeb75359434c0f"
+    "ipk_manifest_sha256": "sha256:e201a7ce8a3d4a0a37e66829209fed7b7542bfcf4676bc4a99b14d8c4c274b44",
+    "packages_count": 330,
+    "packages_gz_sha256": "sha256:7c42a3356c4e3063f831bfee46c164f6ad2e867fb5ff50a7ab4d25b8433c21ea",
+    "packages_sha256": "sha256:34a69df2fba43cabd6ef3c750abcde3865e21331c62d74b0569146f58eba1868"
   },
   "repo": {
     "owner_repo": "pdscomp/Kipware",
     "ref": "refs/heads/main",
-    "sha": "d7995d7187eed9b743ba20c72306a6d7bb61e82d"
+    "sha": "14faddf59e22c0f925a73aadaaf5b8a94b551360"
   },
   "schema": 1,
   "target": {

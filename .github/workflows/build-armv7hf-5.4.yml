@@ -364,9 +364,6 @@ jobs:
               xmlstarlet
               socat
               netcat
-              ncat
-              ncat-ssl
-              ncat-full
             )
 
             for pkg in "${required_pkgs[@]}"; do

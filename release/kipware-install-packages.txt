@@ -6,6 +6,7 @@ entware-release
 entware-upgrade
 file
 findutils
+bash
 gdb
 grep
 ldd

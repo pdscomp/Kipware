@@ -333,6 +333,7 @@ jobs:
               python3-typing-extensions
               entware-release
               entware-upgrade
+              lsof
             )
 
             for pkg in "${required_pkgs[@]}"; do

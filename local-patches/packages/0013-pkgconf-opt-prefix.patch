@@ -1,0 +1,43 @@
+--- a/devel/pkgconf/Makefile
++++ b/devel/pkgconf/Makefile
+@@ -54,26 +54,26 @@
+ 	-Dtests=false
+ 
+ define Build/InstallDev
+-	$(INSTALL_DIR) $(1)/usr/include/libpkgconf
+-	$(CP) $(PKG_INSTALL_DIR)/usr/include/pkgconf/libpkgconf/*.h $(1)/usr/include/libpkgconf
+-	$(INSTALL_DIR) $(1)/usr/lib
+-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libpkgconf.so* $(1)/usr/lib/
+-	$(INSTALL_DIR) $(1)/usr/share/aclocal/
+-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/share/aclocal/pkg.m4 \
+-	  $(1)/usr/share/aclocal/
++	$(INSTALL_DIR) $(1)/opt/include/libpkgconf
++	$(CP) $(PKG_INSTALL_DIR)/opt/include/pkgconf/libpkgconf/*.h $(1)/opt/include/libpkgconf
++	$(INSTALL_DIR) $(1)/opt/lib
++	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libpkgconf.so* $(1)/opt/lib/
++	$(INSTALL_DIR) $(1)/opt/share/aclocal/
++	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/aclocal/pkg.m4 \
++	  $(1)/opt/share/aclocal/
+ endef
+ 
+ define Package/libpkgconf/install
+-	$(INSTALL_DIR) $(1)/usr/lib
+-	$(CP) $(PKG_INSTALL_DIR)/usr/lib/libpkgconf.so* $(1)/usr/lib/
+-	$(INSTALL_DIR) $(1)/usr/share/aclocal/
+-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/usr/share/aclocal/pkg.m4 \
+-	  $(1)/usr/share/aclocal/
++	$(INSTALL_DIR) $(1)/opt/lib
++	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libpkgconf.so* $(1)/opt/lib/
++	$(INSTALL_DIR) $(1)/opt/share/aclocal/
++	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/share/aclocal/pkg.m4 \
++	  $(1)/opt/share/aclocal/
+ endef
+ 
+ define Package/pkgconf/install
+-	$(INSTALL_DIR) $(1)/usr/bin
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/pkgconf $(1)/usr/bin/
++	$(INSTALL_DIR) $(1)/opt/bin
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/pkgconf $(1)/opt/bin/
+ endef
+ 
+ $(eval $(call BuildPackage,libpkgconf))

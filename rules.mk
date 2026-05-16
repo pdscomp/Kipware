@@ -279,9 +279,11 @@ ifndef DUMP
   endif
   ifneq ($(TOOLCHAIN_INC_DIRS),)
     TARGET_CPPFLAGS+= $(patsubst %,-I%,$(TOOLCHAIN_INC_DIRS))
+  TARGET_CPPFLAGS+= -I$(STAGING_DIR)/usr/include
   endif
   ifneq ($(TOOLCHAIN_LIB_DIRS),)
     TARGET_LDFLAGS+= $(patsubst %,-L%,$(TOOLCHAIN_LIB_DIRS))
+  TARGET_LDFLAGS+= -L$(STAGING_DIR)/usr/lib -Wl,-rpath-link=$(STAGING_DIR)/usr/lib
   endif
 endif
 

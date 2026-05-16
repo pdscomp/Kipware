@@ -1,0 +1,27 @@
+--- a/utils/findutils/Makefile
++++ b/utils/findutils/Makefile
+@@ -41,9 +41,9 @@ upstream and have no opkg equivalent:
+ 
+ define Package/findutils
+ 	$(call Package/findutils/Default)
+ 	ALTERNATIVES:= \
+-		300:/opt/bin/find:/opt/libexec/find-gnu \
+-		300:/opt/bin/xargs:/opt/libexec/xargs-gnu
++		300:/kip/bin/find:/kip/libexec/find-gnu \
++		300:/kip/bin/xargs:/kip/libexec/xargs-gnu
+ endef
+ 
+ define Package/findutils/description
+@@ -69,9 +69,9 @@ CONFIGURE_VARS += ac_cv_path_SORT=sort
+ endef
+ 
+ define Package/findutils/install
+-	$(INSTALL_DIR) $(1)/opt/libexec
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/find $(1)/opt/libexec/find-gnu
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/xargs $(1)/opt/libexec/xargs-gnu
++	$(INSTALL_DIR) $(1)/kip/libexec
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/find $(1)/kip/libexec/find-gnu
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/xargs $(1)/kip/libexec/xargs-gnu
+ endef
+ 
+ define Package/findutils-locate/install

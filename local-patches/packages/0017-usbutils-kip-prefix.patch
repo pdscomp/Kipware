@@ -1,0 +1,25 @@
+--- a/utils/usbutils/Makefile	2026-05-16 19:02:47.934539479 -0400
++++ b/utils/usbutils/Makefile	2026-05-16 19:02:47.926267387 -0400
+@@ -32,17 +32,17 @@
+   DEPENDS:=+libusb-1.0 +libudev +librt +libpthread +usbids
+   TITLE:=USB devices listing utilities
+   URL:=http://www.linux-usb.org/
+-  ALTERNATIVES:=300:/opt/bin/lsusb:/opt/libexec/lsusb
++  ALTERNATIVES:=300:/kip/bin/lsusb:/kip/libexec/lsusb
+ endef
+ 
+ CONFIGURE_ARGS+= \
+ 	--datadir=/opt/share/hwdata
+ 
+ define Package/usbutils/install
+-	$(INSTALL_DIR) $(1)/opt/bin
+-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/usbreset $(1)/opt/bin/
+-	$(INSTALL_DIR) $(1)/opt/libexec
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/lsusb $(1)/opt/libexec/
++	$(INSTALL_DIR) $(1)/kip/bin
++	$(INSTALL_BIN) $(PKG_BUILD_DIR)/usbreset $(1)/kip/bin/
++	$(INSTALL_DIR) $(1)/kip/libexec
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/bin/lsusb $(1)/kip/libexec/
+ endef
+ 
+ $(eval $(call BuildPackage,usbutils))

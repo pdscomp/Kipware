@@ -1,0 +1,52 @@
+--- a/utils/procps-ng/Makefile	2026-05-16 19:02:47.936597860 -0400
++++ b/utils/procps-ng/Makefile	2026-05-16 19:02:47.930267387 -0400
+@@ -42,11 +42,11 @@
+ # busybox alternatives which is also other distributions like debian and centos
+ # are doing
+ PROCPS_APPLETS_SRC_DIR_SBIN:=sysctl
+-procps-applets-src-dir=$(if $(filter $(PROCPS_APPLETS_SRC_DIR_SBIN),$(1)),/opt/sbin,/opt/bin)
++procps-applets-src-dir=$(if $(filter $(PROCPS_APPLETS_SRC_DIR_SBIN),$(1)),/opt/sbin,/kip/bin)
+ 
+ PROCPS_APPLETS_DIR_BIN:=kill ps watch
+ PROCPS_APPLETS_DIR_SBIN:=sysctl
+-procps-applets-dir=$(if $(filter $(PROCPS_APPLETS_DIR_BIN),$(1)),/opt/bin,$(if $(filter $(PROCPS_APPLETS_DIR_SBIN),$(1)),/opt/sbin,/opt/bin))
++procps-applets-dir=$(if $(filter $(PROCPS_APPLETS_DIR_BIN),$(1)),/opt/bin,$(if $(filter $(PROCPS_APPLETS_DIR_SBIN),$(1)),/opt/sbin,/kip/bin))
+ 
+ define Package/procps-ng/Default
+   SECTION:=utils
+@@ -80,7 +80,7 @@
+    $(call Package/procps-ng/Default)
+    DEPENDS:=procps-ng
+    TITLE:=Applet $(1) from the procps-ng package
+-   ALTERNATIVES:=200:$(2)/$(1):/opt/libexec/$(1)-procps-ng
++   ALTERNATIVES:=200:$(2)/$(1):/kip/libexec/$(1)-procps-ng
+  endef
+ 
+  define Package/procps-ng-$(1)/description
+@@ -96,20 +96,20 @@
+ 	LDFLAGS="$(TARGET_LDFLAGS)" \
+ 
+ define Package/procps-ng/install
+-	$(INSTALL_DIR) $(1)/opt/lib
+-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libproc2.so* $(1)/opt/lib/
++	$(INSTALL_DIR) $(1)/kip/lib
++	$(CP) $(PKG_INSTALL_DIR)/opt/lib/libproc2.so* $(1)/kip/lib/
+ endef
+ 
+ define Build/InstallDev
+-	$(INSTALL_DIR) $(1)/opt/include $(1)/opt/lib
++	$(INSTALL_DIR) $(1)/opt/include $(1)/kip/lib
+ 	$(CP) $(PKG_INSTALL_DIR)/opt/include/* $(1)/opt/include/
+-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/* $(1)/opt/lib/
++	$(CP) $(PKG_INSTALL_DIR)/opt/lib/* $(1)/kip/lib/
+ endef
+ 
+ define BuildPlugin
+   define Package/procps-ng-$(1)/install
+-	$(INSTALL_DIR) $$(1)/opt/libexec
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(2)/$(1) $$(1)/opt/libexec/$(1)-procps-ng
++	$(INSTALL_DIR) $$(1)/kip/libexec
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)$(2)/$(1) $$(1)/kip/libexec/$(1)-procps-ng
+   endef
+ 
+   $$(eval $$(call BuildPackage,procps-ng-$(1)))

@@ -1,0 +1,32 @@
+--- a/utils/gzip/Makefile	2026-05-16 19:02:47.939456191 -0400
++++ b/utils/gzip/Makefile	2026-05-16 19:02:47.934267387 -0400
+@@ -30,9 +30,9 @@
+   URL:=https://www.gnu.org/software/gzip/
+   MAINTAINER:=Christian Beier <dontmind@freeshell.org>
+   ALTERNATIVES:=\
+-    300:/opt/bin/gunzip:/opt/libexec/gunzip-gnu \
+-    300:/opt/bin/gzip:/opt/libexec/gzip-gnu \
+-    300:/opt/bin/zcat:/opt/libexec/zcat-gnu
++    300:/kip/bin/gunzip:/kip/libexec/gunzip-gnu \
++    300:/kip/bin/gzip:/kip/libexec/gzip-gnu \
++    300:/kip/bin/zcat:/kip/libexec/zcat-gnu
+ endef
+ 
+ define Package/gzip/description
+@@ -48,11 +48,11 @@
+ 	ac_cv_search_clock_gettime=no
+ 
+ define Package/gzip/install
+-	$(SED) 's,/bin/bash,/bin/sh,g' $(PKG_INSTALL_DIR)/opt/bin/{gunzip,zcat}
+-	$(INSTALL_DIR) $(1)/opt/libexec
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/gunzip $(1)/opt/libexec/gunzip-gnu
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/gzip $(1)/opt/libexec/gzip-gnu
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/zcat $(1)/opt/libexec/zcat-gnu
++	$(SED) 's,/bin/bash,/bin/sh,g' $(PKG_INSTALL_DIR)/kip/bin/{gunzip,zcat}
++	$(INSTALL_DIR) $(1)/kip/libexec
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/bin/gunzip $(1)/kip/libexec/gunzip-gnu
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/bin/gzip $(1)/kip/libexec/gzip-gnu
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/bin/zcat $(1)/kip/libexec/zcat-gnu
+ endef
+ 
+ $(eval $(call BuildPackage,gzip))

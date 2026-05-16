@@ -1,0 +1,30 @@
+--- a/devel/diffutils/Makefile	2026-05-16 19:02:47.943502561 -0400
++++ b/devel/diffutils/Makefile	2026-05-16 19:02:47.938267387 -0400
+@@ -32,8 +32,8 @@
+   TITLE:=diffutils
+   URL:=https://www.gnu.org/software/diffutils/
+   ALTERNATIVES:=\
+-    200:/opt/bin/cmp:/opt/libexec/cmp-gnu \
+-    200:/opt/bin/diff:/opt/libexec/diff-gnu
++    200:/kip/bin/cmp:/kip/libexec/cmp-gnu \
++    200:/kip/bin/diff:/kip/libexec/diff-gnu
+ endef
+ 
+ define Package/diffutils/description
+@@ -46,11 +46,11 @@
+ 	ac_cv_func_mempcpy=n
+ 
+ define Package/diffutils/install
+-	$(INSTALL_DIR) $(1)/opt/bin
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/{sdiff,diff3} $(1)/opt/bin/
+-	$(INSTALL_DIR) $(1)/opt/libexec
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/diff $(1)/opt/libexec/diff-gnu
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/cmp $(1)/opt/libexec/cmp-gnu
++	$(INSTALL_DIR) $(1)/kip/bin
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/bin/{sdiff,diff3} $(1)/kip/bin/
++	$(INSTALL_DIR) $(1)/kip/libexec
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/bin/diff $(1)/kip/libexec/diff-gnu
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/bin/cmp $(1)/kip/libexec/cmp-gnu
+ endef
+ 
+ $(eval $(call BuildPackage,diffutils))

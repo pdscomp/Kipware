@@ -1,0 +1,22 @@
+--- a/utils/less/Makefile	2026-05-16 19:02:47.940993916 -0400
++++ b/utils/less/Makefile	2026-05-16 19:02:47.934267387 -0400
+@@ -31,7 +31,7 @@
+   CATEGORY:=Utilities
+   TITLE:=Pager program similar to more
+   URL:=http://www.greenwoodsoftware.com/less/
+-  ALTERNATIVES:=200:/opt/bin/less:/opt/libexec/less-gnu
++  ALTERNATIVES:=200:/kip/bin/less:/kip/libexec/less-gnu
+   DEPENDS:=+libncursesw
+   PROVIDES:=less-wide
+ endef
+@@ -41,8 +41,8 @@
+ endef
+ 
+ define Package/less/install
+-	$(INSTALL_DIR) $(1)/opt/libexec
+-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/less $(1)/opt/libexec/less-gnu
++	$(INSTALL_DIR) $(1)/kip/libexec
++	$(CP) $(PKG_INSTALL_DIR)/kip/bin/less $(1)/kip/libexec/less-gnu
+ endef
+ 
+ $(eval $(call BuildPackage,less))

@@ -1,0 +1,22 @@
+--- a/devel/patch/Makefile	2026-05-16 19:02:47.942118796 -0400
++++ b/devel/patch/Makefile	2026-05-16 19:02:47.934267387 -0400
+@@ -30,7 +30,7 @@
+   TITLE:=patch
+   URL:=https://savannah.gnu.org/projects/patch/
+   MAINTAINER:=Russell Senior <russell@personaltelco.net>
+-  ALTERNATIVES:=300:/opt/bin/patch:/opt/libexec/patch-gnu
++  ALTERNATIVES:=300:/kip/bin/patch:/kip/libexec/patch-gnu
+ endef
+ 
+ define Package/patch/description
+@@ -47,8 +47,8 @@
+ endef
+ 
+ define Package/patch/install
+-	$(INSTALL_DIR) $(1)/opt/libexec
+-	$(CP) $(PKG_INSTALL_DIR)/opt/bin/patch $(1)/opt/libexec/patch-gnu
++	$(INSTALL_DIR) $(1)/kip/libexec
++	$(CP) $(PKG_INSTALL_DIR)/kip/bin/patch $(1)/kip/libexec/patch-gnu
+ endef
+ 
+ $(eval $(call BuildPackage,patch))

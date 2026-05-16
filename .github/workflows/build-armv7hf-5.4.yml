@@ -346,7 +346,6 @@ jobs:
               diffutils
               patch
               procps-ng
-              psmisc
               iperf3
               usbutils
               tree

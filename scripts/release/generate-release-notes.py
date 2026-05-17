@@ -269,7 +269,7 @@ The same installer is available from the live feed:
 
 https://pdscomp.github.io/Kipware/kip/armv7hf-k5.4/installer/generic.sh
 
-For nonstandard layouts, create `/kip` as a symlink or bind mount to the desired install location before running `kipware-install-baremetal.sh` or `generic.sh`. On many embedded targets, installing `wget-ssl` and `ca-certificates` is necessary before `opkg` can fetch HTTPS package updates reliably.
+For nonstandard layouts, create `/kip` as a symlink or bind mount to the desired install location before running `kipware-install-baremetal.sh` or `generic.sh`.
 
 After installation, add Kipware to login shells by sourcing its profile snippet from your system profile, such as `/etc/profile`, `/root/.profile`, or another firmware-specific shell startup file:
 
@@ -329,8 +329,6 @@ Kipware is an optimized Entware port for armv7l 3D printers built around Allwinn
 - `kipware-install-baremetal.sh` — base installer for compatible ARM targets that install directly to `/kip`
 - `kipware-install-images-{args.tag}.sha256` — checksums for install assets
 - `release-notes-{args.tag}.md` — full generated notes, package deltas, and commit list when applicable
-
-The install image tarballs are already gzip-compressed. Do not wrap them in another zip file for target use.
 
 ## Highlights
 

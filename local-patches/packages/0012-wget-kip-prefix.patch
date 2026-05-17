@@ -1,57 +1,56 @@
-diff --git a/net/wget/Makefile b/net/wget/Makefile
-index a1f8e64..cf8963c 100644
+diff -ruN a/net/wget/Makefile b/net/wget/Makefile
 --- a/net/wget/Makefile
 +++ b/net/wget/Makefile
-@@ -49,7 +49,7 @@ $(call Package/wget/Default)
+@@ -49,7 +49,7 @@
    DEPENDS+= +libopenssl +librt
    TITLE+= (with SSL support)
    VARIANT:=ssl
 -  ALTERNATIVES:=400:/opt/bin/wget:/opt/libexec/wget-ssl
 +  ALTERNATIVES:=400:/kip/bin/wget:/kip/libexec/wget-ssl
  endef
-
+ 
  define Package/wget-ssl/description
-@@ -61,7 +61,7 @@ define Package/wget-nossl
+@@ -61,7 +61,7 @@
  $(call Package/wget/Default)
    TITLE+= (without SSL support)
    VARIANT:=nossl
 -  ALTERNATIVES:=300:/opt/bin/wget:/opt/libexec/wget-nossl
 +  ALTERNATIVES:=300:/kip/bin/wget:/kip/libexec/wget-nossl
  endef
-
+ 
  define Package/wget-nossl/description
-@@ -83,13 +83,15 @@ CONFIGURE_VARS += \
+@@ -83,25 +83,28 @@
  ifeq ($(BUILD_VARIANT),ssl)
  	CONFIGURE_ARGS+= \
  		--with-ssl=openssl \
 -		--with-libssl-prefix="$(STAGING_DIR)/opt"
 +		--with-libssl-prefix="$(STAGING_DIR)/kip"
-
+ 
  	CONFIGURE_VARS += \
 -		ac_cv_libssl=yes
 +		ac_cv_libssl=yes \
 +		CONFIGURE_PREFIX="$(STAGING_DIR)/kip"
  endif
-
+ 
  ifeq ($(BUILD_VARIANT),nossl)
  	CONFIGURE_ARGS+= \
  		--without-ssl
 +	CONFIGURE_VARS += \
 +		CONFIGURE_PREFIX="$(STAGING_DIR)/kip"
  endif
-
+ 
  define Package/wget-ssl/install
 -	$(INSTALL_DIR) $(1)/opt/libexec
 -	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/wget $(1)/opt/libexec/wget-ssl
 +	$(INSTALL_DIR) $(1)/kip/libexec
 +	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/bin/wget $(1)/kip/libexec/wget-ssl
  endef
-
+ 
  define Package/wget-nossl/install
 -	$(INSTALL_DIR) $(1)/opt/libexec
 -	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/wget $(1)/opt/libexec/wget-nossl
 +	$(INSTALL_DIR) $(1)/kip/libexec
 +	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/bin/wget $(1)/kip/libexec/wget-nossl
  endef
-
+ 
  $(eval $(call BuildPackage,wget-ssl))

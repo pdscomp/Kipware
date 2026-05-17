@@ -189,7 +189,7 @@ endef
 define Package/terminfo/postinst
 #!/bin/sh
 
-grep -q "^export TERMINFO" $(ENTWARE_PREFIX)/etc/profile || echo "export TERMINFO=/opt/share/terminfo" >> $(ENTWARE_PREFIX)/etc/profile
+grep -q "^export TERMINFO" $(ENTWARE_PREFIX)/etc/profile || echo "export TERMINFO=$(ENTWARE_PREFIX)/share/terminfo" >> $(ENTWARE_PREFIX)/etc/profile
 endef
 
 define Package/libncursesw/install

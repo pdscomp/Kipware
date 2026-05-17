@@ -1,6 +1,16 @@
+diff -ruN a/utils/vim/Makefile b/utils/vim/Makefile
 --- a/utils/vim/Makefile
 +++ b/utils/vim/Makefile
-@@ -194,9 +194,9 @@ endef
+@@ -79,7 +79,7 @@
+ endef
+ 
+ define Package/vim/conffiles
+-/opt/root/.vimrc
++/kip/root/.vimrc
+ endef
+ 
+ Package/vim-full/conffiles = $(Package/vim/conffiles)
+@@ -194,9 +194,9 @@
  
  define Build/Compile/vim-runtime
  	$(MAKE) -C $(PKG_BUILD_DIR)/src DESTDIR="$(PKG_INSTALL_DIR)/vim_runtime" installrtbase
@@ -13,10 +23,62 @@
  endef
  
  define Build/Compile
-@@ -236,6 +236,6 @@ endef
+@@ -208,41 +208,41 @@
+ endef
+ 
+ define Package/vim/install
+-	$(INSTALL_DIR) $(1)/opt/bin
+-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/vim_tiny $(1)/opt/bin/vim
+-	$(INSTALL_DIR) $(1)/opt/share/vim
+-	$(INSTALL_CONF) ./files/defaults.vim $(1)/opt/share/vim
++	$(INSTALL_DIR) $(1)/kip/bin
++	$(INSTALL_BIN) $(PKG_BUILD_DIR)/vim_tiny $(1)/kip/bin/vim
++	$(INSTALL_DIR) $(1)/kip/share/vim
++	$(INSTALL_CONF) ./files/defaults.vim $(1)/kip/share/vim
+ endef
+ 
+ define Package/vim-full/install
+-	$(INSTALL_DIR) $(1)/opt/bin
+-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/vim_normal $(1)/opt/bin/vim
+-	$(INSTALL_DIR) $(1)/opt/share/vim
+-	$(LN) vim $(1)/opt/bin/vimdiff
++	$(INSTALL_DIR) $(1)/kip/bin
++	$(INSTALL_BIN) $(PKG_BUILD_DIR)/vim_normal $(1)/kip/bin/vim
++	$(INSTALL_DIR) $(1)/kip/share/vim
++	$(LN) vim $(1)/kip/bin/vimdiff
+ endef
+ 
+ define Package/vim-fuller/install
+-	$(INSTALL_DIR) $(1)/opt/bin
+-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/vim_huge $(1)/opt/bin/vim
+-	$(INSTALL_DIR) $(1)/opt/share/vim
+-	$(LN) vim $(1)/opt/bin/vimdiff
++	$(INSTALL_DIR) $(1)/kip/bin
++	$(INSTALL_BIN) $(PKG_BUILD_DIR)/vim_huge $(1)/kip/bin/vim
++	$(INSTALL_DIR) $(1)/kip/share/vim
++	$(LN) vim $(1)/kip/bin/vimdiff
+ endef
+ 
+ define Package/vim-runtime/install
+ 	$(CP) $(PKG_INSTALL_DIR)/vim_runtime/* $(1)
+-	$(INSTALL_DIR) $(1)/opt/share/vim/vim$(VIMVER)/pack/dist/opt/netrw
+-	$(RM) -r $(1)/opt/share/vim/vim$(VIMVER)/doc
++	$(INSTALL_DIR) $(1)/kip/share/vim/vim$(VIMVER)/pack/dist/opt/netrw
++	$(RM) -r $(1)/kip/share/vim/vim$(VIMVER)/doc
+ endef
+ 
  define Package/vim-help/install
  	$(TAR) -C $(1) -xf $(PKG_BUILD_DIR)/docs.tar
  	# Entware specific: fix exec path in scripts
 -	$(SED) 's,^#!.*perl,#!/opt/bin/perl,' $(1)/opt/share/vim/vim$(VIMVER)/doc/vim2html.pl
 +	$(SED) 's,^#!.*perl,#!/kip/bin/perl,' $(1)/kip/share/vim/vim$(VIMVER)/doc/vim2html.pl
  endef
+ 
+ define Package/xxd/install
+-	$(INSTALL_DIR) $(1)/opt/bin
+-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/xxd/xxd $(1)/opt/bin
++	$(INSTALL_DIR) $(1)/kip/bin
++	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/xxd/xxd $(1)/kip/bin
+ endef
+ 
+ $(eval $(call BuildPackage,vim))

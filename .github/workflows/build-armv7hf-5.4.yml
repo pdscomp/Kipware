@@ -355,6 +355,9 @@ jobs:
               make
               patchelf
               pkgconf
+              vim-full
+              vim-runtime
+              xxd
               python3-venv
               python3-dev
               # python3-wheel  # not available in defconfig
@@ -369,6 +372,15 @@ jobs:
               printf "%s: %s\n" "${pkg}" "${pkg_ipk:-MISSING}"
               test -n "${pkg_ipk}"
             done
+          '
+
+      - name: Audit Kipware package prefixes
+        if: steps.preflight.outputs.needs_build == 'true' && github.ref_name == 'kip'
+        run: |
+          sudo -H -u appuser env GITHUB_WORKSPACE="${GITHUB_WORKSPACE}" bash -euo pipefail -lc '
+            cd "${GITHUB_WORKSPACE}"
+            python3 scripts/ci/audit_kip_alternatives.py \
+              --packages-dir bin/targets/armv7-5.4/generic-glibc/packages
           '
 
       - name: Stage GitHub Pages feed

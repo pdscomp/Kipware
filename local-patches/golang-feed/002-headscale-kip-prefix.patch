@@ -1,0 +1,410 @@
+diff -ruN a/headscale/Makefile b/headscale/Makefile
+--- a/headscale/Makefile	2026-05-17 13:12:29.698458298 -0400
++++ b/headscale/Makefile	2026-05-17 13:12:29.698458298 -0400
+@@ -56,7 +56,7 @@
+ Package/headscale_nohf/description=$(Package/headscale/description)
+ 
+ define Package/headscale/conffiles
+-/opt/etc/headscale/config.yaml
++/kip/etc/headscale/config.yaml
+ endef
+ 
+ Package/headscale_nohf/conffiles=$(Package/headscale/conffiles)
+@@ -69,13 +69,13 @@
+ GO_TARGET:=./cmd/headscale
+ 
+ define Package/headscale/install
+-	$(INSTALL_DIR) $(1)/opt/bin
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/bin/headscale $(1)/opt/bin
+-	$(INSTALL_DIR) $(1)/opt/etc/headscale
+-	$(CP) $(PKG_BUILD_DIR)/config-example.yaml $(1)/opt/etc/headscale/config.yaml
+-	$(INSTALL_DIR) $(1)/opt/etc/init.d
+-	$(INSTALL_BIN) ./files/S07headscale $(1)/opt/etc/init.d
+-	$(INSTALL_DIR) $(1)/opt/var/{lib,run}/headscale
++	$(INSTALL_DIR) $(1)/kip/bin
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/bin/headscale $(1)/kip/bin
++	$(INSTALL_DIR) $(1)/kip/etc/headscale
++	$(CP) $(PKG_BUILD_DIR)/config-example.yaml $(1)/kip/etc/headscale/config.yaml
++	$(INSTALL_DIR) $(1)/kip/etc/init.d
++	$(INSTALL_BIN) ./files/S07headscale $(1)/kip/etc/init.d
++	$(INSTALL_DIR) $(1)/kip/var/{lib,run}/headscale
+ endef
+ 
+ Package/headscale_nohf/install=$(Package/headscale/install)
+diff -ruN a/headscale/files/S07headscale b/headscale/files/S07headscale
+--- a/headscale/files/S07headscale	2026-05-17 13:12:29.698458298 -0400
++++ b/headscale/files/S07headscale	2026-05-17 13:12:29.698458298 -0400
+@@ -5,6 +5,6 @@
+ ARGS="serve"
+ PREARGS=""
+ DESC="$PROCS"
+-PATH=/opt/sbin:/opt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++PATH=/kip/sbin:/kip/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ 
+-. /opt/etc/init.d/rc.func
++. /kip/etc/init.d/rc.func
+diff -ruN a/headscale/patches/010-fix-paths.patch b/headscale/patches/010-fix-paths.patch
+--- a/headscale/patches/010-fix-paths.patch	2026-05-17 13:12:29.698458298 -0400
++++ b/headscale/patches/010-fix-paths.patch	2026-05-17 13:12:29.698458298 -0400
+@@ -5,14 +5,14 @@
+  var dumpConfigCmd = &cobra.Command{
+  	Use:    "dumpConfig",
+ -	Short:  "dump current config to /etc/headscale/config.dump.yaml, integration test only",
+-+	Short:  "dump current config to /opt/etc/headscale/config.dump.yaml, integration test only",
+++	Short:  "dump current config to /kip/etc/headscale/config.dump.yaml, integration test only",
+  	Hidden: true,
+  	Args: func(cmd *cobra.Command, args []string) error {
+  		return nil
+  	},
+  	Run: func(cmd *cobra.Command, args []string) {
+ -		err := viper.WriteConfigAs("/etc/headscale/config.dump.yaml")
+-+		err := viper.WriteConfigAs("/opt/etc/headscale/config.dump.yaml")
+++		err := viper.WriteConfigAs("/kip/etc/headscale/config.dump.yaml")
+  		if err != nil {
+  			//nolint
+  			fmt.Println("Failed to dump config")
+@@ -23,7 +23,7 @@
+  	cobra.OnInitialize(initConfig)
+  	rootCmd.PersistentFlags().
+ -		StringVarP(&cfgFile, "config", "c", "", "config file (default is /etc/headscale/config.yaml)")
+-+		StringVarP(&cfgFile, "config", "c", "", "config file (default is /opt/etc/headscale/config.yaml)")
+++		StringVarP(&cfgFile, "config", "c", "", "config file (default is /kip/etc/headscale/config.yaml)")
+  	rootCmd.PersistentFlags().
+  		StringP("output", "o", "", "Output format. Empty for human-readable, 'json', 'json-line' or 'yaml'")
+  	rootCmd.PersistentFlags().
+@@ -34,7 +34,7 @@
+  	assert.Equal(t, "127.0.0.1:9090", viper.GetString("metrics_listen_addr"))
+  	assert.Equal(t, "sqlite", viper.GetString("database.type"))
+ -	assert.Equal(t, "/var/lib/headscale/db.sqlite", viper.GetString("database.sqlite.path"))
+-+	assert.Equal(t, "/opt/var/lib/headscale/db.sqlite", viper.GetString("database.sqlite.path"))
+++	assert.Equal(t, "/kip/var/lib/headscale/db.sqlite", viper.GetString("database.sqlite.path"))
+  	assert.Empty(t, viper.GetString("tls_letsencrypt_hostname"))
+  	assert.Equal(t, ":http", viper.GetString("tls_letsencrypt_listen"))
+  	assert.Equal(t, "HTTP-01", viper.GetString("tls_letsencrypt_challenge_type"))
+@@ -43,7 +43,7 @@
+  	assert.Equal(t, "127.0.0.1:9090", viper.GetString("metrics_listen_addr"))
+  	assert.Equal(t, "sqlite", viper.GetString("database.type"))
+ -	assert.Equal(t, "/var/lib/headscale/db.sqlite", viper.GetString("database.sqlite.path"))
+-+	assert.Equal(t, "/opt/var/lib/headscale/db.sqlite", viper.GetString("database.sqlite.path"))
+++	assert.Equal(t, "/kip/var/lib/headscale/db.sqlite", viper.GetString("database.sqlite.path"))
+  	assert.Empty(t, viper.GetString("tls_letsencrypt_hostname"))
+  	assert.Equal(t, ":http", viper.GetString("tls_letsencrypt_listen"))
+  	assert.Equal(t, "HTTP-01", viper.GetString("tls_letsencrypt_challenge_type"))
+@@ -54,7 +54,7 @@
+  		viper.SetConfigName("config")
+  		if path == "" {
+ -			viper.AddConfigPath("/etc/headscale/")
+-+			viper.AddConfigPath("/opt/etc/headscale/")
+++			viper.AddConfigPath("/kip/etc/headscale/")
+  			viper.AddConfigPath("$HOME/.headscale")
+ -			viper.AddConfigPath(".")
+ +			// viper.AddConfigPath(".")
+@@ -66,7 +66,7 @@
+  	viper.SetDefault("policy.mode", "file")
+  
+ -	viper.SetDefault("tls_letsencrypt_cache_dir", "/var/www/.cache")
+-+	viper.SetDefault("tls_letsencrypt_cache_dir", "/opt/var/cache")
+++	viper.SetDefault("tls_letsencrypt_cache_dir", "/kip/var/cache")
+  	viper.SetDefault("tls_letsencrypt_challenge_type", HTTP01ChallengeType)
+  
+  	viper.SetDefault("log.level", "info")
+@@ -75,7 +75,7 @@
+  	viper.SetDefault("derp.update_frequency", "3h")
+  
+ -	viper.SetDefault("unix_socket", "/var/run/headscale/headscale.sock")
+-+	viper.SetDefault("unix_socket", "/opt/var/run/headscale/headscale.sock")
+++	viper.SetDefault("unix_socket", "/kip/var/run/headscale/headscale.sock")
+  	viper.SetDefault("unix_socket_permission", "0o770")
+  
+  	viper.SetDefault("grpc_listen_addr", ":50443")
+@@ -86,10 +86,10 @@
+  func MinimumConfigYAML() string {
+  	return `
+ -private_key_path: /tmp/private.key
+-+private_key_path: /opt/tmp/private.key
+++private_key_path: /kip/tmp/private.key
+  noise:
+ -  private_key_path: /tmp/noise_private.key
+-+  private_key_path: /opt/tmp/noise_private.key
+++  private_key_path: /kip/tmp/noise_private.key
+  `
+  }
+  
+@@ -98,7 +98,7 @@
+  		"HEADSCALE_POLICY_PATH":                       "",
+  		"HEADSCALE_DATABASE_TYPE":                     "sqlite",
+ -		"HEADSCALE_DATABASE_SQLITE_PATH":              "/tmp/integration_test_db.sqlite3",
+-+		"HEADSCALE_DATABASE_SQLITE_PATH":              "/opt/tmp/integration_test_db.sqlite3",
+++		"HEADSCALE_DATABASE_SQLITE_PATH":              "/kip/tmp/integration_test_db.sqlite3",
+  		"HEADSCALE_DATABASE_DEBUG":                    "0",
+  		"HEADSCALE_DATABASE_GORM_SLOW_THRESHOLD":      "1",
+  		"HEADSCALE_EPHEMERAL_NODE_INACTIVITY_TIMEOUT": "30m",
+@@ -108,8 +108,8 @@
+  		"HEADSCALE_DNS_NAMESERVERS_GLOBAL":            "127.0.0.11 1.1.1.1",
+ -		"HEADSCALE_PRIVATE_KEY_PATH":                  "/tmp/private.key",
+ -		"HEADSCALE_NOISE_PRIVATE_KEY_PATH":            "/tmp/noise_private.key",
+-+		"HEADSCALE_PRIVATE_KEY_PATH":                  "/opt/tmp/private.key",
+-+		"HEADSCALE_NOISE_PRIVATE_KEY_PATH":            "/opt/tmp/noise_private.key",
+++		"HEADSCALE_PRIVATE_KEY_PATH":                  "/kip/tmp/private.key",
+++		"HEADSCALE_NOISE_PRIVATE_KEY_PATH":            "/kip/tmp/noise_private.key",
+  		"HEADSCALE_METRICS_LISTEN_ADDR":               "0.0.0.0:9090",
+  		"HEADSCALE_DERP_URLS":                         "https://controlplane.tailscale.com/derpmap/default",
+  		"HEADSCALE_DERP_AUTO_UPDATE_ENABLED":          "false",
+@@ -123,10 +123,10 @@
+ -	aclPolicyPath                 = "/etc/headscale/acl.hujson"
+ -	tlsCertPath                   = "/etc/headscale/tls.cert"
+ -	tlsKeyPath                    = "/etc/headscale/tls.key"
+-+	caCertRoot                    = "/opt/share/ca-certificates"
+-+	aclPolicyPath                 = "/opt/etc/headscale/acl.hujson"
+-+	tlsCertPath                   = "/opt/etc/headscale/tls.cert"
+-+	tlsKeyPath                    = "/opt/etc/headscale/tls.key"
+++	caCertRoot                    = "/kip/share/ca-certificates"
+++	aclPolicyPath                 = "/kip/etc/headscale/acl.hujson"
+++	tlsCertPath                   = "/kip/etc/headscale/tls.cert"
+++	tlsKeyPath                    = "/kip/etc/headscale/tls.key"
+  	headscaleDefaultPort          = 8080
+  	IntegrationTestDockerFileName = "Dockerfile.integration"
+  )
+@@ -135,7 +135,7 @@
+  		hsic.env["HEADSCALE_DERP_SERVER_REGION_NAME"] = "Headscale Embedded DERP"
+  		hsic.env["HEADSCALE_DERP_SERVER_STUN_LISTEN_ADDR"] = "0.0.0.0:3478"
+ -		hsic.env["HEADSCALE_DERP_SERVER_PRIVATE_KEY_PATH"] = "/tmp/derp.key"
+-+		hsic.env["HEADSCALE_DERP_SERVER_PRIVATE_KEY_PATH"] = "/opt/tmp/derp.key"
+++		hsic.env["HEADSCALE_DERP_SERVER_PRIVATE_KEY_PATH"] = "/kip/tmp/derp.key"
+  
+  		// Envknob for enabling DERP debug logs
+  		hsic.env["DERP_DEBUG_LOGS"] = "true"
+@@ -144,11 +144,11 @@
+  		}
+  
+ -		hsic.env["HEADSCALE_DERP_PATHS"] = "/etc/headscale/derp.yml"
+-+		hsic.env["HEADSCALE_DERP_PATHS"] = "/opt/etc/headscale/derp.yml"
+++		hsic.env["HEADSCALE_DERP_PATHS"] = "/kip/etc/headscale/derp.yml"
+  		hsic.filesInContainer = append(hsic.filesInContainer,
+  			fileInContainer{
+ -				path:     "/etc/headscale/derp.yml",
+-+				path:     "/opt/etc/headscale/derp.yml",
+++				path:     "/kip/etc/headscale/derp.yml",
+  				contents: contents,
+  			})
+  
+@@ -157,7 +157,7 @@
+  
+  	// Wait for config.yaml to be written (always written after container start)
+ -	commands = append(commands, "while [ ! -f /etc/headscale/config.yaml ]; do sleep 0.1; done")
+-+	commands = append(commands, "while [ ! -f /opt/etc/headscale/config.yaml ]; do sleep 0.1; done")
+++	commands = append(commands, "while [ ! -f /kip/etc/headscale/config.yaml ]; do sleep 0.1; done")
+  
+  	// If CA certs are configured, wait for them to be written
+  	if len(hsic.caCerts) > 0 {
+@@ -166,7 +166,7 @@
+  
+  	// Run headscale serve
+ -	commands = append(commands, "/usr/local/bin/headscale serve")
+-+	commands = append(commands, "/opt/bin/headscale serve")
+++	commands = append(commands, "/kip/bin/headscale serve")
+  
+  	// Keep container alive after headscale exits for log collection
+ -	commands = append(commands, "/bin/sleep 30")
+@@ -183,8 +183,8 @@
+  		"HEADSCALE_DEBUG_PROFILING_ENABLED=1",
+ -		"HEADSCALE_DEBUG_PROFILING_PATH=/tmp/profile",
+ -		"HEADSCALE_DEBUG_DUMP_MAPRESPONSE_PATH=/tmp/mapresponses",
+-+		"HEADSCALE_DEBUG_PROFILING_PATH=/opt/tmp/profile",
+-+		"HEADSCALE_DEBUG_DUMP_MAPRESPONSE_PATH=/opt/tmp/mapresponses",
+++		"HEADSCALE_DEBUG_PROFILING_PATH=/kip/tmp/profile",
+++		"HEADSCALE_DEBUG_DUMP_MAPRESPONSE_PATH=/kip/tmp/mapresponses",
+  		"HEADSCALE_DEBUG_DEADLOCK=1",
+  		"HEADSCALE_DEBUG_DEADLOCK_TIMEOUT=5s",
+  		"HEADSCALE_DEBUG_HIGH_CARDINALITY_METRICS=1",
+@@ -193,7 +193,7 @@
+  	}
+  
+ -	err = hsic.WriteFile("/etc/headscale/config.yaml", []byte(MinimumConfigYAML()))
+-+	err = hsic.WriteFile("/opt/etc/headscale/config.yaml", []byte(MinimumConfigYAML()))
+++	err = hsic.WriteFile("/kip/etc/headscale/config.yaml", []byte(MinimumConfigYAML()))
+  	if err != nil {
+  		return nil, fmt.Errorf("failed to write headscale config to container: %w", err)
+  	}
+@@ -202,7 +202,7 @@
+  // Shutdown stops and cleans up the Headscale container.
+  func (t *HeadscaleInContainer) Shutdown() (string, string, error) {
+ -	stdoutPath, stderrPath, err := t.SaveLog("/tmp/control")
+-+	stdoutPath, stderrPath, err := t.SaveLog("/opt/tmp/control")
+++	stdoutPath, stderrPath, err := t.SaveLog("/kip/tmp/control")
+  	if err != nil {
+  		log.Printf(
+  			"Failed to save log from control: %s",
+@@ -211,7 +211,7 @@
+  	}
+  
+ -	err = t.SaveMetrics(fmt.Sprintf("/tmp/control/%s_metrics.txt", t.hostname))
+-+	err = t.SaveMetrics(fmt.Sprintf("/opt/tmp/control/%s_metrics.txt", t.hostname))
+++	err = t.SaveMetrics(fmt.Sprintf("/kip/tmp/control/%s_metrics.txt", t.hostname))
+  	if err != nil {
+  		log.Printf(
+  			"Failed to metrics from control: %s",
+@@ -220,7 +220,7 @@
+  	}
+  
+ -	err = t.SaveProfile("/tmp/control")
+-+	err = t.SaveProfile("/opt/tmp/control")
+++	err = t.SaveProfile("/kip/tmp/control")
+  	if err != nil {
+  		log.Printf(
+  			"Failed to save profile from control: %s",
+@@ -229,7 +229,7 @@
+  	}
+  
+ -	err = t.SaveMapResponses("/tmp/control")
+-+	err = t.SaveMapResponses("/opt/tmp/control")
+++	err = t.SaveMapResponses("/kip/tmp/control")
+  	if err != nil {
+  		log.Printf(
+  			"Failed to save mapresponses from control: %s",
+@@ -238,7 +238,7 @@
+  	// We dont have a database to save if we use postgres
+  	if !t.postgres {
+ -		err = t.SaveDatabase("/tmp/control")
+-+		err = t.SaveDatabase("/opt/tmp/control")
+++		err = t.SaveDatabase("/kip/tmp/control")
+  		if err != nil {
+  			log.Printf(
+  				"Failed to save database from control: %s",
+@@ -247,7 +247,7 @@
+  
+  func (t *HeadscaleInContainer) SaveProfile(savePath string) error {
+ -	tarFile, err := t.FetchPath("/tmp/profile")
+-+	tarFile, err := t.FetchPath("/opt/tmp/profile")
+++	tarFile, err := t.FetchPath("/kip/tmp/profile")
+  	if err != nil {
+  		return err
+  	}
+@@ -256,7 +256,7 @@
+  
+  func (t *HeadscaleInContainer) SaveMapResponses(savePath string) error {
+ -	tarFile, err := t.FetchPath("/tmp/mapresponses")
+-+	tarFile, err := t.FetchPath("/opt/tmp/mapresponses")
+++	tarFile, err := t.FetchPath("/kip/tmp/mapresponses")
+  	if err != nil {
+  		return err
+  	}
+@@ -265,7 +265,7 @@
+  
+  	// Also check for any .sqlite files
+ -	sqliteFiles, err := t.Execute([]string{"find", "/tmp", "-name", "*.sqlite*", "-type", "f"})
+-+	sqliteFiles, err := t.Execute([]string{"find", "/opt/tmp", "-name", "*.sqlite*", "-type", "f"})
+++	sqliteFiles, err := t.Execute([]string{"find", "/kip/tmp", "-name", "*.sqlite*", "-type", "f"})
+  	if err != nil {
+  		log.Printf("Warning: could not find sqlite files: %v", err)
+  	} else {
+@@ -274,7 +274,7 @@
+  
+  	// Check if the database file exists and has a schema
+ -	dbPath := "/tmp/integration_test_db.sqlite3"
+-+	dbPath := "/opt/tmp/integration_test_db.sqlite3"
+++	dbPath := "/kip/tmp/integration_test_db.sqlite3"
+  	fileInfo, err := t.Execute([]string{"ls", "-la", dbPath})
+  	if err != nil {
+  		return fmt.Errorf("database file does not exist at %s: %w", dbPath, err)
+@@ -283,7 +283,7 @@
+  	}
+  
+ -	tarFile, err := t.FetchPath("/tmp/integration_test_db.sqlite3")
+-+	tarFile, err := t.FetchPath("/opt/tmp/integration_test_db.sqlite3")
+++	tarFile, err := t.FetchPath("/kip/tmp/integration_test_db.sqlite3")
+  	if err != nil {
+  		return fmt.Errorf("failed to fetch database file: %w", err)
+  	}
+@@ -294,7 +294,7 @@
+  	defaultPingCount     = 5
+  	dockerContextPath    = "../."
+ -	caCertRoot           = "/usr/local/share/ca-certificates"
+-+	caCertRoot           = "/opt/share/ca-certificates"
+++	caCertRoot           = "/kip/share/ca-certificates"
+  	dockerExecuteTimeout = 60 * time.Second
+  )
+  
+@@ -303,7 +303,7 @@
+  // Shutdown stops and cleans up the Tailscale container.
+  func (t *TailscaleInContainer) Shutdown() (string, string, error) {
+ -	stdoutPath, stderrPath, err := t.SaveLog("/tmp/control")
+-+	stdoutPath, stderrPath, err := t.SaveLog("/opt/tmp/control")
+++	stdoutPath, stderrPath, err := t.SaveLog("/kip/tmp/control")
+  	if err != nil {
+  		log.Printf(
+  			"Failed to save log from %s: %s",
+@@ -312,10 +312,10 @@
+  	}
+  
+ -	err = os.WriteFile(fmt.Sprintf("/tmp/control/%s_status.json", t.hostname), []byte(result), 0o755)
+-+	err = os.WriteFile(fmt.Sprintf("/opt/tmp/control/%s_status.json", t.hostname), []byte(result), 0o755)
+++	err = os.WriteFile(fmt.Sprintf("/kip/tmp/control/%s_status.json", t.hostname), []byte(result), 0o755)
+  	if err != nil {
+ -		return nil, fmt.Errorf("status netmap to /tmp/control: %w", err)
+-+		return nil, fmt.Errorf("status netmap to /opt/tmp/control: %w", err)
+++		return nil, fmt.Errorf("status netmap to /kip/tmp/control: %w", err)
+  	}
+  
+  	return &status, err
+@@ -324,10 +324,10 @@
+  	}
+  
+ -	err = os.WriteFile(fmt.Sprintf("/tmp/control/%s_netmap.json", t.hostname), []byte(result), 0o755)
+-+	err = os.WriteFile(fmt.Sprintf("/opt/tmp/control/%s_netmap.json", t.hostname), []byte(result), 0o755)
+++	err = os.WriteFile(fmt.Sprintf("/kip/tmp/control/%s_netmap.json", t.hostname), []byte(result), 0o755)
+  	if err != nil {
+ -		return nil, fmt.Errorf("saving netmap to /tmp/control: %w", err)
+-+		return nil, fmt.Errorf("saving netmap to /opt/tmp/control: %w", err)
+++		return nil, fmt.Errorf("saving netmap to /kip/tmp/control: %w", err)
+  	}
+  
+  	return &nm, err
+diff -ruN a/headscale/patches/020-config.patch b/headscale/patches/020-config.patch
+--- a/headscale/patches/020-config.patch	2026-05-17 13:12:29.698458298 -0400
++++ b/headscale/patches/020-config.patch	2026-05-17 13:12:29.698458298 -0400
+@@ -5,7 +5,7 @@
+    # Tailscale clients when using the new Noise-based protocol. A missing key
+    # will be automatically generated.
+ -  private_key_path: /var/lib/headscale/noise_private.key
+-+  private_key_path: /opt/var/lib/headscale/noise_private.key
+++  private_key_path: /kip/var/lib/headscale/noise_private.key
+  
+  # List of IP prefixes to allocate tailaddresses from.
+  # Each prefix consists of either an IPv4 or IPv6 address,
+@@ -14,7 +14,7 @@
+      # Private key used to encrypt the traffic between headscale DERP and
+      # Tailscale clients. A missing key will be automatically generated.
+ -    private_key_path: /var/lib/headscale/derp_server_private.key
+-+    private_key_path: /opt/var/lib/headscale/derp_server_private.key
+++    private_key_path: /kip/var/lib/headscale/derp_server_private.key
+  
+      # This flag can be used, so the DERP map entry for the embedded DERP server is not written automatically,
+      # it enables the creation of your very own DERP map entry using a locally available file with the parameter DERP.paths
+@@ -23,7 +23,7 @@
+    # SQLite config
+    sqlite:
+ -    path: /var/lib/headscale/db.sqlite
+-+    path: /opt/var/lib/headscale/db.sqlite
+++    path: /kip/var/lib/headscale/db.sqlite
+  
+      # Enable WAL mode for SQLite. This is recommended for production environments.
+      # https://www.sqlite.org/wal.html
+@@ -32,7 +32,7 @@
+  # letsencrypt
+  # For production:
+ -tls_letsencrypt_cache_dir: /var/lib/headscale/cache
+-+tls_letsencrypt_cache_dir: /opt/var/lib/headscale/cache
+++tls_letsencrypt_cache_dir: /kip/var/lib/headscale/cache
+  
+  # Type of ACME challenge to use, currently supported types:
+  # HTTP-01 or TLS-ALPN-01
+@@ -41,7 +41,7 @@
+  # Unix socket used for the CLI to connect without authentication
+  # Note: for production you will want to set this to something like:
+ -unix_socket: /var/run/headscale/headscale.sock
+-+unix_socket: /opt/var/run/headscale/headscale.sock
+++unix_socket: /kip/var/run/headscale/headscale.sock
+  unix_socket_permission: "0770"
+  
+  # OpenID Connect

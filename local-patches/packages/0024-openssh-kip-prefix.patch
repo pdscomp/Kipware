@@ -1,0 +1,219 @@
+diff -ruN a/net/openssh/Makefile b/net/openssh/Makefile
+--- a/net/openssh/Makefile
++++ b/net/openssh/Makefile
+@@ -53,8 +53,8 @@
+ 	DEPENDS+= +libopenssl +zlib
+ 	TITLE+= client
+ 	ALTERNATIVES:=\
+-		200:/opt/bin/ssh:/opt/libexec/ssh-openssh \
+-		200:/opt/bin/scp:/opt/libexec/scp-openssh
++		200:/kip/bin/ssh:/kip/libexec/ssh-openssh \
++		200:/kip/bin/scp:/kip/libexec/scp-openssh
+ endef
+ 
+ define Package/openssh-client/description
+@@ -62,7 +62,7 @@
+ endef
+ 
+ define Package/openssh-client/conffiles
+-/opt/etc/ssh/ssh_config
++/kip/etc/ssh/ssh_config
+ endef
+ 
+ define Package/openssh-client-utils
+@@ -79,7 +79,7 @@
+ 	$(call Package/openssh/Default)
+ 	DEPENDS+= +libopenssl +zlib
+ 	TITLE+= keygen
+-	ALTERNATIVES:=200:/opt/bin/ssh-keygen:/opt/libexec/ssh-keygen-openssh
++	ALTERNATIVES:=200:/kip/bin/ssh-keygen:/kip/libexec/ssh-keygen-openssh
+ endef
+ 
+ define Package/openssh-keygen/description
+@@ -99,13 +99,13 @@
+ endef
+ 
+ define Package/openssh-server/conffiles
+-/opt/etc/ssh/sshd_config
+-/opt/etc/ssh/sshd_config.d/
+-/opt/etc/ssh/ssh_host_ed25519_key
+-/opt/etc/ssh/ssh_host_ed25519_key.pub
+-/opt/etc/ssh/ssh_host_rsa_key
+-/opt/etc/ssh/ssh_host_rsa_key.pub
+-/opt/root/.ssh/authorized_keys
++/kip/etc/ssh/sshd_config
++/kip/etc/ssh/sshd_config.d/
++/kip/etc/ssh/ssh_host_ed25519_key
++/kip/etc/ssh/ssh_host_ed25519_key.pub
++/kip/etc/ssh/ssh_host_rsa_key
++/kip/etc/ssh/ssh_host_rsa_key.pub
++/kip/root/.ssh/authorized_keys
+ endef
+ 
+ define Package/openssh-server-pam
+@@ -121,8 +121,8 @@
+ endef
+ 
+ define Package/openssh-server-pam/conffiles
+-/opt/etc/pam.d/sshd
+-/opt/etc/security/access-sshd-local.conf
++/kip/etc/pam.d/sshd
++/kip/etc/security/access-sshd-local.conf
+ $(Package/openssh-server/conffiles)
+ endef
+ 
+@@ -156,7 +156,7 @@
+ endef
+ 
+ define Package/openssh-sftp-avahi-service/conffiles
+-/opt/etc/avahi/services/sftp-ssh.service
++/kip/etc/avahi/services/sftp-ssh.service
+ endef
+ 
+ define Package/openssh-sk-helper
+@@ -172,10 +172,10 @@
+ endef
+ 
+ CONFIGURE_ARGS += \
+-	--sysconfdir=/opt/etc/ssh \
+-	--with-pid-dir=/opt/var/run \
++	--sysconfdir=/kip/etc/ssh \
++	--with-pid-dir=/kip/var/run \
+ 	--with-privsep-user=sshd \
+-	--with-privsep-path=/opt/var/empty \
++	--with-privsep-path=/kip/var/empty \
+ 	--disable-strip \
+ 	--disable-etc-default-login \
+ 	--disable-lastlog \
+@@ -211,74 +211,74 @@
+ endef
+ 
+ define Package/openssh-moduli/install
+-	install -d -m0755 $(1)/opt/etc/ssh
+-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/etc/ssh/moduli $(1)/opt/etc/ssh/
++	install -d -m0755 $(1)/kip/etc/ssh
++	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/kip/etc/ssh/moduli $(1)/kip/etc/ssh/
+ endef
+ 
+ define Package/openssh-client/install
+-	install -d -m0755 $(1)/opt/etc/ssh
+-	$(CP) $(PKG_INSTALL_DIR)/opt/etc/ssh/ssh_config $(1)/opt/etc/ssh/
+-	$(INSTALL_DIR) $(1)/opt/libexec
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/ssh $(1)/opt/libexec/ssh-openssh
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/scp $(1)/opt/libexec/scp-openssh
++	install -d -m0755 $(1)/kip/etc/ssh
++	$(CP) $(PKG_INSTALL_DIR)/kip/etc/ssh/ssh_config $(1)/kip/etc/ssh/
++	$(INSTALL_DIR) $(1)/kip/libexec
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/bin/ssh $(1)/kip/libexec/ssh-openssh
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/bin/scp $(1)/kip/libexec/scp-openssh
+ endef
+ 
+ define Package/openssh-client-utils/install
+-	$(INSTALL_DIR) $(1)/opt/bin
+-	$(INSTALL_BIN) $(foreach bin,add agent keyscan keysign,$(PKG_BUILD_DIR)/ssh-$(bin)) $(1)/opt/bin/
++	$(INSTALL_DIR) $(1)/kip/bin
++	$(INSTALL_BIN) $(foreach bin,add agent keyscan keysign,$(PKG_BUILD_DIR)/ssh-$(bin)) $(1)/kip/bin/
+ endef
+ 
+ define Package/openssh-keygen/install
+-	$(INSTALL_DIR) $(1)/opt/libexec
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/ssh-keygen $(1)/opt/libexec/ssh-keygen-openssh
++	$(INSTALL_DIR) $(1)/kip/libexec
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/bin/ssh-keygen $(1)/kip/libexec/ssh-keygen-openssh
+ endef
+ 
+ define Package/openssh-sk-helper/install
+-	$(INSTALL_DIR) $(1)/opt/lib
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/lib/ssh-sk-helper $(1)/opt/lib/
++	$(INSTALL_DIR) $(1)/kip/lib
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/lib/ssh-sk-helper $(1)/kip/lib/
+ endef
+ 
+ define Package/openssh-server/install
+-	install -d -m0755 $(1)/opt/etc/ssh $(1)/opt/etc/ssh/sshd_config.d
+-	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/opt/etc/ssh/sshd_config $(1)/opt/etc/ssh/
+-	sed -r -i 's,^#(HostKey /opt/etc/ssh/ssh_host_(rsa|ed25519)_key)$$$$,\1,' $(1)/opt/etc/ssh/sshd_config
+-	$(INSTALL_DIR) $(1)/opt/etc/init.d
+-	$(INSTALL_BIN) ./files/S40sshd $(1)/opt/etc/init.d/
++	install -d -m0755 $(1)/kip/etc/ssh $(1)/kip/etc/ssh/sshd_config.d
++	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/kip/etc/ssh/sshd_config $(1)/kip/etc/ssh/
++	sed -r -i 's,^#(HostKey /kip/etc/ssh/ssh_host_(rsa|ed25519)_key)$$$$,\1,' $(1)/kip/etc/ssh/sshd_config
++	$(INSTALL_DIR) $(1)/kip/etc/init.d
++	$(INSTALL_BIN) ./files/S40sshd $(1)/kip/etc/init.d/
+ #	$(INSTALL_DIR) $(1)/lib/preinit
+ #	$(INSTALL_BIN) ./files/sshd.failsafe $(1)/lib/preinit/99_10_failsafe_sshd
+-	$(INSTALL_DIR) $(1)/opt/sbin
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/sbin/sshd $(1)/opt/sbin/
+-	$(INSTALL_DIR) $(1)/opt/lib
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/lib/sshd-auth $(1)/opt/lib/
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/lib/sshd-session $(1)/opt/lib/
+-	$(INSTALL_DIR) $(1)/opt/var/empty
++	$(INSTALL_DIR) $(1)/kip/sbin
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/sbin/sshd $(1)/kip/sbin/
++	$(INSTALL_DIR) $(1)/kip/lib
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/lib/sshd-auth $(1)/kip/lib/
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/lib/sshd-session $(1)/kip/lib/
++	$(INSTALL_DIR) $(1)/kip/var/empty
+ endef
+ 
+ define Package/openssh-server-pam/install
+ 	$(call Package/openssh-server/install,$(1))
+-	sed -i 's,#PasswordAuthentication yes,PasswordAuthentication no,g' $(1)/opt/etc/ssh/sshd_config
+-	sed -i 's,#UsePAM no,UsePAM yes,g' $(1)/opt/etc/ssh/sshd_config
+-	$(INSTALL_DIR) $(1)/opt/etc/pam.d
+-	$(INSTALL_DATA) ./files/sshd.pam $(1)/opt/etc/pam.d/sshd
+-	$(INSTALL_DIR) $(1)/opt/etc/security
+-	$(INSTALL_DATA) ./files/sshd.pam-access $(1)/opt/etc/security/access-sshd-local.conf
++	sed -i 's,#PasswordAuthentication yes,PasswordAuthentication no,g' $(1)/kip/etc/ssh/sshd_config
++	sed -i 's,#UsePAM no,UsePAM yes,g' $(1)/kip/etc/ssh/sshd_config
++	$(INSTALL_DIR) $(1)/kip/etc/pam.d
++	$(INSTALL_DATA) ./files/sshd.pam $(1)/kip/etc/pam.d/sshd
++	$(INSTALL_DIR) $(1)/kip/etc/security
++	$(INSTALL_DATA) ./files/sshd.pam-access $(1)/kip/etc/security/access-sshd-local.conf
+ endef
+ 
+ define Package/openssh-sftp-client/install
+-	$(INSTALL_DIR) $(1)/opt/bin
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/sftp $(1)/opt/bin/
++	$(INSTALL_DIR) $(1)/kip/bin
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/kip/bin/sftp $(1)/kip/bin/
+ endef
+ 
+ define Package/openssh-sftp-server/install
+-	$(INSTALL_DIR) $(1)/opt/lib
+-	$(CP) $(PKG_INSTALL_DIR)/opt/lib/sftp-server $(1)/opt/lib/
+-	$(INSTALL_DIR) $(1)/opt/libexec
+-	ln -sf ../lib/sftp-server $(1)/opt/libexec/sftp-server
++	$(INSTALL_DIR) $(1)/kip/lib
++	$(CP) $(PKG_INSTALL_DIR)/kip/lib/sftp-server $(1)/kip/lib/
++	$(INSTALL_DIR) $(1)/kip/libexec
++	ln -sf ../lib/sftp-server $(1)/kip/libexec/sftp-server
+ endef
+ 
+ define Package/openssh-sftp-avahi-service/install
+-	$(INSTALL_DIR) $(1)/opt/etc/avahi/services
+-	$(INSTALL_DATA) ./files/sftp-ssh.service $(1)/opt/etc/avahi/services/
++	$(INSTALL_DIR) $(1)/kip/etc/avahi/services
++	$(INSTALL_DATA) ./files/sftp-ssh.service $(1)/kip/etc/avahi/services/
+ endef
+ 
+ $(eval $(call BuildPackage,openssh-client))
+diff -ruN a/net/openssh/files/S40sshd b/net/openssh/files/S40sshd
+--- a/net/openssh/files/S40sshd
++++ b/net/openssh/files/S40sshd
+@@ -1,12 +1,12 @@
+ #!/bin/sh
+ 
+-prefix="/opt"
++prefix="/kip"
+ PATH=${prefix}/bin:${prefix}/sbin:/sbin:/bin:/usr/sbin:/usr/bin
+-OPID=/opt/var/run/sshd.pid
++OPID=/kip/var/run/sshd.pid
+ 
+ start() {
+ 	echo "starting sshd..."
+-	/opt/sbin/sshd
++	/kip/sbin/sshd
+ 	}
+ 
+ stop() {

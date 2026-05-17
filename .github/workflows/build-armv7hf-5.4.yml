@@ -355,6 +355,9 @@ jobs:
               make
               patchelf
               pkgconf
+              vim-full
+              vim-runtime
+              xxd
               python3-venv
               python3-dev
               # python3-wheel  # not available in defconfig

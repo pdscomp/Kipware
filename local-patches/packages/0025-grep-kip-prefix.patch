@@ -1,0 +1,31 @@
+--- a/utils/grep/Makefile
++++ b/utils/grep/Makefile
+@@ -34,10 +34,10 @@ define Package/grep
+   TITLE:=grep search utility - full version
+   DEPENDS:=+libpcre2
+   URL:=https://www.gnu.org/software/grep/
+   ALTERNATIVES:=\
+-    300:/opt/bin/egrep:/opt/libexec/egrep-gnu \
+-    300:/opt/bin/fgrep:/opt/libexec/fgrep-gnu \
+-    300:/opt/bin/grep:/opt/libexec/grep-gnu
++    300:/kip/bin/egrep:/kip/libexec/egrep-gnu \
++    300:/kip/bin/fgrep:/kip/libexec/fgrep-gnu \
++    300:/kip/bin/grep:/kip/libexec/grep-gnu
+ endef
+ 
+ define Package/grep/description
+@@ -47,10 +47,10 @@ prints the matching lines.
+ endef
+ 
+ define Package/grep/install
+-	$(INSTALL_DIR) $(1)/opt/libexec
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/egrep $(1)/opt/libexec/egrep-gnu
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/fgrep $(1)/opt/libexec/fgrep-gnu
+-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/grep $(1)/opt/libexec/grep-gnu
++	$(INSTALL_DIR) $(1)/kip/libexec
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/egrep $(1)/kip/libexec/egrep-gnu
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/fgrep $(1)/kip/libexec/fgrep-gnu
++	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/opt/bin/grep $(1)/kip/libexec/grep-gnu
+ endef
+ 
+ $(eval $(call BuildPackage,grep))

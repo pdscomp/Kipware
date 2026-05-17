@@ -2,224 +2,236 @@
   {
     "filename": "adb_5.0.2~6fe92d1a-4_armv7-5.4.ipk",
     "package": "adb",
-    "sha256": "sha256:5d5d737fc63963a292ca575d0d19eb51536d58f7c2f51c362f1d41e3f8f4d189",
-    "size": 59599
+    "sha256": "sha256:64958334793cc8125b90b8e6dfd205e57f5200f0cb0c8ba12a00799d39dcc5ec",
+    "size": 59595
   },
   {
     "filename": "agetty_2.41.3-1_armv7-5.4.ipk",
     "package": "agetty",
-    "sha256": "sha256:1be3654a57e2d803180176fc1f7f700461463aefe429cb2873d3ea27109cfb12",
-    "size": 37604
+    "sha256": "sha256:9f1f8c9894393bdf280850c8640b58f91d234f8d19bacf323f67df88cec3b7f4",
+    "size": 37598
   },
   {
     "filename": "ar_2.45.1-1_armv7-5.4.ipk",
     "package": "ar",
-    "sha256": "sha256:5580c7d7c9bb8fdc5938cefefe9bee5aa038ef4861be94b491ec7110477c0ba1",
-    "size": 25113
+    "sha256": "sha256:531e10f80512978e6c82109d85f353bb4c5037e49e586b2f187fa512ea9d392c",
+    "size": 25124
   },
   {
     "filename": "arptables-legacy_0.0.5-1_armv7-5.4.ipk",
     "package": "arptables-legacy",
-    "sha256": "sha256:ad8b442082d0401efe83f20dce847ea2bb1327ba6408514dead1f1a88d797a37",
-    "size": 22934
+    "sha256": "sha256:753d3495e16562ea49dc7b461eb9e0dc2f509d4af3de6c0669f1ba72baaa17f6",
+    "size": 22935
   },
   {
     "filename": "badblocks_1.47.3-1_armv7-5.4.ipk",
     "package": "badblocks",
-    "sha256": "sha256:c3070b6bba41a8884a80734a8b026b5624c60c75f6abb178f22e76005d364f82",
-    "size": 12485
+    "sha256": "sha256:768b1ea29c671f297b7d9a4df02c8feeb4f2aef3799608f72f8f9f6c36ad9e27",
+    "size": 12496
   },
   {
     "filename": "bash_5.3-2_armv7-5.4.ipk",
     "package": "bash",
-    "sha256": "sha256:0768414b1937bb68c2d0788d0990caf810d3f42ce8ce9e2bb0e063cdb30badd1",
-    "size": 510892
+    "sha256": "sha256:6b2e834f03f5c311468e2b32e5a2dea05ce0dd699d67a8e25577e44dfa52590a",
+    "size": 510908
   },
   {
     "filename": "binutils_2.45.1-1_armv7-5.4.ipk",
     "package": "binutils",
-    "sha256": "sha256:f23ab052f495953c8c90f4f3b06f8c2b04b9f930c0e8bda5c3697bb29ac02d41",
-    "size": 1240131
+    "sha256": "sha256:bbf351d2c69653a21d2f562639612a7c8eac3ad27b1a86c50591ce147dc375b8",
+    "size": 1240092
   },
   {
     "filename": "blkdiscard_2.41.3-1_armv7-5.4.ipk",
     "package": "blkdiscard",
-    "sha256": "sha256:aec44c9dc3dd787cac6df4169d1e1299d72c3b3011d6d9fdd0b0dd6c5641fdab",
-    "size": 12902
+    "sha256": "sha256:642c470bc92daafc1888a55f7a4f2595631f2eeff8e9a9d9ec879f6536b5832d",
+    "size": 12889
   },
   {
     "filename": "blkid_2.41.3-1_armv7-5.4.ipk",
     "package": "blkid",
-    "sha256": "sha256:66e9dfa7695fe3bb9d09b07c971702405b4105f88364f4393119e6eb4e0c3593",
-    "size": 50910
+    "sha256": "sha256:0d758bc9450fea23ef6e7870c557fad6c520f924b797b6f2b79fd57344a61c2d",
+    "size": 50932
   },
   {
     "filename": "blockdev_2.41.3-1_armv7-5.4.ipk",
     "package": "blockdev",
-    "sha256": "sha256:c08d14e86e445eebd9fa65e6e1c16aa1e3a653d6e6a348c04183e3e0cd116d32",
-    "size": 31101
+    "sha256": "sha256:14505dd6cc29a77724610571bb3db6c9b962defaf57c279561d3d4fda7ed0652",
+    "size": 31098
   },
   {
     "filename": "bsdiff_4.3-2_armv7-5.4.ipk",
     "package": "bsdiff",
-    "sha256": "sha256:02e07c0474dc5fbe0561c7113dfb693e1fd85ce5ca0e86f9e420f5266ec25427",
-    "size": 5405
+    "sha256": "sha256:0049fedd9f00e452ee308ca712c11d4908e8ee7fe8b02f9f4210d7730e7b252a",
+    "size": 5404
   },
   {
     "filename": "bspatch_4.3-2_armv7-5.4.ipk",
     "package": "bspatch",
-    "sha256": "sha256:63b45b490e51af0478eab41fdf3ce9b26bc8742072640998a0d4b770c64ab6d2",
-    "size": 4152
+    "sha256": "sha256:7f7895cda03c3280aefd7c719bdf3f8774583e094bcd2681eb119965b7ca376e",
+    "size": 4162
   },
   {
     "filename": "busybox_1.37.0-6_armv7-5.4.ipk",
     "package": "busybox",
-    "sha256": "sha256:9a2f26710dcb078c783fd9a46f6c5dfa7afbe13e45e5aaacec3d279262a850a0",
-    "size": 322004
+    "sha256": "sha256:40b05095c9960d35ab1d4bb82faccc9704c5fd4ecced48d1c5d37dca8dd458b9",
+    "size": 321991
   },
   {
     "filename": "bzip2_1.0.8-2_armv7-5.4.ipk",
     "package": "bzip2",
-    "sha256": "sha256:e2662ea9ad8f8d5c65abd628ee5c1e202e84f8d5068c418a3e4c0d6cba82da44",
-    "size": 14346
+    "sha256": "sha256:9f00f8d6bdd0b237da76cafc95c3d7cdf33f5fae5b42d6b55e75f2a4b6807b41",
+    "size": 14357
   },
   {
     "filename": "ca-bundle_20250419-2_all.ipk",
     "package": "ca-bundle",
-    "sha256": "sha256:faf41f416655ec15e8691d18cd898b13bd3248dd01c0b883cb70e9464995ce79",
-    "size": 131038
+    "sha256": "sha256:b963a55942ef98f5234ba5de14d50888d54a0a2445cba6da198fbc09cd568e62",
+    "size": 131034
   },
   {
     "filename": "ca-certificates_20250419-2_all.ipk",
     "package": "ca-certificates",
-    "sha256": "sha256:2033fd437c456f67eb327e18ae2c777f999da9f4fba907b9aaf2ec544e3077e4",
-    "size": 142206
+    "sha256": "sha256:89659805d90352390632a91c0816be518549e3239c2d317bf781ccada4ca4413",
+    "size": 142240
   },
   {
     "filename": "cal_2.41.3-1_armv7-5.4.ipk",
     "package": "cal",
-    "sha256": "sha256:02806dd49126848445786f41f2cb036810868a6a3410391fa583f703c6ed5893",
-    "size": 28708
+    "sha256": "sha256:c751ba855fb5fc5fbffefe5b296ed1d90093169e7024b468d9d722e495ff62a6",
+    "size": 28706
   },
   {
     "filename": "cfdisk_2.41.3-1_armv7-5.4.ipk",
     "package": "cfdisk",
-    "sha256": "sha256:a4af6273a8e95fbec8ba4e2ccf6e0c73cd8980d7d58d1f51416da2bf5aa77104",
-    "size": 40947
+    "sha256": "sha256:eab3dae659c8bd25e89fe1087b56d8286c98fb964972fb17873b2bd601e055d9",
+    "size": 40965
   },
   {
     "filename": "chat_2.4.8_git20201003-3_armv7-5.4.ipk",
     "package": "chat",
-    "sha256": "sha256:538af1180289d23918f443e7cafe2e97f3d4d2057de81696c8d4da3e78c62514",
-    "size": 10553
+    "sha256": "sha256:8ff82c04bf1b9120d008f8e7d3310330ea2243ba37e1faa7f7f877d5a6f527e4",
+    "size": 10558
   },
   {
     "filename": "chattr_1.47.3-1_armv7-5.4.ipk",
     "package": "chattr",
-    "sha256": "sha256:8185e82bfbf3837b1b23ed9e3720ed091675e118abb6241065345be9e8d40317",
-    "size": 4769
+    "sha256": "sha256:b05b9b3e39142b8015a7d5a8b7101882d40e4e337e21991699b56fa2f08759ca",
+    "size": 4774
   },
   {
     "filename": "colrm_2.41.3-1_armv7-5.4.ipk",
     "package": "colrm",
-    "sha256": "sha256:a135bae32dd9dcab01c0e7a1f9ac91d0b31ffec8b6781f89bba8e42e98d6c5b4",
+    "sha256": "sha256:8f8044e7eccdb61c2bd5a5b9c948f363a4bff971a2201fdc945d8ae0d579b7a7",
     "size": 10525
   },
   {
     "filename": "column_2.41.3-1_armv7-5.4.ipk",
     "package": "column",
-    "sha256": "sha256:97b5fc3f26d152e9e419707f63d707c103c414688f390b2b1f3f37277853bfad",
-    "size": 20716
+    "sha256": "sha256:506b6ab9c9b3b08a4e663955780eef20a5a5958ff55240d2f1ccba13001e82b6",
+    "size": 20809
   },
   {
     "filename": "comgt-directip_0.32-36_armv7-5.4.ipk",
     "package": "comgt-directip",
-    "sha256": "sha256:ce7e53d9516b40bb9814c5836776fe57255a338d5e24ba40a094f22c0f1c39eb",
-    "size": 1253
+    "sha256": "sha256:c6df6dd2ebf04309bb4c0a5906a4517a180602d2e88b99c4136d4f31ee455bb7",
+    "size": 1251
   },
   {
     "filename": "comgt-ncm_0.32-36_armv7-5.4.ipk",
     "package": "comgt-ncm",
-    "sha256": "sha256:982b5878b6a1fa3823df80e934dc25c628514f6099db50f87805356bff332b75",
-    "size": 1689
+    "sha256": "sha256:ce8ce3a4cf0dd9582474c6c189b547f80e3a8c33e98511b7cf8d27fcce2c32f5",
+    "size": 1701
   },
   {
     "filename": "comgt_0.32-36_armv7-5.4.ipk",
     "package": "comgt",
-    "sha256": "sha256:55f220f275126bf74583149e1c36a63690784c8de972960157f28c8c9ff38df1",
-    "size": 21120
+    "sha256": "sha256:6aaf418d51a57a086936e01969e670b2c97a4ab638f4efd5f1b4437a8d509690",
+    "size": 21137
+  },
+  {
+    "filename": "curl_8.15.0-2_armv7-5.4.ipk",
+    "package": "curl",
+    "sha256": "sha256:7f7dc6b23c98d24837704ab1cf156905bcc221e176e22845fa863fa488a0216b",
+    "size": 75286
   },
   {
     "filename": "debugfs_1.47.3-1_armv7-5.4.ipk",
     "package": "debugfs",
-    "sha256": "sha256:7bd742b200545da9d9a7e788d20a7135637806894180f3b0de06f44c7106efaa",
-    "size": 79086
+    "sha256": "sha256:d1ae8143d3937d8b65fedf39585a77a740a97936bd24770d57e104422c5dbc05",
+    "size": 79112
+  },
+  {
+    "filename": "diffutils_3.10-1_armv7-5.4.ipk",
+    "package": "diffutils",
+    "sha256": "sha256:637cfc193c9f630e93dc83a7276b4b4654490d5af1afbd3a70c01a3eb5c7e9c7",
+    "size": 164278
   },
   {
     "filename": "dmesg_2.41.3-1_armv7-5.4.ipk",
     "package": "dmesg",
-    "sha256": "sha256:e395a52344beb08722f997c763a78ca3f9bb87e5c222a62833d65b9dc68a5111",
-    "size": 32334
+    "sha256": "sha256:838d8b5241a05594a275e1ffe2519b3e015d84416948a9ffab12de32e77793a2",
+    "size": 32346
   },
   {
     "filename": "dnsmasq-full_2.92-1_armv7-5.4.ipk",
     "package": "dnsmasq-full",
-    "sha256": "sha256:6e41e8d583dfb5c2f5e1ec019503e1f2d6ebd85e431263f45d21962334a51ee9",
-    "size": 184238
+    "sha256": "sha256:98d994c6058a0577ef49d63dceb85f4473f48b663658198ef75aec97b6fb2a5a",
+    "size": 184240
   },
   {
     "filename": "dropbear_2025.89-1_armv7-5.4.ipk",
     "package": "dropbear",
-    "sha256": "sha256:dcc381e9650954f1fc09da38199bdd29d882ebc22dbadaa26c0588656b0c2d61",
-    "size": 104574
+    "sha256": "sha256:b34eb937109bd34bbf6aab1755ed7c51226ccd4eb0a08d4b9a2ac45937fe5c31",
+    "size": 104560
   },
   {
     "filename": "dropbearconvert_2025.89-1_armv7-5.4.ipk",
     "package": "dropbearconvert",
-    "sha256": "sha256:e8e6ce4de2fc8b090e0a3efb6b0c38849421eb19549d49db4e6ae41fc3cd7b33",
-    "size": 23868
+    "sha256": "sha256:7c8ec40939a857f18d3fbe4c1be3ab65311d7af410000ae0a8e9522f482d2c92",
+    "size": 23859
   },
   {
     "filename": "dtc_1.7.2-1_armv7-5.4.ipk",
     "package": "dtc",
-    "sha256": "sha256:8956695622be7b9ba291182d62ef3b2f3e35b2cc82a269403071b5998899906c",
-    "size": 45161
+    "sha256": "sha256:10ec7db10dcdcb35d271faf84d52b29f726d98736bcd72d8dd752f0bd75110bf",
+    "size": 45152
   },
   {
     "filename": "dumpe2fs_1.47.3-1_armv7-5.4.ipk",
     "package": "dumpe2fs",
-    "sha256": "sha256:8f456f46f760bc1755a151cad5e33c27f3743e5f4a614e425bc242e7c4d87204",
-    "size": 11486
+    "sha256": "sha256:387854692a2f04d37818fc9d3b2ca9a22d2007c77653d5a5f028debcf1e3ad99",
+    "size": 11480
   },
   {
     "filename": "e2freefrag_1.47.3-1_armv7-5.4.ipk",
     "package": "e2freefrag",
-    "sha256": "sha256:9647fedd998ed64fa0c3e1cdfc4b63935fec369e2c9ace61e5892881f111daa6",
-    "size": 5643
+    "sha256": "sha256:26c0dce535e1715aa5a0888ed04ef0a831920397e527910952c38235fe2bb6c8",
+    "size": 5642
   },
   {
     "filename": "e2fsprogs_1.47.3-1_armv7-5.4.ipk",
     "package": "e2fsprogs",
-    "sha256": "sha256:940789067b1276ffcc993313f6544618678a482a113722e8cbd50eca3c88713f",
-    "size": 200760
+    "sha256": "sha256:e1aefe6b387aa3106b779243e13ec4cbb65bbde82dbf59d9404a00a8211b600b",
+    "size": 200743
   },
   {
     "filename": "e4crypt_1.47.3-1_armv7-5.4.ipk",
     "package": "e4crypt",
-    "sha256": "sha256:97197e6475816abf1d92c810602aac290197fa8d7420674f7cb18fe5e92c6066",
-    "size": 8838
+    "sha256": "sha256:d31fa146e0599f13b65a48f88a840d50ccb1198280fdb62e8f84146abc4074a0",
+    "size": 8839
   },
   {
     "filename": "ebtables-legacy-utils_2018.06.27~48cff25d-2_armv7-5.4.ipk",
     "package": "ebtables-legacy-utils",
-    "sha256": "sha256:f98889eb485ca8bc082c1ad1d28f95f35e2df6ebdd1ddb9c54d2d5443bece0cd",
-    "size": 4117
+    "sha256": "sha256:a4a4fa0409b3cf7153ce23db24a479a226f676433df4c497f435a339f8922929",
+    "size": 4127
   },
   {
     "filename": "ebtables-legacy_2018.06.27~48cff25d-2_armv7-5.4.ipk",
     "package": "ebtables-legacy",
-    "sha256": "sha256:feb5457178f08db94b40fae7a33ea5a08db3d61fc0d6bc101151c5dd54b02189",
-    "size": 72246
+    "sha256": "sha256:9486cfc139e9e526c70d81e230915bb52a1e146b5a4eaec79f9f74791bf67368",
+    "size": 72273
   },
   {
     "filename": "entware-opt_227000-3_all.ipk",
@@ -242,127 +254,151 @@
   {
     "filename": "ethtool-full_6.15-1_armv7-5.4.ipk",
     "package": "ethtool-full",
-    "sha256": "sha256:b4282a716d9294c11716383f65cce98e91196299daf3a11c7190fb936f49b147",
-    "size": 254145
+    "sha256": "sha256:9389d3abced781b5554316fc2df6d76e45e95fdea6809876a6917cf665957a80",
+    "size": 254112
   },
   {
     "filename": "ethtool_6.15-1_armv7-5.4.ipk",
     "package": "ethtool",
-    "sha256": "sha256:4b990ab3e3780ab99f48805357e690575a4f397a4a30369f60dd5d5d550af8c9",
-    "size": 43778
+    "sha256": "sha256:6708afea053815819eb256afc18022b6819373aafb8c6391ce9fc5d87aae5736",
+    "size": 43786
   },
   {
     "filename": "f2fs-tools_1.16.0-4_armv7-5.4.ipk",
     "package": "f2fs-tools",
-    "sha256": "sha256:f6eb31dca1c763ce089f61c9e78334e09d426c290c6633f88e4cab8fcd6a8bee",
-    "size": 6195
+    "sha256": "sha256:e2e6d9e361578431ee5d2054cc9f4ef7618517f3fde92a972ca9b00e18840003",
+    "size": 6200
   },
   {
     "filename": "f2fsck_1.16.0-4_armv7-5.4.ipk",
     "package": "f2fsck",
-    "sha256": "sha256:c41f1f7b08a36eae740ffb6ef6879b20c15783d3021e68181a53532d1c5b06ba",
-    "size": 94597
+    "sha256": "sha256:d8b158a19fe05850cb2c48da9974dcf66d12be99a90989a79db2c4ecb097c4a4",
+    "size": 94536
   },
   {
     "filename": "fallocate_2.41.3-1_armv7-5.4.ipk",
     "package": "fallocate",
-    "sha256": "sha256:0984fccbcef405150dd2dc36299742dfed66db02ce5c088f834c62ac4ec404bb",
-    "size": 12865
+    "sha256": "sha256:4feec645e0f38edbd16da14649dcb812425d6cc4e247d3cbe8aa4609c016e874",
+    "size": 12861
   },
   {
     "filename": "fdisk_2.41.3-1_armv7-5.4.ipk",
     "package": "fdisk",
-    "sha256": "sha256:db1a24d1818ecf90357fe014f4c3435c49b34c5df5e9d2e7c142c5092db63478",
-    "size": 59059
+    "sha256": "sha256:89e4d3caf4309f4872ade5958852d5abacf4856bae138db14232730307b0f158",
+    "size": 59087
   },
   {
     "filename": "file_5.45-1_armv7-5.4.ipk",
     "package": "file",
-    "sha256": "sha256:fcf2a598cbda8bb9ccd6aa8371702c4cf9609788a2417c06f059be2aa9a0260f",
-    "size": 9350
+    "sha256": "sha256:0ffa3a0790fcdddf4a2c4b6c7b91cf7a6abecdc74792df3be29576e83d3c71c1",
+    "size": 9352
   },
   {
     "filename": "filefrag_1.47.3-1_armv7-5.4.ipk",
     "package": "filefrag",
-    "sha256": "sha256:e13244c900c2b39773a0911329357068412a777a1c483f50672d1ee6829e4db0",
-    "size": 8184
+    "sha256": "sha256:3f0c4a5976ac343aa959485b416b46bdc5b4bf4acee5088344df8bccc3a403a7",
+    "size": 8188
   },
   {
     "filename": "findfs_2.41.3-1_armv7-5.4.ipk",
     "package": "findfs",
-    "sha256": "sha256:79fbe90f0552b5e83a5cfb8a63acb52ad61f0a70a1493bfca938df0b3c05b9dc",
-    "size": 3818
+    "sha256": "sha256:0871c656e8b820920a780b7f51eefcb76721bb2b75cd33045807cddce6fe4f09",
+    "size": 3813
   },
   {
     "filename": "findutils_4.10.0-1_armv7-5.4.ipk",
     "package": "findutils",
-    "sha256": "sha256:f46f711ea58712b20590d40a4b7d93537f5cfe7ec48de38d2fcc450292c02ea7",
-    "size": 152429
+    "sha256": "sha256:ca6da993e8dbcd54c93b1e2c78363d9e44ea7e393c63c91686e7a8fcf42d438b",
+    "size": 152427
   },
   {
     "filename": "flock_2.41.3-1_armv7-5.4.ipk",
     "package": "flock",
-    "sha256": "sha256:6037791159c49347a239336dae282833421141171054bda56c130370d3a9b8cf",
-    "size": 13232
+    "sha256": "sha256:a11af52772ee8714d70aa1cecb1597d293e3bc7ef0b9356a17252486fde4fce9",
+    "size": 13239
   },
   {
     "filename": "fsfreeze_2.41.3-1_armv7-5.4.ipk",
     "package": "fsfreeze",
-    "sha256": "sha256:1670681f9fe70ed8bd3657aaaa39b71933c3e6141b1289368dd40cd0ea223366",
-    "size": 4424
+    "sha256": "sha256:b2019ebcf89a7b6f8febfcadc83e3e36434ccea7f18f85a8fd227c3abc6500f4",
+    "size": 4427
   },
   {
     "filename": "fstrim_2.41.3-1_armv7-5.4.ipk",
     "package": "fstrim",
-    "sha256": "sha256:0d1d1d456906b31184416489012ceaf86206ac0e066b71d4aa86cdb8b791d6a1",
-    "size": 30364
+    "sha256": "sha256:88ccbc307eb1e178620cce1e51076754b9a8b253eed5d9e90d9d45085d46508c",
+    "size": 30377
   },
   {
     "filename": "fxload_1.0.29-1_armv7-5.4.ipk",
     "package": "fxload",
-    "sha256": "sha256:0a65d9ba0bfae3748dff4fe92bdeff0406114506a509d8ddcede4512f28e20d2",
-    "size": 9914
+    "sha256": "sha256:a620f212a1b1da3c53478a10ad46f7a5658f97dbc7593c52f8936a252c923291",
+    "size": 9927
   },
   {
     "filename": "gconv-modules_2.27-12_armv7-5.4.ipk",
     "package": "gconv-modules",
-    "sha256": "sha256:8bed30e0ff2114e49eff58a84e14cdf93a363b1f15b1e8a54be2969548ac4efa",
-    "size": 2436822
+    "sha256": "sha256:2242d90b40c86b8f1112a73ce68f139e99f6768a1aa59c1e747b1ffb06fd478b",
+    "size": 2436844
   },
   {
     "filename": "gdb_16.3-1_armv7-5.4.ipk",
     "package": "gdb",
-    "sha256": "sha256:7587b0c4a61e2bb5863734a131befe90956b67e86d1ffce048e5cd2e84e440b6",
-    "size": 3146739
+    "sha256": "sha256:7117782ee0e8bd6ac3b6a2b84b61ad2d977a82a6246abfcb4af4354ecf5818f4",
+    "size": 3146785
   },
   {
     "filename": "gdbserver_16.3-1_armv7-5.4.ipk",
     "package": "gdbserver",
-    "sha256": "sha256:582c12defbfb1bd4ca2884fabf6827790291ba56584400c316bceef5aec610fe",
-    "size": 233430
+    "sha256": "sha256:28a6b3625b4c7465e5f32bd13c0e5ce78f90d0b63948a2a4aab3a5f0cf714a42",
+    "size": 233403
   },
   {
     "filename": "genl_4.4.0-11_armv7-5.4.ipk",
     "package": "genl",
-    "sha256": "sha256:edba76b816e378e7f4226ea622872334f3ba3fe64e4a6255b419086868bd2dc5",
-    "size": 8145
+    "sha256": "sha256:c0a756109d5942a65c96761d256b01c260cd9cf3e4738f7a4071df417bad4ca2",
+    "size": 8150
   },
   {
     "filename": "getopt_2.41.3-1_armv7-5.4.ipk",
     "package": "getopt",
-    "sha256": "sha256:eda45f1535c75aefaf9ae02946d1537d784c2bec80c2e48fd9e1fd9376dd0462",
-    "size": 12367
+    "sha256": "sha256:9e80ebe62895e3a92c3065a7f5e2eb0e87b5319154f98a72c475f3c8a76bdb57",
+    "size": 12366
+  },
+  {
+    "filename": "git-http_2.50.1-2_armv7-5.4.ipk",
+    "package": "git-http",
+    "sha256": "sha256:016d768075b1adabae76a838bf6887d2358f3ef7719f55ff231bbfd1460f0dd0",
+    "size": 2586764
+  },
+  {
+    "filename": "git-lfs_3.7.1-1_armv7-5.4.ipk",
+    "package": "git-lfs",
+    "sha256": "sha256:356d9c246091a572bcc974f78cb6eeb4fddf6f3744d69513bca11c1ca3654d48",
+    "size": 4966919
+  },
+  {
+    "filename": "git_2.50.1-2_armv7-5.4.ipk",
+    "package": "git",
+    "sha256": "sha256:968e1d1d0facef1b19a6000e4aa234c01c453be61f2654ffad433a5341919a24",
+    "size": 5808891
   },
   {
     "filename": "grep_3.12-1_armv7-5.4.ipk",
     "package": "grep",
-    "sha256": "sha256:a9f7fbbc3628bd8631e464de42bc2ece63be5c48566dacbeae643909cb84ac27",
-    "size": 104624
+    "sha256": "sha256:e2972ec68b05b8337afec0f0118220db16eabb31236e5a18dde5f3a35d45141a",
+    "size": 104630
+  },
+  {
+    "filename": "gzip_1.14-1_armv7-5.4.ipk",
+    "package": "gzip",
+    "sha256": "sha256:d801ea58c6f09c24a26f0c40e9de539f5ef65811c830451c8300ef7fdab3861a",
+    "size": 49430
   },
   {
     "filename": "hardlink_2.41.3-1_armv7-5.4.ipk",
     "package": "hardlink",
-    "sha256": "sha256:6f684e5377203d692dc621124016d9796e3112aa858979f590161e25d6c8ffa9",
+    "sha256": "sha256:1a99ceaa05118ae50087e23b379b1628daa53d1e96f0b3b9a071fb30f5a4d8b3",
     "size": 22776
   },
   {
@@ -372,802 +408,892 @@
     "size": 18591484
   },
   {
+    "filename": "htop_3.4.1-1_armv7-5.4.ipk",
+    "package": "htop",
+    "sha256": "sha256:d51ac1d93543b82fce5f96d1352cd8866204ad5d37c2584bfd5e8beb707c1638",
+    "size": 117966
+  },
+  {
     "filename": "hwclock_2.41.3-1_armv7-5.4.ipk",
     "package": "hwclock",
-    "sha256": "sha256:b06b5f3acc453ee75c4c2a70c7f8dbe96a203c93e7690cbd89d1ff658608fbab",
-    "size": 40382
+    "sha256": "sha256:d72e3519c3dc85850eb4daa287e157297e36e625bd4c408d10da544be4239245",
+    "size": 40388
   },
   {
     "filename": "iconv_1.18-1_armv7-5.4.ipk",
     "package": "iconv",
-    "sha256": "sha256:6c598bb7d62d70ef4a4c75b89ecc8b6cae1bd9a3a5592cf9c9b3d67d7e67fb67",
-    "size": 12356
+    "sha256": "sha256:0bdeeef7c82c84fb1bf046d02406322279565091703ea65dbac5e5255f6deb8a",
+    "size": 12363
   },
   {
     "filename": "ionice_2.41.3-1_armv7-5.4.ipk",
     "package": "ionice",
-    "sha256": "sha256:55ec11f8432b9fb4cc8765530d8cb23746565d9745126978fb6e992cf2dd9251",
-    "size": 11699
+    "sha256": "sha256:5029ec2a624001f62bf5442a2cb211bdace20852bb4d6c0c336cb9098ada3bcd",
+    "size": 11705
   },
   {
     "filename": "ip-bridge_4.4.0-11_armv7-5.4.ipk",
     "package": "ip-bridge",
-    "sha256": "sha256:9bd2781c8467495ab4c272e665b2ea5e6f260973b1e7c05e4b8d6d17bb752a9a",
-    "size": 21889
+    "sha256": "sha256:9902e1520f6461d6ad50746ad912eb7358cb627f8e7248044a9f9b66f0f8d218",
+    "size": 21904
   },
   {
     "filename": "ip-full_4.4.0-11_armv7-5.4.ipk",
     "package": "ip-full",
-    "sha256": "sha256:c4961286994e6cbea3d0665cacd9568920ad371ea20d398f6ec86fc9616a42d2",
-    "size": 135519
+    "sha256": "sha256:a3db8ad61e54fb1dec53871509c929322064e9960a2f0477a544d45a71a3e894",
+    "size": 135522
   },
   {
     "filename": "ipcs_2.41.3-1_armv7-5.4.ipk",
     "package": "ipcs",
-    "sha256": "sha256:7c2a79937867313817a3cc73dd8c2581650713d8b377a9c101cf712b72236194",
-    "size": 27384
+    "sha256": "sha256:0ed07c31b70cb8142877c1384786b61a156f350c5648040cc1310fa4279813e9",
+    "size": 27399
+  },
+  {
+    "filename": "iperf3_3.20-1_armv7-5.4.ipk",
+    "package": "iperf3",
+    "sha256": "sha256:61e46b798c718b45dff0a130c9a6754668dae6a3f8428cde4d6b0a1fbecae86b",
+    "size": 3482
   },
   {
     "filename": "ipset-dns_2017.10.08~ade2cf88-2_armv7-5.4.ipk",
     "package": "ipset-dns",
-    "sha256": "sha256:3835cdf585e9508a5bec01fe288949bfb42a4eadd85c31b5e0fb890ca5462730",
-    "size": 5123
+    "sha256": "sha256:1bca3506920a95644102467929bf172299081120a07299c92df61c8b0c8f0e1c",
+    "size": 5126
   },
   {
     "filename": "ipset_7.24-1_armv7-5.4.ipk",
     "package": "ipset",
-    "sha256": "sha256:d2c962fa7b088f8882afb9bc58350fd425a15fbe6bec48306e9ad4ab43065c74",
-    "size": 2664
+    "sha256": "sha256:0773da48761e0d6934898112ecb89a51a65a7d199b6dba78b99cf5297955875b",
+    "size": 2675
   },
   {
     "filename": "iptables_1.4.21-5_armv7-5.4.ipk",
     "package": "iptables",
-    "sha256": "sha256:ae1021a0ebeec3de8f2ea19a2f09978b3f26d32b42a043e7590195cf6eababa2",
-    "size": 159773
+    "sha256": "sha256:1ac7d62d2dd46d8101362964984b78fd30a3598a3ba8f18f1dd72e445b01f41f",
+    "size": 159768
   },
   {
     "filename": "jansson_2.15.0-1_armv7-5.4.ipk",
     "package": "jansson",
-    "sha256": "sha256:58da9777554270f87206ab0bcf70ee13b59af91ddf8dd858fc3ddfb0199c4234",
-    "size": 51346
+    "sha256": "sha256:05c1fa44f8d6a264dd4ecc7eb4e2f6a86d81d0bb8d06f8176a031ee64a40899f",
+    "size": 51351
+  },
+  {
+    "filename": "jq_1.8.1-2_armv7-5.4.ipk",
+    "package": "jq",
+    "sha256": "sha256:2b13edd0b7195577acd7b34ef1aee486c452bd7912b4eb05266f509243c24bfb",
+    "size": 163330
   },
   {
     "filename": "jshn_2026.02.13~1aa36ee7-1_armv7-5.4.ipk",
     "package": "jshn",
-    "sha256": "sha256:c437a386c29da5dcc6049b4f0c6e77d349143f547e2b0f3401aedc2143427fbd",
-    "size": 7703
+    "sha256": "sha256:38ca6b9f47d351357bcaf051af0739b6810a7eb7bc408e94222a95a10d5968d8",
+    "size": 7696
   },
   {
     "filename": "jsonfilter_2025.10.04~f4fe702d-1_armv7-5.4.ipk",
     "package": "jsonfilter",
-    "sha256": "sha256:1b5335caf2b032348e870b015f51ae0ca725458a13443959aa8710d0a5772387",
-    "size": 10482
+    "sha256": "sha256:5a09c2b6cd266685202e692f7e53367fbfcc3c2a3c2825c11293045ea1132c1f",
+    "size": 10484
   },
   {
     "filename": "kexec-tools_2.0.32-3_armv7-5.4.ipk",
     "package": "kexec-tools",
-    "sha256": "sha256:cc09ed34abbc4f372e5d05fd434f192d7b825c6fb34582cd2f41db6122b40421",
-    "size": 786
+    "sha256": "sha256:24fdc0ffc51fd05d319abffe8ec70b575bb4a94208e26c20951a5de4c73b99b0",
+    "size": 788
   },
   {
     "filename": "kexec_2.0.32-3_armv7-5.4.ipk",
     "package": "kexec",
-    "sha256": "sha256:d58c00524d45ae9bc063efa1f421a2b9f10324d64378ab36b87c61d833efd431",
-    "size": 37212
+    "sha256": "sha256:69319e2c5c59e355ac56b715c830f450cddcec5ff00d31bd09b2234fb2943ea2",
+    "size": 37199
   },
   {
     "filename": "ldconfig_2.27-12_armv7-5.4.ipk",
     "package": "ldconfig",
-    "sha256": "sha256:ec1a7639da8714419bcf7d8b59e2335fc73f0dabe5a54123abc0e691169bb4de",
-    "size": 250496
+    "sha256": "sha256:4d7170a9d27f75245600bd0fc07f5774107233523dfdae1d6e170cfed5aa245a",
+    "size": 250485
   },
   {
     "filename": "ldd_2.27-12_armv7-5.4.ipk",
     "package": "ldd",
-    "sha256": "sha256:ba3ec039d98734f28e50e280b45027018b0429452c52ff796d580ad5c603bc29",
-    "size": 3098
+    "sha256": "sha256:8b4511e710bff90d86387fd0588e1cf8d74e5d7fec3237560a3e6d749638662f",
+    "size": 3106
+  },
+  {
+    "filename": "less_685-1_armv7-5.4.ipk",
+    "package": "less",
+    "sha256": "sha256:f7cc6052a32b952b06996e7f051d0e2a7c210cd898aafc193d78808afc7f1c78",
+    "size": 89997
   },
   {
     "filename": "libacl_2.3.2-2_armv7-5.4.ipk",
     "package": "libacl",
-    "sha256": "sha256:f26879747e35bc6e98e2f0f00ee5f8736207fed99a3f38b3001be84c2b03a10c",
-    "size": 13157
+    "sha256": "sha256:6e0bd3df212e6e369c4821bca46aae92bececbebec93ac43ae5c042dad44663e",
+    "size": 13155
   },
   {
     "filename": "libatomic_8.4.0-12_armv7-5.4.ipk",
     "package": "libatomic",
-    "sha256": "sha256:b59d5fbf53234c4793671c99ad5615e15d08adc49db778a7196de7c09b07ad78",
-    "size": 6887
+    "sha256": "sha256:926ad00241e6314ac890ec12c318489264d0b68ec384924d8e18c2cea60642b4",
+    "size": 6882
   },
   {
     "filename": "libattr_2.5.2-3_armv7-5.4.ipk",
     "package": "libattr",
-    "sha256": "sha256:585f23ef35c5531b8e2eac9a13f7c71378f67078c4a1474f4d89202245ad79c0",
-    "size": 7445
+    "sha256": "sha256:a368f418c575339e52dd89f3fa2d04fbc72114401f9bd0d2eebae7b6735edae6",
+    "size": 7444
   },
   {
     "filename": "libbfd_2.45.1-1_armv7-5.4.ipk",
     "package": "libbfd",
-    "sha256": "sha256:62b15cef6272d4ceb0c2414b850b6040ab740d769ba82894c3a8ceb1b0929740",
-    "size": 392645
+    "sha256": "sha256:a8cbf7f1e5b7f47ccf07f19042917c1e8a0430b1799da955b8f199cf1211797a",
+    "size": 392655
   },
   {
     "filename": "libblkid_2.41.3-1_armv7-5.4.ipk",
     "package": "libblkid",
-    "sha256": "sha256:1f30dafccc43e564a2f770cce5b374d3c5c5fa2632297d937227ff6c941aedf1",
-    "size": 126859
+    "sha256": "sha256:565d429d72848d7e99cd06134c6620f016b6130bf80a0ecebc76999685950e48",
+    "size": 126870
   },
   {
     "filename": "libblobmsg-json_2026.02.13~1aa36ee7-1_armv7-5.4.ipk",
     "package": "libblobmsg-json",
-    "sha256": "sha256:1f9f70555a3ad25f070d94af75d71e1c4d9f76ea87198ae17d5cb4be41857705",
-    "size": 4371
+    "sha256": "sha256:4c4bd9cbba88df130e56272e3d167d420530bfcb7ba70e31e0c11b07cb17c0fb",
+    "size": 4379
   },
   {
     "filename": "libbsd_0.12.2-1_armv7-5.4.ipk",
     "package": "libbsd",
-    "sha256": "sha256:6964eb4037e04894abd64eebaee72e804adb42e06368f002ef9bf77525d29cbd",
-    "size": 37898
+    "sha256": "sha256:202ac65c99822824c9b100cbdb41f8224fc183ebca52989645626eb67ed80c41",
+    "size": 37883
   },
   {
     "filename": "libbz2_1.0.8-2_armv7-5.4.ipk",
     "package": "libbz2",
-    "sha256": "sha256:32c0daa9ded29188b02e54b9ce0f9ce449bd0c23bb0c54c71c3a4b4b9cbc331b",
-    "size": 30782
+    "sha256": "sha256:218d2aff665573720d7cb446d868e99297fd30a54a6088b91d58709de3440cbf",
+    "size": 30771
   },
   {
     "filename": "libc_2.27-12_armv7-5.4.ipk",
     "package": "libc",
-    "sha256": "sha256:80ae1f0e0e3efdbb83493ed47c2aeb5049fe02e950b7a529afa1fb143e2ffdf6",
-    "size": 1160002
+    "sha256": "sha256:3cf2d0abe34db06c9f1d6c3c9ccbe065db72dd4dc8b45383ebb5dfb2a4883820",
+    "size": 1159947
   },
   {
     "filename": "libcap-bin_2.69-1_armv7-5.4.ipk",
     "package": "libcap-bin",
-    "sha256": "sha256:5788be174009c6cdac5f803dcafd7a717617713a282224d0ee28712843ceaa44",
-    "size": 23989
+    "sha256": "sha256:36abd8955c4563c86e7c302dc2099838cee283c69ff78d6d3cec3510f9f51677",
+    "size": 24007
   },
   {
     "filename": "libcap_2.69-1_armv7-5.4.ipk",
     "package": "libcap",
-    "sha256": "sha256:60475b22b3971aa3dd397b80b208180a51d8eb2cc996134847595c950f28e29a",
-    "size": 15320
+    "sha256": "sha256:fc82807b4655abd17a33b20ff6506ccd65b457deb51e5ee0482c8d33f9ccbc06",
+    "size": 15328
   },
   {
     "filename": "libcharset_1.18-1_armv7-5.4.ipk",
     "package": "libcharset",
-    "sha256": "sha256:b5efc5461a0349e83b38ed1df84560c05b21cfddc1078fbe2aeb5b686f65caa4",
-    "size": 2089
+    "sha256": "sha256:88143b128961d6b4702ddfd5d2bcf4789bf37b5286796d399c80aa312f9bcffa",
+    "size": 2096
   },
   {
     "filename": "libcomerr_1.47.3-1_armv7-5.4.ipk",
     "package": "libcomerr",
-    "sha256": "sha256:c4ba6881fe9b8bb24880876d63ab87962f55b7a070169015397edca5a801cee3",
-    "size": 5135
+    "sha256": "sha256:050ab71476b3d0710e0c29b0efcd06815b41d72aaa372fae25e955eb7434ab21",
+    "size": 5143
   },
   {
     "filename": "libctf_2.45.1-1_armv7-5.4.ipk",
     "package": "libctf",
-    "sha256": "sha256:a1be0774426d2a22f260ff1865374b9ff1f4ec2c076e28907876b47020547589",
-    "size": 152449
+    "sha256": "sha256:5b85bf030343d88306a9a37a1895a1814c3a162aa13f75117a4a227f87050642",
+    "size": 152436
+  },
+  {
+    "filename": "libcurl_8.15.0-2_armv7-5.4.ipk",
+    "package": "libcurl",
+    "sha256": "sha256:572ca471ce389399276061fc785103e6f61133bab356873ed91be489c81960a0",
+    "size": 248808
   },
   {
     "filename": "libdw_0.192-2_armv7-5.4.ipk",
     "package": "libdw",
-    "sha256": "sha256:a98655ba267a61750434df50cf3ec6e1ba83de2082040b49e70d0dd34277de76",
-    "size": 242435
+    "sha256": "sha256:a8af5544a170a71498385224d6e7bcbc1ae8b15fd0ce6cbca8357048313c3fec",
+    "size": 242434
   },
   {
     "filename": "libe2p_1.47.3-1_armv7-5.4.ipk",
     "package": "libe2p",
-    "sha256": "sha256:ad865d552bbb198e647c5f33ae7678332c00a523e0d8f7039b8f933d03c834d2",
-    "size": 13969
+    "sha256": "sha256:5d1f82f39be81fa55a3ab4f99bd1a836f443e80cbbf305ade74f89df90845054",
+    "size": 13973
   },
   {
     "filename": "libelf_0.192-2_armv7-5.4.ipk",
     "package": "libelf",
-    "sha256": "sha256:b69033f03572fd924e952e48253e27e0093d2799a71c30b48964d5949a84e7dc",
-    "size": 44520
+    "sha256": "sha256:bb3537e83500103975c7506699e01ca7b629d17c887fd9a57546a097186e3e48",
+    "size": 44503
+  },
+  {
+    "filename": "libevdev_1.13.4-1_armv7-5.4.ipk",
+    "package": "libevdev",
+    "sha256": "sha256:433f81d7c6bcb6af5c7688e5112b9bf0343c0816be9e52a5a091fde6ade5f6a6",
+    "size": 27948
   },
   {
     "filename": "libevent2-core_2.1.12-2_armv7-5.4.ipk",
     "package": "libevent2-core",
-    "sha256": "sha256:ce5d5c206cb4e7d87abf577538fb2a73b1ca83d33062f3a607fbd6941d85d2be",
-    "size": 63608
+    "sha256": "sha256:46b9d114ed54a390570e945c82f9f31f590ed0885cc72d2fc8cbe8a6bffd3d22",
+    "size": 63616
   },
   {
     "filename": "libevent2-extra_2.1.12-2_armv7-5.4.ipk",
     "package": "libevent2-extra",
-    "sha256": "sha256:e6014913506d244735e89f35e4e40cebe75bf8a566f5c5451e908c1eebdd51c3",
-    "size": 45502
+    "sha256": "sha256:5611b61aaa9f1770ea4117ec7d409b79dd57b76e4da754136edf65c896373273",
+    "size": 45510
   },
   {
     "filename": "libevent2-openssl_2.1.12-2_armv7-5.4.ipk",
     "package": "libevent2-openssl",
-    "sha256": "sha256:ffe914a26fd4bd6c49bf163cbc56f550fafde4f414574ec06c81183dd36645d3",
-    "size": 8824
+    "sha256": "sha256:f14638d201b587ea2ae17ff8acaeedb1edd0c817ab81faabfc062191e15557d8",
+    "size": 8829
   },
   {
     "filename": "libevent2-pthreads_2.1.12-2_armv7-5.4.ipk",
     "package": "libevent2-pthreads",
-    "sha256": "sha256:cf566dfed18834e5dc374c719492a3a3420062ba6adcd65b3203c5b614e94505",
-    "size": 3177
+    "sha256": "sha256:4ecfe41ba959544c0d95762a671f19e28ee72502418ddd6d602ba94e20383724",
+    "size": 3180
   },
   {
     "filename": "libevent2_2.1.12-2_armv7-5.4.ipk",
     "package": "libevent2",
-    "sha256": "sha256:aaf1e55fa906b01fc1c101ff7dda59f980a9115436637da08288d550ff392137",
-    "size": 104497
+    "sha256": "sha256:8e5d164bc1ac798a7a8ae44ff6e1f33a76f77b781e20eca89e9e9ec644144c1b",
+    "size": 104501
+  },
+  {
+    "filename": "libexslt_1.1.42-2_armv7-5.4.ipk",
+    "package": "libexslt",
+    "sha256": "sha256:d315323cac6c9ddbf57fb2589e1daaee23502c7feb70d70690c092399457851a",
+    "size": 31150
   },
   {
     "filename": "libext2fs_1.47.3-1_armv7-5.4.ipk",
     "package": "libext2fs",
-    "sha256": "sha256:f6edeb2b5fa786bb3f2436b4484d6cef789e905a1f8d01318d202c50539e5c2e",
-    "size": 186836
+    "sha256": "sha256:2d6fab89a9e80636c6229a3ca8fe591f7615de547e86c3bce1aa6b4f8e997251",
+    "size": 186929
   },
   {
     "filename": "libf2fs_1.16.0-4_armv7-5.4.ipk",
     "package": "libf2fs",
-    "sha256": "sha256:a0a6f27e2c78f4e5a8f3bb2ad145a28377c16dd73f9c172f8eb90a4614a91218",
-    "size": 43646
+    "sha256": "sha256:a99e0716db78b33857c033a33cdc1f238eecb2de5879356920d2874c78af8065",
+    "size": 43665
   },
   {
     "filename": "libfdisk_2.41.3-1_armv7-5.4.ipk",
     "package": "libfdisk",
-    "sha256": "sha256:6917cc3f60f61c93eac7756ba04c219dc3549de0359e4d6c5817f93f4cf6a21a",
-    "size": 171144
+    "sha256": "sha256:a312839ce31a98168baad492c9bea973cee324a638837d22bdc71198d0da001b",
+    "size": 171163
   },
   {
     "filename": "libffi_3.4.7-1_armv7-5.4.ipk",
     "package": "libffi",
-    "sha256": "sha256:b9d2f0335aa5983120b22431f7195f53c034346321bf79a51b3a116459064d05",
-    "size": 17262
+    "sha256": "sha256:755708fc14e2c2e492a8e92465f545f4330fe7487811802dad5f54d47eea56bd",
+    "size": 17252
   },
   {
     "filename": "libfreetype_2.13.3-1_armv7-5.4.ipk",
     "package": "libfreetype",
-    "sha256": "sha256:5df44b5dcd5bda17981f4341c5786e76d5d8de7503fede5ce2ff51de5b5fe495",
-    "size": 312999
+    "sha256": "sha256:8a594131235d5f07971a023565c3a9dd6335d8d7a68f818c9949d31ef72d4b2c",
+    "size": 313000
   },
   {
     "filename": "libgcc_8.4.0-12_armv7-5.4.ipk",
     "package": "libgcc",
-    "sha256": "sha256:513358dd380ef654dd5d5710dd70661d1ac5ed35fc9c98bce35d38991793e827",
+    "sha256": "sha256:04184d09279f7b18f38d7108f241db578c2604c79e0c46de6340e56dba6b044d",
     "size": 22702
   },
   {
     "filename": "libgdbm_1.25-1_armv7-5.4.ipk",
     "package": "libgdbm",
-    "sha256": "sha256:34c64393e4af679193e4fe0633e4ca7f8c8c4f0a9ca737e8fbd690a11078bc1d",
-    "size": 32515
+    "sha256": "sha256:737e6cd731704f3bd34a50a1971b29a2c504495b56291a4093d0c3e1878b2195",
+    "size": 32516
   },
   {
     "filename": "libgmp_6.3.0-2_armv7-5.4.ipk",
     "package": "libgmp",
-    "sha256": "sha256:a0b5173ff12b791187fa6d602c212dc96fa2bad756bc3391a99a0383bd1b9557",
-    "size": 210627
+    "sha256": "sha256:e4db6ae4c6b93b8acc3ece12a9d6a96313b0d62933a73fcfdedef460f52a3e58",
+    "size": 210623
   },
   {
     "filename": "libiconv-full_1.18-1_armv7-5.4.ipk",
     "package": "libiconv-full",
-    "sha256": "sha256:b0426575bd57654c2c59e9b63b5cc98e3a7e19aba3a852ff0fb7f6e5110df98c",
-    "size": 671548
+    "sha256": "sha256:67ba15de6d1349bca941e2deeeca64d4f9dd69fbccfe32b5df11533fedd84a1b",
+    "size": 671595
   },
   {
     "filename": "libintl-full_0.24.1-1_armv7-5.4.ipk",
     "package": "libintl-full",
-    "sha256": "sha256:949d7c8e3c739e64a4d6f565b95593793ab662e93151dce97a8559eee8581491",
-    "size": 28881
+    "sha256": "sha256:5a39f9bf0b5f8fe7487450014f372c2d3bd50db074354d02ab1d91b6ea5e11ec",
+    "size": 28890
+  },
+  {
+    "filename": "libiperf3_3.20-1_armv7-5.4.ipk",
+    "package": "libiperf3",
+    "sha256": "sha256:5df4d3e2b1f5fd1433c60cf34b1cff695aba8831c87f6b3876b50b63eee3818a",
+    "size": 73359
   },
   {
     "filename": "libipset_7.24-1_armv7-5.4.ipk",
     "package": "libipset",
-    "sha256": "sha256:7821f942811722f937d31958af0473e8f5b1f7b09c460906851756c5ef9acbda",
-    "size": 49301
+    "sha256": "sha256:1e9c02eb37da924e224f46b1792b1d14a9ebeaf039947ef9fa74654976aaba6e",
+    "size": 49310
   },
   {
     "filename": "libjpeg-turbo_3.1.1-1_armv7-5.4.ipk",
     "package": "libjpeg-turbo",
-    "sha256": "sha256:0353622c3d8d41094443e2d6a9d410bd0587ebd88ccc02702917c4825ca1b950",
-    "size": 191089
+    "sha256": "sha256:a78eedbf14a5d27db6a4a97c5954f283910d1b154d9b01787ac0f7e3919fa2c7",
+    "size": 191086
   },
   {
     "filename": "libjson-c_0.18-1_armv7-5.4.ipk",
     "package": "libjson-c",
-    "sha256": "sha256:e89fb577940e6cf2a1876acce83d78a90e92da11d88f30e75779f94e57fb8a18",
-    "size": 25905
+    "sha256": "sha256:5d34a7f753dfe8d84bc1839c3673dd88d748eac49e24af199be3f41da52a9707",
+    "size": 25910
   },
   {
     "filename": "libjson-script_2026.02.13~1aa36ee7-1_armv7-5.4.ipk",
     "package": "libjson-script",
-    "sha256": "sha256:50836d1da26cef640a11b4a6046d7b625c2c615924eb0ce97c45cd2a92b9d367",
-    "size": 5270
+    "sha256": "sha256:75130f4399b91b83f7ef8599c440fb586fe9c1348094e4455062450251c1b29e",
+    "size": 5267
   },
   {
     "filename": "libltdl_2.5.4-1_armv7-5.4.ipk",
     "package": "libltdl",
-    "sha256": "sha256:a3ec89f39487c79f00c48d9d56e41bba76557a832c30df4a7c234437e0c32e0e",
-    "size": 14551
+    "sha256": "sha256:66c981aede52044ff4edfd49d790fcdeb6a5e4b3fc5fe71f87bfdcd853e7f895",
+    "size": 14557
   },
   {
     "filename": "liblua5.3_5.3.5-6_armv7-5.4.ipk",
     "package": "liblua5.3",
-    "sha256": "sha256:cd5f52e6a600f1210dff2eb233de4d065de49b4388391670a0f0c9a87875252c",
-    "size": 84648
+    "sha256": "sha256:2e3b72be934e2e61477d489f84661e9815c0afb3579769ae1ac23da2d289eeba",
+    "size": 84660
   },
   {
     "filename": "liblua_5.1.5-11_armv7-5.4.ipk",
     "package": "liblua",
-    "sha256": "sha256:88c15a7ce4a54481379f35e56764b8bef2ef2a5c5eeb616fcd979c1b1b1df609",
-    "size": 67763
+    "sha256": "sha256:e978524108dd39bed57753a193f39e20d949915c5689cbcecc80f4d993ade21d",
+    "size": 67772
   },
   {
     "filename": "liblzma_5.8.2-1_armv7-5.4.ipk",
     "package": "liblzma",
-    "sha256": "sha256:6856c2ac48488eb4d469edd9a0c737e35f4b063047278ab31e8026a9ab5ecae4",
-    "size": 70108
+    "sha256": "sha256:9dd4764a68dd12aa5c0711834dc3cf6c20add1195a853601e5ea41772f74c480",
+    "size": 70107
   },
   {
     "filename": "libmagic_5.45-1_armv7-5.4.ipk",
     "package": "libmagic",
-    "sha256": "sha256:16ca0963e1be73d70570288a87e5d62519baf96fc0158bffb0c6e3509d70f9e1",
-    "size": 295058
+    "sha256": "sha256:a8d3bf050ce5c336a352d0b6f32cf64ef339e7befb68c18dbbf267f157e36432",
+    "size": 295055
   },
   {
     "filename": "libmbedtls_3.6.5-1_armv7-5.4.ipk",
     "package": "libmbedtls",
-    "sha256": "sha256:94d0272c544dc5e15946371907b24be2e87a237fa5da257b359c1a12fa390bb1",
-    "size": 262201
+    "sha256": "sha256:8ae7f99a67985d301bf013290a6563505ec2680ce8edb2adf7a267c753043f8e",
+    "size": 262192
   },
   {
     "filename": "libmnl_1.0.5-1_armv7-5.4.ipk",
     "package": "libmnl",
-    "sha256": "sha256:e7b89538138d6037ed9cdcbc5ac6069bcf5aad343a9512cad493230fc04e2af9",
-    "size": 7311
+    "sha256": "sha256:5d02ff26fe0d170c2e0ecf14de60c6d9aa64da67b03e9ba41420c9229a4d363b",
+    "size": 7316
   },
   {
     "filename": "libmount_2.41.3-1_armv7-5.4.ipk",
     "package": "libmount",
-    "sha256": "sha256:ca8b8a379f2583c5ee86a2cb3eb98d9d2e6d5fc7be88a2273248005f42353041",
-    "size": 148640
+    "sha256": "sha256:cc868e374541ce300ae0a08d9edc6d46ae1433c98bc7288f25d0b52deb7e4804",
+    "size": 148678
   },
   {
     "filename": "libmpfr_4.2.2-1_armv7-5.4.ipk",
     "package": "libmpfr",
-    "sha256": "sha256:357d6529c00c2d1006cdb2f7a98faab5dd851fe6e6ff91a447d6e3c73b00ae99",
-    "size": 208805
+    "sha256": "sha256:fad4a482afcc3828e470840bf822903735a6d0495100736cf3a0073b3d07d9c4",
+    "size": 208811
   },
   {
     "filename": "libncurses-dev_6.4-3_armv7-5.4.ipk",
     "package": "libncurses-dev",
-    "sha256": "sha256:5f57d0fea859751b5bf6e312eac34e735926adf8712910470d58b2c52a2dc158",
-    "size": 365447
+    "sha256": "sha256:3686a6b6ba9e664e17254250f1445685a3e30b54138b6bae6351897419a94309",
+    "size": 365416
   },
   {
     "filename": "libncurses_6.4-3_armv7-5.4.ipk",
     "package": "libncurses",
-    "sha256": "sha256:658977bbbaba8e72b11580d3a6ef3ce99a669832e6c4696323fc099a8d393579",
-    "size": 980
+    "sha256": "sha256:1aa7978ca78cf7a09def9124281de8a2d027e9079b16ceb9fff63b7d830abebf",
+    "size": 985
   },
   {
     "filename": "libncursesw_6.4-3_armv7-5.4.ipk",
     "package": "libncursesw",
-    "sha256": "sha256:225f46e88d24c42467205b3e9f99ef7d5debc2664fe665e9678dccc9427e15f3",
-    "size": 210052
+    "sha256": "sha256:0eb4e4e558f683b179de1fa66902b177e03467db3a89ef6efaa5da6622d8bcb1",
+    "size": 210091
   },
   {
     "filename": "libnetfilter-conntrack_1.1.0-1_armv7-5.4.ipk",
     "package": "libnetfilter-conntrack",
-    "sha256": "sha256:1f902b2ab53381ba73efdb76b75f5110b14230325fb9dddd652ecfd2aa938e19",
-    "size": 37104
+    "sha256": "sha256:b5125bf672a7955153ef43ef1328767019197778b75cad985a893cff34a62042",
+    "size": 37078
   },
   {
     "filename": "libnettle_3.10.2-1_armv7-5.4.ipk",
     "package": "libnettle",
-    "sha256": "sha256:b3c75bf63039ba64f819b9cffe5d7fbeba05534f78de4d7d05a48a30108b0890",
-    "size": 363769
+    "sha256": "sha256:068a89fb80c4a44c9b9dbc2dd3d99136b0c56683aa9e904442b022daeffb340b",
+    "size": 363798
   },
   {
     "filename": "libnfnetlink_1.0.2-1_armv7-5.4.ipk",
     "package": "libnfnetlink",
-    "sha256": "sha256:5ac5c75ea2f6b3e5387d872e70870650d44a3c03faa97c6b26ba798df66aca9f",
-    "size": 11306
+    "sha256": "sha256:35363eaf024adf0d8d1c8c2bc0e05024b1b07f0fc4db547870fb4e8f5e4e4f0d",
+    "size": 11305
   },
   {
     "filename": "libnftnl_1.3.1-1_armv7-5.4.ipk",
     "package": "libnftnl",
-    "sha256": "sha256:139712eed968e60121229a9bc38bf112a91da3c3768ea2fd02553502634d9c35",
-    "size": 54637
+    "sha256": "sha256:3e9ee6c99645d813b41355acb16cd2eee320e0a4e2931c69d08b782b0f06cfd3",
+    "size": 54626
+  },
+  {
+    "filename": "libnghttp2_1.66.0-1_armv7-5.4.ipk",
+    "package": "libnghttp2",
+    "sha256": "sha256:f2ab90dba256dd0d0bc7607d150cf7d49df875877fef23899c59b51e7e3df4db",
+    "size": 63394
   },
   {
     "filename": "libnl-cli_3.11.0-1_armv7-5.4.ipk",
     "package": "libnl-cli",
-    "sha256": "sha256:7fc6962445ca00c2a672ae006b5b55051fe9bfdc890ca703e51171e6924a8cb7",
+    "sha256": "sha256:86944995f98b4c2dff1c9fbb20fa8961c8bf337d18a34ecdcf21f4745e4a4677",
     "size": 12085
   },
   {
     "filename": "libnl-core_3.11.0-1_armv7-5.4.ipk",
     "package": "libnl-core",
-    "sha256": "sha256:5023c87c5b2457093fc5e8983d7c5731ee3d4417387dc718b8c20dc6b27fc743",
-    "size": 39307
+    "sha256": "sha256:51f32ed1d14b489f880cbdd3af5bc58e733a893e9e821069171903a22f05a77e",
+    "size": 39308
   },
   {
     "filename": "libnl-genl_3.11.0-1_armv7-5.4.ipk",
     "package": "libnl-genl",
-    "sha256": "sha256:6e250125b85995f6ff385e30ac96fb8289521801474518c255574561b63f68cb",
-    "size": 8241
+    "sha256": "sha256:210b22ceba1153c780d8df85eb83c64bc8eaa0189c69581a9eaf7df1afb6d902",
+    "size": 8238
   },
   {
     "filename": "libnl-nf_3.11.0-1_armv7-5.4.ipk",
     "package": "libnl-nf",
-    "sha256": "sha256:f218a10edfbe96585d3d153395ac7a4f710ac713c584b3a0bf2d03ef12bdbd8a",
-    "size": 28352
+    "sha256": "sha256:6fffc0d1c4c30134a7cc1ecf203213f4b88c68ccd446a64953444abac5bca1c6",
+    "size": 28356
   },
   {
     "filename": "libnl-route_3.11.0-1_armv7-5.4.ipk",
     "package": "libnl-route",
-    "sha256": "sha256:d4d1e4057e5771605670212650ec0e518a2a9d859f15c019bd02cd26601b0a69",
-    "size": 177898
+    "sha256": "sha256:b909471a690ccca54bf41e6d21c96fefeb2f2c5735b866cda967425e3be5424f",
+    "size": 177918
   },
   {
     "filename": "libnl-tiny_2025.12.02~40493a65-1_armv7-5.4.ipk",
     "package": "libnl-tiny",
-    "sha256": "sha256:02a4c5685f4099009c2b4a3d5da44525c136da1db7d0a585e439f2a0c2e4abd6",
-    "size": 14019
+    "sha256": "sha256:070b552204adad55a44b35ea482979aa9499b740b9985a140b22384192a8698a",
+    "size": 14029
   },
   {
     "filename": "libnl_3.11.0-1_armv7-5.4.ipk",
     "package": "libnl",
-    "sha256": "sha256:5f11818e20986b9556ab26317a8716d6884afb02302a1a22298a38338bbbfd38",
-    "size": 794
+    "sha256": "sha256:979fa5b59dd7f0226d962dcc2e0a2f615c4bb4518287a2b95080bc371ba312b6",
+    "size": 797
   },
   {
     "filename": "libopcodes_2.45.1-1_armv7-5.4.ipk",
     "package": "libopcodes",
-    "sha256": "sha256:4a6b491e07990f79bbf4f18be2332874e5cebc512a84f30ac3df516a9f763607",
-    "size": 60541
+    "sha256": "sha256:6f5a6f258b52604cbf14611209b535aeaddbf34027d3fbb2121cc5df2383d87b",
+    "size": 60526
   },
   {
     "filename": "libopenssl-conf_3.5.5-1_armv7-5.4.ipk",
     "package": "libopenssl-conf",
-    "sha256": "sha256:1227b72b738e7870715cad16434d825a8d3875d99b0576eb1933af16338e886f",
-    "size": 5661
+    "sha256": "sha256:99edcc7d7122a5e8ff6a5d97ccf1f18984c172d878cb2e4f4a7314bf43827943",
+    "size": 5660
   },
   {
     "filename": "libopenssl-legacy_3.5.5-1_armv7-5.4.ipk",
     "package": "libopenssl-legacy",
-    "sha256": "sha256:504c21bba3dadf6160ce0ad43fe63e3bd90a8269666f4e5267595dc4497e2aba",
-    "size": 28980
+    "sha256": "sha256:ce4f27b3b184fd38bd181d334b49be81c61083a642b74d3f2c89a9a44782a135",
+    "size": 28991
   },
   {
     "filename": "libopenssl_3.5.5-1_armv7-5.4.ipk",
     "package": "libopenssl",
-    "sha256": "sha256:04c13feb77affddf1c6d472e6ea5eb8de56b208c1ff24bef69a9fd1f303f0deb",
-    "size": 2062069
+    "sha256": "sha256:d08cb9ccfb70241dc76425ed50c98acd83132c928a2d9d6e7f7b2a3993ca6dfa",
+    "size": 2061931
   },
   {
     "filename": "libpcap_1.10.6-1_armv7-5.4.ipk",
     "package": "libpcap",
-    "sha256": "sha256:7d670b0ac9c7216ebafd50b1bdaf62cf18cd49bee6d070723a663ff875c4f4cc",
-    "size": 124443
+    "sha256": "sha256:b0666733a9e94e37e7d1af6fed0e964d9a8c26a861aed6d234f1ff4a3fd11350",
+    "size": 124438
   },
   {
     "filename": "libpcre2-32_10.47-1_armv7-5.4.ipk",
     "package": "libpcre2-32",
-    "sha256": "sha256:a966932b614a857a133ba4d6f6babd8d1d80b4f2759b97674123c4e658699b24",
-    "size": 216252
+    "sha256": "sha256:52b688157127e2ab19a517282c4c8210df1f79a393f598587e5117da589baeef",
+    "size": 216261
   },
   {
     "filename": "libpcre2_10.47-1_armv7-5.4.ipk",
     "package": "libpcre2",
-    "sha256": "sha256:5c21eea895dfa403faff066d6d7b57b241403e53b5b6cd5f04bde9dde7d175c2",
-    "size": 251756
+    "sha256": "sha256:6603b96a98293f82d88df3994385a788740f3c074272b97b9b296fd94959c57d",
+    "size": 251759
+  },
+  {
+    "filename": "libpkgconf_1.8.0-2_armv7-5.4.ipk",
+    "package": "libpkgconf",
+    "sha256": "sha256:5670c2a14de38f75399c6ae2f98515fe3c597e7f24c4a69dc6eb97690edcd087",
+    "size": 25818
   },
   {
     "filename": "libpng_1.6.50-1_armv7-5.4.ipk",
     "package": "libpng",
-    "sha256": "sha256:9922869156ea3fadef76ee59595fa021843fbb288531860780cce015cff4bb84",
-    "size": 92798
+    "sha256": "sha256:6abbd8d3b9e36b53c7fc23f466cfbcca4e38073a73aaed4a047704c33a7f0566",
+    "size": 92800
   },
   {
     "filename": "libpopt_1.19-1_armv7-5.4.ipk",
     "package": "libpopt",
-    "sha256": "sha256:68dff235c74e36f2117637b12ea61b696f72dee2844b7cbeae65d23e2b6801d3",
-    "size": 21432
+    "sha256": "sha256:0ea1ac97ee8cf6d098a6d12700ccd965ea8a9e2941823ea6185eb46274039115",
+    "size": 21427
   },
   {
     "filename": "libpthread_2.27-12_armv7-5.4.ipk",
     "package": "libpthread",
-    "sha256": "sha256:13e55102380dc16774d1b71933ee1e790a70bf3a76e1ed2beb5cc8e60c9b88ce",
-    "size": 40244
+    "sha256": "sha256:f99126741444cc173537cf49dbfce52fa28913d6510f3281f913a4de8049064d",
+    "size": 40235
   },
   {
     "filename": "libpython3_3.13.9-2_armv7-5.4.ipk",
     "package": "libpython3",
-    "sha256": "sha256:2f734ec66e1039a4ac9c29c9f3fbaf7cb4cc338d19006a933dd78b2dc861baa8",
-    "size": 1544057
+    "sha256": "sha256:fc7fb1ad78fd03d406e01e4fafd389c4500eafaf1cd7df91dc3615ce081e1d51",
+    "size": 1544058
   },
   {
     "filename": "libreadline_8.3-1_armv7-5.4.ipk",
     "package": "libreadline",
-    "sha256": "sha256:bae312b434a0765fa7c536f1796cfc8a4dd87802c829b9437b1c60b993ebbacc",
-    "size": 153985
+    "sha256": "sha256:0433269275aa3ff7a295f228613a706d7643090be6bb767bee20c6a105320c4f",
+    "size": 153977
   },
   {
     "filename": "librt_2.27-12_armv7-5.4.ipk",
     "package": "librt",
-    "sha256": "sha256:c5da9f161598c22ca21a6190c659187e635a2387483e7964b8aa62f60c48e5e2",
-    "size": 12180
+    "sha256": "sha256:6a924c5d07e01d54ee460ff8ee0c4795f461221b2d609539b846c0b80822b1a0",
+    "size": 12186
   },
   {
     "filename": "libsmartcols_2.41.3-1_armv7-5.4.ipk",
     "package": "libsmartcols",
-    "sha256": "sha256:f364961ef7e240bced61564dd6a12f6f062d5ea9c11dc7f08b5294a23400bc96",
-    "size": 63326
+    "sha256": "sha256:0b884100c02588000617db11410f095aad538f046a2435684142cefdad561313",
+    "size": 63345
   },
   {
     "filename": "libsodium_1.0.20-1_armv7-5.4.ipk",
     "package": "libsodium",
-    "sha256": "sha256:c459c1647934a89f6331618b7230c47d42c55d88efe0eff9dfa771af254aeb6b",
-    "size": 160298
+    "sha256": "sha256:dbc83a0f9f32b2928a62985b3a24355813be53ee83a51b537324fedb91ca06a3",
+    "size": 160296
   },
   {
     "filename": "libsqlite3_3.51.2-1_armv7-5.4.ipk",
     "package": "libsqlite3",
-    "sha256": "sha256:8f668fd24af77a7ec68c0331424362897cc3e07b07ba70207b6ffdc69ff9f824",
+    "sha256": "sha256:febe90a8721f48c54c578b5876d275ab81815b7b982440291f49af6ceb83d7ad",
     "size": 639133
   },
   {
     "filename": "libss_1.47.3-1_armv7-5.4.ipk",
     "package": "libss",
-    "sha256": "sha256:42cf962595ba2de585f7e3f5fce54d02a17adab6ba3e20de452bfd997d3ab6cb",
-    "size": 9325
+    "sha256": "sha256:0c791a5135ace3b2a40eb92ad773be3d0a0451958325bbf845ed05ce7f116fae",
+    "size": 9319
   },
   {
     "filename": "libssp_8.4.0-12_armv7-5.4.ipk",
     "package": "libssp",
-    "sha256": "sha256:efc1739e39eb4beafa2a5e5d44a1da87e66d8b81282e9524f3877c735e6b1061",
-    "size": 3567
+    "sha256": "sha256:47f7c0e59764c457ac6360b1147b6cc12f9676517799fb56dc06c5004c4bc1f6",
+    "size": 3568
   },
   {
     "filename": "libstdcpp_8.4.0-12_armv7-5.4.ipk",
     "package": "libstdcpp",
-    "sha256": "sha256:fba95cafe3291a26594e7728cfa9ededd6f92495e9eb59c209a9f191d9d88795",
-    "size": 335637
+    "sha256": "sha256:b7578381aecf2ee016066a6fda39a49735f62de50bb0cb7182d26b2a4067e5ce",
+    "size": 335570
   },
   {
     "filename": "libsysfs_2.1.0-5_armv7-5.4.ipk",
     "package": "libsysfs",
-    "sha256": "sha256:4e5c27b3898933f8d49fcd65724585aab674d29d60cf57bb4550adcef98b38d7",
-    "size": 12953
+    "sha256": "sha256:6bb634b025238c0855615489cf0eca483b50014aec2dd9272365073bf74e2912",
+    "size": 12963
   },
   {
     "filename": "libthread-db_2.27-12_armv7-5.4.ipk",
     "package": "libthread-db",
-    "sha256": "sha256:0c3d03689bce28a164dce6c2f3ebe40610018bdaf765114333327282a2d0dcd9",
-    "size": 10952
+    "sha256": "sha256:d75bc9c6b8209898dbe4b9228f8b4e50c7766fb06faf139f63c5c57205d183de",
+    "size": 10944
   },
   {
     "filename": "libtiff_4.7.1-1_armv7-5.4.ipk",
     "package": "libtiff",
-    "sha256": "sha256:390b5cbb3f1f655fabcf4f17540b1b384fcb026dcb10d730ffdc900f58765025",
+    "sha256": "sha256:092459a85f5c8691c389838a08b1bf8fc08b6ebce6377254b23074cbab87cae5",
     "size": 169321
   },
   {
     "filename": "libubox_2026.02.13~1aa36ee7-1_armv7-5.4.ipk",
     "package": "libubox",
-    "sha256": "sha256:05ca4dcdca0f51f8ee0caaea2db264b906bc747d28ef8deda7f949128b759d30",
-    "size": 25471
+    "sha256": "sha256:7a1b99ac8fcdf7fe8ed1b3f5ac979d5c14f17e5e24ae3ef30eea6c9ab3216089",
+    "size": 25460
+  },
+  {
+    "filename": "libudev-zero_1.0.3-2_armv7-5.4.ipk",
+    "package": "libudev-zero",
+    "sha256": "sha256:da073d2132c44e489a3050fe79f6e272e5e87f2ee1a41aafc5d01aaae0bb5a88",
+    "size": 9395
   },
   {
     "filename": "libunistring_1.4.1-1_armv7-5.4.ipk",
     "package": "libunistring",
-    "sha256": "sha256:78f0cff3127befa818e7234d38e609bb487b16f57c7bf18dffe96cce3b6c0f5c",
-    "size": 724451
+    "sha256": "sha256:e6e6417fb370d07381c3375800845b5ac510792498844cdda180de3e8c6750b7",
+    "size": 724225
   },
   {
     "filename": "libusb-1.0_1.0.29-1_armv7-5.4.ipk",
     "package": "libusb-1.0",
-    "sha256": "sha256:823d0abbb5da774463955b9eed9d8062a613911ed0534f93a6bccf20e265e428",
-    "size": 34053
+    "sha256": "sha256:8a0405888445b97ea03eb6dbb578dace932ff42be45d06f8af94694c2e6d57c6",
+    "size": 34060
   },
   {
     "filename": "libuuid_2.41.3-1_armv7-5.4.ipk",
     "package": "libuuid",
-    "sha256": "sha256:339fad348eb7662d20dbb11f1649bfab4cced7292fde5d22967febb92beaff8e",
+    "sha256": "sha256:b522ee31bba6f86a2406a0334e0ccc68b1ab01b1748c9fefbd2ab90e646d683a",
     "size": 14652
   },
   {
     "filename": "libwebp_1.5.0-1_armv7-5.4.ipk",
     "package": "libwebp",
-    "sha256": "sha256:afd25f24c9750320c38d88e40d133d8cf2dd379bfc83489ff911d3c263389d44",
-    "size": 269764
+    "sha256": "sha256:094ec1e9798fca41260e0ba06138d9c5e5f1ca4973219516076009e098151530",
+    "size": 269756
   },
   {
     "filename": "libwolfssl_5.8.4-1_armv7-5.4.ipk",
     "package": "libwolfssl",
-    "sha256": "sha256:96403cd0e63893bd7f46336176a5e1cfdbf635908fc81fa1032f43dc1bced0eb",
-    "size": 586208
+    "sha256": "sha256:0bb723af55646f36e4867da22d8600aa10ad2eceda7a84ea24f5332448a9a030",
+    "size": 586205
   },
   {
     "filename": "libxml2-dev_2.15.1-1_armv7-5.4.ipk",
     "package": "libxml2-dev",
-    "sha256": "sha256:d5c092d0c9b60c4606f801fdf31ef4f35df9dcf7b842c04adda964e658fa43cb",
-    "size": 82705
+    "sha256": "sha256:57e9f88762a03b415e9b19bd01ed04e37c9b9536d0797c12c22d8b74d02fc1be",
+    "size": 82697
   },
   {
     "filename": "libxml2-utils_2.15.1-1_armv7-5.4.ipk",
     "package": "libxml2-utils",
-    "sha256": "sha256:558e393d6deb060cbf60423d558287f7c4d237877a7797df0c179eb73fd9318d",
-    "size": 31878
+    "sha256": "sha256:88785eed10cf163be62d592ebfc7d887b0cf334da8067f5764e97e51f12f002b",
+    "size": 31924
   },
   {
     "filename": "libxml2_2.15.1-1_armv7-5.4.ipk",
     "package": "libxml2",
-    "sha256": "sha256:6a32f089b07748d22985c78c034dc9875f26b8f4baa2abe1d6d9501e412b9573",
-    "size": 480753
+    "sha256": "sha256:8e26eaab25579ffe1842c3a83ea67f58b3d67487dd91bd181f9e0838564b9674",
+    "size": 480757
+  },
+  {
+    "filename": "libxslt_1.1.42-2_armv7-5.4.ipk",
+    "package": "libxslt",
+    "sha256": "sha256:f759dddb9c54203928d357d7446ea4dcf03608d3e35395666d251f56174f6b84",
+    "size": 92597
   },
   {
     "filename": "libyaml_0.2.5-2_armv7-5.4.ipk",
     "package": "libyaml",
-    "sha256": "sha256:1c50c0707a7de1e6f9031881804ffe1807357b28521fed578005780ed6e72639",
-    "size": 45490
+    "sha256": "sha256:fbde19fa4ca679945ba246e6a527a2554a324029bb35129085c7e60a363fe2ad",
+    "size": 45494
   },
   {
     "filename": "libzstd_1.5.7-1_armv7-5.4.ipk",
     "package": "libzstd",
-    "sha256": "sha256:ccdcebf7fadfc6e32f61b84198201010ae56ba23540124cba8d3afe59e969dc8",
-    "size": 347194
+    "sha256": "sha256:08bd41e5a3c6b2e4ae0bd6d756d929e96528246800c982bdfeb125421c52fbda",
+    "size": 347192
   },
   {
     "filename": "lldpd_1.0.20-1_armv7-5.4.ipk",
     "package": "lldpd",
-    "sha256": "sha256:a74e5c1d8619487eb6c3954741b022a4336346906779cfa0030a737abf559a12",
-    "size": 122604
+    "sha256": "sha256:4a693bc370bf435e67e78c3425470b81dd308c568f5d69bedcb4fae5d9bb89b1",
+    "size": 122584
   },
   {
     "filename": "locales_2.27-9_armv7-5.4.ipk",
     "package": "locales",
-    "sha256": "sha256:199278bbef9a21db12ba9c527c4d4c27a6751333859329bf84bff95dad4064d5",
-    "size": 640470
+    "sha256": "sha256:ae545d64e8179e454f4ed16b183d37c345d5547db15ac997aca4f9fa9bdcca05",
+    "size": 640476
   },
   {
     "filename": "logger_2.41.3-1_armv7-5.4.ipk",
     "package": "logger",
-    "sha256": "sha256:6e8a53070600d2be20403bd9c73397629ad2eb9e1596fc4df6662bad299206c3",
-    "size": 18745
+    "sha256": "sha256:1d0303cbb98d278884f80bcdd2866fc278862fbfd6dd2ceef6b2752b5a1c4cfc",
+    "size": 18743
   },
   {
     "filename": "look_2.41.3-1_armv7-5.4.ipk",
     "package": "look",
-    "sha256": "sha256:64cea938f5c873d0215ce8912a99c5f81783c2da7561a978a7d133c95b02198a",
-    "size": 5014
+    "sha256": "sha256:250d5c0930f9589cb6af747e754e6c1cbe7238c2cd1e7d4c88ca12a1506d596e",
+    "size": 5018
   },
   {
     "filename": "losetup_2.41.3-1_armv7-5.4.ipk",
     "package": "losetup",
-    "sha256": "sha256:5f2e7b9e1faaf024768e5335dfebdc512bcaf026a6f2345346fd7a7b4da33721",
-    "size": 47286
+    "sha256": "sha256:f14f591743c23980c51c75d54b9496bb4b2a135bdb6b5e6be06f78729dff4b5e",
+    "size": 47289
   },
   {
     "filename": "lsattr_1.47.3-1_armv7-5.4.ipk",
     "package": "lsattr",
-    "sha256": "sha256:00c05a907af3dc19db18cbd63a3fad91a0c6aec26cc8e91027e641b34c936265",
-    "size": 4064
+    "sha256": "sha256:046f5f3653f9715895beb1de8e9b0b51a649c507b6326973b03780d90a717668",
+    "size": 4060
   },
   {
     "filename": "lsblk_2.41.3-1_armv7-5.4.ipk",
     "package": "lsblk",
-    "sha256": "sha256:952055739ad69d858b917813d9f19ff5b1fe3cc00f1e9fa437ab265ee6c2452a",
-    "size": 82359
+    "sha256": "sha256:284c3312e1833e89ed6b727b847e831c1ab9b83fdb74d1717585e1ef36d239cd",
+    "size": 82371
   },
   {
     "filename": "lscpu_2.41.3-1_armv7-5.4.ipk",
     "package": "lscpu",
-    "sha256": "sha256:3b25ae2fca51cf9e128a334538e9941c91ab69f3a66fc910715a725212ac7155",
-    "size": 54834
+    "sha256": "sha256:3590e65e89705bc7dfadeb9b902bde359779437b6d39034a989a0e1585ccfe70",
+    "size": 54885
   },
   {
     "filename": "lslocks_2.41.3-1_armv7-5.4.ipk",
     "package": "lslocks",
-    "sha256": "sha256:e3df37fc0a3084526971dd22f62eb31152f086a1c17afd4ad7abcdf33437e9a4",
-    "size": 26883
+    "sha256": "sha256:aaa106c30e1a90eaa50c3d4de400da16db745ca33496bb3b213eecef17a60852",
+    "size": 26932
   },
   {
     "filename": "lsns_2.41.3-1_armv7-5.4.ipk",
     "package": "lsns",
-    "sha256": "sha256:95784ac1a52a184d56be9632e6cc58829b4bc79f113a615d0c65cc8c68cb5419",
-    "size": 29946
+    "sha256": "sha256:bf22202093afcddab36cc584873cae2fe44f518a75d9dc66d5ea50844db34ed9",
+    "size": 29940
   },
   {
     "filename": "lsof_4.99.5-2_armv7-5.4.ipk",
     "package": "lsof",
-    "sha256": "sha256:3c2db927c1d24519e781ab7586012510ef1c4f254a99abe4cf295027b356a00d",
-    "size": 80215
+    "sha256": "sha256:1afec4513da251212c8aa7b1c17bf7942a28fa0d4f2a1bfc404774a445dbbf64",
+    "size": 80241
   },
   {
     "filename": "lua-examples_5.1.5-11_armv7-5.4.ipk",
     "package": "lua-examples",
-    "sha256": "sha256:a0c48d857ffb78b32609be1009bf5cb3a548c62ddc89a5c80e42627e94a902f6",
-    "size": 6063
+    "sha256": "sha256:4bab4ba88d7680dc76bc53922b2642a69181cab41aa5c951f0c8fd5649619f3a",
+    "size": 6065
   },
   {
     "filename": "lua5.3_5.3.5-6_armv7-5.4.ipk",
     "package": "lua5.3",
-    "sha256": "sha256:0ecfe747ed2c27592859ee516ca7fb90634d5c1faaf8160aa6389659a361f4b6",
-    "size": 6738
+    "sha256": "sha256:f8885b4ec0f8ccaadb927831d97b6d6993a1a0158fb9a2bf22f0b784ae00ae5b",
+    "size": 6745
   },
   {
     "filename": "lua_5.1.5-11_armv7-5.4.ipk",
     "package": "lua",
-    "sha256": "sha256:f799fae664f2c5139e9c6b9cd2c00b6de93f676d9fc6e1b79a83488dd18b0314",
-    "size": 6314
+    "sha256": "sha256:be0bd7592ec85ee347132087ee619c03d67b72b0ad9eca78eb50a7ecd5a1fe8e",
+    "size": 6309
   },
   {
     "filename": "luac5.3_5.3.5-6_armv7-5.4.ipk",
     "package": "luac5.3",
-    "sha256": "sha256:e5ad53d9ec6f5546207496135c94a0bcb5f6ae35581ebead2f1d72925cee5144",
-    "size": 7505
+    "sha256": "sha256:ecb19ce9054a1281c11dfecfa2d9ab2e01e2772439d0d3187ed1c69b598d58f6",
+    "size": 7504
   },
   {
     "filename": "luac_5.1.5-11_armv7-5.4.ipk",
     "package": "luac",
-    "sha256": "sha256:a725030fbec26256625ea0e4c5e6bd047d5cb5bfd8fed15ba7f73faf1103d0e8",
-    "size": 7555
+    "sha256": "sha256:8d5dd389b3276692a8183f14c893e3a2200ea6e88bbe3cc48a778d23a416bc38",
+    "size": 7554
+  },
+  {
+    "filename": "make_4.4.1-2_armv7-5.4.ipk",
+    "package": "make",
+    "sha256": "sha256:52bcde53f8e88f84001c73342ffc1dc63c2d24f51b5fbc07b07e599b2b5cd8c0",
+    "size": 106681
   },
   {
     "filename": "mbedtls-util_3.6.5-1_armv7-5.4.ipk",
     "package": "mbedtls-util",
-    "sha256": "sha256:0bfec3de32c8ad4cbd4d6eea59d76b763f9870062087f37a5fa0f03a841a69d5",
-    "size": 10219
+    "sha256": "sha256:0dae73e4596523fbdf2baf68b9d843d482e22cd78379322572fd44e926125e65",
+    "size": 10222
   },
   {
     "filename": "mcookie_2.41.3-1_armv7-5.4.ipk",
     "package": "mcookie",
-    "sha256": "sha256:b1e65548fdf8a429b683e6168aa0de574e09f5a5b0658b816baeca2bb86267d2",
-    "size": 14267
+    "sha256": "sha256:c44d9d0d00e8424788cc94f7edf675b918a5ad73381885a72d0ee586f421b381",
+    "size": 14328
   },
   {
     "filename": "mkf2fs_1.16.0-4_armv7-5.4.ipk",
     "package": "mkf2fs",
-    "sha256": "sha256:2e8e27f6a11db55051c23c54ab29e306d166866c37be02451304ccb481295a9b",
-    "size": 18592
+    "sha256": "sha256:4bf4f05c0340c5bb6373edcc2bbf692c155887242cb62e1774425e8aa9879696",
+    "size": 18600
   },
   {
     "filename": "mlocate_0.26-1_armv7-5.4.ipk",
     "package": "mlocate",
-    "sha256": "sha256:0e81e22f15ec00fd3ee1899a4507c01dc871f5360ba81e396f0edb2dcb70ef83",
-    "size": 36923
+    "sha256": "sha256:113e30e5241f6ab39c2d0ef3b6173f4a04df59771c21b969eb263b7fff977843",
+    "size": 36854
   },
   {
     "filename": "more_2.41.3-1_armv7-5.4.ipk",
     "package": "more",
-    "sha256": "sha256:f72001354d2b9f60ef50cc4f4fdd8e4349351ebfba5e1f6b6e735faeb172213f",
-    "size": 22042
+    "sha256": "sha256:3c8f1aa7a228fc4fc18986ed6c3efd99dbd67adba9187687392d8a0cd02d1147",
+    "size": 22048
   },
   {
     "filename": "mount-utils_2.41.3-1_armv7-5.4.ipk",
     "package": "mount-utils",
-    "sha256": "sha256:df97417b976e8152e452aaba2a04b258aea3a8506cb9037cbd4212800e2300f8",
-    "size": 75020
+    "sha256": "sha256:db83e1c8f5dd0710b547076cded835b6a0f2d975a75e5e6a0382bf3a47ddf873",
+    "size": 75129
   },
   {
     "filename": "namei_2.41.3-1_armv7-5.4.ipk",
     "package": "namei",
-    "sha256": "sha256:d3451a0d71fb37a962c0dfec49d6a8c260101dffe516e1a0560b8c199862e85c",
-    "size": 12389
+    "sha256": "sha256:1d0dec0e66af04d3763595448209a5d77adc89d3d734fa296f977641983ab119",
+    "size": 12399
   },
   {
     "filename": "nand-utils_2.3.0-1_armv7-5.4.ipk",
     "package": "nand-utils",
-    "sha256": "sha256:6e3b8621b69c5109cd73905935964792d61cc3e4ba90683749cc460e74a2d534",
-    "size": 56080
+    "sha256": "sha256:bd6224ecb12991ee795b05c90b318550bde70476903894ae5eeaa4bbd91e0b4f",
+    "size": 56088
+  },
+  {
+    "filename": "nano_8.7.1-1_armv7-5.4.ipk",
+    "package": "nano",
+    "sha256": "sha256:b43604db73b8271a62dec7333ebcdf98d666f2268e8f8a36d81551bd22b1917e",
+    "size": 72964
+  },
+  {
+    "filename": "ncdu_1.22-1_armv7-5.4.ipk",
+    "package": "ncdu",
+    "sha256": "sha256:3e7e219882f76b2246a9b244ad84022278ae17a1e7481fdeac867a1ef8f1f289",
+    "size": 36073
   },
   {
     "filename": "ncurses-bin_6.4-3_armv7-5.4.ipk",
     "package": "ncurses-bin",
-    "sha256": "sha256:1e5e45bc16b8fda895197fca6c2df52d65e8d8e833c1c1282d3d4585b4ba34db",
-    "size": 89975
+    "sha256": "sha256:65c1e5d443f6815cf25f3033ac432c04dc24112dff0c7cdbf312f7dd17cb8af1",
+    "size": 89972
   },
   {
     "filename": "netbird_0.66.4-1_armv7-5.4.ipk",
@@ -1176,148 +1302,178 @@
     "size": 12566730
   },
   {
+    "filename": "netcat_0.7.1-2a_armv7-5.4.ipk",
+    "package": "netcat",
+    "sha256": "sha256:1883453ec3421eb4d2bf5cf7a08561a2b3f04c134017efcaf430f3e5db0dc025",
+    "size": 16365
+  },
+  {
     "filename": "nsenter_2.41.3-1_armv7-5.4.ipk",
     "package": "nsenter",
-    "sha256": "sha256:83150eeca2d96b9c49712da53706b8c51d49dcddafc15fc4b57faf09fd991bc6",
-    "size": 28341
+    "sha256": "sha256:68a44d5d4bbe3b9abd62137d1be932f54d84e9a18c8fd82da39b888482fe9f6f",
+    "size": 28404
   },
   {
     "filename": "nstat_4.4.0-11_armv7-5.4.ipk",
     "package": "nstat",
-    "sha256": "sha256:384470610cc23efa0e93b76ab8a59e2d8ea19bf6c1c4ffdbe5ced4e3dc015ee8",
-    "size": 8789
+    "sha256": "sha256:8cfb44afb780a4aceba854b179466fbd09537fc5f0f18e36c6753120deffdc1f",
+    "size": 8792
   },
   {
     "filename": "objdump_2.45.1-1_armv7-5.4.ipk",
     "package": "objdump",
-    "sha256": "sha256:cf836e687fa620f7121bd8a2f049e340d02f96c0898961794179f0ab0efbcb1f",
-    "size": 187687
+    "sha256": "sha256:25aa230117b8cc2d5d548fec075fd5a3ed5f8cd5ee19ec9b16c2d5e57afb63cb",
+    "size": 187691
   },
   {
     "filename": "openssh-client-utils_10.2_p1-1_armv7-5.4.ipk",
     "package": "openssh-client-utils",
-    "sha256": "sha256:2527cae1406a1bbf255cd676797b3269ee9df57f316879ccfc828d5a906710ad",
-    "size": 750828
+    "sha256": "sha256:530648c0456367e7da84c11507aa7c2cf86bfcbefb780685e98911de654b7970",
+    "size": 750836
   },
   {
     "filename": "openssh-client_10.2_p1-1_armv7-5.4.ipk",
     "package": "openssh-client",
-    "sha256": "sha256:754d43f14a35edc17f4add420d0cb120c589422cdd7764b90274b33151be8482",
-    "size": 507734
+    "sha256": "sha256:06733d540f976254829b5fea209d9ae6c60d2a3d2ac4d22af2f9f20425fb10e6",
+    "size": 507793
   },
   {
     "filename": "openssh-keygen_10.2_p1-1_armv7-5.4.ipk",
     "package": "openssh-keygen",
-    "sha256": "sha256:6edaa786eb64634625ae2faa30b33fc30868c8fdb8f6334db63aa7cfce52302c",
-    "size": 220209
+    "sha256": "sha256:893406198d645855df2dc3a7f3c325e94c0d7b6d3e391e4a9f185c274b5aed05",
+    "size": 220210
   },
   {
     "filename": "openssh-server_10.2_p1-1_armv7-5.4.ipk",
     "package": "openssh-server",
-    "sha256": "sha256:dd4d4006bc5af0f858364b69f7f1c316f54a8982f1f2670ac1014cae2c6a7f89",
-    "size": 1065600
+    "sha256": "sha256:55733f7d7fe6cf4b968a4d86e522c79c7d08c72b4ca7dd92105b6a89c61adac0",
+    "size": 1065554
   },
   {
     "filename": "openssh-sftp-client_10.2_p1-1_armv7-5.4.ipk",
     "package": "openssh-sftp-client",
-    "sha256": "sha256:936a52932207dd505944ede0921e3c8f1582d24824b14b3e4efbe0907080abfb",
-    "size": 95409
+    "sha256": "sha256:8b14e13e795fbd91b5978abff22b8eaee50c60dcb5329a353c54a189881cd452",
+    "size": 95408
   },
   {
     "filename": "openssh-sftp-server_10.2_p1-1_armv7-5.4.ipk",
     "package": "openssh-sftp-server",
-    "sha256": "sha256:e43c155a4e1918313a7fe33061249dab4f8ecbda4ad2bef4879a16e4a2850376",
-    "size": 62521
+    "sha256": "sha256:26fae8098a7472434f001df7ad33efd95c3be88b95ad53117c997fc33318d366",
+    "size": 62524
   },
   {
     "filename": "openssl-util_3.5.5-1_armv7-5.4.ipk",
     "package": "openssl-util",
-    "sha256": "sha256:86b2ce868db64ac9bf9ef527d33ef2d34cae76e93cab8a88060c5914d69a2005",
-    "size": 392131
+    "sha256": "sha256:7ef4c928756d024c5c3c689e6ac1daf511574719ee41f87f2c73f69108b0f5e8",
+    "size": 392135
   },
   {
     "filename": "opkg_2025.11.05~80503d94-1_armv7-5.4.ipk",
     "package": "opkg",
-    "sha256": "sha256:08644ab46555fe1c24c11b9d45c1d60f49f39e3c1ddc98f5c5cbbf13d88bdd43",
-    "size": 371597
+    "sha256": "sha256:a1072b455ebc07a3f002cc35221897bdfb90df36acc5c9d4e22886851b2a3c84",
+    "size": 371589
   },
   {
     "filename": "partx-utils_2.41.3-1_armv7-5.4.ipk",
     "package": "partx-utils",
-    "sha256": "sha256:df1bad27ae2b5aeb710e8e4693a3baa502625a599530f8726c0a9792bd197662",
-    "size": 57865
+    "sha256": "sha256:0f6a9499cdf49da85c64624532c00d4d64283a0aeaf7d1b455130da632ddd6b9",
+    "size": 57858
+  },
+  {
+    "filename": "patch_2.8-1_armv7-5.4.ipk",
+    "package": "patch",
+    "sha256": "sha256:f490957ef972960a1b5a135accbd425e3a3464b52670070a71251f3a68b49898",
+    "size": 73605
+  },
+  {
+    "filename": "patchelf_0.18.0-1_armv7-5.4.ipk",
+    "package": "patchelf",
+    "sha256": "sha256:6e448401b205b95a647cbfd860acadea9f0c14fc341833eea04bb7100606cb0f",
+    "size": 90692
+  },
+  {
+    "filename": "pkgconf_1.8.0-2_armv7-5.4.ipk",
+    "package": "pkgconf",
+    "sha256": "sha256:fe1342403830c1a791ba25708b1314d8270f4bd6d7a0dcf950ee3a939a2589e0",
+    "size": 13625
   },
   {
     "filename": "ppp-mod-pppoa_2.4.8_git20201003-3_armv7-5.4.ipk",
     "package": "ppp-mod-pppoa",
-    "sha256": "sha256:941378d3eaa9a620e006243f19ae2fc088b2d7e0c7aadc05d5ddafefc63b7be1",
+    "sha256": "sha256:8ab5ec2e5d4c598fa3272d01056c1a4e3a42f5069542c596f06caf61182f5072",
     "size": 8132
   },
   {
     "filename": "ppp-mod-pppoe_2.4.8_git20201003-3_armv7-5.4.ipk",
     "package": "ppp-mod-pppoe",
-    "sha256": "sha256:5c80b82fd18231df001c6aa2de9aed04a6d96b7316d41f278b38f28a4f9cd81d",
-    "size": 11444
+    "sha256": "sha256:16edb6379a871edea50916fce8c6280d7967634e8514c31306637e3ea722718c",
+    "size": 11451
   },
   {
     "filename": "ppp-mod-pppol2tp_2.4.8_git20201003-3_armv7-5.4.ipk",
     "package": "ppp-mod-pppol2tp",
-    "sha256": "sha256:94b21618033b2611b94ec6edbe98ad5ce8d0b6a14360ab6da3eadbf403869d78",
-    "size": 5953
+    "sha256": "sha256:4d3389a4683e14f8ba74a2afe4bf63da515fa435e6fd0a19a367789f56a118e6",
+    "size": 5958
   },
   {
     "filename": "ppp-mod-pptp_2.4.8_git20201003-3_armv7-5.4.ipk",
     "package": "ppp-mod-pptp",
-    "sha256": "sha256:f60811bf02c240f867d7d72cf893d89b7fdf3cc3aea87ac1cee5970a0ca662d7",
-    "size": 18193
+    "sha256": "sha256:3cde48f7fd8a54958d47442d3a71134d5999cbd45d6ae8ec7da9154e58c49d37",
+    "size": 18198
   },
   {
     "filename": "ppp-mod-radius_2.4.8_git20201003-3_armv7-5.4.ipk",
     "package": "ppp-mod-radius",
-    "sha256": "sha256:ddbe98139273cd40a5b695c2bfbaa71b9b6129c38d34feddec442131145a9edd",
-    "size": 24365
+    "sha256": "sha256:c0de73dc7a9be4762aaf6d410926fbf7e0771be66f5a2bea16f936f32d0072ac",
+    "size": 24378
   },
   {
     "filename": "ppp_2.4.8_git20201003-3_armv7-5.4.ipk",
     "package": "ppp",
-    "sha256": "sha256:631c5e8a13a7f7e98b37ec5e96862c059845e7d123c9cec6586c585f5df4e9e8",
+    "sha256": "sha256:9ae17663703da028bc3b34795ac7779fe92de4eda9e03e1def9d51b113d8800c",
     "size": 116940
   },
   {
     "filename": "pppdump_2.4.8_git20201003-3_armv7-5.4.ipk",
     "package": "pppdump",
-    "sha256": "sha256:34c13a7c2a790459252ee0d1cb422d03f386f499c2c3ca2031ef0d0e249ce7a5",
-    "size": 16348
+    "sha256": "sha256:931bc75cf6384623f502b2cc8617a27a677f2a292e2763a158130766794f7018",
+    "size": 16338
   },
   {
     "filename": "pppoe-discovery_2.4.8_git20201003-3_armv7-5.4.ipk",
     "package": "pppoe-discovery",
-    "sha256": "sha256:234deba7b23b24fb7c15270eb5c48c444272b131e3da8ffbeba199e881aa9b1a",
-    "size": 8036
+    "sha256": "sha256:133a588cbd9d553eb8dd3f82da7af5800b527cab440c49227f6f4d6bcafc217b",
+    "size": 8033
   },
   {
     "filename": "pppstats_2.4.8_git20201003-3_armv7-5.4.ipk",
     "package": "pppstats",
-    "sha256": "sha256:b5eec735063207e1a1ae04e9c3e6ec5beb99b2f05dd5fb21fe4ba41165b67954",
-    "size": 5622
+    "sha256": "sha256:351d4e744397d0ba7e0c836e44721d9ed6b3aa3ac6f881850d4a4ea407d9dfc3",
+    "size": 5616
   },
   {
     "filename": "prlimit_2.41.3-1_armv7-5.4.ipk",
     "package": "prlimit",
-    "sha256": "sha256:cf896b2c2210083a7a9b533292c08d40503da44b9e10271c35604264936e4f43",
-    "size": 14345
+    "sha256": "sha256:0a5b3fdaae203f7d8ffc3c08b278a5256224bdd2bf9d2444a43b4b6ee8923347",
+    "size": 14343
+  },
+  {
+    "filename": "procps-ng_4.0.6-1_armv7-5.4.ipk",
+    "package": "procps-ng",
+    "sha256": "sha256:31bf189805d906b6c637d27013711907d68991996bd01b83a5af9df14e2d7b41",
+    "size": 49199
   },
   {
     "filename": "python3-aiofiles_25.1.0-1_armv7-5.4.ipk",
     "package": "python3-aiofiles",
-    "sha256": "sha256:ce814288a7025100c8d162357e008d979941b631d2e85921ba3b5386a627180f",
-    "size": 20045
+    "sha256": "sha256:dad25a4293f05456e856baf2db3830e047cf9e31c803ee0892cefd15316d5323",
+    "size": 20048
   },
   {
     "filename": "python3-apprise_1.9.8-1_armv7-5.4.ipk",
     "package": "python3-apprise",
-    "sha256": "sha256:36c734a55126f90c364eb3e664adc927a702fa65b7f159d1399125ce73f6f9b6",
-    "size": 1590928
+    "sha256": "sha256:5efb471ec0a75700ba357d316278f4c280e0a6ecc250069deaaf58418dbd5208",
+    "size": 1591173
   },
   {
     "filename": "python3-async-timeout_4.0.2-1_armv7-5.4.ipk",
@@ -1334,14 +1490,14 @@
   {
     "filename": "python3-base_3.13.9-2_armv7-5.4.ipk",
     "package": "python3-base",
-    "sha256": "sha256:1364a27f18c6c59760aea167023456fb85adb72d4f70f9585f0a8d74661dd2c9",
-    "size": 225623
+    "sha256": "sha256:ae781bafd7e9d3251473c3f87d67a895ca3870febc2de90fab444475b669d8cb",
+    "size": 225783
   },
   {
     "filename": "python3-can_4.6.1-1_armv7-5.4.ipk",
     "package": "python3-can",
-    "sha256": "sha256:8dea8db53d8d0e39d3ae1857fea7bea366833823a7a666db67051696efec82d3",
-    "size": 461178
+    "sha256": "sha256:023e7dd6032ccad6bee9f3e6d3bcf9f8060a0eb126f6a8f26e2a25e6c4ec187b",
+    "size": 461267
   },
   {
     "filename": "python3-certifi_2026.1.4-1_armv7-5.4.ipk",
@@ -1352,8 +1508,8 @@
   {
     "filename": "python3-cffi_2.0.0-1_armv7-5.4.ipk",
     "package": "python3-cffi",
-    "sha256": "sha256:82574015aea708229826cccc7575ed6fbcd2fd866ddf8af859bf08910286d95f",
-    "size": 268274
+    "sha256": "sha256:1b43c1dfc20e26c31a6b6f2970d518f242a75b6371aa14a98372a00e9f91ff04",
+    "size": 268275
   },
   {
     "filename": "python3-chardet_5.2.0-3_armv7-5.4.ipk",
@@ -1376,32 +1532,38 @@
   {
     "filename": "python3-codecs_3.13.9-2_armv7-5.4.ipk",
     "package": "python3-codecs",
-    "sha256": "sha256:4dcbe4d721a98e4d2deff71cf555f227f382b3df278d8b3fbe93d3be5a573bea",
-    "size": 673340
+    "sha256": "sha256:8dc773bc7d63d9e307190c2fcf6b42a70b453934fda959ce70043e56346179b7",
+    "size": 673343
   },
   {
     "filename": "python3-ctypes_3.13.9-2_armv7-5.4.ipk",
     "package": "python3-ctypes",
-    "sha256": "sha256:5df5845c5d630b8393d5f146f5923b46243cb2a4aab425ca3d45bd85f296b92c",
-    "size": 80952
+    "sha256": "sha256:33e379c64f828a0f1a6a0edb2db56fe1578ae5c661b354ec784626de9ea644f9",
+    "size": 80953
   },
   {
     "filename": "python3-dbm_3.13.9-2_armv7-5.4.ipk",
     "package": "python3-dbm",
-    "sha256": "sha256:bf2f13380882f647ba78a1b904dc01225f23848d0bee174547d597025d796fd4",
-    "size": 24488
+    "sha256": "sha256:50c5247849bc0d64b3292aac65c16f4783499cd47f45a8943a9ad4e2d0271827",
+    "size": 24483
   },
   {
     "filename": "python3-dbus-fast_2.21.1-1_armv7-5.4.ipk",
     "package": "python3-dbus-fast",
-    "sha256": "sha256:80c0c100d40aa2cd879e1a50960876c6b6ad5cd72e818af8276003fb18099578",
-    "size": 748905
+    "sha256": "sha256:42fd73a1e3c9ef0cd4f579b6cbce8dc03ef4d2d8ae59e79de28d6cae78701647",
+    "size": 749004
   },
   {
     "filename": "python3-decimal_3.13.9-2_armv7-5.4.ipk",
     "package": "python3-decimal",
-    "sha256": "sha256:38f6caaff694f1b6a98aca296736181078c38dc42ea772ddd5ebb75915f91776",
-    "size": 103638
+    "sha256": "sha256:d729d9279b051de11dae345b0bae1b5bba6c851272e043ac2eaba7a50a741a0f",
+    "size": 103642
+  },
+  {
+    "filename": "python3-dev_3.13.9-2_armv7-5.4.ipk",
+    "package": "python3-dev",
+    "sha256": "sha256:e7859ea2121d27e847e2f578c71b6de0cea0a3e7649e119ba64a61e34ff12340",
+    "size": 18458631
   },
   {
     "filename": "python3-distro_1.9.0-1_armv7-5.4.ipk",
@@ -1414,12 +1576,6 @@
     "package": "python3-email",
     "sha256": "sha256:bfb155c6ee3be9a063104a6cad82f41b9c8254ce8ac677cdd42c0a18260b1e1b",
     "size": 177563
-  },
-  {
-    "filename": "python3-greenlet_3.3.1-1_armv7-5.4.ipk",
-    "package": "python3-greenlet",
-    "sha256": "sha256:ca2a9cf7e841d661df047f1e9043d054ac3437904ca3b8790a13fd9b65ba2091",
-    "size": 220597
   },
   {
     "filename": "python3-idna_3.11-1_armv7-5.4.ipk",
@@ -1436,14 +1592,14 @@
   {
     "filename": "python3-importlib-metadata_8.7.1-1_armv7-5.4.ipk",
     "package": "python3-importlib-metadata",
-    "sha256": "sha256:414ada05ce77ef646ac402f3913888fb3f47ecb8c1caaf19099e0ed115635de3",
-    "size": 44441
+    "sha256": "sha256:e525bfa5a82805a97115d7f020e5f79966d4faa2a8eb90f021a6f99224e32f95",
+    "size": 44443
   },
   {
     "filename": "python3-inotify-simple_2.0.1-1_armv7-5.4.ipk",
     "package": "python3-inotify-simple",
-    "sha256": "sha256:3048c6ee5675ec6b2f338336b0ac7ea0feb501f98a79d4007b6567aa84a27e88",
-    "size": 9498
+    "sha256": "sha256:f277367552321640f34ab206c6011798991a0399b5fa970abb87449881146320",
+    "size": 9501
   },
   {
     "filename": "python3-jinja2_3.1.6-1_armv7-5.4.ipk",
@@ -1454,20 +1610,20 @@
   {
     "filename": "python3-ldap3_2.9.1-1_armv7-5.4.ipk",
     "package": "python3-ldap3",
-    "sha256": "sha256:8a905bdc422040f8018f284cb9fa1ce102173dafa8c19b829475dabfc64a0805",
-    "size": 564997
+    "sha256": "sha256:08b1c687065ca403de26f88016dbedc8b04894757f23775eb25fa5a0ef6aeb74",
+    "size": 564984
   },
   {
     "filename": "python3-libnacl_2.1.0-1_armv7-5.4.ipk",
     "package": "python3-libnacl",
-    "sha256": "sha256:1e2c613c1af0b8ef8b12c9ba4a3262ba72ae8817917cb1baa9f74db0fe404c77",
+    "sha256": "sha256:51f48b75c8ccfd65c60b41bf93feeb6cfd5a788533951657749e43651a4a3a14",
     "size": 35867
   },
   {
     "filename": "python3-light_3.13.9-2_armv7-5.4.ipk",
     "package": "python3-light",
-    "sha256": "sha256:8a0b414b286d6df128072d2b5b1d56122e09dfa1a0e3a40364ec08ce98a2b267",
-    "size": 2918500
+    "sha256": "sha256:8d1ac3c4df45c2cd312d61be42c614b5264f434cd921cab43352659973288f95",
+    "size": 2918621
   },
   {
     "filename": "python3-logging_3.13.9-2_armv7-5.4.ipk",
@@ -1478,8 +1634,8 @@
   {
     "filename": "python3-lzma_3.13.9-2_armv7-5.4.ipk",
     "package": "python3-lzma",
-    "sha256": "sha256:8eaf53157f7295704c689c309aa3df7bd6de350a33a76fca78e04896b450f1e5",
-    "size": 19255
+    "sha256": "sha256:69fef51fbc1a73961cb62a41eba86d79728fcb89b71a4b49c613888db77b6deb",
+    "size": 19256
   },
   {
     "filename": "python3-markdown_3.10-1_armv7-5.4.ipk",
@@ -1490,38 +1646,38 @@
   {
     "filename": "python3-markupsafe_3.0.3-2_armv7-5.4.ipk",
     "package": "python3-markupsafe",
-    "sha256": "sha256:966a9e3e728b8e74af9841e41d30d3b6df78a6754c87a57ecae7221423edf039",
-    "size": 16762
+    "sha256": "sha256:79e65360b657370b1d98562bcfbfc1f0fc23342f1d6dbc690fa27ca1cdeb5848",
+    "size": 16765
   },
   {
     "filename": "python3-msgspec_0.19.0-1_armv7-5.4.ipk",
     "package": "python3-msgspec",
-    "sha256": "sha256:43eb6a983ab6477df41793ce0d6adb22202b3396c13a0e54b1bad861e199d63b",
-    "size": 217082
+    "sha256": "sha256:937c1c5baf8209bb3bc18f345b9940c0f1abde4033b8948125da3e78f169f636",
+    "size": 217076
   },
   {
     "filename": "python3-multiprocessing_3.13.9-2_armv7-5.4.ipk",
     "package": "python3-multiprocessing",
-    "sha256": "sha256:831a3f12e44bf8946935ff435a846eede6e0ab8418b0375b52a65ffa8e425ddd",
-    "size": 174043
+    "sha256": "sha256:285ca6c14190fbdd718d67be03701123d63eef8189c20737fd3eb28a25ea685f",
+    "size": 174034
   },
   {
     "filename": "python3-ncurses_3.13.9-2_armv7-5.4.ipk",
     "package": "python3-ncurses",
-    "sha256": "sha256:1ea103ba7c3e289839000fcdec25956bcc4f8cf17fc25502fddb666b48b364f6",
-    "size": 53688
+    "sha256": "sha256:7ac47492139bc1e619a9b76e26bba24c4090a85c2538b3c52eaf20c4bf2d1d59",
+    "size": 53686
   },
   {
     "filename": "python3-numpy_2.3.4-1_armv7-5.4.ipk",
     "package": "python3-numpy",
-    "sha256": "sha256:d5b208261fb5f6259fb129c920aca09d20d73edd4631a2c00ddb4fd1faeb684e",
-    "size": 8443045
+    "sha256": "sha256:5355b254814af9f34c27aa8de33533b084b3e8c13d51909b4f84885b4a08d88d",
+    "size": 8443461
   },
   {
     "filename": "python3-openssl_3.13.9-2_armv7-5.4.ipk",
     "package": "python3-openssl",
-    "sha256": "sha256:eb81e8dc4a9ea0b726890ede5a8d0884a0de6eda66d55135ada115da4ee37a8c",
-    "size": 73895
+    "sha256": "sha256:5c8f3487634bef483fd7d7e58926bd29fc460474260c578fd6759611ab45c559",
+    "size": 73899
   },
   {
     "filename": "python3-packaging_25.0-1_armv7-5.4.ipk",
@@ -1538,14 +1694,14 @@
   {
     "filename": "python3-periphery_2.4.1-1_armv7-5.4.ipk",
     "package": "python3-periphery",
-    "sha256": "sha256:8ce20fba15208354aaa3b63097a301d920e5e2978652afa65a9bf117b704f181",
-    "size": 61964
+    "sha256": "sha256:a26b74f9a0bf33a82dad979954431ff4481644f198ef345c3df1f47cd7274707",
+    "size": 61968
   },
   {
     "filename": "python3-pillow_12.0.0-1_armv7-5.4.ipk",
     "package": "python3-pillow",
-    "sha256": "sha256:cd332ed018b81526b376d368c4099d52e1c309dc0f686fefb70c1c8b79ae213f",
-    "size": 787204
+    "sha256": "sha256:65552a38c9c4c5cfb92fd4a6f8d31fc0af0319f2b6f5c36002d9397e9b74485a",
+    "size": 787395
   },
   {
     "filename": "python3-pip_23.3.1-1_armv7-5.4.ipk",
@@ -1568,8 +1724,8 @@
   {
     "filename": "python3-preprocess-cancellation_0.2.1-1_armv7-5.4.ipk",
     "package": "python3-preprocess-cancellation",
-    "sha256": "sha256:5ff2edb45d5c8e23af3a292e1fae90990c4b2912fefa1c6a1a8390bc1dfe50e7",
-    "size": 26154
+    "sha256": "sha256:4f1b74f75f43a1f1cd34476228d5cfdc0ca620f4d3f3dde4689cfe36d7fc8449",
+    "size": 26157
   },
   {
     "filename": "python3-pyasn1_0.5.1-1_armv7-5.4.ipk",
@@ -1598,14 +1754,14 @@
   {
     "filename": "python3-readline_3.13.9-2_armv7-5.4.ipk",
     "package": "python3-readline",
-    "sha256": "sha256:b57c3ffd944a9d978a6376aa2d9b123b89f81b555eb54f8c9a7fc21bbae613a7",
-    "size": 11056
+    "sha256": "sha256:fe5cfbcd31e3615fee20f919b117a9bd774a6186fcd321ae5dab470681178b4b",
+    "size": 11061
   },
   {
     "filename": "python3-requests-oauthlib_2.0.0-1_armv7-5.4.ipk",
     "package": "python3-requests-oauthlib",
-    "sha256": "sha256:8d245dfd3e323aee671770ec3f2b1866a6deee8b57b3a4a42eb9184f089c2556",
-    "size": 29118
+    "sha256": "sha256:17984fe1361cbf2f4bfd5aaf00d43792d8ca80211d0b2009f3cfe018b838daea",
+    "size": 29120
   },
   {
     "filename": "python3-requests_2.32.5-1_armv7-5.4.ipk",
@@ -1622,26 +1778,26 @@
   {
     "filename": "python3-smart-open_7.5.1-1_armv7-5.4.ipk",
     "package": "python3-smart-open",
-    "sha256": "sha256:65b549159564ae7a67d99db5bf03820fa6f64a113a7ed805a54a8e53cd9ed801",
-    "size": 92758
+    "sha256": "sha256:6a41806576b2de5d9cca84d6900558602ef304c08286e48a955b8de06e1aa9aa",
+    "size": 92760
   },
   {
     "filename": "python3-sqlite3_3.13.9-2_armv7-5.4.ipk",
     "package": "python3-sqlite3",
-    "sha256": "sha256:499029348c7fb47d1dfad2af0dd152b6317070aa46f262d6c4c9a292c9dd473f",
-    "size": 47603
+    "sha256": "sha256:1cb329fd9174ed6dd3fabd93ed50c1789b7ca6711a3e34e43d0ff8ac929ccc22",
+    "size": 47608
   },
   {
     "filename": "python3-streaming-form-data_2.0.0-1_armv7-5.4.ipk",
     "package": "python3-streaming-form-data",
-    "sha256": "sha256:0a3b5b257f3b34ac18f072cf44b79f53b433f054b906512f57e8e1c3e8147eed",
-    "size": 220366
+    "sha256": "sha256:5dfd026e897cea680aaddfc2e0fe057a0e2bdd02fd2cc8fa00a284b6f2c3354c",
+    "size": 220449
   },
   {
     "filename": "python3-tornado_6.3.3-1_armv7-5.4.ipk",
     "package": "python3-tornado",
-    "sha256": "sha256:4ce2f36b3419328e56894ebf2a4b45128b62bda86225d46824df2d01dbeac850",
-    "size": 787782
+    "sha256": "sha256:8a59f13d947d2d2ef5d1916208cfac79176cdc1219d118890e7fa1eb222d0321",
+    "size": 787788
   },
   {
     "filename": "python3-typing-extensions_4.9.0-1_armv7-5.4.ipk",
@@ -1670,32 +1826,38 @@
   {
     "filename": "python3-uuid_3.13.9-2_armv7-5.4.ipk",
     "package": "python3-uuid",
-    "sha256": "sha256:0c407910fdaf8158806249564253256dddfb9430dfc3fabe9c3b38732559f100",
+    "sha256": "sha256:e4a3accb18432073263fa1f8aeb7aada37a454cc6088cb43a16f198642502d71",
     "size": 17169
+  },
+  {
+    "filename": "python3-venv_3.13.9-2_armv7-5.4.ipk",
+    "package": "python3-venv",
+    "sha256": "sha256:14bb295d803939962ab9f8f9ecda55cf59cadf2f2703fccc10298ce1cf9a0e31",
+    "size": 1728121
   },
   {
     "filename": "python3-wrapt_2.1.2-1_armv7-5.4.ipk",
     "package": "python3-wrapt",
-    "sha256": "sha256:3833a7d17fc5743f5ced3bee0063532c3571daaa2a723013d8505f4e1358ce97",
-    "size": 66617
+    "sha256": "sha256:5432184f7c4e93a57418a09383f656ddf27cf58f634a457d14fdc94bcf8b0aa7",
+    "size": 66634
   },
   {
     "filename": "python3-xml_3.13.9-2_armv7-5.4.ipk",
     "package": "python3-xml",
-    "sha256": "sha256:cda0983367792f266fecd3c1f9536a0dec7b8f3719516595bf9bb3155a085274",
-    "size": 290308
+    "sha256": "sha256:abd9896f86942078c5134a69754fc7a7170a9f554df3fd89fc276ee808aa7054",
+    "size": 290313
   },
   {
     "filename": "python3-yaml_6.0.3-1_armv7-5.4.ipk",
     "package": "python3-yaml",
-    "sha256": "sha256:45c523cf1d758cd4eff67ef990bc94374467eccc66af87f6c5d5e86632343888",
+    "sha256": "sha256:497f615422b5eeaacf301f451c85ab005596db8324133a6410a91b7fa34618dc",
     "size": 177424
   },
   {
     "filename": "python3-zeroconf_0.131.0-1_armv7-5.4.ipk",
     "package": "python3-zeroconf",
-    "sha256": "sha256:add1d706ca347f97bb2e7db7ff96c7f0bbc7ae2ec1992d2ef1507048e2728b85",
-    "size": 1634898
+    "sha256": "sha256:5db2780f6a62d4a8d93e4bbefb3fa4f720be31b1610efd81b562186c823d3077",
+    "size": 1634836
   },
   {
     "filename": "python3-zipp_3.16.2-1_armv7-5.4.ipk",
@@ -1712,80 +1874,92 @@
   {
     "filename": "rename_2.41.3-1_armv7-5.4.ipk",
     "package": "rename",
-    "sha256": "sha256:da7679b1c37f20f87f9774278135d740b46321a13efebc60bc88636d3932c4e4",
-    "size": 8203
+    "sha256": "sha256:e5937f3cb0363e045f61b5daeaebadde691b25bae9a58a35ba6a054fbc310c67",
+    "size": 8201
   },
   {
     "filename": "resize2fs_1.47.3-1_armv7-5.4.ipk",
     "package": "resize2fs",
-    "sha256": "sha256:d3c9af1d1d4034c5123856388ff8f18694aba549ae9d4220b2690a1667e73555",
+    "sha256": "sha256:915127cf1493ebc14a3c480a1c873c95044a32401383e0226b4c428ee7e3ba0c",
     "size": 28969
   },
   {
     "filename": "resolveip_2_armv7-5.4.ipk",
     "package": "resolveip",
-    "sha256": "sha256:4357fc355efa9f05b2a3e78a0f5ec0023324fdc6e049dfa2c322d9e09c588652",
+    "sha256": "sha256:bff9316c9372fd28a1b060409a4685a3fee84686a6eba8844fe146c5ec33d570",
     "size": 3004
   },
   {
     "filename": "rev_2.41.3-1_armv7-5.4.ipk",
     "package": "rev",
-    "sha256": "sha256:a13d7d500c94ad9fb7437433704fa043570e9845d04f26653b44951591816ee3",
-    "size": 4568
+    "sha256": "sha256:e11f987fd48806a2bf3dc1cef29d6ac08c2936196bfc7e905eea6fe3b3c0c8b7",
+    "size": 4564
   },
   {
     "filename": "rpcapd_1.10.6-1_armv7-5.4.ipk",
     "package": "rpcapd",
-    "sha256": "sha256:60f8f783d4304b7debbd2ef989ec74200f01b62fea3cfa9087dd2609a1c0e890",
-    "size": 125432
+    "sha256": "sha256:89c36bb3e6b2e10dc64ee5fbaca263d41c2d0f48c96423497c969f86032e7b40",
+    "size": 125443
   },
   {
     "filename": "rsync_3.4.1-3_armv7-5.4.ipk",
     "package": "rsync",
-    "sha256": "sha256:579697f0440dd79a3a847a270426cc786daf82683b1721b0b55e8258fcf970e9",
-    "size": 195672
+    "sha256": "sha256:ae198b6affabbe0bca89f9310b3a134c1cdbba724582310bd39c45e8b6c970f9",
+    "size": 195653
   },
   {
     "filename": "script-utils_2.41.3-1_armv7-5.4.ipk",
     "package": "script-utils",
-    "sha256": "sha256:514ca830a5d64e00dd0d4491893d024a750365a3e5728631a50233de6160ce4a",
-    "size": 43563
+    "sha256": "sha256:e4830080cd3294142eed61618baf80f87e542b04c3cffbafc127e3cd32dfa820",
+    "size": 43457
   },
   {
     "filename": "setterm_2.41.3-1_armv7-5.4.ipk",
     "package": "setterm",
-    "sha256": "sha256:8551c0c6f46ac8fd401fb19bad1965ad6584b125b0f07823d3ffdb689ea76faf",
-    "size": 17165
+    "sha256": "sha256:2e4e2b91da38a944b0b17ef28613a1366eed15ec04b39dbeba81257d8f8fb67d",
+    "size": 17193
   },
   {
     "filename": "sfdisk_2.41.3-1_armv7-5.4.ipk",
     "package": "sfdisk",
-    "sha256": "sha256:4bb81679b79bae0830943b7955c30bc40701d69bc61cf151eccd9056e5ce24ab",
-    "size": 58058
+    "sha256": "sha256:3e5190432a03636e897fd1ff99a63689b0956ebaa45752d5624f511a6755b73a",
+    "size": 58052
+  },
+  {
+    "filename": "socat_1.8.0.3-2_armv7-5.4.ipk",
+    "package": "socat",
+    "sha256": "sha256:0ff35bf65f04a8e7ce5fd63d6f2fafffeceed89fd8cfe09457b222772e3a4ffb",
+    "size": 123607
+  },
+  {
+    "filename": "sqlite3-cli_3.51.2-1_armv7-5.4.ipk",
+    "package": "sqlite3-cli",
+    "sha256": "sha256:ccb557fd84c436a6d5ad0d0823c393fed708de11a2be32b112ceaa45931a4ec0",
+    "size": 168947
   },
   {
     "filename": "ss_4.4.0-11_armv7-5.4.ipk",
     "package": "ss",
-    "sha256": "sha256:b81635ace4dc5db68a6cb7b4e949ff31101533f17d3297692792304676276cf6",
-    "size": 33016
+    "sha256": "sha256:571c8a6221cba1940926793f91e88ee9bab877882c35b7b18f09e91c37ba278d",
+    "size": 33018
   },
   {
     "filename": "strace_6.18-2_armv7-5.4.ipk",
     "package": "strace",
-    "sha256": "sha256:f3ced4700c742ebda404b1914c9f7271f872c0075b562e11c1bef186aa2006e2",
-    "size": 400107
+    "sha256": "sha256:14026489abb0bfd2de08cd4896c2cc253cc491179020c4ad578c101eb26d02fc",
+    "size": 400053
   },
   {
     "filename": "swap-utils_2.41.3-1_armv7-5.4.ipk",
     "package": "swap-utils",
-    "sha256": "sha256:b59d2959a0e9712d807d6655be97045818831f3a844831300f7b0a82745bae4d",
-    "size": 85796
+    "sha256": "sha256:f352836d0453719dbf42d8725f9ad1f4f1ab56fa1de3b540437f24709082a864",
+    "size": 85800
   },
   {
     "filename": "sysfsutils_2.1.0-5_armv7-5.4.ipk",
     "package": "sysfsutils",
-    "sha256": "sha256:4fa3886a469c61275cd2b5ba2f0bb3325c3b9e6422b4aa453973ad370a729f07",
-    "size": 8933
+    "sha256": "sha256:137a7dc063d6117f2a5e21b1a1917fc31436e88875cc6bd7e6758775a6cd855c",
+    "size": 8934
   },
   {
     "filename": "tailscale_1.96.1-1_armv7-5.4.ipk",
@@ -1796,133 +1970,163 @@
   {
     "filename": "taskset_2.41.3-1_armv7-5.4.ipk",
     "package": "taskset",
-    "sha256": "sha256:739e7afa30cd33eba4a9dac1902a70d34dbdeac1e347a66a229686c88e46f506",
-    "size": 21955
+    "sha256": "sha256:e0f376fdf779d87b816dac8c3cfc0469f91fc36a5a01157c7e1211956adace98",
+    "size": 21954
   },
   {
     "filename": "tc_4.4.0-11_armv7-5.4.ipk",
     "package": "tc",
-    "sha256": "sha256:19eeca286bb720235c54dd812d1a6785a225036a04e93135f871e2c98d3ed103",
-    "size": 115103
+    "sha256": "sha256:708e835ebe7903f508a135de50ed768a0ff3e89d5956b5ac7440651b19465fdf",
+    "size": 115120
   },
   {
     "filename": "tcpdump_4.99.6-1_armv7-5.4.ipk",
     "package": "tcpdump",
-    "sha256": "sha256:b06c3b6230e62e520a58f189c18fa88bf5107528f8d4e08b327ba9f478326e4c",
-    "size": 396470
+    "sha256": "sha256:9a4fa3b8259d095a3e57c6fbaaed17c7f4f4834d382ae729d4732a7947d4d86c",
+    "size": 396477
   },
   {
     "filename": "terminfo_6.4-3_armv7-5.4.ipk",
     "package": "terminfo",
-    "sha256": "sha256:98321302d3a1e6285192a285107d9395dc5b27ba01ab134dca5520416e03c93b",
-    "size": 9661
+    "sha256": "sha256:5b1190da85dc284f0e0c344002527a90b0bc45052a9a4c568b0ceabefa138357",
+    "size": 9658
+  },
+  {
+    "filename": "tmux_3.6a-1_armv7-5.4.ipk",
+    "package": "tmux",
+    "sha256": "sha256:b851ea5142afb2881ef9f542f24443ee74f7108620d4850659be31fbb021f8cf",
+    "size": 361478
+  },
+  {
+    "filename": "tree_2.3.1-1_armv7-5.4.ipk",
+    "package": "tree",
+    "sha256": "sha256:2f60688c773621e958e80705d1a80df68f24cdc3d8ca8aebbcaf641a982ea81a",
+    "size": 31081
   },
   {
     "filename": "tune2fs_1.47.3-1_armv7-5.4.ipk",
     "package": "tune2fs",
-    "sha256": "sha256:9973eaa82ba0dacb0fb9c4138e554356cddeae15a4f9676f1be2f8b0fba6995c",
-    "size": 46388
+    "sha256": "sha256:fbbf67aa81b1d68fc46b52647f92f5214dcedc3c01cefbdc31dff31abdcb62a3",
+    "size": 46400
   },
   {
     "filename": "ubi-utils_2.3.0-1_armv7-5.4.ipk",
     "package": "ubi-utils",
-    "sha256": "sha256:599d497d8d1517ad620ac7a4a8e6d5b2e3aaf89e7e8f95c2c8ded71ac559a4d8",
-    "size": 85538
+    "sha256": "sha256:615520a41fcfe40176ccada7d3ec411ef83c81b0687a27fcc2636df592cc4fce",
+    "size": 85547
   },
   {
     "filename": "uboot-envtools_2026.01-1_armv7-5.4.ipk",
     "package": "uboot-envtools",
-    "sha256": "sha256:8ed201ba2d30262cb9b45bff5d0645903837ce58238a8c861288db8a1db7f7d0",
-    "size": 15643
+    "sha256": "sha256:31085ef0980408f747a8ad433b6bbfdd0f075d3cedbad74da3662517a4a0d019",
+    "size": 15641
   },
   {
     "filename": "unshare_2.41.3-1_armv7-5.4.ipk",
     "package": "unshare",
-    "sha256": "sha256:d9b20a855203767d9d2e1116cd8f473e125bbe0294003019d11dce3710871621",
-    "size": 29952
+    "sha256": "sha256:31e7b42732dc787b5e2283bc5c0bc05c6e65ea74e436dceaabcd94234e481ba0",
+    "size": 29953
+  },
+  {
+    "filename": "unzip_6.0-9_armv7-5.4.ipk",
+    "package": "unzip",
+    "sha256": "sha256:fa95c4de610a618798adf38ab140ccc9c5bc658612984e9ed35b3eddc3873725",
+    "size": 106185
   },
   {
     "filename": "uqmi_2025.07.30~7914da43-2_armv7-5.4.ipk",
     "package": "uqmi",
-    "sha256": "sha256:7b65aacc166eab767c2cd2b0bbbd905e8faadebf835f69941f04d30584299cc7",
-    "size": 44945
+    "sha256": "sha256:9fbf68429fddf9af61ca1fdcbfc8056e6416e6b71f62dd5dcba198e3c77f5eee",
+    "size": 44950
+  },
+  {
+    "filename": "usbids_0.387-1_armv7-5.4.ipk",
+    "package": "usbids",
+    "sha256": "sha256:f0706e36cf79f766f3ffa4e9728c51fa5b977c1e020dbf805e6a353c98d1facf",
+    "size": 255659
+  },
+  {
+    "filename": "usbutils_017-1_armv7-5.4.ipk",
+    "package": "usbutils",
+    "sha256": "sha256:5281da71e3e13f4489e6f4d5ec2ed37b484c2a7f62fb1db06f56084f699e9165",
+    "size": 58234
   },
   {
     "filename": "uuidd_2.41.3-1_armv7-5.4.ipk",
     "package": "uuidd",
-    "sha256": "sha256:2dbb064dae192324785adf469340c6e66d01842b3bddbe7a9999a4ee9b81ed10",
-    "size": 16214
+    "sha256": "sha256:82b786a061f2950979e3f0dff57c7b28f4e00fe12a498c4a742cf233d2c61c5b",
+    "size": 16106
   },
   {
     "filename": "uuidgen_2.41.3-1_armv7-5.4.ipk",
     "package": "uuidgen",
-    "sha256": "sha256:b1addadee78ed7dbffec7aa84c5f054a20e90947f968d6b4618bbcaf471c09ad",
-    "size": 11998
+    "sha256": "sha256:6a6e5d67a0eadda3301df9dfa0b324e211c6b487c4bf79406322026771873409",
+    "size": 12005
   },
   {
     "filename": "valgrind-cachegrind_3.26.0-1_armv7-5.4.ipk",
     "package": "valgrind-cachegrind",
-    "sha256": "sha256:dd97012560353f2ec9014a02c88f07aa648af24c970a345b35ec07c2246ee3d8",
-    "size": 4581588
+    "sha256": "sha256:65bc53b52fda0ea8b6aa9090c16c25902ec447cb136ebff2bec51b7a25758812",
+    "size": 4581318
   },
   {
     "filename": "valgrind-callgrind_3.26.0-1_armv7-5.4.ipk",
     "package": "valgrind-callgrind",
-    "sha256": "sha256:d9e9d887560c3547fd734496957bc8cabf5d5f8b210ddda3916f126c7df2e48e",
-    "size": 4808522
+    "sha256": "sha256:aff669a55fde28146c9db6cd05b3a114a516e2833e153bce593173240bcf77bf",
+    "size": 4808828
   },
   {
     "filename": "valgrind-drd_3.26.0-1_armv7-5.4.ipk",
     "package": "valgrind-drd",
-    "sha256": "sha256:2b48a5b50ef6b2d0ec7d26a79f7f6a5451ba880ff8cb20417bdaf679bd8711cb",
-    "size": 4960631
+    "sha256": "sha256:aa85bfdb1f92df177dbc81b614f205ca7b35db6288c2e88353fdc8eca6bcaadd",
+    "size": 4960602
   },
   {
     "filename": "valgrind-helgrind_3.26.0-1_armv7-5.4.ipk",
     "package": "valgrind-helgrind",
-    "sha256": "sha256:f9216acc860bed7dd38ba07c2589508a9c785719a20ef2a2efc5bf767ef19f2a",
-    "size": 4961989
+    "sha256": "sha256:4fe2be58cb869093f0a4e617d8bd2a56b07aaec8487cac5ea7d4059874855830",
+    "size": 4961930
   },
   {
     "filename": "valgrind-massif_3.26.0-1_armv7-5.4.ipk",
     "package": "valgrind-massif",
-    "sha256": "sha256:1d6e6ba9de0c595134459dde83a2b9adc847468d791cb2347ac42fd8bb42b5bc",
-    "size": 4628963
+    "sha256": "sha256:b4c113af15ca2a6833cf2e0495b9c90f61f9fc0ce21ec335d72793086ac7f87a",
+    "size": 4628778
   },
   {
     "filename": "valgrind-vgdb_3.26.0-1_armv7-5.4.ipk",
     "package": "valgrind-vgdb",
-    "sha256": "sha256:849c15a299a44ac7218d14eab681abfc42b61ad1d3f98872e6ea28d7a1012ee3",
-    "size": 29849
+    "sha256": "sha256:43fd70a3f315c0b51f3b20a1967d3699666b54f45a6af3bfa25ea874b7b4fe86",
+    "size": 29850
   },
   {
     "filename": "valgrind_3.26.0-1_armv7-5.4.ipk",
     "package": "valgrind",
-    "sha256": "sha256:e0ba54b635f1acb174a9bd0bb55c6d3c413c328ea3cefd45ab28d35ba779ef72",
-    "size": 9771150
+    "sha256": "sha256:a992194f3256c877ff7b6b60a21a6a5512881f3676f1fc2383818e90b99bbdb4",
+    "size": 9771364
   },
   {
     "filename": "wall_2.41.3-1_armv7-5.4.ipk",
     "package": "wall",
-    "sha256": "sha256:ecba452fb6aff1c4fb063c4f9ab61cc59258799ac73959c05026dca5211a035a",
-    "size": 15215
+    "sha256": "sha256:421f14bd9410dc9b1bb3ced0106c222b59ff6d087f7e44d0dfad2fa2dd77c636",
+    "size": 15220
   },
   {
     "filename": "wget-ssl_1.25.0-4_armv7-5.4.ipk",
     "package": "wget-ssl",
-    "sha256": "sha256:b3b3fb49c8e8ac26d1a1c30a80a567967526ff95fe5e734b356037c868edd1e5",
-    "size": 223128
+    "sha256": "sha256:f4a114498c7f7301530cfb953fff2d82d47fb5121f5ed710667828052bafc800",
+    "size": 223153
   },
   {
     "filename": "whereis_2.41.3-1_armv7-5.4.ipk",
     "package": "whereis",
-    "sha256": "sha256:6a7e90694ec18deea54c1fd3c2460ae277581fb23d3e079341eb75618896df4c",
-    "size": 10169
+    "sha256": "sha256:c44e87c27c233103f10b3de86b2ab0d80e6b5206848a90c2239f920761ace9c3",
+    "size": 10172
   },
   {
     "filename": "wipefs_2.41.3-1_armv7-5.4.ipk",
     "package": "wipefs",
-    "sha256": "sha256:a97e01ec559276811bbb74378b1ff0ff711d6ef7ed8abe7c96cad8c34d46d034",
+    "sha256": "sha256:e4e973b614c028524188c18ba86c31950d57838977bcfcd6329949a494509858",
     "size": 18359
   },
   {
@@ -1934,8 +2138,8 @@
   {
     "filename": "wireguard-tools_1.0.20250521-1_armv7-5.4.ipk",
     "package": "wireguard-tools",
-    "sha256": "sha256:e603597f6c8ded52e99b5dd6aa04dd58b134cab20363c85d8b616d2eba9bbcaa",
-    "size": 29689
+    "sha256": "sha256:809e259333b5789ba098a395243bca45ec07b06c37621899e0caab4e9f8c5c6b",
+    "size": 29697
   },
   {
     "filename": "wireguard-ui_0.6.2-1_armv7-5.4.ipk",
@@ -1944,22 +2148,34 @@
     "size": 6985746
   },
   {
+    "filename": "xmlstarlet_1.6.1-3_armv7-5.4.ipk",
+    "package": "xmlstarlet",
+    "sha256": "sha256:1b948ba0d41771778deeb9ec8591a98392d474a99809ef82a789922d8d79c2ba",
+    "size": 31923
+  },
+  {
     "filename": "xxd_2025.08.24_armv7-5.4.ipk",
     "package": "xxd",
-    "sha256": "sha256:fc509c84dcf51682d2895c683daffe0bfbc8b9b3f394045ff91b06685fc5dda4",
+    "sha256": "sha256:e5ded3c9169cd5a31acf827172392f0886f3e1204ca73ee36441b8343ab74e56",
     "size": 9513
+  },
+  {
+    "filename": "xz-utils_5.8.2-1_armv7-5.4.ipk",
+    "package": "xz-utils",
+    "sha256": "sha256:e1077a477a34833ea4e1b8ae975be8556977a31c21407d2e75712c549a6dbf8b",
+    "size": 704
   },
   {
     "filename": "zlib-dev_1.3.1-1_armv7-5.4.ipk",
     "package": "zlib-dev",
-    "sha256": "sha256:6f3d1877cb6f954d7d2560c05d396bb17cb5b9df57f32fc6db40f5c7b17f4fa3",
-    "size": 80286
+    "sha256": "sha256:e7ea61f41741032cb8445966a74d457b6acf9db4504661d9e79253b58622b06b",
+    "size": 80316
   },
   {
     "filename": "zlib_1.3.1-1_armv7-5.4.ipk",
     "package": "zlib",
-    "sha256": "sha256:72024fd42098de638d773468f0dfeb5069b55463684aab1f6b956768745d5cee",
-    "size": 44877
+    "sha256": "sha256:0cb8f51c5694af39beddb0beb4087da2794c8bb63af52ad2bdd97c7e1ecc7d01",
+    "size": 44887
   },
   {
     "filename": "zoneinfo-asia_2025c-1_armv7-5.4.ipk",

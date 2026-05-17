@@ -46,6 +46,8 @@ opkg
 rsync
 strace
 terminfo
+vim-full
+vim-runtime
 xxd
 zlib
 zoneinfo-asia

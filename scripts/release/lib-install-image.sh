@@ -86,6 +86,105 @@ install_package_manifest() {
   /kip/bin/opkg install "${packages[@]}"
 }
 
+repair_kip_alternatives() {
+  log "Repairing /kip alternatives from installed package metadata"
+
+  python3 - <<'PY'
+from pathlib import Path
+import os
+
+info_dir = Path('/kip/lib/opkg/info')
+if not info_dir.exists():
+    raise SystemExit('missing opkg info directory: /kip/lib/opkg/info')
+
+# link -> (priority, target, source control file)
+selected: dict[str, tuple[int, str, str]] = {}
+
+for control in sorted(info_dir.glob('*.control')):
+    text = control.read_text(errors='replace').splitlines()
+    current_key = None
+    fields: dict[str, str] = {}
+    for line in text:
+        if not line:
+            current_key = None
+            continue
+        if line[0].isspace() and current_key:
+            fields[current_key] += ' ' + line.strip()
+            continue
+        if ':' not in line:
+            current_key = None
+            continue
+        key, value = line.split(':', 1)
+        current_key = key
+        fields[key] = value.strip()
+
+    alternatives = fields.get('Alternatives')
+    if not alternatives:
+        continue
+
+    for raw_entry in alternatives.split(','):
+        entry = raw_entry.strip()
+        if not entry:
+            continue
+        parts = entry.split(':', 2)
+        if len(parts) != 3:
+            raise SystemExit(f'{control}: malformed Alternatives entry: {entry!r}')
+        priority_s, link, target = parts
+        try:
+            priority = int(priority_s)
+        except ValueError as exc:
+            raise SystemExit(f'{control}: non-integer Alternatives priority in {entry!r}') from exc
+
+        # Release images are /kip-based. Ignore stale /opt metadata here; those
+        # packages need feed patches before they are safe for kip images.
+        if not link.startswith('/kip/'):
+            continue
+        prev = selected.get(link)
+        if prev is None or priority > prev[0]:
+            selected[link] = (priority, target, control.name)
+
+created = []
+for link, (priority, target, source) in sorted(selected.items()):
+    if not target.startswith('/kip/'):
+        raise SystemExit(f'{source}: /kip alternative {link} points outside /kip: {target}')
+    target_path = Path(target)
+    if not target_path.exists():
+        raise SystemExit(f'{source}: alternative target missing: {target}')
+    link_path = Path(link)
+    link_path.parent.mkdir(parents=True, exist_ok=True)
+    if link_path.is_symlink() and os.readlink(link_path) == target:
+        continue
+    if link_path.exists() or link_path.is_symlink():
+        link_path.unlink()
+    link_path.symlink_to(target)
+    created.append(f'{link} -> {target} ({source}, priority {priority})')
+
+if created:
+    print('Created/repaired alternatives:')
+    for line in created:
+        print(f'  {line}')
+else:
+    print('All /kip alternatives already correct')
+PY
+}
+
+verify_installed_image_contents() {
+  log "Verifying installed image contents before tarball creation"
+
+  [[ -x /kip/bin/opkg ]] || fail "missing /kip/bin/opkg"
+
+  if [[ -f /kip/lib/opkg/info/findutils.control ]]; then
+    [[ -x /kip/libexec/find-gnu ]] || fail "findutils installed but missing /kip/libexec/find-gnu"
+    [[ -x /kip/libexec/xargs-gnu ]] || fail "findutils installed but missing /kip/libexec/xargs-gnu"
+    [[ -L /kip/bin/find ]] || fail "findutils installed but missing /kip/bin/find symlink"
+    [[ "$(readlink /kip/bin/find)" == "/kip/libexec/find-gnu" ]] || \
+      fail "/kip/bin/find points to $(readlink /kip/bin/find), expected /kip/libexec/find-gnu"
+    [[ -L /kip/bin/xargs ]] || fail "findutils installed but missing /kip/bin/xargs symlink"
+    [[ "$(readlink /kip/bin/xargs)" == "/kip/libexec/xargs-gnu" ]] || \
+      fail "/kip/bin/xargs points to $(readlink /kip/bin/xargs), expected /kip/libexec/xargs-gnu"
+  fi
+}
+
 fix_permissions() {
   local -a roots=("$@")
   log "Normalizing permissions on ${roots[*]}"
@@ -124,6 +223,21 @@ verify_tarball() {
     fail "tarball missing executable opkg at ${kip_target}/bin/opkg"
   [[ -f "${verify_dir}/${relative_target}/profile-kipware.sh" ]] || \
     fail "tarball missing profile-kipware.sh"
+
+  if [[ -f "${verify_dir}/${relative_target}/lib/opkg/info/findutils.control" ]]; then
+    [[ -x "${verify_dir}/${relative_target}/libexec/find-gnu" ]] || \
+      fail "tarball missing findutils payload at ${kip_target}/libexec/find-gnu"
+    [[ -L "${verify_dir}/${relative_target}/bin/find" ]] || \
+      fail "tarball missing ${kip_target}/bin/find symlink"
+    [[ "$(readlink "${verify_dir}/${relative_target}/bin/find")" == "/kip/libexec/find-gnu" ]] || \
+      fail "tarball ${kip_target}/bin/find points to $(readlink "${verify_dir}/${relative_target}/bin/find"), expected /kip/libexec/find-gnu"
+    [[ -x "${verify_dir}/${relative_target}/libexec/xargs-gnu" ]] || \
+      fail "tarball missing findutils payload at ${kip_target}/libexec/xargs-gnu"
+    [[ -L "${verify_dir}/${relative_target}/bin/xargs" ]] || \
+      fail "tarball missing ${kip_target}/bin/xargs symlink"
+    [[ "$(readlink "${verify_dir}/${relative_target}/bin/xargs")" == "/kip/libexec/xargs-gnu" ]] || \
+      fail "tarball ${kip_target}/bin/xargs points to $(readlink "${verify_dir}/${relative_target}/bin/xargs"), expected /kip/libexec/xargs-gnu"
+  fi
 
   rm -rf "${verify_dir}"
 }

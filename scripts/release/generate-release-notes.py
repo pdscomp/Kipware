@@ -78,6 +78,79 @@ def commit_lines(previous_tag: str | None, end_ref: str) -> list[str]:
     return [line.strip() for line in out.splitlines() if line.strip()]
 
 
+def commit_subject(line: str) -> str:
+    parts = line.split(maxsplit=1)
+    return parts[1] if len(parts) == 2 else line
+
+
+def notable_fixes(commits: Iterable[str]) -> list[str]:
+    keywords = (
+        "alternative",
+        "alternatives",
+        "rpath",
+        "runtime",
+        "linker",
+        "glibc",
+        "prefix",
+        "staging",
+        "release",
+        "install image",
+        "drop",
+        "skip",
+        "fix",
+    )
+    skip_summary_phrases = (
+        'revert "release: include popular utilities in install images"',
+        "release: include popular utilities in install images",
+    )
+    selected: list[str] = []
+    for line in commits:
+        subject = commit_subject(line)
+        lowered = subject.lower()
+        if any(phrase in lowered for phrase in skip_summary_phrases):
+            continue
+        if lowered.startswith(("fix", "release", "revert")) or any(k in lowered for k in keywords):
+            selected.append(subject)
+    return selected[:12]
+
+
+def inline_code_list(items: Iterable[str], max_items: int = 40) -> str:
+    values = sorted(set(items))
+    if not values:
+        return "None detected."
+    shown = values[:max_items]
+    suffix = f", plus {len(values) - len(shown)} more" if len(values) > len(shown) else ""
+    return ", ".join(f"`{item}`" for item in shown) + suffix
+
+
+def human_summary(
+    added_image_packages: set[str],
+    removed_image_packages: set[str],
+    added_feed_packages: set[str],
+    removed_feed_packages: set[str],
+    commits: list[str],
+) -> str:
+    lines: list[str] = []
+    if added_image_packages:
+        lines.append(f"- Default install image additions: {inline_code_list(added_image_packages)}.")
+    if removed_image_packages:
+        lines.append(f"- Default install image removals: {inline_code_list(removed_image_packages)}.")
+    if added_feed_packages:
+        lines.append(
+            "- New packages built and published to the Kipware feed "
+            f"(installable with `opkg`, not necessarily included in the default images): {inline_code_list(added_feed_packages)}."
+        )
+    if removed_feed_packages:
+        lines.append(f"- Feed packages removed from CI config: {inline_code_list(removed_feed_packages)}.")
+    fixes = notable_fixes(commits)
+    if fixes:
+        lines.append("- Packaging/build fixes:")
+        lines.extend(f"  - {item}" for item in fixes)
+    if not lines:
+        lines.append("- Maintenance rebuild from the current `kip` branch.")
+    return "\n".join(lines)
+
+
 def target_summary(target_dir: Path) -> str:
     if not target_dir.exists():
         return "- No target configs found."
@@ -110,7 +183,11 @@ def main() -> int:
     if not DATE_TAG_RE.match(args.tag):
         raise SystemExit(f"tag must match YYYY-MM-DD: {args.tag}")
 
-    end_ref = args.tag if ref_exists(args.tag) else "HEAD"
+    # Use the checked-out commit as the changelog endpoint. This matters when
+    # intentionally regenerating an existing date release from newer kip commits:
+    # the tag object may still point at an older commit, but the workflow ref is
+    # the release source of truth.
+    end_ref = "HEAD"
     prev_tag = previous_date_tag(args.tag)
 
     current_manifest = parse_package_manifest(git_file(None, args.package_list))
@@ -124,6 +201,13 @@ def main() -> int:
     removed_feed_packages = previous_config - current_config
 
     commits = commit_lines(prev_tag, end_ref) if prev_tag else []
+    summary_text = human_summary(
+        added_image_packages,
+        removed_image_packages,
+        added_feed_packages,
+        removed_feed_packages,
+        commits,
+    )
 
     release_title = f"Kipware {args.tag}"
     previous_text = prev_tag or "the beginning of tracked release history"
@@ -143,6 +227,10 @@ Kipware is an optimized port of Entware for armv7l 3D printers built around the 
 ## Install image targets
 
 {target_summary(Path(args.target_dir))}
+
+## Highlights
+
+{summary_text}
 
 Both stock target locations are expected to have roughly 6GB free. If installing manually on another armv7l platform, ensure the target partition has adequate free space; at least several hundred MB is recommended for the base package set, and more if installing additional packages.
 
@@ -217,13 +305,7 @@ Removed feed packages:
     else:
         content += "- First date-tagged install-image release; historical pre-release commits are not enumerated. Future date-tagged releases will list commits since the previous date tag."
 
-    content += """
-
-## Known notes
-
-- Do **not** add `/kip/lib` to global `LD_LIBRARY_PATH` on firmware environments with their own glibc loader. Use `/kip/bin` and `/kip/sbin` in `PATH`; Kipware packages carry their own interpreter/RPATH metadata.
-- Release artifacts are already gzip-compressed tarballs; do not wrap them in zip files.
-"""
+    content += "\n"
 
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -252,11 +334,7 @@ The install image tarballs are already gzip-compressed. Do not wrap them in anot
 
 ## Highlights
 
-- Install image package set: {len(added_image_packages)} added, {len(removed_image_packages)} removed since {previous_text}.
-- Kipware feed package config: {len(added_feed_packages)} added, {len(removed_feed_packages)} removed since {previous_text}.
-- {runtime_summary}
-
-See the attached `release-notes-{args.tag}.md` for the complete generated changelog and package details.
+{summary_text}
 
 ## Install image targets
 
@@ -293,16 +371,7 @@ https://pdscomp.github.io/Kipware/kip/armv7hf-k5.4/installer/generic.sh
 
 For nonstandard layouts, create `/kip` as a symlink or bind mount to the desired install location before running `kipware-install-baremetal.sh` or `generic.sh`.
 
-After installation, add Kipware to login shells by sourcing its profile snippet from `/etc/profile`, `/root/.profile`, or another firmware-specific shell startup file:
-
-```sh
-. /kip/profile-kipware.sh
-```
-
-## Known notes
-
-- Do **not** add `/kip/lib` to global `LD_LIBRARY_PATH` on firmware environments with their own glibc loader.
-- HTTPS package operations on embedded targets often require `wget-ssl` and `ca-certificates`.
+See the attached `release-notes-{args.tag}.md` for the complete generated changelog and package details.
 """
         summary_output = Path(args.summary_output)
         summary_output.parent.mkdir(parents=True, exist_ok=True)

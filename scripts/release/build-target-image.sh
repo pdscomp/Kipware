@@ -66,6 +66,8 @@ download_and_run_generic_installer "${REPO_BASE_URL}"
 # shellcheck disable=SC1091
 source /kip/profile-kipware.sh
 install_package_manifest "${PACKAGE_LIST}"
+repair_kip_alternatives
+verify_installed_image_contents
 # shellcheck disable=SC2086 # TAR_ROOTS intentionally contains a whitespace-separated root list from target config.
 fix_permissions /kip ${TAR_ROOTS}
 # shellcheck disable=SC2086 # TAR_ROOTS intentionally contains a whitespace-separated root list from target config.

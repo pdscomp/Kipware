@@ -297,7 +297,6 @@ jobs:
               python3-charset-normalizer
               python3-dbus-fast
               python3-distro
-              python3-greenlet
               python3-jinja2
               python3-markupsafe
               python3-numpy

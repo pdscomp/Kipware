@@ -134,6 +134,13 @@ apply_local_feed_fixes() {
       cp "${patch_file}" "${dest}/${bname}"
     done < <(find "${extra_dir}" -maxdepth 1 -type f -name '*.patch' | sort)
   done
+
+  # GitHub Actions may restore feed checkout caches from a previous run after
+  # local patches were already applied. Re-applying patches with `patch -N`
+  # can leave `.rej` files behind even though we intentionally ignore already-
+  # applied hunks. OpenWrt treats any `patches/*.rej` file as an input patch
+  # during package prepare, so remove reject/orig artifacts before building.
+  find "${REPO_ROOT}/feeds" \( -name '*.rej' -o -name '*.orig' \) -type f -delete 2>/dev/null || true
 }
 
 ensure_config() {

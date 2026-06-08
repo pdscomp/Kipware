@@ -81,4 +81,5 @@ python3-unittest
 python3-urllib
 python3-uuid
 python3-xml
+unzip
 wget-ssl

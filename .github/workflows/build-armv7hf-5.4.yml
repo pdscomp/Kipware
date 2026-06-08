@@ -365,6 +365,8 @@ jobs:
               xmlstarlet
               socat
               netcat
+              wireless-tools
+              libiw
             )
 
             for pkg in "${required_pkgs[@]}"; do

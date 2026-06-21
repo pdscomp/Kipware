@@ -84,3 +84,4 @@ python3-xml
 unzip
 wireless-tools
 wget-ssl
+bash

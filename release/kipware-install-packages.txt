@@ -87,3 +87,4 @@ python3-xml
 unzip
 wget-ssl
 bash
+nano

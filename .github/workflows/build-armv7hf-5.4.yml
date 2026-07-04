@@ -367,6 +367,7 @@ jobs:
               netcat
               wireless-tools
               libiw
+              i2c-tools
             )
 
             for pkg in "${required_pkgs[@]}"; do

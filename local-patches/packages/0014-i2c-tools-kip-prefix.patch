@@ -1,0 +1,39 @@
+--- a/utils/i2c-tools/Makefile
++++ b/utils/i2c-tools/Makefile
+@@ -84,9 +84,9 @@ define Build/Compile
+ endef
+ 
+ define Build/InstallDev
+-	$(INSTALL_DIR) $(1)/opt/include $(1)/opt/lib
+-	$(CP) $(PKG_BUILD_DIR)/include/i2c $(1)/opt/include/
+-	$(CP) $(PKG_BUILD_DIR)/lib/libi2c.{a,so*} $(1)/opt/lib/
++	$(INSTALL_DIR) $(1)/kip/include $(1)/kip/lib
++	$(CP) $(PKG_BUILD_DIR)/include/i2c $(1)/kip/include/
++	$(CP) $(PKG_BUILD_DIR)/lib/libi2c.{a,so*} $(1)/kip/lib/
+ endef
+ 
+ define Build/Install
+@@ -94,17 +94,17 @@ define Build/Install
+ endef
+ 
+ define Package/libi2c/install
+-	$(INSTALL_DIR) $(1)/opt/lib
+-	$(CP) $(PKG_BUILD_DIR)/lib/libi2c.so* $(1)/opt/lib/
++	$(INSTALL_DIR) $(1)/kip/lib
++	$(CP) $(PKG_BUILD_DIR)/lib/libi2c.so* $(1)/kip/lib/
+ endef
+ 
+ define Package/i2c-tools/install
+-	$(INSTALL_DIR) $(1)/opt/sbin
+-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/tools/i2cdetect $(1)/opt/sbin/
+-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/tools/i2cdump $(1)/opt/sbin/
+-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/tools/i2cset $(1)/opt/sbin/
+-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/tools/i2cget $(1)/opt/sbin/
+-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/tools/i2ctransfer $(1)/opt/sbin/
++	$(INSTALL_DIR) $(1)/kip/sbin
++	$(INSTALL_BIN) $(PKG_BUILD_DIR)/tools/i2cdetect $(1)/kip/sbin/
++	$(INSTALL_BIN) $(PKG_BUILD_DIR)/tools/i2cdump $(1)/kip/sbin/
++	$(INSTALL_BIN) $(PKG_BUILD_DIR)/tools/i2cset $(1)/kip/sbin/
++	$(INSTALL_BIN) $(PKG_BUILD_DIR)/tools/i2cget $(1)/kip/sbin/
++	$(INSTALL_BIN) $(PKG_BUILD_DIR)/tools/i2ctransfer $(1)/kip/sbin/
+ endef

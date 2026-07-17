@@ -368,6 +368,8 @@ jobs:
               wireless-tools
               libiw
               i2c-tools
+              libugpio
+              gpioctl-sysfs
             )
 
             for pkg in "${required_pkgs[@]}"; do

@@ -101,15 +101,15 @@ SourceName: bash
 License: GPL-3.0-or-later
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.gnu.org/software/bash/
 CPE-ID: cpe:/a:gnu:bash
 Maintainer: Wei-Ting Yang <williamatcg@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 1064960
 Filename: bash_5.3-2_armv7-5.4.ipk
-Size: 511064
-SHA256sum: dd14bfc40c25ae32c038ecc84b63b42a08508d0e4ec26b7966dca7100d9cda88
+Size: 511016
+SHA256sum: b1d1cc1daa02560aac108abc1f6dad7d0cee82fef9144464dfb093212f1914ef
 Description:  Bash is an sh-compatible command language interpreter that executes
  commands read from the standard input or from a file. Bash also
  incorporates useful features from the Korn and C shells (ksh and csh).
@@ -252,8 +252,8 @@ Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 573440
 Filename: busybox_1.37.0-6_armv7-5.4.ipk
-Size: 322110
-SHA256sum: 41978ee2365e8467d6de5a975b3e96843a457331ee328d91c6fe0a0f813a7956
+Size: 322107
+SHA256sum: 223045bbf39a7538c409e634bd1e3e28a79978af1c9f2cbb7fea7001bb54d2d0
 Description:  The Swiss Army Knife of embedded Linux.
  It slices, it dices, it makes Julian Fries.
 
@@ -491,15 +491,15 @@ SourceName: curl
 License: MIT
 LicenseFiles: COPYING
 Section: net
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://curl.se/
 CPE-ID: cpe:/a:haxx:libcurl
 Maintainer: Aleksey Vasilenko <aleksey.vasilenko@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 153600
 Filename: curl_8.15.0-2_armv7-5.4.ipk
-Size: 75167
-SHA256sum: a0ff54f17c16ce918d2e59220959ec7590b4a53665d0abc67343c963461239a3
+Size: 75275
+SHA256sum: eaadea763bf470f880c9e7243a8f521cb06e0978ca7265aba46bf1214bc541d3
 Description:  A client-side URL transfer utility
 
 Package: debugfs
@@ -531,15 +531,15 @@ SourceName: diffutils
 License: GPL-3.0
 LicenseFiles: COPYING
 Section: devel
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.gnu.org/software/diffutils/
 CPE-ID: cpe:/a:gnu:diffutils
 Maintainer: Roger D <rogerdammit@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 337920
 Filename: diffutils_3.10-1_armv7-5.4.ipk
-Size: 164549
-SHA256sum: 92c0673d3e043fbc930a3ee395957e54beb097add4110e643847b3e35d3446ff
+Size: 164155
+SHA256sum: e0bf2eeb652223420d973470944190c748a64fc48c9892787b93699578256280
 Description:  The Diffutils package contains programs that show the differences between
  files or directories.
 
@@ -776,13 +776,13 @@ Provides: entware-opt-any
 Source: feeds/rtndev/entware-opt
 SourceName: entware-opt
 Section: base
-SourceDateEpoch: 1782661152
+SourceDateEpoch: 1786656330
 Maintainer: Entware team, https://entware.net
 Architecture: all
 Installed-Size: 30720
 Filename: entware-opt_227000-3_all.ipk
-Size: 3278
-SHA256sum: 51b11034d9ddd5da4e97661d2cf944959e5e7a5c281fcfaf5b091e8c7fb1ed4c
+Size: 3275
+SHA256sum: 0bb008b18a0b8a0847275a8e28ecf095c6f08a235e5279c6796ca4ebe7d4a8a0
 Description:  entware-opt is a metapackage to install Entware basic libraries and scripts.
 
 Package: entware-release
@@ -792,13 +792,13 @@ Provides: entware-release-any
 Source: feeds/rtndev/entware-release
 SourceName: entware-release
 Section: base
-SourceDateEpoch: 1782661152
+SourceDateEpoch: 1786656330
 Maintainer: Entware team, https://entware.net
 Architecture: all
 Installed-Size: 10240
 Filename: entware-release_2025.05-1_all.ipk
-Size: 1084
-SHA256sum: 940344fe8f4ff52d6a05d99c3a26a8da98cfa8931b27219b3c1fb9188a571359
+Size: 1094
+SHA256sum: c7a7a1535d29f7316e58c33247adda9d44920d8ab9b73866a7b397fb3a1316db
 Description:  entware_release is a file in /kip/etc with entware info.
 
 Package: entware-upgrade
@@ -808,13 +808,13 @@ Provides: entware-upgrade-any
 Source: feeds/rtndev/entware-upgrade
 SourceName: entware-upgrade
 Section: base
-SourceDateEpoch: 1782661152
+SourceDateEpoch: 1786656330
 Maintainer: Entware team, https://entware.net
 Architecture: all
 Installed-Size: 10240
 Filename: entware-upgrade_1.0-1_all.ipk
-Size: 768
-SHA256sum: a99cc388a5f3d6cac3fe22e0c4e6ece00585a7b2563a4b352007c2fe860f8695
+Size: 774
+SHA256sum: 8646d342d01f86943e060b5845deb3b5cece51f15ff2bb5323e285750581ef9b
 Description:  Helper package to upgrade Entware for future usage. Currently used to upgrade
  armv7soft (2.3.36) to the new codebase.
 
@@ -950,15 +950,15 @@ SourceName: file
 License: BSD-2-Clause
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://darwinsys.com/file/
 CPE-ID: cpe:/a:file_project:file
 Maintainer: Marko Ratkaj <markoratkaj@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: file_5.45-1_armv7-5.4.ipk
-Size: 9355
-SHA256sum: 4eeacc44a250f33ba7a9fc1e19e7def15e8fd1d343af0dc379ad133060f69136
+Size: 9352
+SHA256sum: 7d4a9cb558c0c8ed2a2f12c5bb66ed4a60322432dd708ccefa925748f9cf0b54
 Description:  File type determination utility
 
 Package: filefrag
@@ -1010,14 +1010,14 @@ SourceName: findutils
 License: GPL-3.0-or-later
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.gnu.org/software/findutils/
 CPE-ID: cpe:/a:gnu:findutils
 Architecture: armv7-5.4
 Installed-Size: 307200
 Filename: findutils_4.10.0-1_armv7-5.4.ipk
-Size: 152370
-SHA256sum: 9401ad289e6a2001b0699132a6a04a2b72c483b6b5d461b9f21dae597965c999
+Size: 152359
+SHA256sum: 818f06e67b41113a10490b443c8adf5b539c74fcc0709d7e0def0accea911146
 Description:  Replace busybox versions of findutils with full GNU versions.
  This is normally not needed as busybox is smaller and provides
  sufficient functionality, but some users may want or need
@@ -1139,8 +1139,8 @@ CPE-ID: cpe:/a:gnu:gdb
 Architecture: armv7-5.4
 Installed-Size: 6942720
 Filename: gdb_16.3-1_armv7-5.4.ipk
-Size: 3146503
-SHA256sum: 215fd623b73c11ef8c93ee8876b68928b1cf5ec10ea5ede7ae5e43eb53c8176c
+Size: 3146735
+SHA256sum: 14d5de9f6ecf2bc439144e1828c0c931c3f3698c4903b173c5b621813c161e20
 Description:  GDB, the GNU Project debugger, allows you to see what is going on 'inside'
  another program while it executes -- or what another program was doing at the
  moment it crashed.
@@ -1159,8 +1159,8 @@ CPE-ID: cpe:/a:gnu:gdb
 Architecture: armv7-5.4
 Installed-Size: 512000
 Filename: gdbserver_16.3-1_armv7-5.4.ipk
-Size: 233406
-SHA256sum: b4a2dd088b3bfa18ee2fcd5169629694c7e3cbe7f41e664eb45c6456daa67ca8
+Size: 233411
+SHA256sum: 9d0350413f1d4b2646f637b9470d0ad9a2f06b366ddc949a892483fc5527aa62
 Description:  GDBSERVER is a program that allows you to run GDB on a different machine than the
  one which is running the program being debugged.
 
@@ -1212,15 +1212,15 @@ SourceName: git
 License: GPL-2.0-or-later
 LicenseFiles: COPYING
 Section: net
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://git-scm.com
 CPE-ID: cpe:/a:git-scm:git
 Maintainer: Peter Wagner <tripolar@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 11520000
 Filename: git_2.50.1-2_armv7-5.4.ipk
-Size: 5809075
-SHA256sum: df8cf51abf2d934a2e3efd2b535a92407248cc45b017ff07ebadb8b81bf163b7
+Size: 5808856
+SHA256sum: 7dd4ba0dae5dc5b028e93ba5d64d1b1d08c5bbf15c4c7646a0146d3eddf2bac7
 Description:  Git is a free & open source, distributed version control system
  designed to handle everything from small to very large projects
  with speed and efficiency.
@@ -1234,15 +1234,15 @@ SourceName: git
 License: GPL-2.0-or-later
 LicenseFiles: COPYING
 Section: net
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://git-scm.com
 CPE-ID: cpe:/a:git-scm:git
 Maintainer: Peter Wagner <tripolar@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 5058560
 Filename: git-http_2.50.1-2_armv7-5.4.ipk
-Size: 2586750
-SHA256sum: 00b9129ec7d0f55cafd553410ce797c71c525a4c769c9401dc6f41e80cd2bcfa
+Size: 2586751
+SHA256sum: 9e96c4d66f4e4b6c4ffe34f9d8b1b46b4a6cf3c1e3564b9bdb7ffd02bc0b9f7d
 Description:  Git is a free & open source, distributed version control system
  designed to handle everything from small to very large projects
  with speed and efficiency.
@@ -1258,14 +1258,14 @@ SourceName: git-lfs
 License: MIT
 LicenseFiles: LICENSE.md
 Section: net
-SourceDateEpoch: 1782661151
+SourceDateEpoch: 1783268518
 URL: https://git-lfs.github.com
 Maintainer: Entware team, https://entware.net
 Architecture: armv7-5.4
 Installed-Size: 12656640
 Filename: git-lfs_3.7.1-1_armv7-5.4.ipk
-Size: 4966843
-SHA256sum: 7363d59a79ac554a8dc0184bbcc59d5e584b5e0d982dad14bc91b462046dfe2f
+Size: 4966862
+SHA256sum: b937f527f9adfa0ed6a398ad8f53f7fd63162c2fccaf1f26c0ba18bcef0118f1
 Description:  Git Large File Storage (LFS) replaces large files such as audio samples,
  videos, datasets, and graphics with text pointers inside Git, while storing
  the file contents on a remote server like GitHub.com or GitHub Enterprise.
@@ -1279,13 +1279,13 @@ SourceName: libugpio
 License: LGPL-2.1-or-later
 LicenseFiles: COPYING.LESSER
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 Maintainer: Michael Heimpold <mhei@heimpold.de>
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: gpioctl-sysfs_0.0.7-1_armv7-5.4.ipk
-Size: 3081
-SHA256sum: f2a1f00a1ec2a436701b2e9428666b851e2b240d43d68ac1f0b54635a54b8ba1
+Size: 3091
+SHA256sum: 523d160c456879ffe646885240c6fb73979a4e3196eb111d11179edfaa27cadf
 Description:  Tool for controlling gpio pins using the sysfs api provided by the kernel.
 
 Package: grep
@@ -1298,15 +1298,15 @@ SourceName: grep
 License: GPL-3.0-or-later
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.gnu.org/software/grep/
 CPE-ID: cpe:/a:gnu:grep
 Maintainer: Julen Landa Alustiza <julen@zokormazo.info>
 Architecture: armv7-5.4
 Installed-Size: 204800
 Filename: grep_3.12-1_armv7-5.4.ipk
-Size: 104644
-SHA256sum: 69cf4f4c272a33dcb0362c9aeb828a4cf5438029e175027e0f3c00c5825f8a9a
+Size: 104643
+SHA256sum: 9f109a14767e9bd9d4a97038c9e26626a917b75a187ad6fe22f938b9878484e1
 Description:  The grep command searches one or more input files for lines
  containing a match to a specified pattern. By default, grep
  prints the matching lines.
@@ -1320,15 +1320,15 @@ Source: feeds/packages/utils/gzip
 SourceName: gzip
 License: GPL-3.0-or-later
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.gnu.org/software/gzip/
 CPE-ID: cpe:/a:gnu:gzip
 Maintainer: Christian Beier <dontmind@freeshell.org>
 Architecture: armv7-5.4
 Installed-Size: 92160
 Filename: gzip_1.14-1_armv7-5.4.ipk
-Size: 49401
-SHA256sum: 8cf1f79b4a815e036ce8e7286a5a2baa580c21281b1ffd05daeed8707ac6289a
+Size: 49412
+SHA256sum: b5646a1cf4f8382f08ce0ad8c4b9b7a87d08a57ed89a5aad8c0bae98ed63ea40
 Description:  gzip (GNU zip) is a compression utility designed to be a replacement for compress.
 
 Package: hardlink
@@ -1359,14 +1359,14 @@ SourceName: headscale
 License: BSD-3-Clause
 LicenseFiles: LICENSE
 Section: net
-SourceDateEpoch: 1782661151
+SourceDateEpoch: 1783268518
 URL: https://github.com/juanfont/headscale
 Maintainer: Entware team, https://entware.net
 Architecture: armv7-5.4
 Installed-Size: 49776640
 Filename: headscale_v0.28.0-1_armv7-5.4.ipk
-Size: 18591800
-SHA256sum: 4f6fdc2d221631ef8a0e57d1839515b9daa9a8b76bbdbec62ba46f52014ab7bb
+Size: 18591600
+SHA256sum: 7db14d323c288fd33e629b0148375f157d0249bb74ca62f4e684f80354ed58d9
 Description:  Headscale aims to implement a self-hosted, open source alternative
  to the Tailscale control server. Headscale's goal is to provide self-hosters
  and hobbyists with an open-source server they can use for their projects and
@@ -1382,15 +1382,15 @@ SourceName: htop
 License: GPL-2.0-or-later
 LicenseFiles: COPYING
 Section: admin
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://hisham.hm/htop/
 CPE-ID: cpe:/a:htop:htop
 Maintainer: Etienne CHAMPETIER <champetier.etienne@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 256000
 Filename: htop_3.4.1-1_armv7-5.4.ipk
-Size: 117778
-SHA256sum: f103245f3524ef6dca528173e00cdb5ce405a4eef1bd41de427bd5ba773ef0b5
+Size: 117946
+SHA256sum: 600b97eda3fb014baf9b8b3ceba40afcb023531b33cb43278077118011b3221f
 Description:  Htop is an ncursed-based process viewer similar to top, but
  it allows to scroll the list vertically and horizontally to
  see all processes and their full command lines.
@@ -1423,15 +1423,15 @@ SourceName: i2c-tools
 License: GPL-2.0-or-later LGPL-2.1-or-later
 LicenseFiles: COPYING COPYING.LGPL
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://i2c.wiki.kernel.org/index.php/I2C_Tools
 CPE-ID: cpe:/a:i2c-tools_project:i2c-tools
 Maintainer: Daniel Golle <daniel@makrotopia.org>
 Architecture: armv7-5.4
 Installed-Size: 92160
 Filename: i2c-tools_4.4-2_armv7-5.4.ipk
-Size: 23983
-SHA256sum: 42243555fdf2e2b4e35c0e666e69c36d331612aa457a0659bf6fed443a07499a
+Size: 24008
+SHA256sum: 0a646aef4f934ed62f03fff3d3579fb1bf9ff756278c5eaff121fbaab8416a3d
 Description:  This package contains an heterogeneous set of I2C tools for Linux. These tools
  were originally part of the lm-sensors package.
 
@@ -1524,15 +1524,15 @@ Source: feeds/packages/net/iperf3
 SourceName: iperf
 License: BSD-3-Clause
 Section: net
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/esnet/iperf
 CPE-ID: cpe:/a:es:iperf3
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: iperf3_3.20-1_armv7-5.4.ipk
-Size: 3489
-SHA256sum: a6ab56a3a7e87a6eb81a5e5982d3356083d9c023ee62000fc15e80a117830f20
+Size: 3483
+SHA256sum: ee98271d9342134c9078ae0318644846799e4084841448d9988cfe4ed5b8b03d
 Description:  Iperf is a modern alternative for measuring TCP and UDP bandwidth
  performance, allowing the tuning of various parameters and
  characteristics.
@@ -1683,14 +1683,14 @@ SourceName: jq
 License: MIT
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://jqlang.github.io/jq/
 CPE-ID: cpe:/a:jqlang:jq
 Architecture: armv7-5.4
 Installed-Size: 358400
 Filename: jq_1.8.1-2_armv7-5.4.ipk
-Size: 163346
-SHA256sum: 4389a1541e6ea269ac34c02d66145c6a7589766e60f1a47f8f7ff31d88c183c5
+Size: 163340
+SHA256sum: cf868e150fa0de0c7f9e3c5a99374b3ebb43994a433d8dd44c973f8b034bf335
 Description:  Lightweight and flexible command-line JSON processor.
  This package was compiled without ONIGURUMA regex library.
  match/test/sub and related functions are not available.
@@ -1814,14 +1814,14 @@ SourceName: less
 License: GPL-3.0-or-later
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://www.greenwoodsoftware.com/less/
 CPE-ID: cpe:/a:gnu:less
 Architecture: armv7-5.4
 Installed-Size: 194560
 Filename: less_685-1_armv7-5.4.ipk
-Size: 90068
-SHA256sum: 20d5d093ff581a27bd5000a7af6a7ad3e57a5cc6b8879450b1e9137c623fc401
+Size: 89989
+SHA256sum: 04738ff66fe5189930c08635d75daf31d97f207e8d68e2ca2c996cea3a202973
 Description:  Full version of GNU less utility
 
 Package: libacl
@@ -1833,15 +1833,15 @@ SourceName: acl
 License: LGPL-2.1 GPL-2.0
 LicenseFiles: doc/COPYING doc/COPYING.LGPL
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://savannah.nongnu.org/projects/acl
 CPE-ID: cpe:/a:acl_project:acl
 Maintainer: Maxim Storchak <m.storchak@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: libacl_2.3.2-2_armv7-5.4.ipk
-Size: 13148
-SHA256sum: 257b50cd233b983b0d6abbbf519570fb04b26c43ec3bdf2d3a36e2792cff713f
+Size: 13106
+SHA256sum: 591309a6a614c6ef41b5e51c693e56b642beaaec7e5ca16b8dfa39afb3129b60
 Description:  Access control list support
  This package provides libacl
 
@@ -1872,15 +1872,15 @@ SourceName: attr
 License: LGPL-2.1-or-later
 LicenseFiles: doc/COPYING.LGPL
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://savannah.nongnu.org/projects/attr
 CPE-ID: cpe:/a:attr_project:attr
 Maintainer: Maxim Storchak <m.storchak@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: libattr_2.5.2-3_armv7-5.4.ipk
-Size: 7442
-SHA256sum: 13471a1a1bc4437d29c1a223a911f52cf695dc05303e4480881a81bf6b18c340
+Size: 7435
+SHA256sum: 12c52b1697304bd3289a1e047b9bcc3d0a292e1d811e1df3bb7e117b5772e36d
 Description:  Extended attributes support
  This package provides libattr
 
@@ -2106,15 +2106,15 @@ SourceName: curl
 License: MIT
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://curl.se/
 CPE-ID: cpe:/a:haxx:libcurl
 Maintainer: Aleksey Vasilenko <aleksey.vasilenko@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 491520
 Filename: libcurl_8.15.0-2_armv7-5.4.ipk
-Size: 248821
-SHA256sum: 12ec7e77db02e4c5e6120d94932a776d5411cc2e09262ca0ba860907e61035bd
+Size: 248764
+SHA256sum: f9e12ebe4f36bf00b8a68220ead7c1a5d05542f8e6f21bb0d5183cd3a9fa89a7
 Description:  A client-side URL transfer library
 
 Package: libdw
@@ -2186,14 +2186,14 @@ SourceName: libevdev
 License: MIT
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.freedesktop.org/wiki/Software/libevdev/
 Maintainer: Daniel Golle <daniel@makrotopia.org>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: libevdev_1.13.4-1_armv7-5.4.ipk
-Size: 27994
-SHA256sum: e9ceb39a157d0f038d40a3295c08e1309ae8b0a1e9a24efef4b7af481e50406e
+Size: 27921
+SHA256sum: cf1feee433e6a29883322a65550dc95db88a2350011e941cf6f10ab74df9648b
 Description:  libevdev is a wrapper library for evdev devices. it moves the common
  tasks when dealing with evdev devices into a library and provides a
  library interface to the callers, thus avoiding erroneous ioctls, etc.
@@ -2365,15 +2365,15 @@ SourceName: libxslt
 License: MIT
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://xmlsoft.org/XSLT/EXSLT/
 CPE-ID: cpe:/a:xmlsoft:libxslt
 Maintainer: Jiri Slachta <jiri@slachta.eu>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: libexslt_1.1.42-2_armv7-5.4.ipk
-Size: 31156
-SHA256sum: bc6ca880dd5670001b6d7455485afa45a9574fa6f98b280051d22f1850186ddb
+Size: 31147
+SHA256sum: 2869d969d4f761d36bb4b59a41f4757df897c49a0d913f90b4031565ef608486
 Description:  An extension for XSLT.
 
 Package: libext2fs
@@ -2443,15 +2443,15 @@ SourceName: libffi
 License: MIT
 LicenseFiles: LICENSE
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://sourceware.org/libffi/
 CPE-ID: cpe:/a:libffi_project:libffi
 Maintainer: Peter Wagner <tripolar@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: libffi_3.4.7-1_armv7-5.4.ipk
-Size: 17255
-SHA256sum: e7067e3f087a0bc4f4e913b1db042f6fa643a452b68e8b8ef4de88c942cf40a7
+Size: 17262
+SHA256sum: 39e9e2288137b2fe176c92ec5814032254ade7ec5b03ffc06bd263752aad903d
 Description:  The libffi library provides a portable, high level programming interface to
  various calling conventions. This allows a programmer to call any function
  specified by a call interface description at run-time.
@@ -2472,15 +2472,15 @@ SourceName: freetype
 License: FTL GPL-2.0-only MIT ZLIB GPL-3.0-or-later
 LicenseFiles: LICENSE.TXT docs/FTL.TXT docs/GPLv2.TXT src/bdf/README src/pcf/README src/gzip/zlib.h builds/unix/config.sub builds/unix/config.guess
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.freetype.org/
 CPE-ID: cpe:/a:freetype:freetype
 Maintainer: Val Kulkov <val.kulkov@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 573440
 Filename: libfreetype_2.13.3-1_armv7-5.4.ipk
-Size: 312973
-SHA256sum: ea9fb39143abe009bbad3fb04b86886c3161bde5d2d41e6c365f0f4ef562f0fe
+Size: 313001
+SHA256sum: 299b98fbef30179a5fa5a6617dabb504f1ff8c78e9b85bfda248728ab45c1870
 Description:  The FreeType project is a team of volunteers who develop free,
  portable and high-quality software solutions for digital typography.
  They specifically target embedded systems and focus on bringing small,
@@ -2512,14 +2512,14 @@ SourceName: gdbm
 License: GPL-3.0-or-later
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.gnu.org/software/gdbm/
 Maintainer: Marcel Denia <naoir@gmx.net>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: libgdbm_1.25-1_armv7-5.4.ipk
-Size: 32517
-SHA256sum: ba43cfe45eabbd5e82cf086ef29b1ac59dacc404c86b038cc72ed6601c63896d
+Size: 32509
+SHA256sum: 24a199149dce0aee67dbfede6b9701c72cbed6f0b1e34b30484c6109561b20de
 Description:  GNU database manager library
  GNU dbm is a set of database routines that use extendible hashing and
  works similar to the standard UNIX dbm routines.
@@ -2552,15 +2552,15 @@ SourceName: i2c-tools
 License: GPL-2.0-or-later LGPL-2.1-or-later
 LicenseFiles: COPYING COPYING.LGPL
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://i2c.wiki.kernel.org/index.php/I2C_Tools
 CPE-ID: cpe:/a:i2c-tools_project:i2c-tools
 Maintainer: Daniel Golle <daniel@makrotopia.org>
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: libi2c_4.4-2_armv7-5.4.ipk
-Size: 2754
-SHA256sum: af6b494c8de874573700a884dfb2d832bcf646b5181d56a4dd94a017008b20be
+Size: 2752
+SHA256sum: 8d9a2aef38c49b61e3e34305d0e92c0639d0eb9f21b7e320c21f97c9650a6fe9
 Description:  This package contains i2c functionality needed by i2c-tools.
 
 Package: libiconv-full
@@ -2610,15 +2610,15 @@ Source: feeds/packages/net/iperf3
 SourceName: iperf
 License: BSD-3-Clause
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/esnet/iperf
 CPE-ID: cpe:/a:es:iperf3
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 163840
 Filename: libiperf3_3.20-1_armv7-5.4.ipk
-Size: 73369
-SHA256sum: 18f25ec3faa66da830ca1f1b6cd8e88359d6da040217faba464b3cb14e76d0e0
+Size: 73357
+SHA256sum: a9774d054effcf1be43c7ceadfbf1a74c1a9c180975232ae681d8ac7ba3a7c42
 Description:  Libiperf is a library providing an API for iperf3 functionality.
 
 Package: libipset
@@ -2669,15 +2669,15 @@ SourceName: libjpeg-turbo
 License: BSD-3-Clause IJG zlib
 LicenseFiles: LICENSE.md
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.libjpeg-turbo.org/
 CPE-ID: cpe:/a:libjpeg-turbo:libjpeg-turbo
 Maintainer: Rosen Penev <rosenp@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 419840
 Filename: libjpeg-turbo_3.1.1-1_armv7-5.4.ipk
-Size: 191092
-SHA256sum: aac95563615a8ae062aef2492159dcbb91c46aa1aaa2b22b66b0039eb3cd4f70
+Size: 190972
+SHA256sum: 7be14d111a404c931cbf0c5be1a44d9e02118b7157a349a4d90a4c52a1f812d2
 Description:  libjpeg-turbo is a speed focused fork of libjpeg.
 
 Package: libjson-c
@@ -2791,14 +2791,14 @@ SourceName: xz
 License: Public-Domain LGPL-2.1-or-later 0BSD
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://tukaani.org/xz
 CPE-ID: cpe:/a:tukaani:xz
 Architecture: armv7-5.4
 Installed-Size: 133120
 Filename: liblzma_5.8.2-1_armv7-5.4.ipk
-Size: 70095
-SHA256sum: 0bc019fff7616be215759f433076e78a01cf77ed7955e954a7c0a29b20180e7c
+Size: 70085
+SHA256sum: ab795d28b72c38f8cae2163269a42561b2aea6c5c714ef10b415af0e0d585fec
 Description:  liblzma library from XZ Utils
 
 Package: libmagic
@@ -2810,15 +2810,15 @@ SourceName: file
 License: BSD-2-Clause
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://darwinsys.com/file/
 CPE-ID: cpe:/a:file_project:file
 Maintainer: Marko Ratkaj <markoratkaj@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 1024000
 Filename: libmagic_5.45-1_armv7-5.4.ipk
-Size: 295000
-SHA256sum: c912945f3ef71d44de14b0023b1f7a65d3adb5e063982ddb7d529aea658d2cde
+Size: 295015
+SHA256sum: 705279b9fcc30230ddf5ba8dc7c2a508525515cb656fb870788dd602bda2253f
 Description:  File type determination library
 
 Package: libmbedtls
@@ -3075,14 +3075,14 @@ SourceName: nghttp2
 License: MIT
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 CPE-ID: cpe:/a:nghttp2:nghttp2
 Maintainer: Hans Dedecker <dedeckeh@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 143360
 Filename: libnghttp2_1.66.0-1_armv7-5.4.ipk
-Size: 63406
-SHA256sum: 562fb7c7188f6a9b2f8416b31220b527eb2ce8c7a516e535b18ec1a9ad6dd0e9
+Size: 63350
+SHA256sum: 2f252b87b8f9cfe8b91eaf43b64bf28a27da30e61cf8a2c8c343862615ef2fae
 Description:  HTTP/2 C Library
 
 Package: libnl
@@ -3376,15 +3376,15 @@ SourceName: pkgconf
 License: MIT
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://pkgconf.org/
 CPE-ID: cpe:/a:pkgconf:pkgconf
 Maintainer: Rosen Penev <rosenp@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: libpkgconf_1.8.0-2_armv7-5.4.ipk
-Size: 25822
-SHA256sum: a4c503535f54ef44375712f671f167eafa6323943b56f2dd7d415e80d9aed939
+Size: 25825
+SHA256sum: f097cba81a7148bbd80f8d9ec5749e179d3f434e8614e69bf702816fac24a453
 Description:  libpkgconf is a library which provides access to most of pkgconf’s
  functionality, to allow other tooling such as compilers and IDEs to
  discover and use frameworks configured by pkgconf. It features a stable
@@ -3399,15 +3399,15 @@ SourceName: libpng
 License: Libpng GPL-2.0-or-later BSD-3-Clause
 LicenseFiles: LICENSE contrib/gregbook/COPYING contrib/gregbook/LICENSE
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://www.libpng.org/pub/png/libpng.html
 CPE-ID: cpe:/a:libpng:libpng
 Maintainer: Jo-Philipp Wich <jo@mein.io>
 Architecture: armv7-5.4
 Installed-Size: 184320
 Filename: libpng_1.6.50-1_armv7-5.4.ipk
-Size: 92788
-SHA256sum: 374b62cc810af3d99c07cc995dc5d471c2b45b35b17bf47eab16eb4e5fcad368
+Size: 92792
+SHA256sum: f2199f3d94f6830cd306e394c11e75a388d981ead8c033e929665399f9cc2bbf
 Description:  A PNG format files handling library
 
 Package: libpopt
@@ -3455,15 +3455,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 4157440
 Filename: libpython3_3.13.9-2_armv7-5.4.ipk
-Size: 1543855
-SHA256sum: 78b9ac3e1240854ed63f40e02a20ce8502843b762c494ef8bff59d113e9eb702
+Size: 1543997
+SHA256sum: eabf3fbd57f2da3f354ddff732fe60a2ffeb4c41840af34df6107e91a4e3060f
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -3547,14 +3547,14 @@ SourceName: libsodium
 License: ISC
 LicenseFiles: LICENSE
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/jedisct1/libsodium
 Maintainer: Damiano Renfer <x9w2n7xnu@relay.firefox.com>
 Architecture: armv7-5.4
 Installed-Size: 317440
 Filename: libsodium_1.0.20-1_armv7-5.4.ipk
-Size: 160290
-SHA256sum: 874c0d01bed299b21cbeacb44add4ecffd9806540739bb483d6372b403d525f3
+Size: 160277
+SHA256sum: d200ccbaf5a239b2262e820eba666dfef315261c5694b66602e7eae5ce2ba1f1
 Description:  NaCl (pronounced "salt") is a new easy-to-use high-speed software library for network communication, encryption, decryption, signatures, etc.
  NaCl's goal is to provide all of the core operations needed to build higher-level cryptographic tools.
  Sodium is a portable, cross-compilable, installable, packageable fork of NaCl (based on the latest released upstream version nacl-20110221), with a compatible API.
@@ -3571,14 +3571,14 @@ SourceName: sqlite
 License: blessing
 LicenseFiles: LICENSE.md
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.sqlite.org/
 CPE-ID: cpe:/a:sqlite:sqlite
 Architecture: armv7-5.4
 Installed-Size: 1146880
 Filename: libsqlite3_3.51.2-1_armv7-5.4.ipk
-Size: 639134
-SHA256sum: 86142a6cc68e59867a51361ce55707ca1b0eafb9016b6f83d08f892cb49826a1
+Size: 639090
+SHA256sum: 23ffb09bb4df8e99560c8b169a39d7cee2643467de92f84dbec2ff36666902b9
 Description:  SQLite is a small C library that implements a self-contained, embeddable,
  zero-configuration SQL database engine.
  This package contains the SQLite (v3.x) shared library, used by other
@@ -3685,15 +3685,15 @@ SourceName: tiff
 License: libtiff
 LicenseFiles: LICENSE.md
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://libtiff.gitlab.io/libtiff/
 CPE-ID: cpe:/a:libtiff:libtiff
 Maintainer: Jiri Slachta <jiri@slachta.eu>
 Architecture: armv7-5.4
 Installed-Size: 460800
 Filename: libtiff_4.7.1-1_armv7-5.4.ipk
-Size: 169331
-SHA256sum: 0db34d0199688664e9a4e6ab1a1fc128cdd1711f67235a735cbd2eab11edd7c2
+Size: 169338
+SHA256sum: 0236b3a948aa42d21db54678e6a36456b21d6bd0a9f4e92b72f6cc95d26f6454
 Description:  TIFF library
 
 Package: libubox
@@ -3723,14 +3723,14 @@ SourceName: libudev-zero
 License: ISC
 LicenseFiles: LICENSE
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/illiliti/libudev-zero
 Maintainer: Daniel Golle <daniel@makrotopia.org>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: libudev-zero_1.0.3-2_armv7-5.4.ipk
-Size: 9394
-SHA256sum: 7cfd549f92081e1c4feb403076085d871cde8f673a5695e4543e01dd3949e658
+Size: 9396
+SHA256sum: 1823c3434ca160e24c55ca257953e22fa4d378624ca162b50e2906c33c272be3
 Description:  Drop-in replacement for libudev
 
 Package: libugpio
@@ -3742,14 +3742,14 @@ SourceName: libugpio
 License: LGPL-2.1-or-later
 LicenseFiles: COPYING.LESSER
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/mhei/libugpio
 Maintainer: Michael Heimpold <mhei@heimpold.de>
 Architecture: armv7-5.4
 Installed-Size: 20480
 Filename: libugpio_0.0.7-1_armv7-5.4.ipk
-Size: 5124
-SHA256sum: ff3efbb483b183094c78bb003fbf1fb93dd6a6f8615305d02d1667611b9ef891
+Size: 5125
+SHA256sum: 6aef22e266151353cee94512777097ae00e6003d3d7edcb8c262b122d440a5ff
 Description:  libugpio is a library to ease the use of linux kernel's sysfs
  gpio interface from C programs and/or other libraries.
 
@@ -3825,14 +3825,14 @@ SourceName: libwebp
 License: BSD-3-Clause
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.webmproject.org
 Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 491520
 Filename: libwebp_1.5.0-1_armv7-5.4.ipk
-Size: 269757
-SHA256sum: dadc91192023cc2c48b9d37f45375eafcdf6f6eacb7afb07adf349c0a9d4bd37
+Size: 269746
+SHA256sum: a872cce88bebecad1fe08127499655c2d0310a1f432e322b9c2056ff57342236
 Description:  The libwebp package contains a library for the WebP format.
 
 Package: libwolfssl
@@ -3926,15 +3926,15 @@ SourceName: libxslt
 License: MIT
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://xmlsoft.org/XSLT/
 CPE-ID: cpe:/a:xmlsoft:libxslt
 Maintainer: Jiri Slachta <jiri@slachta.eu>
 Architecture: armv7-5.4
 Installed-Size: 215040
 Filename: libxslt_1.1.42-2_armv7-5.4.ipk
-Size: 92582
-SHA256sum: b91dbce04f5a2bcd8abd619170381f17b180ea310d1b8681e35dd46662a6d41d
+Size: 92598
+SHA256sum: f5ae9884cc19cb749574699032e9be3c6b89c0b3eac64d9b9198c29b1e3d4626
 Description:  A library for XML transformation using XSLT.
 
 Package: libyaml
@@ -3946,14 +3946,14 @@ SourceName: yaml
 License: MIT
 LicenseFiles: License
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://pyyaml.org/wiki/LibYAML
 CPE-ID: cpe:/a:pyyaml_project:pyyaml
 Architecture: armv7-5.4
 Installed-Size: 112640
 Filename: libyaml_0.2.5-2_armv7-5.4.ipk
-Size: 45494
-SHA256sum: e8eb3badfe5ae3b9c6faaa459d5b9c7b45a0b85103a36a586bc5a1ec05e106cd
+Size: 45482
+SHA256sum: 0a84a1b233a7b38adfba1ef3eed9f570677a777b1f99b0e24a4cfaf647b41efc
 Description:  Fast YAML 1.1 parser and emitter library
 
 Package: libzstd
@@ -3965,14 +3965,14 @@ SourceName: zstd
 License: GPL-2.0-or-later
 LicenseFiles: COPYING
 Section: libs
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/facebook/zstd
 CPE-ID: cpe:/a:facebook:zstandard
 Architecture: armv7-5.4
 Installed-Size: 747520
 Filename: libzstd_1.5.7-1_armv7-5.4.ipk
-Size: 347210
-SHA256sum: 9c00d9486664fce0f412f9ad19f86c0c65692e6b10d86bfc736593e5ca85e2a8
+Size: 347187
+SHA256sum: b9c48496b08d041b717a273dc33fa1f87fd56b3322c2c813f2a3b342bdbeec5a
 Description:  Zstandard - Fast real-time compression algorithm.
  This package provides libzstd library.
 
@@ -4008,14 +4008,14 @@ Provides: locales-any
 Source: feeds/rtndev/locales
 SourceName: locales
 Section: libs
-SourceDateEpoch: 1782661152
+SourceDateEpoch: 1786656330
 URL: http://gcc.gnu.org/
 Maintainer: Entware team, https://entware.net
 Architecture: armv7-5.4
 Installed-Size: 1669120
 Filename: locales_2.27-9_armv7-5.4.ipk
-Size: 640486
-SHA256sum: 3cc979160be66b6bbe83d1539ea87303edbfb791699bcfd147b1e75c377b6130
+Size: 640964
+SHA256sum: 9ec6f8f4c4308b97fe41a841711994ac30bbece77313a7bec0cb6dd545792087
 Description:  locales support (independent of system lib)
 
 Package: logger
@@ -4183,15 +4183,15 @@ SourceName: lsof
 License: lsof
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://people.freebsd.org/~abe/
 CPE-ID: cpe:/a:lsof_project:lsof
 Maintainer: Maxim Storchak <m.storchak@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 174080
 Filename: lsof_4.99.5-2_armv7-5.4.ipk
-Size: 80275
-SHA256sum: a1408db8de566ca777f43849a7cf81a100e8007fae23415d9b44728fd16c38ac
+Size: 80270
+SHA256sum: 8964b6bf571180df3780e1281cf8f64f3dc5c5358ff2116e093ae0abdebcbe9f
 Description:  LiSt Open Files - a diagnostic tool
 
 Package: lua
@@ -4317,15 +4317,15 @@ Source: feeds/packages/devel/make
 SourceName: make
 License: GPL-3.0-or-later
 Section: devel
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.gnu.org/software/make/
 CPE-ID: cpe:/a:gnu:make
 Maintainer: Heinrich Schuchardt <xypron.glpk@gmx.de>
 Architecture: armv7-5.4
 Installed-Size: 215040
 Filename: make_4.4.1-2_armv7-5.4.ipk
-Size: 106682
-SHA256sum: 83966d5e350eb6858f61916f6447eb8cad311e4d281ef0abe39c2f922a8c30a0
+Size: 106675
+SHA256sum: d8406851c31fade82f9943ec5e1501ab32713bcb2ad58e51b44e2cd797944f75
 Description:  The Make package contains a tool to create executables from source files.
 
 Package: mbedtls-util
@@ -4397,13 +4397,13 @@ Provides: mlocate-any
 Source: feeds/rtndev/mlocate
 SourceName: mlocate
 Section: utils
-SourceDateEpoch: 1782661152
+SourceDateEpoch: 1786656330
 URL: https://fedorahosted.org/mlocate/
 Architecture: armv7-5.4
 Installed-Size: 81920
 Filename: mlocate_0.26-1_armv7-5.4.ipk
-Size: 36895
-SHA256sum: 97dd9cd72c026c50abc0a0e94d4f20c45ea19fae13694db3254cbffd88b7bf50
+Size: 36906
+SHA256sum: 6a1f197371aab833369099762cc4ee475bfcfeef518cda02302af5b58961f6e7
 Description:  Quickly find files on the filesystem based on their name mlocate is a new
  implementation of locate, a tool to find files anywhere in the filesystem
  based on their name, using a fixed pattern or a regular expression. Unlike
@@ -4498,15 +4498,15 @@ SourceName: nano
 License: GPL-3.0-or-later
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.nano-editor.org/
 CPE-ID: cpe:/a:gnu:nano
 Maintainer: Hannu Nyman <hannu.nyman@iki.fi>
 Architecture: armv7-5.4
 Installed-Size: 143360
 Filename: nano_8.7.1-1_armv7-5.4.ipk
-Size: 72950
-SHA256sum: 2988611464abc2f2c739237e111e654d27bf10a42da38a3b5b2c459b319c7b7a
+Size: 72978
+SHA256sum: b34b58189e6f76c82a51e4e55da191740840be5d455c411eb8ee76568d312755
 Description:  Nano is a small and simple text editor for use on the terminal.
  
  Nano started as an enhanced clone of the Pico text editor.
@@ -4524,14 +4524,14 @@ SourceName: ncdu
 License: MIT
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://dev.yorhel.nl/ncdu
 Maintainer: Charles E. Lehner <cel@celehner.com>
 Architecture: armv7-5.4
 Installed-Size: 81920
 Filename: ncdu_1.22-1_armv7-5.4.ipk
-Size: 36073
-SHA256sum: 4feb864a022ebf0d0d903cb1485e799c010bbdc4edae62656ff6df725ad945f4
+Size: 36074
+SHA256sum: 3e6842e80cd2c61382e8b8b0a22e2937fe7becbc5c9e0124738f1740e07ac5ee
 Description:  Ncdu is a ncurses-based du viewer. It provides a fast and easy-to-use
  interface through famous du utility. It allows one to browse through the
  directories and show percentages of disk usage with ncurses library.
@@ -4564,14 +4564,14 @@ SourceName: netbird
 License: BSD-3-Clause
 LicenseFiles: LICENSE
 Section: net
-SourceDateEpoch: 1782661151
+SourceDateEpoch: 1783268518
 URL: https://netbird.io/
 Maintainer: Entware team, https://entware.net
 Architecture: armv7-5.4
 Installed-Size: 34355200
 Filename: netbird_0.66.4-1_armv7-5.4.ipk
-Size: 12566548
-SHA256sum: b9768a2e88a0bd099fd43af8f1308b0b979b6a2a8bfe32d4357aaff163d9bcf9
+Size: 12566542
+SHA256sum: 1b99aedb694c404feb61eb1788fa6e00bcd218e8f0cb09c8560f61a49954734d
 Description:  Connect your devices into a single secure private WireGuard®-based
  mesh network with SSO/MFA and simple access controls.
 
@@ -4584,15 +4584,15 @@ Source: feeds/packages/net/netcat
 SourceName: netcat
 License: GPL-2.0
 Section: net
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://netcat.sourceforge.net/
 CPE-ID: cpe:/a:netcat:netcat
 Maintainer: Adam Gensler <openwrt@a.gnslr.us>
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: netcat_0.7.1-2a_armv7-5.4.ipk
-Size: 16359
-SHA256sum: 2db83b2f6ca751be35cbf9f81aa4bcc414871adce7cf190aa6cf6b5365f8556e
+Size: 16417
+SHA256sum: 351dc77168ed14bd4e1aa1ce4837ef3bc16fc58d3f7e2e752d5d3bb97c44992d
 Description:  Netcat is a featured networking utility which reads and writes data across network connections, using the TCP/IP protocol.
  It is designed to be a reliable "back-end" tool that can be used directly or easily driven by other programs and scripts. At the same time, it is a feature-rich network debugging and exploration tool, since it can create almost any kind of connection you would need and has several interesting built-in capabilities.
 
@@ -4662,15 +4662,15 @@ SourceName: openssh
 License: BSD ISC
 LicenseFiles: LICENCE
 Section: net
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.openssh.com/
 CPE-ID: cpe:/a:openbsd:openssh
 Maintainer: Peter Wagner <tripolar@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 1064960
 Filename: openssh-client_10.2_p1-1_armv7-5.4.ipk
-Size: 507703
-SHA256sum: 6aa27828cb6473af58ee99d15387f0cbb696a62568cac3d23bec408e5ab3aa38
+Size: 507620
+SHA256sum: ec3d2289102bcf46cbe0a012382bdbb01d8d0ed4fefce1acc940fbf35dfb500e
 Description:  OpenSSH client.
 
 Package: openssh-client-utils
@@ -4682,15 +4682,15 @@ SourceName: openssh
 License: BSD ISC
 LicenseFiles: LICENCE
 Section: net
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.openssh.com/
 CPE-ID: cpe:/a:openbsd:openssh
 Maintainer: Peter Wagner <tripolar@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 1638400
 Filename: openssh-client-utils_10.2_p1-1_armv7-5.4.ipk
-Size: 750905
-SHA256sum: 1d6d0b87b4d0e6a46b18e289176ba67188480f724e4c53cad65fb5fcc4da66e8
+Size: 750944
+SHA256sum: 969547f29dc6007b061057a4f5c284911a086a49f7886ca3e637795eeb3e26ff
 Description:  OpenSSH client utilities.
 
 Package: openssh-keygen
@@ -4703,15 +4703,15 @@ SourceName: openssh
 License: BSD ISC
 LicenseFiles: LICENCE
 Section: net
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.openssh.com/
 CPE-ID: cpe:/a:openbsd:openssh
 Maintainer: Peter Wagner <tripolar@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 481280
 Filename: openssh-keygen_10.2_p1-1_armv7-5.4.ipk
-Size: 220185
-SHA256sum: 2551c83320c1a3681bd5307774f61905a409e3934c99d23f85ceee097c6903fc
+Size: 220208
+SHA256sum: 3035bc94681f5f96283ed863737fbffbf6150c8edea8546113a15ef99441330a
 Description:  OpenSSH keygen.
 
 Package: openssh-server
@@ -4724,15 +4724,15 @@ License: BSD ISC
 LicenseFiles: LICENCE
 Section: net
 Require-User: sshd=22:sshd=22
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.openssh.com/
 CPE-ID: cpe:/a:openbsd:openssh
 Maintainer: Peter Wagner <tripolar@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 2273280
 Filename: openssh-server_10.2_p1-1_armv7-5.4.ipk
-Size: 1065531
-SHA256sum: 75158f54d1830b2fe37ca0d183c3fa70038e0510d59371a27f48d41fe0077b22
+Size: 1065521
+SHA256sum: 90bc8792c1020c4af54ca27b382dca0ab7cd0bbbf12802cee6b5e0cd28345ff4
 Description:  OpenSSH server.
 
 Package: openssh-sftp-client
@@ -4744,15 +4744,15 @@ SourceName: openssh
 License: BSD ISC
 LicenseFiles: LICENCE
 Section: net
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.openssh.com/
 CPE-ID: cpe:/a:openbsd:openssh
 Maintainer: Peter Wagner <tripolar@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 204800
 Filename: openssh-sftp-client_10.2_p1-1_armv7-5.4.ipk
-Size: 95401
-SHA256sum: 3c1e3b38811c3774d09880e267daeb1ac5aaffe6cab20da656b7dbd6a8f127ce
+Size: 95388
+SHA256sum: c7feaf1276f5f03d6505c6e615b97a987d08bd61a4a1ed25d36fdecf40457e54
 Description:  OpenSSH SFTP client.
 
 Package: openssh-sftp-server
@@ -4764,15 +4764,15 @@ SourceName: openssh
 License: BSD ISC
 LicenseFiles: LICENCE
 Section: net
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.openssh.com/
 CPE-ID: cpe:/a:openbsd:openssh
 Maintainer: Peter Wagner <tripolar@gmx.at>
 Architecture: armv7-5.4
 Installed-Size: 133120
 Filename: openssh-sftp-server_10.2_p1-1_armv7-5.4.ipk
-Size: 62526
-SHA256sum: 2b46ee209b8ccb7535fe45addaab5b5fe1927495a885951f612fb826b429d8d8
+Size: 62483
+SHA256sum: 4694b6c3599616b67ec1c8cefda8c00ad3cc22e1f91004db3389e063ff48dcdf
 Description:  OpenSSH SFTP server.
 
 Package: openssl-util
@@ -4852,15 +4852,15 @@ SourceName: patch
 License: GPL-3.0-or-later
 LicenseFiles: COPYING
 Section: devel
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://savannah.gnu.org/projects/patch/
 CPE-ID: cpe:/a:gnu:patch
 Maintainer: Russell Senior <russell@personaltelco.net>
 Architecture: armv7-5.4
 Installed-Size: 153600
 Filename: patch_2.8-1_armv7-5.4.ipk
-Size: 73608
-SHA256sum: 6353f73ff742430be5ec7796d98d4df9a166412e2146e5f59950aa3f36a4a5f9
+Size: 73646
+SHA256sum: 774bbb66b2116338b796321d6f9b1138b3dda4a0bd27265b33bda7f6566b35af
 Description:  The Patch package contains a program for modifying or creating files
  by applying a "patch" file typically created by the diff program.
 
@@ -4871,14 +4871,14 @@ Provides: patchelf-any
 Source: feeds/rtndev/patchelf
 SourceName: patchelf
 Section: devel
-SourceDateEpoch: 1782661152
+SourceDateEpoch: 1786656330
 URL: https://nixos.org/patchelf.html
 Maintainer: Entware team, https://entware.net
 Architecture: armv7-5.4
 Installed-Size: 215040
 Filename: patchelf_0.18.0-1_armv7-5.4.ipk
-Size: 90693
-SHA256sum: 922574055f059f474499d39805ed2d559e2e05c378811e5f4a5b44dc18b621e5
+Size: 90703
+SHA256sum: 53041716c63b0a5b614aa07705965e74cc9afaae4b20cf503d78ff4d8566ee73
 Description:  A small utility to modify the dynamic linker and RPATH of ELF executables.
 
 Package: pkgconf
@@ -4890,15 +4890,15 @@ SourceName: pkgconf
 License: MIT
 LicenseFiles: COPYING
 Section: devel
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://pkgconf.org/
 CPE-ID: cpe:/a:pkgconf:pkgconf
 Maintainer: Rosen Penev <rosenp@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: pkgconf_1.8.0-2_armv7-5.4.ipk
-Size: 13637
-SHA256sum: 1058a2fa529994ce18a290d0a741266f36d0245ab9b61518b092d7784116580e
+Size: 13618
+SHA256sum: 7a5f68c28acff02c5267d3ba82a6b01d21fcd64cffa1173172ac43b6a6e2599e
 Description:  pkgconf is a program which helps to configure compiler and linker flags
  for development frameworks. It is similar to pkg-config from
  freedesktop.org, providing additional functionality while also
@@ -5106,15 +5106,15 @@ SourceName: procps-ng
 License: GPL-2.0-or-later
 LicenseFiles: COPYING COPYING.LIB
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://gitlab.com/procps-ng/procps
 CPE-ID: cpe:/a:procps-ng_project:procps-ng
 Maintainer: John Audia <therealgraysky@proton.me>
 Architecture: armv7-5.4
 Installed-Size: 143360
 Filename: procps-ng_4.0.6-1_armv7-5.4.ipk
-Size: 49394
-SHA256sum: a36587863861d74896273a9879f35ca4063aaad03768e5ef94ec11e9b655b744
+Size: 49388
+SHA256sum: 6a755a4b986d2e24d43fe0bc5a9fe5c916c28824ec60464972d6c81a29c728d9
 Description:  procps is a set of command line and full-screen utilities that provide information out of the pseudo-filesystem
  most commonly located at /proc. This filesystem provides a simple interface to the kernel data structures.
  The programs of procps generally concentrate on the structures that describe the processes running on the system.
@@ -5131,15 +5131,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: python3_3.13.9-2_armv7-5.4.ipk
-Size: 1332
-SHA256sum: c9a4dcaae1367fe2f4ea34cc59a94a62b1774121279a2a3a1fc6099b3d449b61
+Size: 1334
+SHA256sum: da975368cf0850b66345506907582b1023d440784d51ac6705a4872abd231db3
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5202,15 +5202,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 696320
 Filename: python3-asyncio_3.13.9-2_armv7-5.4.ipk
-Size: 256222
-SHA256sum: 4b3f7eb06fed930a30e46171c816866189e95b803b687725b11444bfbdbe7c08
+Size: 256213
+SHA256sum: 0705e37f858d3b815388ed35c86e74f7ad767cd341ffc3c9baaba182a8466899
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5233,14 +5233,14 @@ SourceName: python-async-timeout
 License: Apache-2.0
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/aio-libs/async-timeout
 Maintainer: Josef Schlehofer <pepe.schlehofer@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: python3-async-timeout_4.0.2-1_armv7-5.4.ipk
-Size: 7808
-SHA256sum: 91a5757d2a271489ad11bca98845c215ff1f9f1f519640300b6409c5bb28c86c
+Size: 7804
+SHA256sum: cc7fc28da2593fb552563a43cbbbddb5a31a54c08b7d911c726a2725635bd579
 Description:  Timeout context manager for asyncio programs
 
 Package: python3-base
@@ -5252,15 +5252,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 1044480
 Filename: python3-base_3.13.9-2_armv7-5.4.ipk
-Size: 225748
-SHA256sum: 6a023632a534b4ed218b0d00413a35996b67f6a599e6e13a4c5b545aff391417
+Size: 225971
+SHA256sum: f8e6b764323f7398d8f4e0ae674399776a38a391051ffa4eca3a3dccf04f966c
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5304,15 +5304,15 @@ SourceName: python-certifi
 License: MPL-2.0
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/certifi/python-certifi
 CPE-ID: cpe:/a:certifi:certifi
 Maintainer: Eneas U de Queiroz <cotequeiroz@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 296960
 Filename: python3-certifi_2026.1.4-1_armv7-5.4.ipk
-Size: 153905
-SHA256sum: ef2b31841f4f465f7ab409c53e6e606d0e2c49b721b9de4c17299a816d1ad9a2
+Size: 153891
+SHA256sum: a899615abe1f133a36583eb6d73e4af3f927a4501000252fa75c0b0c7a7833cf
 Description:  Certifi provides Mozilla's carefully curated collection of Root
  Certificates for validating the trustworthiness of SSL certificates
  while verifying the identity of TLS hosts.
@@ -5326,14 +5326,14 @@ SourceName: python-cffi
 License: MIT
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://cffi.readthedocs.org/
 Maintainer: Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 675840
 Filename: python3-cffi_2.0.0-1_armv7-5.4.ipk
-Size: 268283
-SHA256sum: b61bc923b6dbf1de612bc9c4cf3203fbb25e6c7939e59e812dc1d41d485819be
+Size: 268295
+SHA256sum: 0bcb6c46f694a9b88a92c761573a99b3e9d7dee6defe8e35d1ea19ef2d826535
 Description:  Foreign Function Interface for Python calling C code.
 
 Package: python3-chardet
@@ -5344,14 +5344,14 @@ Source: feeds/packages/lang/python/python-chardet
 SourceName: python-chardet
 License: LGPL-2.1
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/chardet/chardet
 Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 1085440
 Filename: python3-chardet_5.2.0-3_armv7-5.4.ipk
-Size: 204762
-SHA256sum: 309daa0dde1c4aa859fb27dd32b96c9b90bf563bb93e7b069b3ec17084f8a40b
+Size: 205102
+SHA256sum: 9c53f469917a46f1696509b88979355d66180aa8f275a77da5b8ed9f39fe7414
 Description:  Universal encoding detector for Python
 
 Package: python3-charset-normalizer
@@ -5363,14 +5363,14 @@ SourceName: python-charset-normalizer
 License: MIT
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/Ousret/charset_normalizer
 Maintainer: Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 204800
 Filename: python3-charset-normalizer_3.3.2-1_armv7-5.4.ipk
-Size: 75798
-SHA256sum: 13310b77c03acb0ac3a514eb165473d1c4a8b7c37bd9bdbcdf57f77f035a11bb
+Size: 75802
+SHA256sum: 5d6eaa66bac3345b88bec81005eee7b6bfd1279048709f1104b22499f84b3cca
 Description:  A library that helps you read text from an unknown charset encoding.
  Motivated by chardet, I'm trying to resolve the issue by taking a new
  approach. All IANA character set names for which the Python core library
@@ -5385,14 +5385,14 @@ SourceName: python-click
 License: BSD-3-Clause
 LicenseFiles: LICENSE.rst
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://palletsprojects.com/p/click/
 Maintainer: Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 481280
 Filename: python3-click_8.1.7-2_armv7-5.4.ipk
-Size: 186640
-SHA256sum: bc94c434bb2f6a1c358ba927499e1c7de62a0d0b2e1fca3d5c675ced0f027957
+Size: 186628
+SHA256sum: 209a049ced543a560e6c3c6303452ff0f59d15863134ef771115b1fac7bf4db4
 Description:  Click is a Python package for creating beautiful command line interfaces
  in a composable way with as little code as necessary. It's the "Command
  Line Interface Creation Kit". It's highly configurable but comes with
@@ -5407,15 +5407,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 1433600
 Filename: python3-codecs_3.13.9-2_armv7-5.4.ipk
-Size: 673257
-SHA256sum: c393e0f3ef1ad5fa8d3be5de0d2d98d6205738fb3ad409c60a3d15c288d62de2
+Size: 673218
+SHA256sum: 85757854cf1417f06138553d7ad862f93335383f8914a05502910e390420924c
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5438,15 +5438,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 204800
 Filename: python3-ctypes_3.13.9-2_armv7-5.4.ipk
-Size: 80934
-SHA256sum: 20dc37f9d9c3fad59d171c6d91e362e340bf442069b62ff3a50bb0e96f27d333
+Size: 80953
+SHA256sum: 4d44ab38300da8a620749c647e1b340199653fb2ed7fe343ea1d7c9efde24606
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5469,15 +5469,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: python3-dbm_3.13.9-2_armv7-5.4.ipk
-Size: 24501
-SHA256sum: d1533dbf189b04e2e157f81a0857aee30780fe022dd600dc87e5011bcf8ab9a5
+Size: 24491
+SHA256sum: fb0092d354124aac3e8f18c6f5dececb373b13f37fd093d6e27ee82aaa7d5f08
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5500,14 +5500,14 @@ SourceName: python-dbus-fast
 License: MIT
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/Bluetooth-Devices/dbus-fast
 Maintainer: Quintin Hill <stuff@quintin.me.uk>
 Architecture: armv7-5.4
 Installed-Size: 1904640
 Filename: python3-dbus-fast_2.21.1-1_armv7-5.4.ipk
-Size: 748953
-SHA256sum: 26092d8de9a890c72d64020a398e24a4e871e8c0273ddc4d7485257c9d3597be
+Size: 748668
+SHA256sum: 47d705b9617c7e190fa739e8211a6935fe33ae605cd2375e7cc478a40b80e966
 Description:  dbus-fast is a Python library for DBus that aims to be a performant fully
  featured high level library primarily geared towards integration of
  applications into Linux desktop and mobile environments.
@@ -5521,15 +5521,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 266240
 Filename: python3-decimal_3.13.9-2_armv7-5.4.ipk
-Size: 103668
-SHA256sum: ebec21016aff12919d05f53c590f549a0f188aa0925cd1882bbfc0ec96eca29a
+Size: 103432
+SHA256sum: 64279990197ff7c43b3457f4520ec5e7e8828bb6837a8ce1805e4841c1036051
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5552,15 +5552,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 49694720
 Filename: python3-dev_3.13.9-2_armv7-5.4.ipk
-Size: 18460893
-SHA256sum: 41d3f7d0ffd5d92cf7e917e6db88d558922d431a44400a78fd8517ebe2a69c63
+Size: 18460227
+SHA256sum: dd7aeb23676650995cacec3e4f52f002bbc0c4a151debe1b7ddcd53104f31a4b
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5584,14 +5584,14 @@ SourceName: python-distro
 License: Apache-2.0
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/python-distro/distro
 Maintainer: Javier Marcet <javier@marcet.info>
 Architecture: armv7-5.4
 Installed-Size: 92160
 Filename: python3-distro_1.9.0-1_armv7-5.4.ipk
-Size: 27296
-SHA256sum: 0beb8cfd0a5c6c30f0eb40a05e8542685c0b2fe5da13364832c40554af7019ee
+Size: 27284
+SHA256sum: c14a899a7938dd9d08db4e0412c552d07c68f0e74214ec313e9f21a078b48b66
 Description:  distro provides information about the OS distribution it runs on, such
  as a reliable machine-readable ID, or version information.
 
@@ -5604,15 +5604,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 491520
 Filename: python3-email_3.13.9-2_armv7-5.4.ipk
-Size: 177573
-SHA256sum: 45de4aaf50f67c3e33c3991af2bbc69d18635687088c0aebe81248bc13cff614
+Size: 177571
+SHA256sum: ed0e1d0f154c10d556bc36b5a327895cffac13e7de94342f8b6450738bef078a
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5635,14 +5635,14 @@ SourceName: python-idna
 License: BSD-3-Clause
 LicenseFiles: LICENSE.md
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/kjd/idna
 Maintainer: Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 317440
 Filename: python3-idna_3.11-1_armv7-5.4.ipk
-Size: 80340
-SHA256sum: 80a0e7d569432eb374f86c00854cb02d0451130447560bab211ee75c94292c30
+Size: 80292
+SHA256sum: ab0c1a95422eeabc81de1e4d28331621124b40b6a233a0ebf4823279836785a4
 Description:  A library to support the Internationalised Domain Names in Applications
  (IDNA) protocol as specified in RFC 5891. This version of the protocol
  is often referred to as "IDNA2008" and can produce different results
@@ -5657,14 +5657,14 @@ SourceName: python-ifaddr
 License: MIT
 LicenseFiles: LICENSE.txt
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/pydron/ifaddr
 Maintainer: Josef Schlehofer <pepe.schlehofer@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: python3-ifaddr_0.2.0-1_armv7-5.4.ipk
-Size: 14182
-SHA256sum: a31fb2ad55521987b8b96a45e7e96bad6f96c07b32d79bbb412b495e122ddef6
+Size: 14180
+SHA256sum: 920a15f0a50b4edbe9e101d5a5eded30a80eef1ea63532ae9df96527161d0acd
 Description:  ifaddr is a small Python library that allows you to find all the
  Ethernet and IP addresses of the computer.
 
@@ -5715,15 +5715,15 @@ SourceName: python-jinja2
 License: BSD-3-Clause
 LicenseFiles: LICENSE.rst
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://palletsprojects.com/p/jinja/
 CPE-ID: cpe:/a:pocoo:jinja2
 Maintainer: Michal Vasilek <michal.vasilek@nic.cz>
 Architecture: armv7-5.4
 Installed-Size: 716800
 Filename: python3-jinja2_3.1.6-1_armv7-5.4.ipk
-Size: 276817
-SHA256sum: b83755d336c59905dc81805ab9fee9af078bcfb1ac21fe02b8a140b77fd575fd
+Size: 276810
+SHA256sum: 6000154022f4148437aee14dc32f10c88dab36f8a0c7fbd7056b173104acd61e
 Description:  Jinja2 is a full featured template engine for Python. It has full
  unicode support, an optional integrated sandboxed execution
  environment, widely used and BSD licensed.
@@ -5776,15 +5776,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 7403520
 Filename: python3-light_3.13.9-2_armv7-5.4.ipk
-Size: 2918630
-SHA256sum: 0f5e78497998e601ff128f82afc497dcb85336a2abcb05388d60c649f7c3300b
+Size: 2918527
+SHA256sum: a9387dc7b009065080fe1674781632fab089afe999f82dfaf6e4f59ef0a2122a
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5808,7 +5808,7 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
@@ -5816,7 +5816,7 @@ Architecture: armv7-5.4
 Installed-Size: 215040
 Filename: python3-logging_3.13.9-2_armv7-5.4.ipk
 Size: 85584
-SHA256sum: ade259b9bc71d9ac1fd979e1b854065918bced5b91c6b1e084696555e91a6f4f
+SHA256sum: db575fe6580d019bd2b35d8d2a61e4e517d7112d4972d5600611eaef85acd675
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5839,15 +5839,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: python3-lzma_3.13.9-2_armv7-5.4.ipk
-Size: 19264
-SHA256sum: 4fdea839c60629d37efa09741a0267ea4f177b09524f65012b8139094ac271b5
+Size: 19250
+SHA256sum: 6ffedf06b7807035bc35489f017ed1852cd8440aeb2697b36a478dc8ae06d242
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5870,14 +5870,14 @@ SourceName: python-markdown
 License: BSD-3-Clause
 LicenseFiles: LICENSE.md
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://python-markdown.github.io/
 Maintainer: Josef Schlehofer <pepe.schlehofer@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 419840
 Filename: python3-markdown_3.10-1_armv7-5.4.ipk
 Size: 157714
-SHA256sum: 2c1344d29ebd0322e2c489c47e78666d84faf6fdd3114df41b9ac4eb8ab0a761
+SHA256sum: 1874100065d5dece484825333dce8cf268fff293696f870139ee2b1c20045b6b
 Description:  This is a Python implementation of John Gruber’s Markdown. It is almost
  completely compliant with the reference implementation, though there are
  a few very minor differences.
@@ -5891,14 +5891,14 @@ SourceName: python-markupsafe
 License: BSD-3-Clause
 LicenseFiles: LICENSE.rst
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://palletsprojects.com/p/markupsafe/
 Maintainer: Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 61440
 Filename: python3-markupsafe_3.0.3-2_armv7-5.4.ipk
-Size: 16767
-SHA256sum: feca9757d931343dacb2cc0930a87c5ab60854a01c089650901dddd858e50f8a
+Size: 16755
+SHA256sum: e9583eca7976f96f299e4ceec89955bb37d758040a0a306e7c52d973a9138972
 Description:  MarkupSafe implements a text object that escapes characters so it is
  safe to use in HTML and XML. Characters that have special meanings are
  replaced so that they display as the actual characters. This mitigates
@@ -5933,15 +5933,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 450560
 Filename: python3-multiprocessing_3.13.9-2_armv7-5.4.ipk
-Size: 174043
-SHA256sum: e8d1e3c487b4e23aa8c068246b6069ed6d9cd6bc9a84f754ac9ca41bdd8c29f6
+Size: 174038
+SHA256sum: a4d65d4eb40080b5ed658b527e5522dd8ade715282d25fdd537344007fcb4883
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5964,15 +5964,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 163840
 Filename: python3-ncurses_3.13.9-2_armv7-5.4.ipk
-Size: 53635
-SHA256sum: e288851fee849a5805e5087cfd60305c50476ad077c35c77a5f6e9f21c6566f4
+Size: 53685
+SHA256sum: 52229eacebe44bada9453d63e343fe250fae97b8dfd234d94ba0af03b0575a1c
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -5995,15 +5995,15 @@ SourceName: numpy
 License: BSD-3-Clause
 LicenseFiles: LICENSE.txt
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.numpy.org/
 CPE-ID: cpe:/a:numpy:numpy
 Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 24391680
 Filename: python3-numpy_2.3.4-1_armv7-5.4.ipk
-Size: 8445134
-SHA256sum: 8b1cf84026592a7dc872998f859a5c6cddb0a8f1e7869285d4a0fdb852deb9d3
+Size: 8445374
+SHA256sum: 6bd1c39249765cafe8c7052212bb143b28b06c218c7d317c7c181d2398c6c353
 Description:  NumPy is the fundamental package for array computing with Python.
  
  By default, this package is built without some modules.
@@ -6019,15 +6019,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 215040
 Filename: python3-openssl_3.13.9-2_armv7-5.4.ipk
-Size: 73913
-SHA256sum: d10c94f39f9c2ebf05dad3178a3ed2db52ce34364f26db893c7e1f6a8dd73d0a
+Size: 73881
+SHA256sum: e8912ad5994a6ba011ba9f6fa56c1040f84095195aa318ca8f36d7fc9a223ea3
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -6050,14 +6050,14 @@ SourceName: python-packaging
 License: Apache-2.0 BSD-2-Clause
 LicenseFiles: LICENSE.APACHE LICENSE.BSD
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/pypa/packaging
 Maintainer: Jan Pavlinec <jan.pavlinec1@gmail.com>, Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 276480
 Filename: python3-packaging_25.0-1_armv7-5.4.ipk
-Size: 101323
-SHA256sum: 486db45b80fb39c323bddffe5f495eaa76e7ab935ffc7c61f88dbb5168f6a56d
+Size: 101297
+SHA256sum: 00c9bba9d5c31873542f6dc4ef9f22f3ae2e3d8ffa8b0ede96068be6f03eca06
 Description:  The packaging project includes version handling, specifiers,
  markers, requirements, tags, utilities.
 
@@ -6070,14 +6070,14 @@ SourceName: python-paho-mqtt
 License: EPL-2.0 Eclipse Distribution License v1.0
 LicenseFiles: epl-v20 edl-v10 LICENSE.txt
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://eclipse.org/paho
 Maintainer: Josef Schlehofer <pepe.schlehofer@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 307200
 Filename: python3-paho-mqtt_1.6.1-2_armv7-5.4.ipk
-Size: 100094
-SHA256sum: be5ad59bc3ba1602f7ae2ea89518795056b3b8a2bf376c03aaa7dc5817aa7567
+Size: 100083
+SHA256sum: 07fa6cbabe0c2203ea4ff0f58e905a93cc2910cb48146c00c430e923777569be
 Description:  MQTT version 3.1/3.1.1/5.0 client class
 
 Package: python3-periphery
@@ -6108,15 +6108,15 @@ SourceName: pillow
 License: HPND
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://python-pillow.org/
 CPE-ID: cpe:/a:python:pillow
 Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 1914880
 Filename: python3-pillow_12.0.0-1_armv7-5.4.ipk
-Size: 787275
-SHA256sum: 4508246ad33be174051a28c16b7a35b00205fa09d208bec70f8324442c7dd6f8
+Size: 787113
+SHA256sum: 521b64a7694147d60b47ef09ddba5af1d646f1c9006ae46a512b5cb24e5f52f2
 Description:  The friendly PIL fork
 
 Package: python3-pip
@@ -6128,15 +6128,15 @@ SourceName: python-pip
 License: MIT
 LicenseFiles: LICENSE.txt
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://pip.pypa.io/
 CPE-ID: cpe:/a:pypa:pip
 Maintainer: Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 7557120
 Filename: python3-pip_23.3.1-1_armv7-5.4.ipk
-Size: 2752282
-SHA256sum: 82268a968b712d5d8b0395b75e298fc4e87f8256be3c4c5df40f12e03d390a06
+Size: 2750826
+SHA256sum: b4d9585d153820acd3de401c88de11551c2d6562d1bdbe57807c28bfc162c0e4
 Description:  pip is the package installer for Python. You can use pip to install
  packages from the Python Package Index and other indexes.
 
@@ -6149,15 +6149,15 @@ SourceName: python-setuptools
 License: MIT
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/pypa/setuptools
 CPE-ID: cpe:/a:python:setuptools
 Maintainer: Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 307200
 Filename: python3-pkg-resources_80.9.0-2_armv7-5.4.ipk
-Size: 110203
-SHA256sum: 1dc228fd88eef02dedb93f0e884bd4c76273f31cfcc1515f9d9c731e5796d786
+Size: 110199
+SHA256sum: d2556d51acba1b810252ac02de4aa36e4a5f694941e05a14c8c9c3afea35a4df
 Description:  Setuptools is a fully-featured, actively-maintained, and stable library
  designed to facilitate packaging Python projects.
  
@@ -6176,14 +6176,14 @@ SourceName: python-ply
 License: BSD-3-Clause
 LicenseFiles: README.md
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://www.dabeaz.com/ply/
 Maintainer: Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 204800
 Filename: python3-ply_3.11-3_armv7-5.4.ipk
-Size: 77449
-SHA256sum: 12dbb1905c89cb35aa00fef13b6d3a95b9868a7c6561bf50663311790ff0b1d1
+Size: 77444
+SHA256sum: 787434a3a6d993b89ac44939b08258648ff8355072547fc9d155da4e901e72db
 Description:  PLY is a 100% Python implementation of the common parsing tools lex
  and yacc.
 
@@ -6215,14 +6215,14 @@ SourceName: python-pyasn1
 License: BSD-2-Clause
 LicenseFiles: LICENSE.rst
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/pyasn1/pyasn1
 Maintainer: Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 501760
 Filename: python3-pyasn1_0.5.1-1_armv7-5.4.ipk
-Size: 153321
-SHA256sum: 9b6d6f4d4a9afc21de619d9fcc4fb318ffa3790a853b95b69cd757c85bfffbc5
+Size: 153311
+SHA256sum: 557a2c4acae8738fae000739d93c9594880e3831c00ea9c54c7cc40778d7e736
 Description:  This is an implementation of ASN.1 types and codecs in Python programming
  language. It has been first written to support particular protocol (SNMP)
  but then generalized to be suitable for a wide range of protocols
@@ -6237,14 +6237,14 @@ SourceName: python-pycparser
 License: BSD-3-Clause
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/eliben/pycparser
 Maintainer: Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 440320
 Filename: python3-pycparser_2.23-1_armv7-5.4.ipk
-Size: 107122
-SHA256sum: a0420484e3b11239ea75fbe4524700c15ab5446c530e27600618be506802266b
+Size: 107124
+SHA256sum: f8714894f870cd3dc2137b996eac0ad420fe7e8e9f664b60d1d47b11e04fc31d
 Description:  pycparser is a parser for the C language, written in pure Python. It is a
  module designed to be easily integrated into applications that need to parse
  C source code.
@@ -6258,15 +6258,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 788480
 Filename: python3-pydoc_3.13.9-2_armv7-5.4.ipk
-Size: 258685
-SHA256sum: 769da29168148de3fc27f3a5df1e269596fe0e74e94154c1508753b66d1f4e61
+Size: 258684
+SHA256sum: 57337852f02133643242ef27ab6a81033f28a5c66f3ca7daa44e519e681fed39
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -6289,14 +6289,14 @@ SourceName: python-pyserial
 License: BSD-3-Clause
 LicenseFiles: LICENSE.txt
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/pyserial/pyserial
 Maintainer: Micke Prag <micke.prag@telldus.se>
 Architecture: armv7-5.4
 Installed-Size: 440320
 Filename: python3-pyserial_3.5-2_armv7-5.4.ipk
-Size: 148238
-SHA256sum: 4c42fa8b8fa5cc4441af07d7e9c95bc5b7934c363ad58794484218585d5c0eef
+Size: 148243
+SHA256sum: 953486547a18a7e6c25b7019a25d1d65be666e0c8eea1a1dc62aace4172e4303
 Description:  This module encapsulates the access for the serial port. It provides
  backends for Python running on Windows, OSX, Linux, BSD (possibly any
  POSIX compliant system) and IronPython. The module named "serial"
@@ -6311,15 +6311,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: python3-readline_3.13.9-2_armv7-5.4.ipk
-Size: 11068
-SHA256sum: d064d515c8ad4142d77c88b9b6bb765f7ccdb0c4f75595e38c6fe2b03083e098
+Size: 11054
+SHA256sum: 39dafe02530f88e7ffbae3693be624e89142d83e52609cb4142efb4a27160640
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -6342,15 +6342,15 @@ SourceName: python-requests
 License: Apache-2.0
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://requests.readthedocs.io
 CPE-ID: cpe:/a:python:requests
 Maintainer: Josef Schlehofer <pepe.schlehofer@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 256000
 Filename: python3-requests_2.32.5-1_armv7-5.4.ipk
-Size: 98419
-SHA256sum: 6893a183c6986171191627cc28ef9884640ce2405137349aa979e424df734647
+Size: 98422
+SHA256sum: 7c6ae7375b78b0b76bb4014097d7966901e8bbad8bf140ab0cc4fddf35bfbb24
 Description:  Requests is the only Non-GMO HTTP library for Python, safe for human consumption
 
 Package: python3-requests-oauthlib
@@ -6382,15 +6382,15 @@ SourceName: python-setuptools
 License: MIT
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/pypa/setuptools
 CPE-ID: cpe:/a:python:setuptools
 Maintainer: Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 4894720
 Filename: python3-setuptools_80.9.0-2_armv7-5.4.ipk
-Size: 1775654
-SHA256sum: 050717b39b50156d094ab09898ed6da46210f0032ab75a0c10f3c4b0d13f2b52
+Size: 1775686
+SHA256sum: ca1c7c288855a3a6cb71f6393e9273789fbce12fffb52bc4c64940b1e1555f72
 Description:  Setuptools is a fully-featured, actively-maintained, and stable library
  designed to facilitate packaging Python projects.
  
@@ -6430,15 +6430,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 122880
 Filename: python3-sqlite3_3.13.9-2_armv7-5.4.ipk
-Size: 47622
-SHA256sum: 813928978a646894108680343b46b795c5e74545f9ae78ddc3a1de0d5eee91fb
+Size: 47565
+SHA256sum: 105fc1945384bca31fd73ad22a9192b535e345d9222e1927101d5cf8e3ec3659
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -6482,15 +6482,15 @@ SourceName: python-tornado
 License: Apache-2.0
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.tornadoweb.org
 CPE-ID: cpe:/a:tornadoweb:tornado
 Maintainer: Josef Schlehofer <pepe.schlehofer@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 2232320
 Filename: python3-tornado_6.3.3-1_armv7-5.4.ipk
-Size: 787904
-SHA256sum: 30fda6aed9e31809304c7234d8b8b8898d8ad6e99f7a6d5709140ef28d808fdb
+Size: 787892
+SHA256sum: 4086acf08da0c45c8d98c7bacb71d1b7b4fa8d55c07d7724655a8d6910ac405b
 Description:  Tornado is a Python web framework and asynchronous networking library,
  originally developed at FriendFeed. By using non-blocking network I/O,
  Tornado can scale to tens of thousands of open connections, making it
@@ -6506,14 +6506,14 @@ SourceName: python-typing-extensions
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/python/typing_extensions
 Maintainer: Jan Pavlinec <jan.pavlinec1@gmail.com>, Jeffery To <jeffery.to@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 153600
 Filename: python3-typing-extensions_4.9.0-1_armv7-5.4.ipk
-Size: 54410
-SHA256sum: d0d7f5c5598573a33adfa583745b27e4d86b6a69014191d4e1f26fc58e6df1b5
+Size: 54402
+SHA256sum: 51cf98d86a5c21c20cbdd909becfa446a6f0c132f775bc5a13150b79e4973ded
 Description:  The typing_extensions module serves two related purposes:
  
  * Enable use of new type system features on older Python versions. For
@@ -6532,15 +6532,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 327680
 Filename: python3-unittest_3.13.9-2_armv7-5.4.ipk
-Size: 128237
-SHA256sum: 577637133361f923cec78e2ac5381a95a92e74293c515819da146438e0dd6487
+Size: 128232
+SHA256sum: bc008e3a68e60031517f756b55ab3c4ac2b0d074c59cbdf70e74c759cc609ad2
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -6563,15 +6563,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 204800
 Filename: python3-urllib_3.13.9-2_armv7-5.4.ipk
-Size: 81929
-SHA256sum: be0037f861c6cbfbc28752ff87c9e2a429ddd655b4afe0c2a5de0663065c88c2
+Size: 81921
+SHA256sum: f5631c7f19b02df48881d8accb4f3aa64f13adec8d5ef99e1526ae7e0da8ff6e
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -6594,15 +6594,15 @@ SourceName: python-urllib3
 License: MIT
 LicenseFiles: LICENSE.txt
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://urllib3.readthedocs.io/
 CPE-ID: cpe:/a:python:urllib3
 Maintainer: Josef Schlehofer <pepe.schlehofer@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 522240
 Filename: python3-urllib3_2.6.3-1_armv7-5.4.ipk
-Size: 205799
-SHA256sum: 09b0a30d45c6787a2b92347a7ad13826e49199de4b598d029a69d28bf2c7eebc
+Size: 205795
+SHA256sum: 87a899fc4001d259c04002bb426763d3c33bc8ce18829fc2fe75c5b2a646549e
 Description:  HTTP library with thread-safe connection pooling, file post, and more.
 
 Package: python3-uuid
@@ -6614,15 +6614,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 51200
 Filename: python3-uuid_3.13.9-2_armv7-5.4.ipk
-Size: 17183
-SHA256sum: 61d493e1dc8146588d674b974feb510bfd0340165aec11af7ba672351fdea37a
+Size: 17169
+SHA256sum: c5d2afaec68ceb3a068a860e685280fa38ef1a6d5c4db95e80b544e58f6165d3
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -6645,15 +6645,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 1832960
 Filename: python3-venv_3.13.9-2_armv7-5.4.ipk
-Size: 1728118
-SHA256sum: ba912feec6f54ee950fbd6ded2a953f7b79c269b11cb3dea703f7d2df625dcb8
+Size: 1728116
+SHA256sum: 4b266355909f2fbc2480d590fe4d6b6982196ffb0d34fc1686bc86a073ff6b91
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -6696,15 +6696,15 @@ SourceName: python3
 License: Python-2.0.1 0BSD
 LicenseFiles: LICENSE Doc/copyright.rst Doc/license.rst Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi_osx/LICENSE Modules/expat/COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.python.org/
 CPE-ID: cpe:/a:python:python
 Maintainer: Jeffery To <jeffery.to@gmail.com>, Alexandru Ardelean <ardeleanalex@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 808960
 Filename: python3-xml_3.13.9-2_armv7-5.4.ipk
-Size: 290230
-SHA256sum: d46ad8f1a55334d636a8c6680f21222eb10c545f002e4154550a010e94dc8395
+Size: 290190
+SHA256sum: 160812b79845a4b85adc4aae6adb891c39b3dbf937a9f1a6f3cf00dc34824c83
 Description:  Python is an interpreted, interactive, object-oriented programming
  language. It incorporates modules, exceptions, dynamic typing, very high
  level dynamic data types, and classes. It supports multiple programming
@@ -6727,15 +6727,15 @@ SourceName: python-yaml
 License: MIT
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/yaml/pyyaml
 CPE-ID: cpe:/a:pyyaml:pyyaml
 Maintainer: Josef Schlehofer <pepe.schlehofer@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 512000
 Filename: python3-yaml_6.0.3-1_armv7-5.4.ipk
-Size: 177569
-SHA256sum: e9ab8c3be8e923de05f2ddb062f4789c540f6cd77ca7af1598e101022b82f6fa
+Size: 177460
+SHA256sum: 4a953c9e7b8c13896c79249eef39c16a400be6caa1a1fdbc27db96abcbbc716c
 Description:  PyYAML is a YAML parser and emitter for the Python programming language.
 
 Package: python3-zeroconf
@@ -6747,14 +6747,14 @@ SourceName: python-zeroconf
 License: LGPL-2.1-or-later
 LicenseFiles: COPYING
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/python-zeroconf/python-zeroconf
 Maintainer: Josef Schlehofer <pepe.schlehofer@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 3962880
 Filename: python3-zeroconf_0.131.0-1_armv7-5.4.ipk
-Size: 1635101
-SHA256sum: 4354a64355268c5fbec63c6e75d424b72f8b1e647c5d3ce5a4c8f171acfc26b4
+Size: 1634906
+SHA256sum: d945ae218f11cf76e4a4017ebaee9ca25087ad420e64cb99f34e9d3354e90820
 Description:  Pure Python Multicast DNS Service Discovery Library (Bonjour/Avahi compatible)
 
 Package: python3-zipp
@@ -6766,14 +6766,14 @@ SourceName: python-zipp
 License: MIT
 LicenseFiles: LICENSE
 Section: lang
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/jaraco/zipp
 Maintainer: Jan Pavlinec <jan.pavlinec1@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 40960
 Filename: python3-zipp_3.16.2-1_armv7-5.4.ipk
-Size: 12385
-SHA256sum: c788453c76f5a1a234cc923806a494fd30e2f27cb8f32898ce905ebf0259e361
+Size: 12381
+SHA256sum: 3198e0bfc0962852dff6bc9bac7501577908f3e55c53f3e51064d52284986312
 Description:  Backport of pathlib-compatible object wrapper for zip files
 
 Package: rename
@@ -6887,15 +6887,15 @@ SourceName: rsync
 License: GPL-3.0-or-later
 LicenseFiles: COPYING
 Section: net
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://rsync.samba.org/
 CPE-ID: cpe:/a:rsync:rsync
 Maintainer: Maxim Storchak <m.storchak@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 389120
 Filename: rsync_3.4.1-3_armv7-5.4.ipk
-Size: 195716
-SHA256sum: 6d299579f765e18c77487a2b248b359dc84cb6f9f0c7ab90d86ca9f934d4f302
+Size: 195713
+SHA256sum: ab8ada19026a563c4545a52940925e72e6d42f2904d6027d243cc14246f4cc65
 Description:  rsync is a program that allows files to be copied to and from remote machines
  in much the same way as rcp. It has many more options than rcp, and uses the
  rsync remote-update protocol to greatly speed up file transfers when the
@@ -6972,15 +6972,15 @@ SourceName: socat
 License: GPL-2.0-or-later OpenSSL
 LicenseFiles: COPYING COPYING.OpenSSL
 Section: net
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://www.dest-unreach.org/socat/
 CPE-ID: cpe:/a:dest-unreach:socat
 Maintainer: Ted Hess <thess@kitschensync.net>
 Architecture: armv7-5.4
 Installed-Size: 286720
 Filename: socat_1.8.0.3-2_armv7-5.4.ipk
-Size: 123525
-SHA256sum: 6b60330946d1eddc3c378f5e99b04a199edeb6b1fee970237a8f46bf2ee7cfad
+Size: 123541
+SHA256sum: f60a38e7093441775c31fd0d2b54ad3a726f516a74652d9066bd4d3880f9aaad
 Description:  SoCat (for SOcket CAT) establishes two bidirectional byte streams and
  transfers data between them.
  Data channels may be files, pipes, devices (terminal or modem, etc.), or
@@ -6997,14 +6997,14 @@ SourceName: sqlite
 License: blessing
 LicenseFiles: LICENSE.md
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.sqlite.org/
 CPE-ID: cpe:/a:sqlite:sqlite
 Architecture: armv7-5.4
 Installed-Size: 348160
 Filename: sqlite3-cli_3.51.2-1_armv7-5.4.ipk
-Size: 168943
-SHA256sum: 5c2acd1f14ca0f8aed3208ceb68bc646cfa4e9f45ff1ae958e66ce38b618f928
+Size: 168922
+SHA256sum: 6b871a6981bfa4a10eb6edc1270e1f3577353bec85354ef02af9ac2477ad1252
 Description:  SQLite is a small C library that implements a self-contained, embeddable,
  zero-configuration SQL database engine.
  This package contains a terminal-based front-end to the SQLite (v3.x) library
@@ -7100,14 +7100,14 @@ SourceName: tailscale
 License: BSD-3-Clause
 LicenseFiles: LICENSE
 Section: net
-SourceDateEpoch: 1782661151
+SourceDateEpoch: 1783268518
 URL: https://tailscale.com/
 Maintainer: Entware team, https://entware.net
 Architecture: armv7-5.4
 Installed-Size: 44113920
 Filename: tailscale_1.96.1-1_armv7-5.4.ipk
-Size: 17019201
-SHA256sum: 80295c6df3d3be27260c0ba607457bf8d5e1aa506fd377d1c8394560dd756711
+Size: 17019324
+SHA256sum: 3a2b53cf421c801e60ec7486f7475b539ff3fc64981b94bde90b7b2f365d514f
 Description:  Zero config VPN. Installs on any device in minutes, manages
  firewall rules for you, and works from anywhere
 
@@ -7197,15 +7197,15 @@ SourceName: tmux
 License: ISC
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://tmux.github.io/
 CPE-ID: cpe:/a:tmux_project:tmux
 Maintainer: Maxim Storchak <m.storchak@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 798720
 Filename: tmux_3.6a-1_armv7-5.4.ipk
-Size: 361538
-SHA256sum: 47ed9f4a23a01541aac68cfa14a0247d0afeb8a90d70a8debd842996df0db519
+Size: 361495
+SHA256sum: 36b92a438816a5d5686f68c3e774badfcb610ccce32a40f9314fbf9cd5ba2259
 Description:  tmux is a modern, BSD-licensed alternative to GNU screen.
 
 Package: tree
@@ -7217,14 +7217,14 @@ SourceName: tree
 License: GPL-2.0-or-later
 LicenseFiles: LICENSE
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://oldmanprogrammer.net/source.php?dir=projects/tree
 Maintainer: Banglang Huang <banglang.huang@foxmail.com>
 Architecture: armv7-5.4
 Installed-Size: 71680
 Filename: tree_2.3.1-1_armv7-5.4.ipk
-Size: 31086
-SHA256sum: d82128862c74211eba8b7a74ce2cf45bc82d611709964d2fb4b629df4921f4e7
+Size: 31077
+SHA256sum: 531c33e39107641de9c156017515f2a4ca3eb1433950afafd78e93644ca1a111
 Description:  List contents of directories in a tree-like format
 
 Package: tune2fs
@@ -7312,15 +7312,15 @@ SourceName: unzip
 License: BSD-4-Clause
 LicenseFiles: LICENSE
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://infozip.sourceforge.net/UnZip.html
 CPE-ID: cpe:/a:info-zip:unzip
 Maintainer: Álvaro Fernández Rojas <noltari@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 235520
 Filename: unzip_6.0-9_armv7-5.4.ipk
-Size: 106086
-SHA256sum: 9865f7df9662bca97f23a0362fae665bdd23a57b43fbb31e1b9022993b2292b5
+Size: 106150
+SHA256sum: 70379897233df050c5f5d779beb68b0ce46c749210a87a125ac5bf2fc3506514
 Description:  InfoZIP's unzip program. With the exception of multi-volume archives
  (ie, .ZIP files that are split across several disks using PKZIP's /& option),
  this can handle any file produced either by PKZIP, or the corresponding
@@ -7353,13 +7353,13 @@ SourceName: hwdata
 License: GPL-2.0-or-later  XFree86-1.0
 LicenseFiles: LICENSE
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://github.com/vcrhonek/hwdata
 Architecture: armv7-5.4
 Installed-Size: 737280
 Filename: usbids_0.387-1_armv7-5.4.ipk
 Size: 255675
-SHA256sum: 13d304e13706c604a38d1392a642557a819e830d8c32a4cf5efc8d16f2a52496
+SHA256sum: d44f79b9e3f1444d99492aa5bfb3fd103081ca94231467c90eb41c165ab81364
 Description:  USB ID list
 
 Package: usbutils
@@ -7372,14 +7372,14 @@ SourceName: usbutils
 License: GPL-2.0-only
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://www.linux-usb.org/
 Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 153600
 Filename: usbutils_017-1_armv7-5.4.ipk
-Size: 58240
-SHA256sum: 826c9f37debe60cd81ab4dec290797e048ebe54a1ae6d02e0484f834d7862fa6
+Size: 58241
+SHA256sum: 59d54f3c95dec5f8cd07b4bdf90b13afe5a730c62d5ce0662db5551b1264c152
 Description:  USB devices listing utilities
 
 Package: uuidd
@@ -7574,15 +7574,15 @@ SourceName: vim
 License: Vim
 LicenseFiles: LICENSE
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://www.vim.org/
 CPE-ID: cpe:/a:vim:vim
 Maintainer: Marko Ratkaj <markoratkaj@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 2734080
 Filename: vim-full_9.1.1918-3_armv7-5.4.ipk
-Size: 1418919
-SHA256sum: 7261a732e20d789f497ae78a36e2d87aa92456aafe8802b915e6f466ae5b23c0
+Size: 1418950
+SHA256sum: f727be9b5f913129ce46dcb5ab88675bd48092c32a3c5ea357a86abc19a0403d
 Description:  Vim is an almost compatible version of the UNIX editor Vi.
  Normal build with standard set of features like syntax highlighting, menus,
  mouse support, translations, spell checking, etc.
@@ -7596,15 +7596,15 @@ SourceName: vim
 License: Vim
 LicenseFiles: LICENSE
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://www.vim.org/
 CPE-ID: cpe:/a:vim:vim
 Maintainer: Marko Ratkaj <markoratkaj@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 12974080
 Filename: vim-runtime_9.1.1918-3_armv7-5.4.ipk
-Size: 2679795
-SHA256sum: d35aa8d17df0adf73276ce75896a2c322988719e88f50345baf84b4556c344f3
+Size: 2680198
+SHA256sum: 885b42d5a95cd9a4e88b36c8f8ef443f1e059529ba2400d126bec3cc5df151c9
 Description:  Vim is an almost compatible version of the UNIX editor Vi.
  (Runtime files)
 
@@ -7638,14 +7638,14 @@ SourceName: wget
 License: GPL-3.0-or-later
 LicenseFiles: COPYING
 Section: net
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://www.gnu.org/software/wget/index.html
 CPE-ID: cpe:/a:gnu:wget
 Architecture: armv7-5.4
 Installed-Size: 460800
 Filename: wget-ssl_1.25.0-4_armv7-5.4.ipk
-Size: 223170
-SHA256sum: 99e202f54a1d058e0b685602a701b0b5d621460c9ae7122a6e0b35fdcca87dbc
+Size: 223174
+SHA256sum: 32f201dcf333294a304fc4ecdb0febbc18ac3ce7e18efa82edb97a31f2d5f717
 Description:  Wget is a network utility to retrieve files from the Web using http
  and ftp, the two most widely used Internet protocols. It works
  non-interactively, so it will work in the background, after having
@@ -7703,14 +7703,14 @@ SourceName: wireguard-go
 License: MIT
 LicenseFiles: LICENSE
 Section: net
-SourceDateEpoch: 1782661151
+SourceDateEpoch: 1783268518
 URL: https://git.zx2c4.com/wireguard-go/about/
 Maintainer: Entware team, https://entware.net
 Architecture: armv7-5.4
 Installed-Size: 3215360
 Filename: wireguard-go_0.0.20250522-1_armv7-5.4.ipk
-Size: 1368848
-SHA256sum: a2f594af923790210108bfc86d218f06703b2531c99bda4ffd2c4023656eb6e5
+Size: 1368781
+SHA256sum: e57130b1901f012b69afeb76e0392ad0ce07d35629b1b55d54c922729974f3fc
 Description:  This is an implementation of WireGuard in Go.
 
 Package: wireguard-tools
@@ -7749,14 +7749,14 @@ SourceName: wireguard-ui
 License: MIT
 LicenseFiles: LICENSE
 Section: net
-SourceDateEpoch: 1782661151
+SourceDateEpoch: 1783268518
 URL: https://github.com/ngoduykhanh/wireguard-ui
 Maintainer: Entware team, https://entware.net
 Architecture: armv7-5.4
 Installed-Size: 19343360
 Filename: wireguard-ui_0.6.2-1_armv7-5.4.ipk
-Size: 6985677
-SHA256sum: 62f38027a169124003872d021f9a774c0e1b2bf1c0586bdc6203f4daaa677b2d
+Size: 6985693
+SHA256sum: 303ec5b6ec5171acf17e9efa883c603b2b73be735c09de7293db80fe140443c8
 Description:  A web user interface to manage your WireGuard setup.
 
 Package: wireless-tools
@@ -7786,14 +7786,14 @@ Provides: xmlstarlet-any
 Source: feeds/rtndev/xmlstarlet
 SourceName: xmlstarlet
 Section: utils
-SourceDateEpoch: 1782661152
+SourceDateEpoch: 1786656330
 URL: http://xmlstar.sourceforge.net/
 Maintainer: Entware team, https://entware.net
 Architecture: armv7-5.4
 Installed-Size: 81920
 Filename: xmlstarlet_1.6.1-3_armv7-5.4.ipk
-Size: 31925
-SHA256sum: 221b553c99e945dee6c950547ebee91ec56f1fda4abb97ed1a82ec17b2a15484
+Size: 31931
+SHA256sum: abbacdf372af8d69b523b23d75371c721c4dd3fc1ee5aa29d7951eda2452f770
 Description:  XMLStarlet is a set of command line utilities (tools) which can be used
  to transform, query, validate, and edit XML documents and files using simple
  set of shell commands in similar way it is done for plain text files using
@@ -7808,15 +7808,15 @@ SourceName: vim
 License: Vim
 LicenseFiles: LICENSE
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: http://www.vim.org/
 CPE-ID: cpe:/a:vim:vim
 Maintainer: Marko Ratkaj <markoratkaj@gmail.com>
 Architecture: armv7-5.4
 Installed-Size: 30720
 Filename: xxd_2025.08.24_armv7-5.4.ipk
-Size: 9518
-SHA256sum: 159c31e885010955f4745ad1b97b00b95c54a251d620360874dbdc241ae452e9
+Size: 9510
+SHA256sum: 659695d91008dbad6bed4b73cad7fa66b8deac6e403a4b0751271fd6f3cd09f1
 Description:  xxd creates a hex dump of a given file or standard input, it can also convert
  a hex dump back to its original binary form.
 
@@ -7829,14 +7829,14 @@ SourceName: xz
 License: Public-Domain LGPL-2.1-or-later 0BSD
 LicenseFiles: COPYING
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 URL: https://tukaani.org/xz
 CPE-ID: cpe:/a:tukaani:xz
 Architecture: armv7-5.4
 Installed-Size: 10240
 Filename: xz-utils_5.8.2-1_armv7-5.4.ipk
-Size: 712
-SHA256sum: e793cc8b8a4a065ecc2ce392d32600f5c106063a8319aeb0ec48619397965499
+Size: 708
+SHA256sum: 97373a9ddf322e39e04ad22afb46fa819a2645dd5831674cdab943b51cdc7a9c
 Description:  XZ Utils (meta)
 
 Package: zlib
@@ -7886,13 +7886,13 @@ Source: feeds/packages/utils/zoneinfo
 SourceName: zoneinfo
 License: Public-Domain
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 Maintainer: Vladimir Ulrich <admin@evl.su>
 Architecture: armv7-5.4
 Installed-Size: 174080
 Filename: zoneinfo-asia_2025c-1_armv7-5.4.ipk
-Size: 30932
-SHA256sum: 696df3c34af3078b30a1b7614ee5721d9c00e1c04d5b372029c0a2a4f12a2014
+Size: 31029
+SHA256sum: 7cc8ef034c28774c7d576dd7bd80ad3ab5a9e6ced8964fef87bc1c3893eaa15d
 Description:  Zone Information (Asia)
 
 Package: zoneinfo-core
@@ -7903,13 +7903,13 @@ Source: feeds/packages/utils/zoneinfo
 SourceName: zoneinfo
 License: Public-Domain
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 Maintainer: Vladimir Ulrich <admin@evl.su>
 Architecture: armv7-5.4
 Installed-Size: 112640
 Filename: zoneinfo-core_2025c-1_armv7-5.4.ipk
-Size: 24445
-SHA256sum: ec7f3bf28cb1b70a253522409bc9e055ac5fac246f7e615017bc11ccd2185c53
+Size: 24392
+SHA256sum: 5fbc45cb97432b5102d23d72b7e1a4e5b9400dc46b993a117f4e70cc62c5e172
 Description:  Zone Information (core)
 
 Package: zoneinfo-europe
@@ -7920,12 +7920,12 @@ Source: feeds/packages/utils/zoneinfo
 SourceName: zoneinfo
 License: Public-Domain
 Section: utils
-SourceDateEpoch: 1782661149
+SourceDateEpoch: 1786656324
 Maintainer: Vladimir Ulrich <admin@evl.su>
 Architecture: armv7-5.4
 Installed-Size: 215040
 Filename: zoneinfo-europe_2025c-1_armv7-5.4.ipk
-Size: 22305
-SHA256sum: a59ac6950f8093bc421510132c5e1ce07ed38c850a6dde9f4daa1c47107e791f
+Size: 22248
+SHA256sum: ebfbd19a8f6c9f903b1a5736188d753855bf2c6f276423b38faed74185359db8
 Description:  Zone Information (Europe)
 

@@ -368,6 +368,7 @@ jobs:
               wireless-tools
               libiw
               i2c-tools
+              mmc-utils
               libugpio
               gpioctl-sysfs
             )

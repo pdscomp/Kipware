@@ -22,6 +22,8 @@ concurrency:
 
 jobs:
   build:
+    outputs:
+      needs_build: ${{ steps.preflight.outputs.needs_build }}
     runs-on: ubuntu-22.04
     container:
       image: ghcr.io/pdscomp/kipware-runner:latest
@@ -426,7 +428,6 @@ jobs:
           name: armv7hf-5.4-artifacts
           path: |
             bin/**/*.ipk
-            pages/**/*
             logs/**/*
             .config
 
@@ -435,19 +436,40 @@ jobs:
         run: |
           python3 scripts/gen-index.py root pages-root/index.html
 
-      - name: Deploy to GitHub Pages
+      - name: Assemble GitHub Pages tree
         if: steps.preflight.outputs.needs_build == 'true' && github.event_name != 'pull_request'
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./pages
-          destination_dir: ${{ github.ref_name }}
-          keep_files: true
+        run: |
+          mkdir -p "publish/${GITHUB_REF_NAME}"
+          cp -a pages/. "publish/${GITHUB_REF_NAME}/"
+          cp -a pages-root/. publish/
 
-      - name: Update root index page
+      - name: Upload GitHub Pages tree
         if: steps.preflight.outputs.needs_build == 'true' && github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: armv7hf-5.4-pages
+          path: publish/
+          include-hidden-files: true
+          if-no-files-found: error
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.needs_build == 'true' && github.event_name != 'pull_request'
+    runs-on: ubuntu-22.04
+    concurrency:
+      group: kipware-pages-deploy
+      cancel-in-progress: false
+      queue: max
+    steps:
+      - name: Download GitHub Pages tree
+        uses: actions/download-artifact@v4
+        with:
+          name: armv7hf-5.4-pages
+          path: publish
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./pages-root
+          publish_dir: ./publish
           keep_files: true

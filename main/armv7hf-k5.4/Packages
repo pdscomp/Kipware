@@ -252,8 +252,8 @@ Maintainer: Felix Fietkau <nbd@nbd.name>
 Architecture: armv7-5.4
 Installed-Size: 573440
 Filename: busybox_1.37.0-6_armv7-5.4.ipk
-Size: 321995
-SHA256sum: 81a43bf394761ded08d497fa0952196e12e6f80810a53811daf811866a0c9875
+Size: 322007
+SHA256sum: 849a97fdbf1cd79644e719b5720f8edad4feb0b1fe79f1113cb7dcf66b078d58
 Description:  The Swiss Army Knife of embedded Linux.
  It slices, it dices, it makes Julian Fries.
 
@@ -776,13 +776,13 @@ Provides: entware-opt-any
 Source: feeds/rtndev/entware-opt
 SourceName: entware-opt
 Section: base
-SourceDateEpoch: 1788004366
+SourceDateEpoch: 1792556782
 Maintainer: Entware team, https://entware.net
 Architecture: all
 Installed-Size: 30720
 Filename: entware-opt_227000-3_all.ipk
-Size: 3276
-SHA256sum: b5aa0a3a4c2a56670d83a034b3830b5516940f23089efeb03714ef5740d8c90f
+Size: 3281
+SHA256sum: 095581a610998dd9012085325ef454104a2b3d7898d20332a7e93d91395bf90a
 Description:  entware-opt is a metapackage to install Entware basic libraries and scripts.
 
 Package: entware-release
@@ -792,13 +792,13 @@ Provides: entware-release-any
 Source: feeds/rtndev/entware-release
 SourceName: entware-release
 Section: base
-SourceDateEpoch: 1788004366
+SourceDateEpoch: 1792556782
 Maintainer: Entware team, https://entware.net
 Architecture: all
 Installed-Size: 10240
 Filename: entware-release_2025.05-1_all.ipk
-Size: 1092
-SHA256sum: 51116eab8bf8aff5f7926e1bc8e13d674816200b67bd5ac5baba68b77186c985
+Size: 1090
+SHA256sum: a29fd0935e3b9c2c37e9c057db43baa6c3ba15094f8acc52ea7d468456ba63ac
 Description:  entware_release is a file in /opt/etc with entware info.
 
 Package: entware-upgrade
@@ -808,13 +808,13 @@ Provides: entware-upgrade-any
 Source: feeds/rtndev/entware-upgrade
 SourceName: entware-upgrade
 Section: base
-SourceDateEpoch: 1788004366
+SourceDateEpoch: 1792556782
 Maintainer: Entware team, https://entware.net
 Architecture: all
 Installed-Size: 10240
 Filename: entware-upgrade_1.0-1_all.ipk
-Size: 780
-SHA256sum: 1fb03112e618eaca3b4eda064e1ac490166e6ff2e1f646ee93628dacf121d4e7
+Size: 776
+SHA256sum: 7f68a42369fbfcd4b54cd7f72e990340ed01f725f582fca541133691db46ed9d
 Description:  Helper package to upgrade Entware for future usage. Currently used to upgrade
  armv7soft (2.3.36) to the new codebase.
 
@@ -1139,8 +1139,8 @@ CPE-ID: cpe:/a:gnu:gdb
 Architecture: armv7-5.4
 Installed-Size: 6942720
 Filename: gdb_16.3-1_armv7-5.4.ipk
-Size: 3146626
-SHA256sum: 990465147f6218373f1a5d5a4d24f3e881965ea9e146418cac52f5f79ed18fd4
+Size: 3146481
+SHA256sum: 1edf25841f54cbb98940e8d957142af8f99356f0b8cd5b62bfabffce84cf1add
 Description:  GDB, the GNU Project debugger, allows you to see what is going on 'inside'
  another program while it executes -- or what another program was doing at the
  moment it crashed.
@@ -1159,8 +1159,8 @@ CPE-ID: cpe:/a:gnu:gdb
 Architecture: armv7-5.4
 Installed-Size: 512000
 Filename: gdbserver_16.3-1_armv7-5.4.ipk
-Size: 233406
-SHA256sum: 76d20af6ab4254d471ecb0c5316afac5e71e79ac4b4267f217a25ad3bc64a5f4
+Size: 233864
+SHA256sum: 201fb4d7b8ee0c7fe3a87fb0d5bea55cb856ccd23b476f705d376ec3b4a3da59
 Description:  GDBSERVER is a program that allows you to run GDB on a different machine than the
  one which is running the program being debugged.
 
@@ -4008,14 +4008,14 @@ Provides: locales-any
 Source: feeds/rtndev/locales
 SourceName: locales
 Section: libs
-SourceDateEpoch: 1788004366
+SourceDateEpoch: 1792556782
 URL: http://gcc.gnu.org/
 Maintainer: Entware team, https://entware.net
 Architecture: armv7-5.4
 Installed-Size: 1669120
 Filename: locales_2.27-9_armv7-5.4.ipk
-Size: 640870
-SHA256sum: 565ef9ee81a7d3393a7270a7e501586bbb162437ac0a2b1f0cf3e20571ea266e
+Size: 640995
+SHA256sum: f49e0d9b43b9488971ad4c13b3902c3676d2f46d226a9eb6639759e9414b77f2
 Description:  locales support (independent of system lib)
 
 Package: logger
@@ -4397,13 +4397,13 @@ Provides: mlocate-any
 Source: feeds/rtndev/mlocate
 SourceName: mlocate
 Section: utils
-SourceDateEpoch: 1788004366
+SourceDateEpoch: 1792556782
 URL: https://fedorahosted.org/mlocate/
 Architecture: armv7-5.4
 Installed-Size: 81920
 Filename: mlocate_0.26-1_armv7-5.4.ipk
-Size: 36908
-SHA256sum: 2e15532b7633aa9b5a075d6311b123ff4e26c2b9ca26ea038885fa95b4df0a0f
+Size: 36872
+SHA256sum: c0a5d67fcad6792c2d4587fab2ab8c99c38992380b23a1c6f8f35b062b0a19d6
 Description:  Quickly find files on the filesystem based on their name mlocate is a new
  implementation of locate, a tool to find files anywhere in the filesystem
  based on their name, using a fixed pattern or a regular expression. Unlike
@@ -4884,20 +4884,20 @@ Description:  The Patch package contains a program for modifying or creating fil
  by applying a "patch" file typically created by the diff program.
 
 Package: patchelf
-Version: 0.18.0-1
+Version: 0.19.2-1
 Depends: libc, libssp, librt, libpthread, libstdcpp
 Provides: patchelf-any
 Source: feeds/rtndev/patchelf
 SourceName: patchelf
 Section: devel
-SourceDateEpoch: 1788004366
-URL: https://nixos.org/patchelf.html
+SourceDateEpoch: 1792556782
+URL: https://github.com/NixOS/patchelf
 Maintainer: Entware team, https://entware.net
 Architecture: armv7-5.4
-Installed-Size: 215040
-Filename: patchelf_0.18.0-1_armv7-5.4.ipk
-Size: 90701
-SHA256sum: e8a9115342dc7dcf1c0b1aeaa1dc3d89b4aedbf180297092ba5730321f8e4e17
+Installed-Size: 245760
+Filename: patchelf_0.19.2-1_armv7-5.4.ipk
+Size: 104768
+SHA256sum: 14636a2ed144c366358f3ca7a769ba92dc2eacb53926b83ea9e96f717e9f7ce3
 Description:  A small utility to modify the dynamic linker and RPATH of ELF executables.
 
 Package: pkgconf
@@ -7805,14 +7805,14 @@ Provides: xmlstarlet-any
 Source: feeds/rtndev/xmlstarlet
 SourceName: xmlstarlet
 Section: utils
-SourceDateEpoch: 1788004366
+SourceDateEpoch: 1792556782
 URL: http://xmlstar.sourceforge.net/
 Maintainer: Entware team, https://entware.net
 Architecture: armv7-5.4
 Installed-Size: 81920
 Filename: xmlstarlet_1.6.1-3_armv7-5.4.ipk
-Size: 31936
-SHA256sum: 17705d37da609de11396c52bb25c95b0566d6f9e4bd06b22be85f4a0f23f9be3
+Size: 31934
+SHA256sum: 432af9e4acb89e58db7a7e2374ba341f45a061bc4c63aff9eaf49901d26423c1
 Description:  XMLStarlet is a set of command line utilities (tools) which can be used
  to transform, query, validate, and edit XML documents and files using simple
  set of shell commands in similar way it is done for plain text files using

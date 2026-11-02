@@ -1,32 +1,30 @@
 {
   "branch": "kip",
-  "build_fingerprint": "sha256:73b3c2cc7ae867c82d31b5aa9318117ba23ad57e68942d20b8da7d77d0e5bd94",
+  "build_fingerprint": "sha256:079f4697941d891b4e6a1bcaa2b2fd6a71641f6c836dad012529d6f73d8efd9e",
   "components": {
     "config_sha": "sha256:e28de96b4fe7138409485193f58ee09d575622f081e5c60076564395b468ec3c",
-    "feed_lock_sha": "sha256:d046b805d9d56019b4f4bef6cce058830e367fbe170764ef1c80896ad07ca264",
+    "feed_lock_sha": "sha256:46418afe8f2abc79f02b5d41ec2d0681f58891ce833b5b8d65e9ca3f9b4265c7",
     "foundation_sha": "sha256:3a011752239b91f4667fe9a586b6466cba6bbd1089afd0f648c19683ced40159",
     "global_packaging_sha": "sha256:f03b1c9ad9940baccc4ce92265f58b6173661fb5e6c69122e9b7db760a3c99ae",
     "output_staging_sha": "sha256:a118b792762b058e1a5c3eefcf50cb9ec01482677f3633ea2919105190fca631",
     "package_input_sha": "sha256:b03f92e36618c81e85b9c68d86c5229396ae7ea747b35dcc50e5eeabc325f83e",
     "toolchain_cache_sha": "sha256:b6acd770fad6a2add24dfea2e28014e444678c7f0a75539a6ecc1ec35865a786"
   },
-  "created_at": "2026-10-14T15:19:55.643800+00:00",
+  "created_at": "2026-11-02T09:04:45.624615+00:00",
   "decision": {
     "changed_components": [
-      "feed_lock_sha",
-      "foundation_sha",
-      "toolchain_cache_sha"
+      "feed_lock_sha"
     ],
-    "force_world_rebuild": true,
+    "force_world_rebuild": false,
     "needs_build": true,
     "reason": "build fingerprint changed"
   },
-  "github_run_id": "38569596030",
+  "github_run_id": "41403603175",
   "outputs": {
-    "ipk_manifest_sha256": "sha256:f23a8e103c9eedf7eee7d9a9f25a1b6a15509017a5a280a8d96f25c99efe9fe3",
+    "ipk_manifest_sha256": "sha256:091835e5358890c17057a692e5e96d65db2bc7de6dc3db0d2798293bbe066e70",
     "packages_count": 375,
-    "packages_gz_sha256": "sha256:3a2fe55a864933efafaca5fb73cf102e047b9e99223b653af5de88f5db28d657",
-    "packages_sha256": "sha256:12ebd11a9d757ac0d0e650d836092760eda3b85c48ba377b47434457af492803"
+    "packages_gz_sha256": "sha256:b0602288755f5810edb90d5393b18bdf9039477c01c29d5954d7b115a5ac8d80",
+    "packages_sha256": "sha256:cb54363a1a78708bf4e94cd177f80296bb74679ae1e21794cb3c7ba9768817c7"
   },
   "repo": {
     "owner_repo": "pdscomp/Kipware",

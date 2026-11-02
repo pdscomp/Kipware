@@ -74,8 +74,8 @@
   {
     "filename": "busybox_1.37.0-6_armv7-5.4.ipk",
     "package": "busybox",
-    "sha256": "sha256:7fa0f976a9cd2d1152aef6196d7e8bb7f80bb1afef2b271e491035f03f4aeec0",
-    "size": 322106
+    "sha256": "sha256:215791031b4db4d40e6cf78d54f8ada10787ae1035252e176635e6d817e7722b",
+    "size": 322104
   },
   {
     "filename": "bzip2_1.0.8-2_armv7-5.4.ipk",
@@ -236,20 +236,20 @@
   {
     "filename": "entware-opt_227000-3_all.ipk",
     "package": "entware-opt",
-    "sha256": "sha256:e51bd7f2e77ba244fd2721d05de18fce6b8797b667db3eefa3bd0a7d39f987f2",
-    "size": 3279
+    "sha256": "sha256:dd9edaf731f51bedf39e897ee810906209046bc67aca952f7774bfcf524fc25e",
+    "size": 3284
   },
   {
     "filename": "entware-release_2025.05-1_all.ipk",
     "package": "entware-release",
-    "sha256": "sha256:443f7d36ed5f9317fb287f5ef745ba22c9232fa2b1d4cd6a2156cdc6007707b5",
-    "size": 1099
+    "sha256": "sha256:19b2ec3043ddebb1be8c7eb83844fbb7242a27e7463558180fa09327aed7a1d8",
+    "size": 1093
   },
   {
     "filename": "entware-upgrade_1.0-1_all.ipk",
     "package": "entware-upgrade",
-    "sha256": "sha256:1fb03112e618eaca3b4eda064e1ac490166e6ff2e1f646ee93628dacf121d4e7",
-    "size": 780
+    "sha256": "sha256:7f68a42369fbfcd4b54cd7f72e990340ed01f725f582fca541133691db46ed9d",
+    "size": 776
   },
   {
     "filename": "ethtool-full_6.15-1_armv7-5.4.ipk",
@@ -344,14 +344,14 @@
   {
     "filename": "gdb_16.3-1_armv7-5.4.ipk",
     "package": "gdb",
-    "sha256": "sha256:1c0d1a206f2a9fc6b00c15cc59cd5450fc137da87a6636d04b327299cdf25c64",
-    "size": 3146704
+    "sha256": "sha256:ffd45b5f81b77ccf1ccfeacbcc0e651d07aedc46d05ad0147c136df67073d81a",
+    "size": 3146517
   },
   {
     "filename": "gdbserver_16.3-1_armv7-5.4.ipk",
     "package": "gdbserver",
-    "sha256": "sha256:b5106a9574fa07716ee5712664f2159f5527881986a722bdb6c4675ffe2c0838",
-    "size": 233430
+    "sha256": "sha256:24d80354834916bb9cbb2a34bf32c63a49b83aa9ce681be76e30bb92755038c2",
+    "size": 233888
   },
   {
     "filename": "genl_4.4.0-11_armv7-5.4.ipk",
@@ -1166,8 +1166,8 @@
   {
     "filename": "locales_2.27-9_armv7-5.4.ipk",
     "package": "locales",
-    "sha256": "sha256:3f298ccee8663a379e45a64ad1ca3ef14b38914bb2d42d7d44012dc543d95279",
-    "size": 640730
+    "sha256": "sha256:4273fbf89fa40da6466d57efe6ad72f06d74d71585178fb810068995fb81cc98",
+    "size": 640887
   },
   {
     "filename": "logger_2.41.3-1_armv7-5.4.ipk",
@@ -1280,8 +1280,8 @@
   {
     "filename": "mlocate_0.26-1_armv7-5.4.ipk",
     "package": "mlocate",
-    "sha256": "sha256:dda85744e8467c5cf327e73304407751ee1077d0fa47f05279f1b7bc7bd2b033",
-    "size": 36888
+    "sha256": "sha256:e26e1a62f3b59bcbcd9e53df599ec4c6b91533b639773b9c37daa611ef8fdcdc",
+    "size": 36890
   },
   {
     "filename": "mmc-utils_2025.12.21~8f41ccbb-1_armv7-5.4.ipk",
@@ -1422,10 +1422,10 @@
     "size": 73612
   },
   {
-    "filename": "patchelf_0.18.0-1_armv7-5.4.ipk",
+    "filename": "patchelf_0.19.2-1_armv7-5.4.ipk",
     "package": "patchelf",
-    "sha256": "sha256:423672a7dca2cb8cfcbf186dc17d699f8c997487a74fee376d1361d92310231e",
-    "size": 90701
+    "sha256": "sha256:44b68f72bca48fd32db5c224c9a31be65a6123b7c06d9ef7b7f0e59a1c77015f",
+    "size": 104775
   },
   {
     "filename": "pkgconf_1.8.0-2_armv7-5.4.ipk",
@@ -2204,8 +2204,8 @@
   {
     "filename": "xmlstarlet_1.6.1-3_armv7-5.4.ipk",
     "package": "xmlstarlet",
-    "sha256": "sha256:8a83186c5ec98131b0d2b44070671b3ab613b2d9f43ae13a85fc0610f277cb6d",
-    "size": 31930
+    "sha256": "sha256:d5b459c59b805d62ec65fd07525236df55369df54865b1a625a058a7b1a96ca8",
+    "size": 31933
   },
   {
     "filename": "xxd_2025.08.24_armv7-5.4.ipk",

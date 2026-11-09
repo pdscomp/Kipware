@@ -1,16 +1,16 @@
 {
   "branch": "kip",
-  "build_fingerprint": "sha256:079f4697941d891b4e6a1bcaa2b2fd6a71641f6c836dad012529d6f73d8efd9e",
+  "build_fingerprint": "sha256:e341d68ed7eb651a7be50db0bdc11df3039233e2da3a202f8e8cdb669f3a91e7",
   "components": {
     "config_sha": "sha256:e28de96b4fe7138409485193f58ee09d575622f081e5c60076564395b468ec3c",
-    "feed_lock_sha": "sha256:46418afe8f2abc79f02b5d41ec2d0681f58891ce833b5b8d65e9ca3f9b4265c7",
+    "feed_lock_sha": "sha256:b044f3fb7aefd29f38609fe0a9b6fbb84022bdfb7b986038002e4336bdb92faa",
     "foundation_sha": "sha256:3a011752239b91f4667fe9a586b6466cba6bbd1089afd0f648c19683ced40159",
     "global_packaging_sha": "sha256:f03b1c9ad9940baccc4ce92265f58b6173661fb5e6c69122e9b7db760a3c99ae",
     "output_staging_sha": "sha256:a118b792762b058e1a5c3eefcf50cb9ec01482677f3633ea2919105190fca631",
     "package_input_sha": "sha256:b03f92e36618c81e85b9c68d86c5229396ae7ea747b35dcc50e5eeabc325f83e",
     "toolchain_cache_sha": "sha256:b6acd770fad6a2add24dfea2e28014e444678c7f0a75539a6ecc1ec35865a786"
   },
-  "created_at": "2026-11-02T09:04:45.624615+00:00",
+  "created_at": "2026-11-09T09:48:17.047789+00:00",
   "decision": {
     "changed_components": [
       "feed_lock_sha"
@@ -19,7 +19,7 @@
     "needs_build": true,
     "reason": "build fingerprint changed"
   },
-  "github_run_id": "41403603175",
+  "github_run_id": "42576797542",
   "outputs": {
     "ipk_manifest_sha256": "sha256:091835e5358890c17057a692e5e96d65db2bc7de6dc3db0d2798293bbe066e70",
     "packages_count": 375,
